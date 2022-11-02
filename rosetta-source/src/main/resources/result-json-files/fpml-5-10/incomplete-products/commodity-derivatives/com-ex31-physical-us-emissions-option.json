@@ -1,10 +1,10 @@
 {
   "meta" : {
-    "globalKey" : "3c61c9c7"
+    "globalKey" : "99528d2"
   },
   "trade" : {
     "meta" : {
-      "globalKey" : "7b4af172"
+      "globalKey" : "9645e187"
     },
     "party" : [ {
       "meta" : {
@@ -63,10 +63,15 @@
       } ],
       "product" : {
         "contractualProduct" : {
+          "productTaxonomy" : [ {
+            "primaryAssetClass" : {
+              "value" : "COMMODITY"
+            }
+          } ],
           "economicTerms" : {
             "payout" : {
               "meta" : {
-                "globalKey" : "383f13fd"
+                "globalKey" : "f6d1d59f"
               },
               "optionPayout" : [ {
                 "payerReceiver" : {
@@ -78,7 +83,7 @@
                   "seller" : "PARTY_2"
                 },
                 "meta" : {
-                  "globalKey" : "383f13fd"
+                  "globalKey" : "f6d1d59f"
                 },
                 "optionType" : "CALL",
                 "underlier" : {
@@ -121,31 +126,19 @@
                             "receiver" : "PARTY_2"
                           },
                           "fixedPrice" : {
-                            "fixedPriceSchedule" : {
-                              "initialPrice" : {
-                                "value" : {
-                                  "amount" : 1.93,
-                                  "unitOfAmount" : {
-                                    "currency" : {
-                                      "value" : "USD"
-                                    }
-                                  },
-                                  "priceExpression" : {
-                                    "cashPrice" : {
-                                      "cashPriceType" : "FEE"
-                                    },
-                                    "priceType" : "CASH_PRICE"
-                                  }
-                                }
+                            "price" : {
+                              "address" : {
+                                "scope" : "DOCUMENT",
+                                "value" : "price-1"
                               }
                             }
                           },
                           "meta" : {
-                            "globalKey" : "4eb5d753"
+                            "globalKey" : "b141411f"
                           }
                         } ],
                         "meta" : {
-                          "globalKey" : "d87b60f5"
+                          "globalKey" : "cd5168bd"
                         }
                       },
                       "terminationDate" : {
@@ -168,24 +161,53 @@
                       }
                     },
                     "meta" : {
-                      "globalKey" : "9241ce99"
+                      "globalKey" : "23b9a483"
                     }
                   },
                   "meta" : {
-                    "globalKey" : "9241ce99"
+                    "globalKey" : "23b9a483"
                   }
                 }
               } ]
             }
           },
           "meta" : {
-            "globalKey" : "383f13fd"
+            "globalKey" : "5b4b8432"
           }
         },
         "meta" : {
-          "globalKey" : "383f13fd"
+          "globalKey" : "5b4b8432"
         }
-      }
+      },
+      "tradeLot" : [ {
+        "priceQuantity" : [ {
+          "meta" : {
+            "globalKey" : "9916b1d2"
+          },
+          "price" : [ {
+            "meta" : {
+              "location" : [ {
+                "scope" : "DOCUMENT",
+                "value" : "price-1"
+              } ]
+            },
+            "value" : {
+              "unit" : {
+                "currency" : {
+                  "value" : "USD"
+                }
+              },
+              "value" : 1.93,
+              "priceExpression" : {
+                "cashPrice" : {
+                  "cashPriceType" : "FEE"
+                },
+                "priceType" : "CASH_PRICE"
+              }
+            }
+          } ]
+        } ]
+      } ]
     },
     "tradeDate" : {
       "meta" : {
@@ -228,12 +250,12 @@
         }
       },
       "quantity" : {
-        "amount" : 1930.00,
-        "unitOfAmount" : {
+        "unit" : {
           "currency" : {
             "value" : "USD"
           }
-        }
+        },
+        "value" : 1930.00
       },
       "settlementDate" : {
         "relativeDate" : {

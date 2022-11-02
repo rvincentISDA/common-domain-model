@@ -15,14 +15,14 @@
     } ]
   },
   "meta" : {
-    "globalKey" : "a5c87201"
+    "globalKey" : "995daddd"
   },
   "proposedEvent" : {
     "instruction" : [ {
       "before" : {
         "value" : {
           "meta" : {
-            "globalKey" : "f37d2a40"
+            "globalKey" : "f708501c"
           },
           "trade" : {
             "account" : [ {
@@ -57,7 +57,7 @@
               }
             } ],
             "meta" : {
-              "globalKey" : "7717c209"
+              "globalKey" : "35e218e5"
             },
             "party" : [ {
               "meta" : {
@@ -163,31 +163,31 @@
                           "payer" : "PARTY_1",
                           "receiver" : "PARTY_2"
                         },
-                        "payoutQuantity" : {
+                        "priceQuantity" : {
                           "meta" : {
                             "externalKey" : "calculationAmount",
                             "globalKey" : "0"
                           },
                           "quantitySchedule" : {
-                            "initialQuantity" : {
-                              "address" : {
-                                "scope" : "DOCUMENT",
-                                "value" : "quantity-1"
-                              }
+                            "address" : {
+                              "scope" : "DOCUMENT",
+                              "value" : "quantity-1"
                             }
                           }
                         },
                         "generalTerms" : {
                           "indexReferenceInformation" : {
                             "excludedReferenceEntity" : [ {
-                              "entityId" : [ {
+                              "referenceEntity" : {
+                                "entityId" : [ {
+                                  "meta" : {
+                                    "scheme" : "http://www.fpml.org/spec/2003/instrument-id-RED-1-0"
+                                  },
+                                  "value" : "ABC1234567"
+                                } ],
                                 "meta" : {
-                                  "scheme" : "http://www.fpml.org/spec/2003/instrument-id-RED-1-0"
-                                },
-                                "value" : "ABC1234567"
-                              } ],
-                              "meta" : {
-                                "globalKey" : "e883dbb2"
+                                  "globalKey" : "e883dbb2"
+                                }
                               }
                             } ],
                             "indexAnnexDate" : "2007-03-06",
@@ -203,12 +203,12 @@
                             },
                             "indexSeries" : 10,
                             "meta" : {
-                              "globalKey" : "cb816a40"
+                              "globalKey" : "fbe9371c"
                             }
                           }
                         },
                         "meta" : {
-                          "globalKey" : "95ed3381"
+                          "globalKey" : "c655005d"
                         }
                       },
                       "interestRatePayout" : [ {
@@ -264,7 +264,7 @@
                               "globalKey" : "0"
                             },
                             "rateSchedule" : {
-                              "initialValue" : {
+                              "price" : {
                                 "address" : {
                                   "scope" : "DOCUMENT",
                                   "value" : "price-1"
@@ -275,7 +275,7 @@
                         }
                       } ],
                       "meta" : {
-                        "globalKey" : "28781d43"
+                        "globalKey" : "d674e41f"
                       }
                     },
                     "terminationDate" : {
@@ -291,11 +291,11 @@
                     }
                   },
                   "meta" : {
-                    "globalKey" : "cbe1c4cb"
+                    "globalKey" : "e6cb406f"
                   }
                 },
                 "meta" : {
-                  "globalKey" : "cbe1c4cb"
+                  "globalKey" : "e6cb406f"
                 }
               },
               "tradeLot" : [ {
@@ -311,13 +311,13 @@
                       } ]
                     },
                     "value" : {
-                      "amount" : 0.023,
-                      "unitOfAmount" : {
+                      "unit" : {
                         "currency" : {
                           "value" : "USD"
                         }
                       },
-                      "perUnitOfAmount" : {
+                      "value" : 0.023,
+                      "perUnitOf" : {
                         "currency" : {
                           "value" : "USD"
                         }
@@ -339,12 +339,12 @@
                       } ]
                     },
                     "value" : {
-                      "amount" : 70000000.00,
-                      "unitOfAmount" : {
+                      "unit" : {
                         "currency" : {
                           "value" : "USD"
                         }
-                      }
+                      },
+                      "value" : 70000000.00
                     }
                   } ]
                 } ]
@@ -391,12 +391,12 @@
                 }
               },
               "quantity" : {
-                "amount" : 387300.00,
-                "unitOfAmount" : {
+                "unit" : {
                   "currency" : {
                     "value" : "USD"
                   }
-                }
+                },
+                "value" : 387300.00
               },
               "transferExpression" : {
                 "priceTransfer" : "UPFRONT"

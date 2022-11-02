@@ -19,7 +19,7 @@ enum TimeTypeEnum: <"The enumerated values to specify points in the day when opt
 	HedgeExecution <"Determined by the Hedging Party.">
 
 enum DeterminationMethodEnum: <"The enumerated values to specify the method according to which an amount or a date is determined.">
-	[docReference ISDA FpML_Coding_Scheme schemeLocation "http://www.fpml.org/coding-scheme/determination-method-3-4"]
+	[docReference ISDA FpML_Coding_Scheme schemeLocation "http://www.fpml.org/coding-scheme/determination-method"]
 
 	SeparatelyAgreedSpecificPrice <"Agreed separately between the parties.">
 	// AgreedInitialPrice <"Agreed separately between the parties.">

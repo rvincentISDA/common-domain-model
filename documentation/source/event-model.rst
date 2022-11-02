@@ -161,7 +161,7 @@ In addition to the observation value, a reset specifies the date from which the 
    rateRecordDate date (0..1)
    observations Observation (1..*)
      [metadata reference]
-   aggregationMethodology AggregationMethod (0..1)
+   averagingMethodology AveragingCalculation (0..1)
 
 .. code-block:: Haskell
 
@@ -324,7 +324,7 @@ The split function iterates on each element of the breakdown and applies the cor
    
    add splitTrade:
      breakdown
-       map [ Create_TradeState( item, originalTrade ) ]
+       extract [ Create_TradeState( item, originalTrade ) ]
 			
 Examples of how primitive operators work are illustrated below.
 
@@ -439,6 +439,7 @@ Business events are built according to the following principles:
    [rootType]
 
    intent EventIntentEnum (0..1)
+   corporateActionIntent CorporateActionTypeEnum (0..1)
    eventQualifier string (0..1)
    eventDate date (1..1)
    effectiveDate date (0..1)
@@ -588,16 +589,26 @@ The description of each possible enumeration value provides an illustration of h
 
  enum EventIntentEnum:
  	Allocation
- 	Clearing
- 	Compression
- 	ContractFormation
- 	Exercise
- 	Increase
- 	IndexTransition
- 	Novation
- 	Reallocation
- 	Renegotiation
- 	StockSplit
+	CashFlow
+	Clearing
+	Compression
+	ContractFormation
+	ContractTermsAmendment
+	CorporateActionAdjustment
+	CreditEvent
+	Decrease
+    EarlyTerminationProvision
+	Increase
+	IndexTransition
+    NotionalReset
+	NotionalStep
+	Novation
+	ObservationRecord
+    OptionExercise
+	OptionalExtension
+	OptionalCancellation
+	PrincipalExchange
+	Reallocation
 
 Lineage
 """""""

@@ -1,10 +1,10 @@
 {
   "meta" : {
-    "globalKey" : "50194273"
+    "globalKey" : "1a63f6a1"
   },
   "trade" : {
     "meta" : {
-      "globalKey" : "a30fec75"
+      "globalKey" : "1c26f023"
     },
     "party" : [ {
       "meta" : {
@@ -95,7 +95,7 @@
           "economicTerms" : {
             "payout" : {
               "meta" : {
-                "globalKey" : "5a437632"
+                "globalKey" : "65541758"
               },
               "optionPayout" : [ {
                 "payerReceiver" : {
@@ -150,7 +150,7 @@
                   }
                 },
                 "meta" : {
-                  "globalKey" : "5a437632"
+                  "globalKey" : "65541758"
                 },
                 "observationTerms" : {
                   "pricingTime" : {
@@ -174,16 +174,14 @@
                             "payer" : "PARTY_1",
                             "receiver" : "PARTY_2"
                           },
-                          "payoutQuantity" : {
+                          "priceQuantity" : {
                             "meta" : {
                               "globalKey" : "0"
                             },
                             "quantitySchedule" : {
-                              "initialQuantity" : {
-                                "address" : {
-                                  "scope" : "DOCUMENT",
-                                  "value" : "quantity-2"
-                                }
+                              "address" : {
+                                "scope" : "DOCUMENT",
+                                "value" : "quantity-2"
                               }
                             }
                           },
@@ -192,7 +190,7 @@
                               "globalKey" : "eca76b5e"
                             },
                             "settlementDate" : {
-                              "adjustedDate" : {
+                              "adjustableOrRelativeDate" : {
                                 "relativeDate" : {
                                   "meta" : {
                                     "globalKey" : "eca76b5e"
@@ -212,35 +210,32 @@
                             }
                           },
                           "fixedPrice" : {
-                            "fixedPriceSchedule" : {
-                              "initialPrice" : {
-                                "value" : {
-                                  "amount" : 0.045,
-                                  "priceExpression" : {
-                                    "priceType" : "DIVIDEND"
-                                  }
+                            "price" : {
+                              "value" : {
+                                "value" : 0.045,
+                                "priceExpression" : {
+                                  "priceType" : "DIVIDEND"
                                 }
                               }
                             }
                           },
                           "meta" : {
-                            "globalKey" : "a20a163"
+                            "externalKey" : "d1",
+                            "globalKey" : "b0a92b1f"
                           }
                         }, {
                           "payerReceiver" : {
                             "payer" : "PARTY_1",
                             "receiver" : "PARTY_2"
                           },
-                          "payoutQuantity" : {
+                          "priceQuantity" : {
                             "meta" : {
                               "globalKey" : "0"
                             },
                             "quantitySchedule" : {
-                              "initialQuantity" : {
-                                "address" : {
-                                  "scope" : "DOCUMENT",
-                                  "value" : "quantity-1"
-                                }
+                              "address" : {
+                                "scope" : "DOCUMENT",
+                                "value" : "quantity-1"
                               }
                             }
                           },
@@ -249,7 +244,7 @@
                               "globalKey" : "eca76b5f"
                             },
                             "settlementDate" : {
-                              "adjustedDate" : {
+                              "adjustableOrRelativeDate" : {
                                 "relativeDate" : {
                                   "meta" : {
                                     "globalKey" : "eca76b5f"
@@ -269,23 +264,22 @@
                             }
                           },
                           "fixedPrice" : {
-                            "fixedPriceSchedule" : {
-                              "initialPrice" : {
-                                "value" : {
-                                  "amount" : 0.045,
-                                  "priceExpression" : {
-                                    "priceType" : "DIVIDEND"
-                                  }
+                            "price" : {
+                              "value" : {
+                                "value" : 0.045,
+                                "priceExpression" : {
+                                  "priceType" : "DIVIDEND"
                                 }
                               }
                             }
                           },
                           "meta" : {
-                            "globalKey" : "7201ce42"
+                            "externalKey" : "d2",
+                            "globalKey" : "e58f6660"
                           }
                         } ],
                         "meta" : {
-                          "globalKey" : "fffdb870"
+                          "globalKey" : "a0952896"
                         },
                         "performancePayout" : [ {
                           "payerReceiver" : {
@@ -300,7 +294,7 @@
                               "value" : "EUR"
                             },
                             "settlementDate" : {
-                              "adjustedDate" : {
+                              "adjustableOrRelativeDate" : {
                                 "relativeDate" : {
                                   "meta" : {
                                     "globalKey" : "1c7406b6"
@@ -496,32 +490,32 @@
                       }
                     },
                     "meta" : {
-                      "globalKey" : "fffdb870"
+                      "globalKey" : "a0952896"
                     }
                   },
                   "meta" : {
-                    "globalKey" : "fffdb870"
+                    "globalKey" : "a0952896"
                   }
                 }
               } ]
             }
           },
           "meta" : {
-            "globalKey" : "5a437632"
+            "globalKey" : "65541758"
           }
         },
         "meta" : {
-          "globalKey" : "5a437632"
+          "globalKey" : "65541758"
         }
       },
       "tradeLot" : [ {
         "priceQuantity" : [ {
           "meta" : {
-            "globalKey" : "fc726b19"
+            "globalKey" : "fae71577"
           },
           "observable" : {
             "meta" : {
-              "globalKey" : "fc726b19"
+              "globalKey" : "fae71577"
             },
             "productIdentifier" : [ {
               "meta" : {
@@ -538,8 +532,9 @@
                   "value" : ".STOX50E"
                 },
                 "meta" : {
-                  "globalKey" : "64f468d2"
-                }
+                  "globalKey" : "7cfa3bb4"
+                },
+                "source" : "BBGID"
               }
             }, {
               "meta" : {
@@ -571,12 +566,12 @@
               } ]
             },
             "value" : {
-              "amount" : 50000,
-              "unitOfAmount" : {
+              "unit" : {
                 "currency" : {
                   "value" : "EUR"
                 }
-              }
+              },
+              "value" : 50000
             }
           }, {
             "meta" : {
@@ -586,12 +581,12 @@
               } ]
             },
             "value" : {
-              "amount" : 56000,
-              "unitOfAmount" : {
+              "unit" : {
                 "currency" : {
                   "value" : "EUR"
                 }
-              }
+              },
+              "value" : 56000
             }
           } ]
         } ]
@@ -653,12 +648,12 @@
         }
       },
       "quantity" : {
-        "amount" : 1500000,
-        "unitOfAmount" : {
+        "unit" : {
           "currency" : {
             "value" : "EUR"
           }
-        }
+        },
+        "value" : 1500000
       },
       "settlementDate" : {
         "dateAdjustments" : {
