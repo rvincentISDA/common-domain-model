@@ -21,10 +21,15 @@ type AdjustableDate: <"A class for defining a date that shall be subject to adju
 type AdjustableDates: <"A class for defining a series of dates that shall be subject to adjustment if they would otherwise fall on a day that is not a business day in the specified business centers, together with the convention for adjusting the dates.">
 	[metadata key]
 
-	unadjustedDate date (1..*) <"A date subject to adjustment.">
-	dateAdjustments BusinessDayAdjustments (1..1) <"The business day convention and financial business centers used for adjusting the date if it would otherwise fall on a day that is not a business date in the specified business centers.">
+	unadjustedDate date (0..*) <"A date subject to adjustment.">
+	dateAdjustments BusinessDayAdjustments (0..1) <"The business day convention and financial business centers used for adjusting the date if it would otherwise fall on a day that is not a business date in the specified business centers.">
 	adjustedDate date (0..*) <"The date(s) once the adjustment has been performed. (Note that this date may change if the business center holidays change).">
 		[metadata id]
+
+	condition AdjustedDate: <"FpML specifies a choice between adjustedDate and [unadjustedDate (required), dateAdjutsments (required), adjustedDate (optional)].">
+		 if adjustedDate is absent then
+			unadjustedDate exists and dateAdjustments exists
+
 
 type AdjustableOrAdjustedDate: <"A class for defining a date that shall be subject to adjustment if it would otherwise fall on a day that is not a business day in the specified business centers, together with the convention for adjusting the date.">
 	[metadata key]
@@ -35,10 +40,8 @@ type AdjustableOrAdjustedDate: <"A class for defining a date that shall be subje
 		[metadata id]
 
 	condition AdjustedDate: <"FpML specifies a choice between adjustedDate and [unadjustedDate (required), dateAdjutsments (required), adjustedDate (optional)].">
-		if AdjustableOrAdjustedDate exists
-		then adjustedDate exists
-			or (unadjustedDate exists and dateAdjustments exists and adjustedDate exists)
-			or (unadjustedDate exists and dateAdjustments exists and adjustedDate is absent)
+		 if adjustedDate is absent then
+			unadjustedDate exists and dateAdjustments exists
 
 type AdjustableOrAdjustedOrRelativeDate: <"This Rosetta class specifies the date as either an unadjusted, adjusted or relative date. It supplements the features of the AdjustableOrAdjustedDate to support the credit default swap option premium, which uses the relative date construct.">
 
@@ -49,8 +52,7 @@ type AdjustableOrAdjustedOrRelativeDate: <"This Rosetta class specifies the date
 	relativeDate RelativeDateOffset (0..1) <"A date specified as some offset to another date (the anchor date).">
 
 	condition AdjustedDate: <"This data rule extends the data rule AdjustableOrAdjustedDate_adjustedDate by specifying logic applicable to the relative date.">
-		if AdjustableOrAdjustedOrRelativeDate exists
-		then adjustedDate exists
+		adjustedDate exists
 			or relativeDate exists
 			or unadjustedDate exists
 			or (unadjustedDate exists and dateAdjustments exists and adjustedDate is absent)
@@ -95,7 +97,7 @@ type BusinessCenters: <"A class for specifying the business day calendar locatio
 		[metadata reference]
 
 	businessCenterTime time (0..1) <"A class for defining a time with respect to a business day calendar location. For example, 11:00:00 GBLO.">
-	
+
 	condition BusinessCentersChoice: <"Choice rule to represent an FpML choice construct.">
 		required choice businessCenter, businessCentersReference
 
@@ -155,7 +157,7 @@ type Frequency: <"A class for defining a date frequency, e.g. one day, three mon
 
 	condition PositivePeriodMultiplier: <"FpML specifies periodMultiplier as a positive integer.">
 		if Frequency exists
-		then periodMultiplier >= 0
+		then periodMultiplier > 0
 
 type Offset extends Period: <"A class defining an offset used in calculating a new date relative to a reference date, e.g. calendar days, business days, commodity Business days, etc.">
 
@@ -181,13 +183,13 @@ type Period: <"A class to define recurring periods or time offsets.">
 		then period = PeriodEnum -> D
 
 type RelativeDateToReferences : <"A class describing a set of dates defined as relative to another set of dates of a particular type present in the Trade, referenced in an explicit manner, possibly as anchor dates series for the purpose of calculating the referencing dates with an offset">
-	
+
 	dateRelativeToPaymentDates DateRelativeToPaymentDates (0..1) <"The date is referencing a particular type of date present in the Trade, which is Payment Date.">
 	dateRelativeToCalculationPeriodStartDates DateRelativeToCalculationPeriodDates (0..1) <"The date is referencing a particular type of date present in the Trade, which is Calculation Period Start Date.">
 	dateRelativeToCalculationPeriodEndDates DateRelativeToCalculationPeriodDates (0..1) <"The date is referencing a particular type of date present in the Trade, which is Calculation Period End Date.">
 	dateRelativeToObservationDates DateRelativeToObservationDates (0..1) <"The date is referencing a particular type of date present in the Trade, which is Observation Date.">
 	dateRelativeToValuationDates DateRelativeToValuationDates (0..1) <"The date is referencing a particular type of date present in the Trade, which is Valuation Date.">
-	
+
 	condition RelativeDatesToReferencesChoice: <"condition to represent an FpML choice construct.">
 		required choice dateRelativeToPaymentDates, dateRelativeToCalculationPeriodStartDates, dateRelativeToCalculationPeriodEndDates, dateRelativeToObservationDates, dateRelativeToValuationDates
 
@@ -240,7 +242,7 @@ type ObservationTime: <"The time on which a value is observed">
 
 	condition ObservationTimeChoice: one-of
 
-	condition ObservationTimeTypeChoice: 
+	condition ObservationTimeTypeChoice:
 		timeType <> TimeTypeEnum -> ObservationTime
 
 type TimePeriod: <"An interval of time inside which a value is observed">
@@ -262,7 +264,7 @@ type PeriodRange: <"Indicates The period range defined as either a lower and upp
 	lowerBound PeriodBound (0..1) <"Specifies the lower bound of a period range, e.g. greater than or equal to 5Y.">
 	upperBound PeriodBound (0..1) <"Specifies the upper bound of a period range, e.g. less than to 10Y.">
 
-	condition: lowerBound exists or upperBound exists
+	condition AtLeastOneOf: lowerBound exists or upperBound exists
 
 type PeriodBound: <"Indicator to specify if the period bound is defined as a period and whether the bound is inclusive.">
 	period Period (1..1) <"Specifies the period is to be used as the bound, e.g. 5Y.">
@@ -294,6 +296,7 @@ type PeriodicDates: <"A class for specifying a calculation period schedule.">
 	periodFrequency CalculationPeriodFrequency (0..1) <"A class for defining a date frequency, e.g. one day, three months, through the combination of an integer value and a standardized period value that is specified as part of an enumeration ; optionally with their roll day convention.">
 	periodDatesAdjustments BusinessDayAdjustmentsNew (0..1) <"The specification of the business day convention and financial business centers used for adjusting any calculation period date if it would otherwise fall on a day that is not a business day in the specified business center.">
 	distributionFrequencyPerPeriod DistributionFrequencyPerPeriod (0..1) <"A class for further specifiying a sub-set of recurrent periods or recurrent dates inside the periods or dates series defined by the periodFrequency. As an example of recurrent period e.g. every first week inside each periodFrequency made of 4 weeks. As an example of recurrent date e.g. every 3rd Friday inside each periodFrequency made of 1 month, etc.">
+	dayType DayTypeEnum (0..1) <"Denotes the enumerated values to specify the day type classification used in counting the number of days between two dates.">
 
 	condition BoundariesDatesMustExist1: <"In order to ensure the shedule is a limited timeline as a whole, either initial and final boundaries exist with both firstStartDate and lastEndDate being defined, else the boundaries are defined by the actual dates series defined via relativeAnchorDate">
 		if relativeAnchorDate is absent
@@ -327,7 +330,7 @@ type DistributionFrequencyPerPeriod: <"A class for further specifying a sub-set 
 	condition PeriodSkipGreaterThanOne: <"FpML specifies that, if present, the period skip should have a value greater than 1.">
 		if periodSkip exists
 		then periodSkip > 1
-	
+
 	condition DatesDistributionParametersChoice:
 		required choice periodType, periodTypeIsDayOfWeek
 
@@ -339,14 +342,14 @@ type CalculationPeriodFrequency extends Frequency: <"A class to specify the freq
 	condition FpML_ird_57: <"FpML validation rule ird-57 - Context: CalculationPeriodFrequency. [period eq ('M', 'Y')] not(rollConvention = ('NONE', 'SFE', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT','SUN')).">
 		if period = PeriodExtendedEnum -> M or period = PeriodExtendedEnum -> Y
 		then rollConvention <> RollConventionEnum -> NONE
-			or rollConvention <> RollConventionEnum -> SFE
-			or rollConvention <> RollConventionEnum -> MON
-			or rollConvention <> RollConventionEnum -> TUE
-			or rollConvention <> RollConventionEnum -> WED
-			or rollConvention <> RollConventionEnum -> THU
-			or rollConvention <> RollConventionEnum -> FRI
-			or rollConvention <> RollConventionEnum -> SAT
-			or rollConvention <> RollConventionEnum -> SUN
+			and rollConvention <> RollConventionEnum -> SFE
+			and rollConvention <> RollConventionEnum -> MON
+			and rollConvention <> RollConventionEnum -> TUE
+			and rollConvention <> RollConventionEnum -> WED
+			and rollConvention <> RollConventionEnum -> THU
+			and rollConvention <> RollConventionEnum -> FRI
+			and rollConvention <> RollConventionEnum -> SAT
+			and rollConvention <> RollConventionEnum -> SUN
 
 	condition FpML_ird_58: <"FpML validation rule ird-58 - Context: CalculationPeriodFrequency. When the period is 'W', the rollConvention must be a week day, 'SFE' or 'NONE'.">
 		if period = PeriodExtendedEnum -> W

@@ -1,78 +1,100 @@
 {
   "meta" : {
-    "globalKey" : "969032d7"
+    "globalKey" : "3442f54c"
   },
   "trade" : {
     "contractDetails" : {
       "documentation" : [ {
-        "documentationIdentification" : {
-          "contractualDefinitions" : [ {
-            "value" : "ISDA_2003_CREDIT"
-          } ],
-          "contractualMatrix" : [ {
-            "matrixType" : {
-              "value" : "CREDIT_DERIVATIVES_PHYSICAL_SETTLEMENT_MATRIX"
-            }
-          } ],
-          "contractualTermsSupplement" : [ {
-            "contractualTermsSupplementType" : {
-              "value" : "ISDA_2003_CREDIT_MAY_2003"
-            }
-          } ]
+        "legalAgreementIdentification" : {
+          "agreementName" : {
+            "agreementType" : "CONFIRMATION",
+            "contractualDefinitionsType" : [ {
+              "value" : "ISDA_2003_CREDIT"
+            } ],
+            "contractualMatrix" : [ {
+              "matrixType" : {
+                "value" : "CREDIT_DERIVATIVES_PHYSICAL_SETTLEMENT_MATRIX"
+              }
+            } ],
+            "contractualTermsSupplement" : [ {
+              "contractualTermsSupplementType" : {
+                "value" : "ISDA_2003_CREDIT_MAY_2003"
+              }
+            } ]
+          }
+        },
+        "meta" : {
+          "globalKey" : "b2724407"
         }
       } ],
       "meta" : {
-        "globalKey" : "83bdd4d2"
+        "globalKey" : "b2724407"
       }
     },
     "meta" : {
-      "globalKey" : "969032d7"
+      "globalKey" : "3442f54c"
     },
     "party" : [ {
       "meta" : {
         "externalKey" : "party1",
-        "globalKey" : "1ab3e71c"
+        "globalKey" : "7cec034c"
       },
       "name" : {
         "value" : "Party A"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+          },
+          "value" : "54930084UKLVMY22DS16"
         },
-        "value" : "54930084UKLVMY22DS16"
+        "identifierType" : "LEI",
+        "meta" : {
+          "globalKey" : "121d7965"
+        }
       } ]
     }, {
       "meta" : {
         "externalKey" : "party2",
-        "globalKey" : "e6c82f54"
+        "globalKey" : "490e5f44"
       },
       "name" : {
         "value" : "Party B"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+          },
+          "value" : "48750084UKLVTR22DS78"
         },
-        "value" : "48750084UKLVTR22DS78"
+        "identifierType" : "LEI",
+        "meta" : {
+          "globalKey" : "de31bddc"
+        }
       } ]
     } ],
     "tradableProduct" : {
       "counterparty" : [ {
         "partyReference" : {
           "externalReference" : "party2",
-          "globalReference" : "e6c82f54"
+          "globalReference" : "490e5f44"
         },
         "role" : "PARTY_1"
       }, {
         "partyReference" : {
           "externalReference" : "party1",
-          "globalReference" : "1ab3e71c"
+          "globalReference" : "7cec034c"
         },
         "role" : "PARTY_2"
       } ],
       "product" : {
         "contractualProduct" : {
+          "productTaxonomy" : [ {
+            "productQualifier" : "CreditDefaultSwap_Basket",
+            "taxonomySource" : "ISDA"
+          } ],
           "economicTerms" : {
             "effectiveDate" : {
               "adjustableDate" : {
@@ -234,7 +256,7 @@
                 },
                 "meta" : {
                   "externalKey" : "c789456",
-                  "globalKey" : "f4314381"
+                  "globalKey" : "30199243"
                 },
                 "protectionTerms" : [ {
                   "creditEvents" : {
@@ -323,7 +345,7 @@
                 }
               } ],
               "meta" : {
-                "globalKey" : "e881c1d"
+                "globalKey" : "c6a2601b"
               }
             },
             "terminationDate" : {
@@ -345,14 +367,11 @@
             }
           },
           "meta" : {
-            "globalKey" : "2798932a"
-          },
-          "productIdentification" : {
-            "productQualifier" : "CreditDefaultSwap_Basket"
+            "globalKey" : "33db3322"
           }
         },
         "meta" : {
-          "globalKey" : "2798932a"
+          "globalKey" : "33db3322"
         }
       },
       "tradeLot" : [ {

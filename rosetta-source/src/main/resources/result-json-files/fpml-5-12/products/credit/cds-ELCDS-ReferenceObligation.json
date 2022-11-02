@@ -1,6 +1,6 @@
 {
   "meta" : {
-    "globalKey" : "6fcf7238"
+    "globalKey" : "d2d8dc42"
   },
   "trade" : {
     "collateral" : {
@@ -31,30 +31,41 @@
     },
     "contractDetails" : {
       "documentation" : [ {
-        "documentationIdentification" : {
-          "contractualTermsSupplement" : [ {
-            "contractualTermsSupplementType" : {
-              "value" : "STANDARD_LCDS"
-            },
-            "publicationDate" : "2007-12-12"
-          } ],
-          "masterAgreement" : {
-            "masterAgreementDate" : "2007-12-12",
+        "agreementDate" : "2007-12-12",
+        "legalAgreementIdentification" : {
+          "agreementName" : {
+            "agreementType" : "MASTER_AGREEMENT",
             "masterAgreementType" : {
-              "value" : "ISDA"
-            },
-            "masterAgreementVersion" : {
-              "value" : "1992"
+              "value" : "ISDA_MASTER"
             }
+          },
+          "vintage" : 1992
+        },
+        "meta" : {
+          "globalKey" : "33d1515b"
+        }
+      }, {
+        "legalAgreementIdentification" : {
+          "agreementName" : {
+            "agreementType" : "CONFIRMATION",
+            "contractualTermsSupplement" : [ {
+              "contractualTermsSupplementType" : {
+                "value" : "STANDARD_LCDS"
+              },
+              "publicationDate" : "2007-12-12"
+            } ]
           }
+        },
+        "meta" : {
+          "globalKey" : "b6826249"
         }
       } ],
       "meta" : {
-        "globalKey" : "b06f0b48"
+        "globalKey" : "f1cee48e"
       }
     },
     "meta" : {
-      "globalKey" : "6fcf7238"
+      "globalKey" : "d2d8dc42"
     },
     "party" : [ {
       "meta" : {
@@ -62,10 +73,15 @@
         "globalKey" : "8e102e2b"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "DTCC"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "DTCC"
+          },
+          "value" : "Party1"
         },
-        "value" : "Party1"
+        "meta" : {
+          "globalKey" : "8e102e2b"
+        }
       } ]
     }, {
       "meta" : {
@@ -73,10 +89,15 @@
         "globalKey" : "8e102e2c"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "DTCC"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "DTCC"
+          },
+          "value" : "Party2"
         },
-        "value" : "Party2"
+        "meta" : {
+          "globalKey" : "8e102e2c"
+        }
       } ]
     } ],
     "tradableProduct" : {
@@ -102,6 +123,10 @@
       } ],
       "product" : {
         "contractualProduct" : {
+          "productTaxonomy" : [ {
+            "productQualifier" : "CreditDefaultSwap_Loan",
+            "taxonomySource" : "ISDA"
+          } ],
           "economicTerms" : {
             "calculationAgent" : {
               "calculationAgentParty" : "CALCULATION_AGENT_INDEPENDENT"
@@ -255,31 +280,30 @@
                   "payer" : "PARTY_1",
                   "receiver" : "PARTY_2"
                 },
-                "calculationPeriodDates" : {
-                  "calculationPeriodFrequency" : {
-                    "meta" : {
-                      "globalKey" : "16ae2"
-                    },
-                    "rollConvention" : "25"
-                  },
-                  "meta" : {
-                    "globalKey" : "16ae2"
-                  }
-                },
                 "meta" : {
-                  "globalKey" : "43b89a3f"
+                  "globalKey" : "d95297c9"
                 },
                 "paymentDates" : {
                   "firstPaymentDate" : "2007-12-20",
                   "meta" : {
-                    "globalKey" : "840c85c2"
+                    "globalKey" : "7762f2b8"
                   },
-                  "paymentFrequency" : {
-                    "meta" : {
-                      "globalKey" : "956"
-                    },
-                    "period" : "M",
-                    "periodMultiplier" : 3
+                  "paymentDateSchedule" : {
+                    "interimPaymentDates" : [ {
+                      "meta" : {
+                        "globalKey" : "28c4c"
+                      },
+                      "periodicDates" : {
+                        "periodFrequency" : {
+                          "meta" : {
+                            "globalKey" : "28c4c"
+                          },
+                          "period" : "M",
+                          "periodMultiplier" : 3,
+                          "rollConvention" : "25"
+                        }
+                      }
+                    } ]
                   }
                 },
                 "rateSpecification" : {
@@ -299,7 +323,7 @@
                 }
               } ],
               "meta" : {
-                "globalKey" : "7d62cb48"
+                "globalKey" : "d4ee87e0"
               }
             },
             "terminationDate" : {
@@ -321,14 +345,11 @@
             }
           },
           "meta" : {
-            "globalKey" : "c1424d6a"
-          },
-          "productIdentification" : {
-            "productQualifier" : "CreditDefaultSwap_Loan"
+            "globalKey" : "e297c75a"
           }
         },
         "meta" : {
-          "globalKey" : "c1424d6a"
+          "globalKey" : "e297c75a"
         }
       },
       "tradeLot" : [ {
@@ -412,7 +433,7 @@
         "globalReference" : "8e102e2b"
       },
       "meta" : {
-        "globalKey" : "a89fb4e0"
+        "globalKey" : "ddc3fd6b"
       }
     } ]
   }

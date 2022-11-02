@@ -1,19 +1,13 @@
 namespace cdm.product.asset.calculation: <"Product-related, asset class-specific calculation concepts, such as day counting and calculating accruals.">
 version "${project.version}"
 
-import cdm.base.math.*
-import cdm.base.datetime.*
 import cdm.base.datetime.daycount.*
-import cdm.base.staticdata.asset.rates.*
 
 import cdm.observable.asset.*
 
-import cdm.product.template.*
 import cdm.product.common.schedule.*
 import cdm.product.asset.floatingrate.*
 import cdm.product.asset.*
-
-import cdm.legalagreement.common.*
 
 // =====================================================================
 //
@@ -185,7 +179,7 @@ func GetQuantityScheduleStepValues: <"Find all schedule step values whose stepDa
     add stepValues: <"Add initial step value.">
         schedule -> initialQuantity -> amount
     add stepValues: <"Add all schedule step values whose stepDate is before or equal to the supplied periodStartDate.">
-	    schedule -> stepSchedule -> step
+	    schedule -> step
             filter [ item -> stepDate <= periodStartDate ]
             map [ item -> stepValue ]
 

@@ -1,25 +1,29 @@
 {
   "meta" : {
-    "globalKey" : "60801ede"
+    "globalKey" : "4e16aaae"
   },
   "trade" : {
     "contractDetails" : {
       "documentation" : [ {
-        "documentationIdentification" : {
-          "masterConfirmation" : {
-            "masterConfirmationDate" : "2006-01-20",
+        "agreementDate" : "2006-01-20",
+        "legalAgreementIdentification" : {
+          "agreementName" : {
+            "agreementType" : "MASTER_CONFIRMATION",
             "masterConfirmationType" : {
               "value" : "ISDA_2005_EQUITY_ASIA_EXCLUDING_JAPAN_INTERDEALER"
             }
           }
+        },
+        "meta" : {
+          "globalKey" : "1525d633"
         }
       } ],
       "meta" : {
-        "globalKey" : "58dea2e9"
+        "globalKey" : "1525d633"
       }
     },
     "meta" : {
-      "globalKey" : "f990c6e"
+      "globalKey" : "b7a76555"
     },
     "party" : [ {
       "meta" : {
@@ -27,10 +31,15 @@
         "globalKey" : "33f59567"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+          },
+          "value" : "Party A"
         },
-        "value" : "Party A"
+        "meta" : {
+          "globalKey" : "33f59567"
+        }
       } ]
     }, {
       "meta" : {
@@ -38,10 +47,15 @@
         "globalKey" : "33f59568"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+          },
+          "value" : "Party B"
         },
-        "value" : "Party B"
+        "meta" : {
+          "globalKey" : "33f59568"
+        }
       } ]
     } ],
     "tradeDate" : {
@@ -64,7 +78,7 @@
         "globalReference" : "33f59567"
       },
       "meta" : {
-        "globalKey" : "1d0d89eb"
+        "globalKey" : "c4abf9fc"
       }
     }, {
       "assignedIdentifier" : [ {
@@ -80,13 +94,13 @@
         "globalReference" : "33f59568"
       },
       "meta" : {
-        "globalKey" : "1d0dfe4b"
+        "globalKey" : "c4abf9fd"
       }
     } ]
   },
   "transferHistory" : [ {
     "meta" : {
-      "globalKey" : "3b89fc70"
+      "globalKey" : "100c1099"
     },
     "transfer" : {
       "payerReceiver" : {

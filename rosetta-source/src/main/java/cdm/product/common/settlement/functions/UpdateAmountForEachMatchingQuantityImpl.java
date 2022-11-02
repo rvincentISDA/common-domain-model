@@ -1,14 +1,15 @@
 package cdm.product.common.settlement.functions;
 
+import cdm.base.math.MeasureBase;
 import cdm.base.math.Quantity;
 import cdm.base.math.QuantityChangeDirectionEnum;
 import cdm.base.math.UnitType;
 import cdm.base.math.metafields.FieldWithMetaQuantity;
 import cdm.observable.asset.Price;
 import cdm.observable.asset.PriceExpression;
-import cdm.observable.asset.PriceTypeEnum;
 import cdm.observable.asset.metafields.FieldWithMetaPrice;
 import cdm.product.common.settlement.PriceQuantity;
+import com.rosetta.model.metafields.FieldWithMetaString;
 import org.jetbrains.annotations.NotNull;
 
 import java.math.BigDecimal;
@@ -27,7 +28,6 @@ public class UpdateAmountForEachMatchingQuantityImpl extends UpdateAmountForEach
 		return update(priceQuantityBuilders, change, direction);
 	}
 
-
 	@NotNull
 	private List<PriceQuantity.PriceQuantityBuilder> update(List<PriceQuantity.PriceQuantityBuilder> priceQuantity,
 			List<? extends PriceQuantity> change,
@@ -40,28 +40,21 @@ public class UpdateAmountForEachMatchingQuantityImpl extends UpdateAmountForEach
 				.map(FieldWithMetaQuantity::getValue)
 				.filter(Objects::nonNull)
 				.collect(Collectors.toSet());
-		// Update matching quantities for each price quantity
-		List<PriceQuantity.PriceQuantityBuilder> updatedPriceQuantity = emptyIfNull(priceQuantity)
-				.stream()
-				.map(pq -> pq.setQuantity(updateAmountForEachMatchingQuantity(pq.getQuantity(), newQuantities, direction)))
-				.collect(Collectors.toList());
-		// Get new cash price
-		List<? extends Price.PriceBuilder> newCashPrice = change.stream()
+		// Get new prices
+		Set<? extends Price> newPrices = emptyIfNull(change).stream()
 				.map(PriceQuantity::getPrice)
 				.filter(Objects::nonNull)
 				.flatMap(Collection::stream)
 				.map(FieldWithMetaPrice::getValue)
 				.filter(Objects::nonNull)
-				.filter(p -> Optional.ofNullable(p.getPriceExpression())
-						.map(PriceExpression::getPriceType)
-						.map(PriceTypeEnum.CASH_PRICE::equals)
-						.orElse(false))
-				.map(Price::toBuilder)
+				.collect(Collectors.toSet());
+		// Update matching quantities and prices for each price quantity
+		List<PriceQuantity.PriceQuantityBuilder> updatedPriceQuantity = emptyIfNull(priceQuantity)
+				.stream()
+				.map(pq -> pq
+						.setQuantity(updateAmountForEachMatchingQuantity(pq.getQuantity(), newQuantities, direction))
+						.setPrice(updateAmountForEachMatchingPrice(pq.getPrice(), newPrices, direction)))
 				.collect(Collectors.toList());
-		// Create new PriceQuantity with cash price, and add to list of PriceQuantity
-		if (!newCashPrice.isEmpty()) {
-			priceQuantity.add(PriceQuantity.builder().addPriceValue(newCashPrice));
-		}
 
 		return updatedPriceQuantity;
 	}
@@ -77,7 +70,8 @@ public class UpdateAmountForEachMatchingQuantityImpl extends UpdateAmountForEach
 				.map(FieldWithMetaQuantity::toBuilder)
 				.peek(quantityToUpdate ->
 						filterQuantityByUnitOfAmount(newQuantities, quantityToUpdate.getValue().getUnitOfAmount())
-								.forEach(newQuantityWithMatchingUnitOfAmount -> updateAmount(quantityToUpdate.getValue(), newQuantityWithMatchingUnitOfAmount, direction)))
+								.forEach(newQuantity ->
+										updateAmount(quantityToUpdate.getValue(), newQuantity.getAmount(), direction)))
 				.collect(Collectors.toList());
 	}
 
@@ -85,20 +79,61 @@ public class UpdateAmountForEachMatchingQuantityImpl extends UpdateAmountForEach
 	private List<? extends Quantity> filterQuantityByUnitOfAmount(Set<? extends Quantity> quantities, UnitType unitOfAmount) {
 		return  Optional.ofNullable(quantities).orElseGet(HashSet::new).stream()
 				.filter(quantity -> Objects.nonNull(quantity.getUnitOfAmount()))
-				.filter(quantity -> Objects.equals(quantity.getUnitOfAmount().toBuilder().prune(), unitOfAmount.toBuilder().prune()))
+				.filter(quantity -> unitTypeEquals(quantity.getUnitOfAmount(), unitOfAmount))
 				.collect(Collectors.toList());
 	}
 
-	private Quantity.QuantityBuilder updateAmount(Quantity.QuantityBuilder quantityToUpdate, Quantity newQuantity, QuantityChangeDirectionEnum direction) {
-		// decrease or replace
-		BigDecimal newQuantityAmount = newQuantity.getAmount();
+	@NotNull
+	private List<? extends FieldWithMetaPrice> updateAmountForEachMatchingPrice(List<? extends FieldWithMetaPrice> pricesToUpdate,
+																				Set<? extends Price> newPrices,
+																				QuantityChangeDirectionEnum direction) {
+		return emptyIfNull(pricesToUpdate)
+				.stream()
+				.filter(Objects::nonNull)
+				.filter(fieldWithMeta -> fieldWithMeta.getValue() != null)
+				.map(FieldWithMetaPrice::toBuilder)
+				.peek(priceToUpdate ->
+						filterPrice(newPrices,
+								priceToUpdate.getValue().getUnitOfAmount(),
+								priceToUpdate.getValue().getPerUnitOfAmount(),
+								priceToUpdate.getValue().getPriceExpression())
+								.forEach(matchingPrice ->
+										updateAmount(priceToUpdate.getValue(), matchingPrice.getAmount(), direction)))
+				.collect(Collectors.toList());
+	}
+
+	@NotNull
+	private List<? extends Price> filterPrice(Set<? extends Price> prices, UnitType unitOfAmount, UnitType perUnitOfAmount, PriceExpression priceExpression) {
+		return  Optional.ofNullable(prices).orElseGet(HashSet::new).stream()
+				.filter(price -> Objects.nonNull(price.getUnitOfAmount()))
+				.filter(price -> unitTypeEquals(price.getUnitOfAmount(), unitOfAmount))
+				.filter(price -> unitTypeEquals(price.getPerUnitOfAmount(), perUnitOfAmount))
+				.filter(price -> Objects.equals(price.getPriceExpression().toBuilder().prune(), priceExpression.toBuilder().prune()))
+				.collect(Collectors.toList());
+	}
+
+	private <T extends MeasureBase.MeasureBaseBuilder> T updateAmount(T priceToUpdate, BigDecimal newAmount, QuantityChangeDirectionEnum direction) {
 		switch (direction) {
-		case DECREASE:
-			return quantityToUpdate.setAmount(quantityToUpdate.getAmount().subtract(newQuantityAmount));
-		case REPLACE:
-			return quantityToUpdate.setAmount(newQuantityAmount);
-		default:
-			throw new IllegalArgumentException("Unexpected QuantityChangeDirectionEnum " + direction);
+			case DECREASE:
+				return (T) priceToUpdate.setAmount(priceToUpdate.getAmount().subtract(newAmount));
+			case REPLACE:
+				return (T) priceToUpdate.setAmount(newAmount);
+			default:
+				throw new IllegalArgumentException("Unexpected QuantityChangeDirectionEnum " + direction);
 		}
+	}
+
+	/**
+	 * TODO: Code generation should ignore schemes and keys
+	 */
+	private boolean unitTypeEquals(UnitType o1, UnitType o2) {
+		UnitType.UnitTypeBuilder b1 = o1.toBuilder().prune();
+		UnitType.UnitTypeBuilder b2 = o2.toBuilder().prune();
+
+		if (!Objects.equals(b1.getCapacityUnit(), b2.getCapacityUnit())) return false;
+		if (!Objects.equals(b1.getFinancialUnit(), b2.getFinancialUnit())) return false;
+		if (!Objects.equals(b1.getWeatherUnit(), b2.getWeatherUnit())) return false;
+		if (!Objects.equals(Optional.ofNullable(b1.getCurrency()).map(FieldWithMetaString::getValue), Optional.ofNullable(b2.getCurrency()).map(FieldWithMetaString::getValue))) return false;
+		return true;
 	}
 }

@@ -1,71 +1,91 @@
 {
   "meta" : {
-    "globalKey" : "48eb6564"
+    "globalKey" : "b335adea"
   },
   "trade" : {
     "contractDetails" : {
       "documentation" : [ {
-        "documentationIdentification" : {
-          "masterConfirmation" : {
-            "masterConfirmationDate" : "2004-10-11",
+        "agreementDate" : "2004-10-11",
+        "legalAgreementIdentification" : {
+          "agreementName" : {
+            "agreementType" : "MASTER_CONFIRMATION",
             "masterConfirmationType" : {
               "value" : "DJ.iTraxx.Europe"
             }
           }
+        },
+        "meta" : {
+          "globalKey" : "d51e174"
         }
       } ],
       "meta" : {
-        "globalKey" : "d6d51678"
+        "globalKey" : "d51e174"
       }
     },
     "meta" : {
-      "globalKey" : "8b7e7a0f"
+      "globalKey" : "cad6e9d"
     },
     "party" : [ {
       "meta" : {
         "externalKey" : "yuhge34",
-        "globalKey" : "c49b0a55"
+        "globalKey" : "fde8b071"
       },
       "name" : {
         "value" : "New Bank, New York"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/external/iso9362"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/external/iso9362"
+          },
+          "value" : "NEWBANKLDNBICXXX"
         },
-        "value" : "NEWBANKLDNBICXXX"
+        "identifierType" : "BIC",
+        "meta" : {
+          "globalKey" : "48d985f2"
+        }
       } ]
     }, {
       "meta" : {
         "externalKey" : "z45rdfg",
-        "globalKey" : "39fe4289"
+        "globalKey" : "19a7a9a5"
       },
       "name" : {
         "value" : "Massive Bank, New York"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/external/iso9362"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/external/iso9362"
+          },
+          "value" : "MASSIVELDNBICXXX"
         },
-        "value" : "MASSIVELDNBICXXX"
+        "identifierType" : "BIC",
+        "meta" : {
+          "globalKey" : "7a10616a"
+        }
       } ]
     } ],
     "tradableProduct" : {
       "counterparty" : [ {
         "partyReference" : {
           "externalReference" : "yuhge34",
-          "globalReference" : "c49b0a55"
+          "globalReference" : "fde8b071"
         },
         "role" : "PARTY_1"
       }, {
         "partyReference" : {
           "externalReference" : "z45rdfg",
-          "globalReference" : "39fe4289"
+          "globalReference" : "19a7a9a5"
         },
         "role" : "PARTY_2"
       } ],
       "product" : {
         "contractualProduct" : {
+          "productTaxonomy" : [ {
+            "productQualifier" : "CreditDefaultSwap_Index",
+            "taxonomySource" : "ISDA"
+          } ],
           "economicTerms" : {
             "payout" : {
               "creditDefaultPayout" : {
@@ -127,14 +147,11 @@
             }
           },
           "meta" : {
-            "globalKey" : "eed61605"
-          },
-          "productIdentification" : {
-            "productQualifier" : "CreditDefaultSwap_Index"
+            "globalKey" : "2d4481b7"
           }
         },
         "meta" : {
-          "globalKey" : "eed61605"
+          "globalKey" : "2d4481b7"
         }
       },
       "tradeLot" : [ {
@@ -190,17 +207,17 @@
   },
   "transferHistory" : [ {
     "meta" : {
-      "globalKey" : "13e66855"
+      "globalKey" : "7610960d"
     },
     "transfer" : {
       "payerReceiver" : {
         "payerPartyReference" : {
           "externalReference" : "yuhge34",
-          "globalReference" : "c49b0a55"
+          "globalReference" : "fde8b071"
         },
         "receiverPartyReference" : {
           "externalReference" : "z45rdfg",
-          "globalReference" : "39fe4289"
+          "globalReference" : "19a7a9a5"
         }
       },
       "quantity" : {

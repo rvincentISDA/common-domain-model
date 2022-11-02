@@ -1,73 +1,95 @@
 {
   "meta" : {
-    "globalKey" : "b495a85e"
+    "globalKey" : "9d09624e"
   },
   "trade" : {
     "contractDetails" : {
       "documentation" : [ {
-        "documentationIdentification" : {
-          "contractualDefinitions" : [ {
-            "value" : "ISDA_2003_CREDIT"
-          } ],
-          "contractualTermsSupplement" : [ {
-            "contractualTermsSupplementType" : {
-              "value" : "ISDA_2003_CREDIT_MAY_2003"
-            }
-          } ]
+        "legalAgreementIdentification" : {
+          "agreementName" : {
+            "agreementType" : "CONFIRMATION",
+            "contractualDefinitionsType" : [ {
+              "value" : "ISDA_2003_CREDIT"
+            } ],
+            "contractualTermsSupplement" : [ {
+              "contractualTermsSupplementType" : {
+                "value" : "ISDA_2003_CREDIT_MAY_2003"
+              }
+            } ]
+          }
+        },
+        "meta" : {
+          "globalKey" : "955bda07"
         }
       } ],
       "meta" : {
-        "globalKey" : "51dff51c"
+        "globalKey" : "955bda07"
       }
     },
     "meta" : {
-      "globalKey" : "b495a85e"
+      "globalKey" : "9d09624e"
     },
     "party" : [ {
       "meta" : {
         "externalKey" : "party1",
-        "globalKey" : "cfc523b4"
+        "globalKey" : "c2eb8824"
       },
       "name" : {
         "value" : "Morgan Stanley Captial Services"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+          },
+          "value" : "I7331LVCZKQKX5T7XV54"
         },
-        "value" : "I7331LVCZKQKX5T7XV54"
+        "identifierType" : "LEI",
+        "meta" : {
+          "globalKey" : "ed2a322e"
+        }
       } ]
     }, {
       "meta" : {
         "externalKey" : "party2",
-        "globalKey" : "288de2cc"
+        "globalKey" : "139798fc"
       },
       "name" : {
         "value" : "Barclays Global Investors"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+          },
+          "value" : "213800H14XVWOV87OI72"
         },
-        "value" : "213800H14XVWOV87OI72"
+        "identifierType" : "LEI",
+        "meta" : {
+          "globalKey" : "28e409fd"
+        }
       } ]
     } ],
     "tradableProduct" : {
       "counterparty" : [ {
         "partyReference" : {
           "externalReference" : "party2",
-          "globalReference" : "288de2cc"
+          "globalReference" : "139798fc"
         },
         "role" : "PARTY_1"
       }, {
         "partyReference" : {
           "externalReference" : "party1",
-          "globalReference" : "cfc523b4"
+          "globalReference" : "c2eb8824"
         },
         "role" : "PARTY_2"
       } ],
       "product" : {
         "contractualProduct" : {
+          "productTaxonomy" : [ {
+            "productQualifier" : "CreditDefaultSwap_Basket",
+            "taxonomySource" : "ISDA"
+          } ],
           "economicTerms" : {
             "effectiveDate" : {
               "adjustableDate" : {
@@ -305,7 +327,7 @@
                   }
                 },
                 "meta" : {
-                  "globalKey" : "c87f9a97"
+                  "globalKey" : "9700522e"
                 },
                 "protectionTerms" : [ {
                   "creditEvents" : {
@@ -441,7 +463,7 @@
                 }
               } ],
               "meta" : {
-                "globalKey" : "25f19b47"
+                "globalKey" : "ce710f50"
               }
             },
             "terminationDate" : {
@@ -463,14 +485,11 @@
             }
           },
           "meta" : {
-            "globalKey" : "7b572f80"
-          },
-          "productIdentification" : {
-            "productQualifier" : "CreditDefaultSwap_Basket"
+            "globalKey" : "5446b84b"
           }
         },
         "meta" : {
-          "globalKey" : "7b572f80"
+          "globalKey" : "5446b84b"
         }
       },
       "tradeLot" : [ {
@@ -578,10 +597,10 @@
       } ],
       "issuerReference" : {
         "externalReference" : "party2",
-        "globalReference" : "288de2cc"
+        "globalReference" : "139798fc"
       },
       "meta" : {
-        "globalKey" : "3da95e10"
+        "globalKey" : "222d8a3c"
       }
     } ]
   }

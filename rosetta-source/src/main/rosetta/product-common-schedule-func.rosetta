@@ -29,7 +29,7 @@ import cdm.product.template.*
 	//set result:
 		//effectiveDates exists and effectiveDates contains paymentDate
 
-func PaymentDate: 
+func PaymentDate:
 	inputs: economicTerms EconomicTerms (1..1)
 	output: result date (0..1)
 	set result: economicTerms -> payout -> interestRatePayout only-element -> paymentDate -> adjustedDate
@@ -50,7 +50,6 @@ func CalculationPeriods: <"2006 ISDA Definition Section 4.13. 'Calculation Perio
 		calculationPeriodDates CalculationPeriodDates (1..1)
 	output:
 	    result CalculationPeriodData (0..*)
-
 
 func CalculationPeriodRange:
 	inputs:

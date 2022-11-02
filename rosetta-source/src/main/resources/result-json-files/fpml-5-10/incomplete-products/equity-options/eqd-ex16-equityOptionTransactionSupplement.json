@@ -1,33 +1,44 @@
 {
   "meta" : {
-    "globalKey" : "3f6c9e5b"
+    "globalKey" : "ffff9483"
   },
   "trade" : {
     "contractDetails" : {
       "documentation" : [ {
-        "documentationIdentification" : {
-          "contractualDefinitions" : [ {
-            "value" : "ISDA_2002_EQUITY"
-          } ],
-          "masterAgreement" : {
+        "legalAgreementIdentification" : {
+          "agreementName" : {
+            "agreementType" : "MASTER_AGREEMENT",
             "masterAgreementType" : {
-              "value" : "ISDA"
-            },
-            "masterAgreementVersion" : {
-              "value" : "2002"
+              "value" : "ISDA_MASTER"
             }
+          },
+          "vintage" : 2002
+        },
+        "meta" : {
+          "globalKey" : "328cfa59"
+        }
+      }, {
+        "legalAgreementIdentification" : {
+          "agreementName" : {
+            "agreementType" : "CONFIRMATION",
+            "contractualDefinitionsType" : [ {
+              "value" : "ISDA_2002_EQUITY"
+            } ]
           }
+        },
+        "meta" : {
+          "globalKey" : "2092c901"
         }
       } ],
       "governingLaw" : {
         "value" : "GBEN"
       },
       "meta" : {
-        "globalKey" : "9917db9f"
+        "globalKey" : "6234330c"
       }
     },
     "meta" : {
-      "globalKey" : "b6efa710"
+      "globalKey" : "6edc6f4f"
     },
     "party" : [ {
       "meta" : {
@@ -35,10 +46,15 @@
         "globalKey" : "33f59567"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+          },
+          "value" : "Party A"
         },
-        "value" : "Party A"
+        "meta" : {
+          "globalKey" : "33f59567"
+        }
       } ]
     }, {
       "meta" : {
@@ -46,10 +62,15 @@
         "globalKey" : "33f59568"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+          },
+          "value" : "Party B"
         },
-        "value" : "Party B"
+        "meta" : {
+          "globalKey" : "33f59568"
+        }
       } ]
     } ],
     "tradableProduct" : {
@@ -97,13 +118,13 @@
         "globalReference" : "33f59567"
       },
       "meta" : {
-        "globalKey" : "571de47a"
+        "globalKey" : "1b2141cd"
       }
     } ]
   },
   "transferHistory" : [ {
     "meta" : {
-      "globalKey" : "e03d274b"
+      "globalKey" : "b82cbaf4"
     },
     "transfer" : {
       "payerReceiver" : {

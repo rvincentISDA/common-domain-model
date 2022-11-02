@@ -1,10 +1,10 @@
 {
   "meta" : {
-    "globalKey" : "6a59fc33"
+    "globalKey" : "7a56c9d5"
   },
   "trade" : {
     "meta" : {
-      "globalKey" : "6a59fc33"
+      "globalKey" : "7a56c9d5"
     },
     "party" : [ {
       "meta" : {
@@ -12,10 +12,15 @@
         "globalKey" : "8e102e3b"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "MarkitSERV"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "MarkitSERV"
+          },
+          "value" : "PartyA"
         },
-        "value" : "PartyA"
+        "meta" : {
+          "globalKey" : "8e102e3b"
+        }
       } ]
     }, {
       "meta" : {
@@ -23,10 +28,15 @@
         "globalKey" : "8e102e3c"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "MarkitSERV"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "MarkitSERV"
+          },
+          "value" : "PartyB"
         },
-        "value" : "PartyB"
+        "meta" : {
+          "globalKey" : "8e102e3c"
+        }
       } ]
     } ],
     "tradableProduct" : {
@@ -45,6 +55,10 @@
       } ],
       "product" : {
         "contractualProduct" : {
+          "productTaxonomy" : [ {
+            "productQualifier" : "ForeignExchange_Swap",
+            "taxonomySource" : "ISDA"
+          } ],
           "economicTerms" : {
             "payout" : {
               "forwardPayout" : [ {
@@ -192,14 +206,11 @@
             }
           },
           "meta" : {
-            "globalKey" : "db3f8799"
-          },
-          "productIdentification" : {
-            "productQualifier" : "ForeignExchange_Swap"
+            "globalKey" : "20f76d1e"
           }
         },
         "meta" : {
-          "globalKey" : "db3f8799"
+          "globalKey" : "20f76d1e"
         }
       },
       "tradeLot" : [ {

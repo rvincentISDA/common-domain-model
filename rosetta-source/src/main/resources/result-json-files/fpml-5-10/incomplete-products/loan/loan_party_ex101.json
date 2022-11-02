@@ -1,38 +1,86 @@
 {
   "meta" : {
-    "globalKey" : "1bfdc9f9"
+    "globalKey" : "152a1a98"
   },
   "trade" : {
     "meta" : {
-      "globalKey" : "1bfdc9f9"
+      "globalKey" : "152a1a98"
     },
     "party" : [ {
+      "contactInformation" : {
+        "address" : [ {
+          "city" : "New York",
+          "country" : {
+            "meta" : {
+              "scheme" : "http://www.fpml.org/coding-scheme/external/iso3166"
+            },
+            "value" : "USA"
+          },
+          "postalCode" : "10001",
+          "state" : "NY",
+          "street" : [ "6789 Main Street" ]
+        } ],
+        "email" : [ "buyer.contact@eatonvance.com" ],
+        "telephone" : [ {
+          "number" : "5552222222",
+          "telephoneNumberType" : "WORK"
+        } ]
+      },
       "meta" : {
         "externalKey" : "LenderParty",
-        "globalKey" : "dd24720f"
+        "globalKey" : "a7bfad2a"
       },
       "name" : {
         "value" : "EatonVance"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/external/party-id-MEI-1-0"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/external/party-id-MEI-1-0"
+          },
+          "value" : "EV1000001"
         },
-        "value" : "EV1000001"
+        "meta" : {
+          "globalKey" : "50cbe7a1"
+        }
       } ]
     }, {
+      "contactInformation" : {
+        "address" : [ {
+          "city" : "New York",
+          "country" : {
+            "meta" : {
+              "scheme" : "http://www.fpml.org/coding-scheme/external/iso3166"
+            },
+            "value" : "USA"
+          },
+          "postalCode" : "10001",
+          "state" : "NY",
+          "street" : [ "12345 Main Street" ]
+        } ],
+        "email" : [ "agent.contact@jpmorgan.com" ],
+        "telephone" : [ {
+          "number" : "5554444444",
+          "telephoneNumberType" : "WORK"
+        } ]
+      },
       "meta" : {
         "externalKey" : "AgentParty",
-        "globalKey" : "298ef76a"
+        "globalKey" : "514b0e82"
       },
       "name" : {
         "value" : "JPMorganChase"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/external/party-id-MEI-1-0"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/external/party-id-MEI-1-0"
+          },
+          "value" : "JPM001011"
         },
-        "value" : "JPM001011"
+        "meta" : {
+          "globalKey" : "9009f506"
+        }
       } ]
     } ]
   }

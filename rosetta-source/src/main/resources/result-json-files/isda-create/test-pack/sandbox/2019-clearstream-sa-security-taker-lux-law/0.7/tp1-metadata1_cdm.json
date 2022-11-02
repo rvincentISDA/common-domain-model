@@ -1,37 +1,49 @@
 {
   "agreementDate" : "2021-02-25",
-  "agreementType" : {
-    "governingLaw" : "LU",
-    "name" : "SECURITY_AGREEMENT",
-    "vintage" : 2019
-  },
   "contractualParty" : [ {
     "value" : {
       "meta" : {
         "externalKey" : "partyA",
-        "globalKey" : "17e0477c"
+        "globalKey" : "c6f52ab8"
       },
       "name" : {
         "value" : "Test Entity 1"
       },
       "partyId" : [ {
-        "value" : "708bfd61-77ef-3644-a918-7338339b5ebc"
+        "identifier" : {
+          "value" : "708bfd61-77ef-3644-a918-7338339b5ebc"
+        },
+        "meta" : {
+          "globalKey" : "231b50fa"
+        }
       } ]
     }
   }, {
     "value" : {
       "meta" : {
         "externalKey" : "partyB",
-        "globalKey" : "9bd90cd1"
+        "globalKey" : "4aee60ab"
       },
       "name" : {
         "value" : "Test Entity 2"
       },
       "partyId" : [ {
-        "value" : "10e00b0c-5d8c-3194-807b-e74d05f55d86"
+        "identifier" : {
+          "value" : "10e00b0c-5d8c-3194-807b-e74d05f55d86"
+        },
+        "meta" : {
+          "globalKey" : "a714128e"
+        }
       } ]
     }
   } ],
+  "legalAgreementIdentification" : {
+    "agreementName" : {
+      "agreementType" : "SECURITY_AGREEMENT"
+    },
+    "governingLaw" : "LU",
+    "vintage" : 2019
+  },
   "agreementTerms" : {
     "agreement" : {
       "securityAgreementElections" : {
@@ -59,29 +71,32 @@
     "counterparty" : [ {
       "partyReference" : {
         "externalReference" : "partyA",
-        "globalReference" : "17e0477c"
+        "globalReference" : "c6f52ab8"
       },
       "role" : "PARTY_1"
     }, {
       "partyReference" : {
         "externalReference" : "partyB",
-        "globalReference" : "9bd90cd1"
+        "globalReference" : "4aee60ab"
       },
       "role" : "PARTY_2"
     } ]
   },
   "meta" : {
-    "globalKey" : "688c4fe3"
+    "globalKey" : "1910111c"
   },
   "relatedAgreements" : [ {
-    "legalAgreement" : {
-      "agreementDate" : "2021-02-18",
-      "agreementType" : {
-        "name" : "COLLATERAL_TRANSFER_AGREEMENT"
-      },
-      "meta" : {
-        "globalKey" : "f9ba25b0"
+    "agreementDate" : "2021-02-18",
+    "legalAgreementIdentification" : {
+      "agreementName" : {
+        "agreementType" : "CREDIT_SUPPORT_AGREEMENT",
+        "creditSupportAgreementType" : {
+          "value" : "COLLATERAL_TRANSFER_AGREEMENT"
+        }
       }
+    },
+    "meta" : {
+      "globalKey" : "2b871ce0"
     }
   } ],
   "umbrellaAgreement" : {

@@ -1,50 +1,71 @@
 {
   "meta" : {
-    "globalKey" : "9025d8b8"
+    "globalKey" : "65f12127"
   },
   "trade" : {
     "meta" : {
-      "globalKey" : "9e9a8a67"
+      "globalKey" : "b7f57db"
     },
     "party" : [ {
       "meta" : {
         "externalKey" : "party1",
-        "globalKey" : "fb3de14e"
+        "globalKey" : "ff8d4b3e"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+          },
+          "value" : "5493000SCC07UI6DB380"
         },
-        "value" : "5493000SCC07UI6DB380"
+        "identifierType" : "LEI",
+        "meta" : {
+          "globalKey" : "ff8d4b3e"
+        }
       } ]
     }, {
       "meta" : {
         "externalKey" : "party2",
-        "globalKey" : "bb78e9d"
+        "globalKey" : "1006f88d"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+          },
+          "value" : "BFM8T61CT2L1QCEMIK50"
         },
-        "value" : "BFM8T61CT2L1QCEMIK50"
+        "identifierType" : "LEI",
+        "meta" : {
+          "globalKey" : "1006f88d"
+        }
       } ]
     } ],
     "tradableProduct" : {
       "counterparty" : [ {
         "partyReference" : {
           "externalReference" : "party2",
-          "globalReference" : "bb78e9d"
+          "globalReference" : "1006f88d"
         },
         "role" : "PARTY_1"
       }, {
         "partyReference" : {
           "externalReference" : "party1",
-          "globalReference" : "fb3de14e"
+          "globalReference" : "ff8d4b3e"
         },
         "role" : "PARTY_2"
       } ],
       "product" : {
         "contractualProduct" : {
+          "productTaxonomy" : [ {
+            "taxonomySource" : "OTHER",
+            "taxonomyValue" : {
+              "meta" : {
+                "scheme" : "http://www.sample.com/coding-scheme/product-type-simple"
+              },
+              "value" : "OneTouch"
+            }
+          } ],
           "economicTerms" : {
             "payout" : {
               "meta" : {
@@ -133,22 +154,11 @@
             }
           },
           "meta" : {
-            "globalKey" : "7dc8bf5c"
-          },
-          "productIdentification" : {
-            "externalProductType" : [ {
-              "externalProductTypeSource" : "OTHER",
-              "value" : {
-                "meta" : {
-                  "scheme" : "http://www.sample.com/coding-scheme/product-type-simple"
-                },
-                "value" : "OneTouch"
-              }
-            } ]
+            "globalKey" : "2a09a164"
           }
         },
         "meta" : {
-          "globalKey" : "7dc8bf5c"
+          "globalKey" : "2a09a164"
         }
       }
     },
@@ -169,10 +179,10 @@
       } ],
       "issuerReference" : {
         "externalReference" : "party1",
-        "globalReference" : "fb3de14e"
+        "globalReference" : "ff8d4b3e"
       },
       "meta" : {
-        "globalKey" : "31f524e8"
+        "globalKey" : "1fd6f2a6"
       }
     }, {
       "assignedIdentifier" : [ {
@@ -185,26 +195,26 @@
       } ],
       "issuerReference" : {
         "externalReference" : "party2",
-        "globalReference" : "bb78e9d"
+        "globalReference" : "1006f88d"
       },
       "meta" : {
-        "globalKey" : "af8bd88b"
+        "globalKey" : "38dbacd2"
       }
     } ]
   },
   "transferHistory" : [ {
     "meta" : {
-      "globalKey" : "669a5351"
+      "globalKey" : "c437ea0c"
     },
     "transfer" : {
       "payerReceiver" : {
         "payerPartyReference" : {
           "externalReference" : "party2",
-          "globalReference" : "bb78e9d"
+          "globalReference" : "1006f88d"
         },
         "receiverPartyReference" : {
           "externalReference" : "party1",
-          "globalReference" : "fb3de14e"
+          "globalReference" : "ff8d4b3e"
         }
       },
       "quantity" : {

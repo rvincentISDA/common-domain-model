@@ -10,23 +10,20 @@ import cdm.base.staticdata.identifier.*
 
 import cdm.observable.asset.*
 
-import cdm.product.asset.*
 import cdm.product.common.settlement.*
 
 import cdm.legalagreement.common.*
 
-import cdm.synonyms.config.*
+import cdm.mapping.config.*
+
+import cdm.event.common.* 
 
 type Collateral: <"A type for defining the obligations of the counterparty subject to credit support requirements.">
 
 	independentAmount IndependentAmount (1..1) <"Independent Amount is an amount that usually less creditworthy counterparties are asked to provide. It can either be a fixed amount or a percentage of the Transaction's value. The Independent Amount can be: (i) transferred before any trading between the parties occurs (as a deposit at a third party's account or with the counterparty) or (ii) callable after trading has occurred (typically because a downgrade has occurred). In situation (i), the Independent Amount is not included in the calculation of Exposure, but in situation (ii), it is included in the calculation of Exposure. Thus, for situation (ii), the Independent Amount may be transferred along with any collateral call. Independent Amount is a defined term in the ISDA Credit Support Annex. ('with respect to a party, the amount specified as such for that party in Paragraph 13; if no amount is specified, zero').">
-
-type CreditSupportAgreement: <"The agreement executed between the parties and intended to govern collateral arrangement for all OTC derivatives transactions between those parties.">
-
-	creditSupportAgreementType CreditSupportAgreementTypeEnum (1..1) <"The type of ISDA Credit Support Agreement.">
-		[metadata scheme]
-	date date (1..1) <"The date of the agreement executed between the parties and intended to govern collateral arrangements for all OTC derivatives transactions between those parties.">
-	identifierValue string (0..1) <"An identifier used to uniquely identify the CSA. FpML specifies the type as creditSupportAgreementIdScheme, but without proposing any value.  As far as e understand, no scheme has yet been developed at this point.">
+    portfolioIdentifier Identifier (0..*) <"A list of identifiers pointing to the collateral portfolios which contain the collateral which covers a trade.">
+    collateralPortfolio CollateralPortfolio (0..*) <"The collateral portfolios which contain the collateral which covers a trade. (NB: this can be provided by reference to a global key for each CollateralPortfolio object)">
+    [metadata reference]
 
 type IndependentAmount extends PartyReferencePayerReceiver: <"A class specifying the Independent Amount as the combination of a payer/receiver, a payment amount, a payment date and an associated payment calculation rule.">
 
@@ -51,24 +48,25 @@ type CollateralValuationTreatment: <"Specification of the valuation treatment fo
 	fxHaircutPercentage number (0..1) <"Specifies an FX haircut applied to a specific asset which is agreed between the parties (for example, if pledgor eligible collateral is not denominated in the termination currency or under other specified cases in collateral support documents both for initial margin and variation margin).The percentage value is expressed as the discount haircut to the value of the collateral- as an example an 8% FX haircut would be expressed as 0.08.">
 	additionalHaircutPercentage number (0..1) <"Specifies a percentage value of any additional haircut to be applied to a collateral asset,the percentage value is expressed as the discount haircut to the value of the collateral- as an example a 5% haircut would be expressed as 0.05. ">
 
-	condition HaircutPercentage: <"A data rule to validate that if a Valuation Percentage is specified it should be between 0 and 1.">
+	condition HaircutPercentage: <"A data rule to validate that if a Valuation Percentage is specified it should be greater than or equal to 0 and less than 1.">
 		if haircutPercentage exists
-		then haircutPercentage > 0 and haircutPercentage <= 1
+		then haircutPercentage >= 0 and haircutPercentage < 1
 
 	condition MarginPercentage: <"A data rule to validate that if a Margin Percentage is specified it should be greater than 1.">
 		if marginPercentage exists
 		then marginPercentage >= 1
 
-	condition FxHaircutPercentage: <"A data rule to validate that if an FX Haircut Percentage is specified it should be between 0 and 1.">
+	condition FxHaircutPercentage: <"A data rule to validate that if an FX Haircut Percentage is specified it should be between 0 and less than 1.">
 		if fxHaircutPercentage exists
-		then fxHaircutPercentage > 0 and fxHaircutPercentage <= 1
+		then fxHaircutPercentage > 0 and fxHaircutPercentage < 1
 
-	condition AdditionalHaircutPercentage: <"A data rule to validate that if an FX Haircut Percentage is specified it should be between 0 and 1.">
+	condition AdditionalHaircutPercentage: <"A data rule to validate that if an FX Haircut Percentage is specified it should be between 0 and  less than 1.">
 		if additionalHaircutPercentage exists
-		then additionalHaircutPercentage > 0 and additionalHaircutPercentage <= 1
+		then additionalHaircutPercentage > 0 and additionalHaircutPercentage < 1
 
 	condition HaircutPercentageOrMarginPercentage: <"Choice rule requiring that either a haircut percentage or margin percentage is specified.">
 		required choice haircutPercentage, marginPercentage
+
 
 type EligibleCollateralSchedule: <"Represents a set of criteria used to specify an eligible collateral schedule.">
 	[rootType]
@@ -549,11 +547,11 @@ type ExecutionLanguage: <"A class to specify execution language terms of a Secur
 	numberOfOriginals string (0..1) <"The number of original documents">
 	otherLanguage string (0..1) <"Bespoke execution language to be included when specified.">
 
-	condition numberOfOriginals: <"A data rule to enforce that the number of original documents should only be specified when standard execution language is used.">
+	condition NumberOfOriginals: <"A data rule to enforce that the number of original documents should only be specified when standard execution language is used.">
 		if standardLanguage = False
 		then numberOfOriginals is absent
 
-	condition otherLanguage: <"A data rule to enforce that bespoke execution language must be included if non-standard execution language is specified.">
+	condition OtherLanguage: <"A data rule to enforce that bespoke execution language must be included if non-standard execution language is specified.">
 		if standardLanguage = False
 		then otherLanguage exists
 
@@ -566,14 +564,14 @@ type ExecutionLocation: <"A class to specify execution location terms of a Secur
 	dutyPaymentDate date (0..1) <"The date that documentary duty will be paid">
 	dutyPaymentLanguage string (0..1) <"Bespoke terms specific to the date that documentary duty will be paid">
 
-	condition dutyPayerLanguage: <"A data rule to enforce that Duty Payer Language should only be specified when required">
+	condition DutyPayerLanguage: <"A data rule to enforce that Duty Payer Language should only be specified when required">
 		if dutyPayer = "Specify"
 		then dutyPayerLanguage exists
 
-	condition dutyPaymentLanguage: <"A data rule to enforce that Duty Payment Language should be absent when a Duty Payment date is provided">
+	condition DutyPaymentLanguage: <"A data rule to enforce that Duty Payment Language should be absent when a Duty Payment date is provided">
 		if dutyPaymentDate exists then dutyPaymentLanguage is absent
 
-	condition otherLanguage: <"A data rule to enforce that bespoke execution language must be included if non-standard execution language is specified.">
+	condition OtherLanguage: <"A data rule to enforce that bespoke execution language must be included if non-standard execution language is specified.">
 		if executionLocation = ExecutionLocationEnum->OtherLocation
 		then otherLanguage exists
 
@@ -663,11 +661,11 @@ type JapaneseSecuritiesProvisions: <"A class to specify Japanese Securities Prov
 	amendmentsToJapaneseProvisionsTerms string (0..1) <"Specific terms applicable to Additional Amendments to Japanese Securities Provisions">
 	clearstreamAmendmentToJapaneseProvisions boolean (0..1) <"Specification of whether Clearstream Event amendment language is included (true) or excluded (false).">
 
-	condition relevantProvisionsElection: <"A data rule to enforce that the specific terms applicable to Recommended Japanese Securities Provisions should be specified when required">
+	condition RelevantProvisionsElection: <"A data rule to enforce that the specific terms applicable to Recommended Japanese Securities Provisions should be specified when required">
 		if relevantProvisionsElection = True
 		then relevantProvisionsTerms is absent
 
-	condition amendmentsToJapaneseProvisions: <"A data rule to enforce that the specific terms applicable to Additional Amendments to Japanese Securities Provisions should be specified when required">
+	condition AmendmentsToJapaneseProvisions: <"A data rule to enforce that the specific terms applicable to Additional Amendments to Japanese Securities Provisions should be specified when required">
 		if amendmentsToJapaneseProvisions = False
 		then amendmentsToJapaneseProvisionsTerms is absent
 
@@ -790,7 +788,7 @@ type RecalculationOfValueElection: <"A class to specify Recalculation of Value t
 	recalculationOfValueElection RecalculationOfValueElectionEnum (1..1) <"The procedure for Recalculation of Value.">
 	recalculationOfValueTerms string (0..1) <"Additional Recalculation of Value terms when specified">
 
-	condition recalculationOfValueTerms: <"A data rule to enforce that additional Recalculation of Value terms are only specified when applicable">
+	condition RecalculationOfValueTerms: <"A data rule to enforce that additional Recalculation of Value terms are only specified when applicable">
 		if RecalculationOfValueElection exists
 		then recalculationOfValueTerms is absent
 
@@ -817,11 +815,11 @@ type PledgeeRepresentativeRider: <"The terms of the Rider for the ISDA Euroclear
 	representativeEventTerms string (0..1) <"The specific representative event terms applicable when specified.">
 	representativeEndDate CustomisableOffset (0..1) <"The definition of representative end date in relation to a representative event.">
 
-	condition representativeParty: <"A data rule to enforce that representative terms and a represented party are specified when representative provisions are applicable.">
+	condition RepresentativeParty: <"A data rule to enforce that representative terms and a represented party are specified when representative provisions are applicable.">
 		if isApplicable = True
 		then party exists and representativeTerms exists and representativeEvent exists and representativeEndDate exists
 
-	condition representativeEventTerms: <"A data rule to enforce that representative event terms are specified when applicable.">
+	condition RepresentativeEventTerms: <"A data rule to enforce that representative event terms are specified when applicable.">
 		if representativeEvent = ExceptionEnum->Other
 		then representativeEventTerms exists
 

@@ -1,24 +1,29 @@
 {
   "meta" : {
-    "globalKey" : "78398fc4"
+    "globalKey" : "3a3f94b"
   },
   "trade" : {
     "contractDetails" : {
       "documentation" : [ {
-        "documentationIdentification" : {
-          "masterConfirmation" : {
+        "agreementDate" : "2004-10-11",
+        "legalAgreementIdentification" : {
+          "agreementName" : {
+            "agreementType" : "MASTER_CONFIRMATION",
             "masterConfirmationType" : {
               "value" : "DJ.iTraxx.Europe"
             }
           }
+        },
+        "meta" : {
+          "globalKey" : "d51e174"
         }
       } ],
       "meta" : {
-        "globalKey" : "ebb4eaad"
+        "globalKey" : "d51e174"
       }
     },
     "meta" : {
-      "globalKey" : "c745a33e"
+      "globalKey" : "bfc7521c"
     },
     "party" : [ {
       "meta" : {
@@ -26,10 +31,15 @@
         "globalKey" : "33f59567"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+          },
+          "value" : "Party A"
         },
-        "value" : "Party A"
+        "meta" : {
+          "globalKey" : "33f59567"
+        }
       } ]
     }, {
       "meta" : {
@@ -37,10 +47,15 @@
         "globalKey" : "33f59568"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+          },
+          "value" : "Party B"
         },
-        "value" : "Party B"
+        "meta" : {
+          "globalKey" : "33f59568"
+        }
       } ]
     } ],
     "tradableProduct" : {
@@ -59,6 +74,10 @@
       } ],
       "product" : {
         "contractualProduct" : {
+          "productTaxonomy" : [ {
+            "productQualifier" : "CreditDefaultSwap_IndexTranche",
+            "taxonomySource" : "ISDA"
+          } ],
           "economicTerms" : {
             "payout" : {
               "creditDefaultPayout" : {
@@ -121,14 +140,11 @@
             }
           },
           "meta" : {
-            "globalKey" : "73d31056"
-          },
-          "productIdentification" : {
-            "productQualifier" : "CreditDefaultSwap_IndexTranche"
+            "globalKey" : "a428906f"
           }
         },
         "meta" : {
-          "globalKey" : "73d31056"
+          "globalKey" : "a428906f"
         }
       },
       "tradeLot" : [ {
@@ -169,7 +185,7 @@
         "globalReference" : "33f59567"
       },
       "meta" : {
-        "globalKey" : "9564c0a0"
+        "globalKey" : "f1464767"
       }
     }, {
       "assignedIdentifier" : [ {
@@ -185,13 +201,13 @@
         "globalReference" : "33f59568"
       },
       "meta" : {
-        "globalKey" : "a26f09a6"
+        "globalKey" : "55bf2482"
       }
     } ]
   },
   "transferHistory" : [ {
     "meta" : {
-      "globalKey" : "9417f786"
+      "globalKey" : "d014882f"
     },
     "transfer" : {
       "payerReceiver" : {

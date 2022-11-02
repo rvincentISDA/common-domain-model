@@ -1,31 +1,33 @@
 {
   "meta" : {
-    "globalKey" : "905e7d8b"
+    "globalKey" : "360fde61"
   },
   "trade" : {
     "contractDetails" : {
       "documentation" : [ {
-        "documentationIdentification" : {
-          "masterAgreement" : {
-            "masterAgreementDate" : "2002-03-15",
+        "agreementDate" : "2002-03-15",
+        "legalAgreementIdentification" : {
+          "agreementName" : {
+            "agreementType" : "MASTER_AGREEMENT",
             "masterAgreementType" : {
-              "value" : "ISDA"
-            },
-            "masterAgreementVersion" : {
-              "value" : "2002"
+              "value" : "ISDA_MASTER"
             }
-          }
+          },
+          "vintage" : 2002
+        },
+        "meta" : {
+          "globalKey" : "d3c973e8"
         }
       } ],
       "governingLaw" : {
         "value" : "GBEN"
       },
       "meta" : {
-        "globalKey" : "36e388ba"
+        "globalKey" : "75d60ac"
       }
     },
     "meta" : {
-      "globalKey" : "76c03640"
+      "globalKey" : "f5d434ad"
     },
     "party" : [ {
       "meta" : {
@@ -33,10 +35,15 @@
         "globalKey" : "33f59567"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+          },
+          "value" : "Party A"
         },
-        "value" : "Party A"
+        "meta" : {
+          "globalKey" : "33f59567"
+        }
       } ]
     }, {
       "meta" : {
@@ -44,10 +51,15 @@
         "globalKey" : "33f59568"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+          },
+          "value" : "Party B"
         },
-        "value" : "Party B"
+        "meta" : {
+          "globalKey" : "33f59568"
+        }
       } ]
     } ],
     "tradableProduct" : {
@@ -114,7 +126,7 @@
             },
             "payout" : {
               "meta" : {
-                "globalKey" : "7c9964e0"
+                "globalKey" : "977c6877"
               },
               "optionPayout" : [ {
                 "payerReceiver" : {
@@ -131,6 +143,15 @@
                       "value" : "quantity-3"
                     }
                   }
+                },
+                "settlementTerms" : {
+                  "meta" : {
+                    "globalKey" : "4790ef7b"
+                  },
+                  "settlementCurrency" : {
+                    "value" : "EUR"
+                  },
+                  "settlementType" : "ELECTION"
                 },
                 "buyerSeller" : {
                   "buyer" : "PARTY_1",
@@ -173,6 +194,7 @@
                           "globalKey" : "eb6226d3"
                         }
                       },
+                      "expirationTimeType" : "CLOSE",
                       "latestExerciseTime" : {
                         "businessCenter" : {
                           "value" : "GBLO"
@@ -180,7 +202,7 @@
                         "hourMinuteTime" : "17:15:00"
                       },
                       "meta" : {
-                        "globalKey" : "5fc7f1c6"
+                        "globalKey" : "260f119e"
                       },
                       "multipleExercise" : {
                         "integralMultipleAmount" : 1,
@@ -207,18 +229,18 @@
                   }
                 },
                 "meta" : {
-                  "globalKey" : "7c9964e0"
+                  "globalKey" : "977c6877"
                 },
                 "optionType" : "CALL"
               } ]
             }
           },
           "meta" : {
-            "globalKey" : "7cfc1d80"
+            "globalKey" : "911413d7"
           }
         },
         "meta" : {
-          "globalKey" : "7cfc1d80"
+          "globalKey" : "911413d7"
         }
       },
       "tradeLot" : [ {
@@ -245,11 +267,11 @@
       }, {
         "priceQuantity" : [ {
           "meta" : {
-            "globalKey" : "a0fb64db"
+            "globalKey" : "529c42f0"
           },
           "observable" : {
             "meta" : {
-              "globalKey" : "111b7"
+              "globalKey" : "bad3638c"
             },
             "productIdentifier" : [ {
               "meta" : {
@@ -269,6 +291,22 @@
                   "globalKey" : "111b7"
                 }
               }
+            }, {
+              "meta" : {
+                "location" : [ {
+                  "scope" : "DOCUMENT",
+                  "value" : "productIdentifier-2"
+                } ]
+              },
+              "value" : {
+                "identifier" : {
+                  "value" : "FTSE/Xinhua China 25 Index"
+                },
+                "meta" : {
+                  "globalKey" : "a78afae3"
+                },
+                "source" : "NAME"
+              }
             } ]
           },
           "quantity" : [ {
@@ -287,7 +325,7 @@
           } ]
         }, {
           "meta" : {
-            "globalKey" : "da7a411f"
+            "globalKey" : "8e65281c"
           },
           "observable" : {
             "commodity" : {
@@ -298,6 +336,19 @@
                 } ]
               },
               "value" : {
+                "productIdentifier" : [ {
+                  "value" : {
+                    "identifier" : {
+                      "meta" : {
+                        "scheme" : "http://www.lme.co.uk/coding-scheme/instrument-id"
+                      },
+                      "value" : "COPPER-LME CASH"
+                    },
+                    "meta" : {
+                      "globalKey" : "d13f9523"
+                    }
+                  }
+                } ],
                 "deliveryDateReference" : {
                   "deliveryNearby" : {
                     "meta" : {
@@ -311,7 +362,7 @@
               }
             },
             "meta" : {
-              "globalKey" : "6c4fc1fd"
+              "globalKey" : "83eeaba"
             }
           },
           "quantity" : [ {
@@ -330,7 +381,7 @@
           } ]
         }, {
           "meta" : {
-            "globalKey" : "da7a411f"
+            "globalKey" : "160e34a7"
           },
           "observable" : {
             "commodity" : {
@@ -341,6 +392,19 @@
                 } ]
               },
               "value" : {
+                "productIdentifier" : [ {
+                  "value" : {
+                    "identifier" : {
+                      "meta" : {
+                        "scheme" : "http://www.lme.co.uk/coding-scheme/instrument-id"
+                      },
+                      "value" : "ZINC-LME CASH"
+                    },
+                    "meta" : {
+                      "globalKey" : "a060f178"
+                    }
+                  }
+                } ],
                 "deliveryDateReference" : {
                   "deliveryNearby" : {
                     "meta" : {
@@ -354,7 +418,7 @@
               }
             },
             "meta" : {
-              "globalKey" : "6c4fc1fd"
+              "globalKey" : "14a2fb85"
             }
           },
           "quantity" : [ {
@@ -373,7 +437,7 @@
           } ]
         }, {
           "meta" : {
-            "globalKey" : "da7a411f"
+            "globalKey" : "fef7ebcd"
           },
           "observable" : {
             "commodity" : {
@@ -384,6 +448,19 @@
                 } ]
               },
               "value" : {
+                "productIdentifier" : [ {
+                  "value" : {
+                    "identifier" : {
+                      "meta" : {
+                        "scheme" : "http://www.lme.co.uk/coding-scheme/instrument-id"
+                      },
+                      "value" : "NICKEL-LME CASH"
+                    },
+                    "meta" : {
+                      "globalKey" : "65a23612"
+                    }
+                  }
+                } ],
                 "deliveryDateReference" : {
                   "deliveryNearby" : {
                     "meta" : {
@@ -397,7 +474,7 @@
               }
             },
             "meta" : {
-              "globalKey" : "6c4fc1fd"
+              "globalKey" : "8056872b"
             }
           },
           "quantity" : [ {
@@ -438,13 +515,13 @@
         "globalReference" : "33f59567"
       },
       "meta" : {
-        "globalKey" : "571de47a"
+        "globalKey" : "1b2141cd"
       }
     } ]
   },
   "transferHistory" : [ {
     "meta" : {
-      "globalKey" : "1d4d074b"
+      "globalKey" : "f53c9af4"
     },
     "transfer" : {
       "payerReceiver" : {

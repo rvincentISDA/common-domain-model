@@ -1,54 +1,58 @@
 {
   "action" : "NEW",
-  "businessEvent" : {
-    "meta" : {
-      "globalKey" : "cc9ba7f9"
+  "messageInformation" : {
+    "sentBy" : {
+      "value" : "CME"
     },
-    "primitives" : [ {
-      "termsChange" : {
-        "after" : {
+    "sentTo" : [ {
+      "value" : "CME"
+    } ]
+  },
+  "meta" : {
+    "globalKey" : "55f13203"
+  },
+  "proposedEvent" : {
+    "instruction" : [ {
+      "before" : {
+        "value" : {
           "meta" : {
-            "globalKey" : "cc9ba7f9"
+            "globalKey" : "f2c653e9"
           },
           "trade" : {
-            "executionDetails" : {
-              "executionType" : "OFF_FACILITY",
-              "executionVenue" : {
-                "meta" : {
-                  "globalKey" : "24246c"
-                },
-                "name" : {
-                  "value" : "MKSA"
-                }
-              },
-              "meta" : {
-                "globalKey" : "f0402ff9"
-              }
-            },
             "meta" : {
-              "globalKey" : "cc9ba7f9"
+              "globalKey" : "f2c653e9"
             },
             "party" : [ {
               "meta" : {
                 "externalKey" : "partyA",
-                "globalKey" : "9b1eca2f"
+                "globalKey" : "c6abc049"
               },
               "name" : {
                 "value" : "Michigan Avenue Bank - Executing Bank"
               },
               "partyId" : [ {
-                "value" : "ONB2-TEST-I"
+                "identifier" : {
+                  "value" : "ONB2-TEST-I"
+                },
+                "meta" : {
+                  "globalKey" : "c455d30c"
+                }
               } ]
             }, {
               "meta" : {
                 "externalKey" : "partyB",
-                "globalKey" : "5484f7"
+                "globalKey" : "a4bfd493"
               },
               "name" : {
                 "value" : "CMEEVENT1"
               },
               "partyId" : [ {
-                "value" : "EVENTTEST1"
+                "identifier" : {
+                  "value" : "EVENTTEST1"
+                },
+                "meta" : {
+                  "globalKey" : "58b757a5"
+                }
               } ]
             }, {
               "meta" : {
@@ -56,25 +60,39 @@
                 "globalKey" : "5b6941a5"
               },
               "partyId" : [ {
-                "value" : "SWAPSWIRE"
+                "identifier" : {
+                  "value" : "SWAPSWIRE"
+                },
+                "meta" : {
+                  "globalKey" : "5b6941a5"
+                }
               } ]
             } ],
             "tradableProduct" : {
               "counterparty" : [ {
                 "partyReference" : {
                   "externalReference" : "partyA",
-                  "globalReference" : "9b1eca2f"
+                  "globalReference" : "c6abc049"
                 },
                 "role" : "PARTY_1"
               }, {
                 "partyReference" : {
                   "externalReference" : "partyB",
-                  "globalReference" : "5484f7"
+                  "globalReference" : "a4bfd493"
                 },
                 "role" : "PARTY_2"
               } ],
               "product" : {
                 "contractualProduct" : {
+                  "productTaxonomy" : [ {
+                    "taxonomySource" : "OTHER",
+                    "taxonomyValue" : {
+                      "value" : "InterestRateSwap"
+                    }
+                  }, {
+                    "productQualifier" : "InterestRate_IRSwap_Basis",
+                    "taxonomySource" : "ISDA"
+                  } ],
                   "economicTerms" : {
                     "payout" : {
                       "interestRatePayout" : [ {
@@ -174,7 +192,7 @@
                         },
                         "meta" : {
                           "externalKey" : "floatingLeg",
-                          "globalKey" : "7d386e13"
+                          "globalKey" : "2e47a1f0"
                         },
                         "paymentDates" : {
                           "meta" : {
@@ -214,7 +232,7 @@
                             "rateOption" : {
                               "address" : {
                                 "scope" : "DOCUMENT",
-                                "value" : "rateOption-1"
+                                "value" : "rateOption-2"
                               }
                             },
                             "spreadSchedule" : {
@@ -255,7 +273,7 @@
                           },
                           "meta" : {
                             "externalKey" : "floatingLegResetDates",
-                            "globalKey" : "44bd2e45"
+                            "globalKey" : "4e1ce8fe"
                           },
                           "resetDatesAdjustments" : {
                             "businessCenters" : {
@@ -379,7 +397,7 @@
                         },
                         "meta" : {
                           "externalKey" : "floatingLeg2",
-                          "globalKey" : "c9216d73"
+                          "globalKey" : "33baa2fe"
                         },
                         "paymentDates" : {
                           "meta" : {
@@ -427,7 +445,7 @@
                             "rateOption" : {
                               "address" : {
                                 "scope" : "DOCUMENT",
-                                "value" : "rateOption-2"
+                                "value" : "rateOption-1"
                               }
                             }
                           }
@@ -459,7 +477,7 @@
                           },
                           "meta" : {
                             "externalKey" : "floatingLeg2ResetDates",
-                            "globalKey" : "606f821"
+                            "globalKey" : "ebe35d10"
                           },
                           "resetDatesAdjustments" : {
                             "businessCenters" : {
@@ -488,25 +506,16 @@
                         }
                       } ],
                       "meta" : {
-                        "globalKey" : "e0c19d46"
+                        "globalKey" : "6456eb0e"
                       }
                     }
                   },
                   "meta" : {
-                    "globalKey" : "b1973b03"
-                  },
-                  "productIdentification" : {
-                    "externalProductType" : [ {
-                      "externalProductTypeSource" : "OTHER",
-                      "value" : {
-                        "value" : "InterestRateSwap"
-                      }
-                    } ],
-                    "productQualifier" : "InterestRate_IRSwap_Basis"
+                    "globalKey" : "f53d6fb"
                   }
                 },
                 "meta" : {
-                  "globalKey" : "b1973b03"
+                  "globalKey" : "f53d6fb"
                 }
               },
               "tradeLot" : [ {
@@ -522,7 +531,7 @@
                       "meta" : {
                         "location" : [ {
                           "scope" : "DOCUMENT",
-                          "value" : "rateOption-1"
+                          "value" : "rateOption-2"
                         } ]
                       },
                       "value" : {
@@ -592,7 +601,7 @@
                       "meta" : {
                         "location" : [ {
                           "scope" : "DOCUMENT",
-                          "value" : "rateOption-2"
+                          "value" : "rateOption-1"
                         } ]
                       },
                       "value" : {
@@ -638,10 +647,10 @@
               } ],
               "issuerReference" : {
                 "externalReference" : "partyA",
-                "globalReference" : "9b1eca2f"
+                "globalReference" : "c6abc049"
               },
               "meta" : {
-                "globalKey" : "af468bf5"
+                "globalKey" : "984bba7a"
               }
             }, {
               "assignedIdentifier" : [ {
@@ -654,10 +663,10 @@
               } ],
               "issuerReference" : {
                 "externalReference" : "partyB",
-                "globalReference" : "5484f7"
+                "globalReference" : "a4bfd493"
               },
               "meta" : {
-                "globalKey" : "16311f5c"
+                "globalKey" : "984bba7b"
               }
             }, {
               "assignedIdentifier" : [ {
@@ -673,24 +682,14 @@
                 "globalReference" : "5b6941a5"
               },
               "meta" : {
-                "globalKey" : "3003a5a9"
+                "globalKey" : "984bba7c"
               }
             } ]
           }
         }
       }
-    } ]
-  },
-  "messageInformation" : {
-    "sentBy" : {
-      "value" : "CME"
-    },
-    "sentTo" : [ {
-      "value" : "CME"
-    } ]
-  },
-  "meta" : {
-    "globalKey" : "6e0623a9"
+    } ],
+    "intent" : "CONTRACT_FORMATION"
   },
   "timestamp" : [ {
     "dateTime" : "2018-10-31T14:14:45.895Z",

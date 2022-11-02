@@ -1,10 +1,10 @@
 {
   "meta" : {
-    "globalKey" : "497c2b5b"
+    "globalKey" : "ef56e021"
   },
   "trade" : {
     "meta" : {
-      "globalKey" : "497c2b5b"
+      "globalKey" : "ef56e021"
     },
     "party" : [ {
       "meta" : {
@@ -12,10 +12,15 @@
         "globalKey" : "33f59567"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+          },
+          "value" : "Party A"
         },
-        "value" : "Party A"
+        "meta" : {
+          "globalKey" : "33f59567"
+        }
       } ]
     }, {
       "meta" : {
@@ -23,10 +28,15 @@
         "globalKey" : "33f59568"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+          },
+          "value" : "Party B"
         },
-        "value" : "Party B"
+        "meta" : {
+          "globalKey" : "33f59568"
+        }
       } ]
     } ],
     "tradableProduct" : {
@@ -45,6 +55,10 @@
       } ],
       "product" : {
         "contractualProduct" : {
+          "productTaxonomy" : [ {
+            "productQualifier" : "InterestRate_CrossCurrency_FixedFloat",
+            "taxonomySource" : "ISDA"
+          } ],
           "economicTerms" : {
             "payout" : {
               "interestRatePayout" : [ {
@@ -355,7 +369,7 @@
                 },
                 "payoutQuantity" : {
                   "meta" : {
-                    "globalKey" : "b65a3610"
+                    "globalKey" : "98907a10"
                   },
                   "quantityMultiplier" : {
                     "fxLinkedNotionalSchedule" : {
@@ -366,7 +380,7 @@
                         "hourMinuteTime" : "17:00:00"
                       },
                       "fxSpotRateSource" : {
-                        "primaryRateSource" : {
+                        "primarySource" : {
                           "sourceProvider" : {
                             "value" : "BANK_OF_JAPAN"
                           }
@@ -983,7 +997,7 @@
                   "value" : "ACT/360"
                 },
                 "meta" : {
-                  "globalKey" : "f5a46bad"
+                  "globalKey" : "71de5010"
                 },
                 "paymentDates" : {
                   "meta" : {
@@ -1066,7 +1080,7 @@
                   },
                   "meta" : {
                     "externalKey" : "floatingResetDates",
-                    "globalKey" : "aadf8c8a"
+                    "globalKey" : "58bd1f13"
                   },
                   "resetDatesAdjustments" : {
                     "businessCenters" : {
@@ -1097,19 +1111,16 @@
                 }
               } ],
               "meta" : {
-                "globalKey" : "56ed7311"
+                "globalKey" : "107c3c2c"
               }
             }
           },
           "meta" : {
-            "globalKey" : "d998523c"
-          },
-          "productIdentification" : {
-            "productQualifier" : "InterestRate_CrossCurrency_FixedFloat"
+            "globalKey" : "107c3c2c"
           }
         },
         "meta" : {
-          "globalKey" : "d998523c"
+          "globalKey" : "107c3c2c"
         }
       },
       "tradeLot" : [ {
@@ -1224,7 +1235,7 @@
         "globalReference" : "33f59567"
       },
       "meta" : {
-        "globalKey" : "5788648a"
+        "globalKey" : "c7753bbd"
       }
     }, {
       "assignedIdentifier" : [ {
@@ -1240,7 +1251,7 @@
         "globalReference" : "33f59568"
       },
       "meta" : {
-        "globalKey" : "5788d8ea"
+        "globalKey" : "c7753bbe"
       }
     } ]
   }

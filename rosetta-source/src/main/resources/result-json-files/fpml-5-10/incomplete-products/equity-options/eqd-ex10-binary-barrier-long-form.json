@@ -1,35 +1,46 @@
 {
   "meta" : {
-    "globalKey" : "7e83d47a"
+    "globalKey" : "b3bafad4"
   },
   "trade" : {
     "contractDetails" : {
       "documentation" : [ {
-        "documentationIdentification" : {
-          "contractualDefinitions" : [ {
-            "value" : "ISDA2000"
-          }, {
-            "value" : "ISDA_2002_EQUITY"
-          } ],
-          "masterAgreement" : {
+        "legalAgreementIdentification" : {
+          "agreementName" : {
+            "agreementType" : "MASTER_AGREEMENT",
             "masterAgreementType" : {
-              "value" : "ISDA"
-            },
-            "masterAgreementVersion" : {
-              "value" : "2002"
+              "value" : "ISDA_MASTER"
             }
+          },
+          "vintage" : 2002
+        },
+        "meta" : {
+          "globalKey" : "328cfa59"
+        }
+      }, {
+        "legalAgreementIdentification" : {
+          "agreementName" : {
+            "agreementType" : "CONFIRMATION",
+            "contractualDefinitionsType" : [ {
+              "value" : "ISDA2000"
+            }, {
+              "value" : "ISDA_2002_EQUITY"
+            } ]
           }
+        },
+        "meta" : {
+          "globalKey" : "ed9ef3fc"
         }
       } ],
       "governingLaw" : {
         "value" : "GBEN"
       },
       "meta" : {
-        "globalKey" : "a22f9f04"
+        "globalKey" : "92c7c587"
       }
     },
     "meta" : {
-      "globalKey" : "640c6385"
+      "globalKey" : "44ff78b6"
     },
     "party" : [ {
       "meta" : {
@@ -37,10 +48,15 @@
         "globalKey" : "33f59567"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+          },
+          "value" : "Party A"
         },
-        "value" : "Party A"
+        "meta" : {
+          "globalKey" : "33f59567"
+        }
       } ]
     }, {
       "meta" : {
@@ -48,10 +64,15 @@
         "globalKey" : "33f59568"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+          },
+          "value" : "Party B"
         },
-        "value" : "Party B"
+        "meta" : {
+          "globalKey" : "33f59568"
+        }
       } ]
     } ],
     "tradableProduct" : {
@@ -112,7 +133,7 @@
             },
             "payout" : {
               "meta" : {
-                "globalKey" : "3bf54809"
+                "globalKey" : "67c86583"
               },
               "optionPayout" : [ {
                 "payerReceiver" : {
@@ -131,6 +152,35 @@
                       }
                     }
                   }
+                },
+                "settlementTerms" : {
+                  "meta" : {
+                    "globalKey" : "709708a3"
+                  },
+                  "settlementCurrency" : {
+                    "value" : "EUR"
+                  },
+                  "settlementDate" : {
+                    "adjustedDate" : {
+                      "relativeDate" : {
+                        "meta" : {
+                          "globalKey" : "52114118"
+                        },
+                        "period" : "D",
+                        "periodMultiplier" : 3,
+                        "dayType" : "EXCHANGE_BUSINESS",
+                        "businessDayConvention" : "NONE",
+                        "dateRelativeTo" : {
+                          "externalReference" : "expirationDate",
+                          "globalReference" : "eb053691"
+                        }
+                      }
+                    },
+                    "meta" : {
+                      "globalKey" : "52114118"
+                    }
+                  },
+                  "settlementType" : "CASH"
                 },
                 "buyerSeller" : {
                   "buyer" : "PARTY_1",
@@ -157,8 +207,9 @@
                           "globalKey" : "eb053691"
                         }
                       } ],
+                      "expirationTimeType" : "SPECIFIC_TIME",
                       "meta" : {
-                        "globalKey" : "eb053691"
+                        "globalKey" : "41a32117"
                       }
                     }
                   },
@@ -188,7 +239,7 @@
                           "value" : "EUR"
                         },
                         "meta" : {
-                          "globalKey" : "b5e1a0c"
+                          "globalKey" : "79ca2335"
                         },
                         "payerReceiver" : {
                           "payerPartyReference" : {
@@ -238,7 +289,7 @@
                   }
                 },
                 "meta" : {
-                  "globalKey" : "3bf54809"
+                  "globalKey" : "67c86583"
                 },
                 "optionType" : "CALL",
                 "underlier" : {
@@ -247,6 +298,11 @@
                       "address" : {
                         "scope" : "DOCUMENT",
                         "value" : "productIdentifier-1"
+                      }
+                    }, {
+                      "address" : {
+                        "scope" : "DOCUMENT",
+                        "value" : "productIdentifier-2"
                       }
                     } ]
                   },
@@ -258,21 +314,21 @@
             }
           },
           "meta" : {
-            "globalKey" : "bbb702b5"
+            "globalKey" : "ed2ab42f"
           }
         },
         "meta" : {
-          "globalKey" : "bbb702b5"
+          "globalKey" : "ed2ab42f"
         }
       },
       "tradeLot" : [ {
         "priceQuantity" : [ {
           "meta" : {
-            "globalKey" : "8658b01b"
+            "globalKey" : "373ff935"
           },
           "observable" : {
             "meta" : {
-              "globalKey" : "39b040fa"
+              "globalKey" : "42e9a120"
             },
             "productIdentifier" : [ {
               "meta" : {
@@ -292,6 +348,22 @@
                   "globalKey" : "39b040fa"
                 },
                 "source" : "OTHER"
+              }
+            }, {
+              "meta" : {
+                "location" : [ {
+                  "scope" : "DOCUMENT",
+                  "value" : "productIdentifier-2"
+                } ]
+              },
+              "value" : {
+                "identifier" : {
+                  "value" : "S and P 500"
+                },
+                "meta" : {
+                  "globalKey" : "dd655da"
+                },
+                "source" : "NAME"
               }
             } ]
           },
@@ -334,13 +406,13 @@
         "globalReference" : "33f59567"
       },
       "meta" : {
-        "globalKey" : "571de47a"
+        "globalKey" : "1b2141cd"
       }
     } ]
   },
   "transferHistory" : [ {
     "meta" : {
-      "globalKey" : "23986ff5"
+      "globalKey" : "fb88039e"
     },
     "transfer" : {
       "payerReceiver" : {

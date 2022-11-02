@@ -1,56 +1,72 @@
 {
   "meta" : {
-    "globalKey" : "580bb074"
+    "globalKey" : "f0422b18"
   },
   "trade" : {
     "meta" : {
-      "globalKey" : "580bb074"
+      "globalKey" : "f0422b18"
     },
     "party" : [ {
       "meta" : {
         "externalKey" : "party1",
-        "globalKey" : "2f4c13bc"
+        "globalKey" : "deb0126c"
       },
       "name" : {
         "value" : "Buyside"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+          },
+          "value" : "254900BIAQJIUV6DLE92"
         },
-        "value" : "254900BIAQJIUV6DLE92"
+        "identifierType" : "LEI",
+        "meta" : {
+          "globalKey" : "b507782f"
+        }
       } ]
     }, {
       "meta" : {
         "externalKey" : "party2",
-        "globalKey" : "fe600ffa"
+        "globalKey" : "47033baa"
       },
       "name" : {
         "value" : "Sellside"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+          },
+          "value" : "549300VBWWV6BYQOWM67"
         },
-        "value" : "549300VBWWV6BYQOWM67"
+        "identifierType" : "LEI",
+        "meta" : {
+          "globalKey" : "618c3061"
+        }
       } ]
     } ],
     "tradableProduct" : {
       "counterparty" : [ {
         "partyReference" : {
           "externalReference" : "party2",
-          "globalReference" : "fe600ffa"
+          "globalReference" : "47033baa"
         },
         "role" : "PARTY_1"
       }, {
         "partyReference" : {
           "externalReference" : "party1",
-          "globalReference" : "2f4c13bc"
+          "globalReference" : "deb0126c"
         },
         "role" : "PARTY_2"
       } ],
       "product" : {
         "contractualProduct" : {
+          "productTaxonomy" : [ {
+            "productQualifier" : "InterestRate_IRSwap_FixedFloat",
+            "taxonomySource" : "ISDA"
+          } ],
           "economicTerms" : {
             "payout" : {
               "interestRatePayout" : [ {
@@ -145,7 +161,7 @@
                   "value" : "ACT/360"
                 },
                 "meta" : {
-                  "globalKey" : "4ec7212f"
+                  "globalKey" : "bc7f671d"
                 },
                 "paymentDates" : {
                   "meta" : {
@@ -215,7 +231,7 @@
                   },
                   "meta" : {
                     "externalKey" : "resetDates",
-                    "globalKey" : "cd0be806"
+                    "globalKey" : "3e8dc626"
                   },
                   "resetDatesAdjustments" : {
                     "businessCenters" : {
@@ -378,19 +394,16 @@
                 }
               } ],
               "meta" : {
-                "globalKey" : "bfe054c1"
+                "globalKey" : "df58e613"
               }
             }
           },
           "meta" : {
-            "globalKey" : "e6bc0bf7"
-          },
-          "productIdentification" : {
-            "productQualifier" : "InterestRate_IRSwap_FixedFloat"
+            "globalKey" : "df58e613"
           }
         },
         "meta" : {
-          "globalKey" : "e6bc0bf7"
+          "globalKey" : "df58e613"
         }
       },
       "tradeLot" : [ {
@@ -503,10 +516,10 @@
       } ],
       "issuerReference" : {
         "externalReference" : "party1",
-        "globalReference" : "2f4c13bc"
+        "globalReference" : "deb0126c"
       },
       "meta" : {
-        "globalKey" : "702a4ed6"
+        "globalKey" : "ea5bbca6"
       }
     }, {
       "assignedIdentifier" : [ {
@@ -519,10 +532,10 @@
       } ],
       "issuerReference" : {
         "externalReference" : "party2",
-        "globalReference" : "fe600ffa"
+        "globalReference" : "47033baa"
       },
       "meta" : {
-        "globalKey" : "d74a954a"
+        "globalKey" : "824b68b0"
       }
     } ]
   }

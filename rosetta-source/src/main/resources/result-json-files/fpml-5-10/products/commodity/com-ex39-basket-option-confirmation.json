@@ -1,32 +1,51 @@
 {
   "meta" : {
-    "globalKey" : "376deea3"
+    "globalKey" : "e28e495d"
   },
   "trade" : {
     "meta" : {
-      "globalKey" : "9af8387d"
+      "globalKey" : "e4803fed"
     },
     "party" : [ {
+      "contactInformation" : {
+        "address" : [ {
+          "country" : {
+            "value" : "US"
+          }
+        } ]
+      },
       "meta" : {
         "externalKey" : "PartyA",
-        "globalKey" : "a21eb706"
+        "globalKey" : "3c0bac94"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+          },
+          "value" : "95980020140005196564"
         },
-        "value" : "95980020140005196564"
+        "identifierType" : "LEI",
+        "meta" : {
+          "globalKey" : "a66e20f6"
+        }
       } ]
     }, {
       "meta" : {
         "externalKey" : "PartyB",
-        "globalKey" : "339efcc8"
+        "globalKey" : "37ee66b8"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+          },
+          "value" : "549300XQFX97CITUR430"
         },
-        "value" : "549300XQFX97CITUR430"
+        "identifierType" : "LEI",
+        "meta" : {
+          "globalKey" : "37ee66b8"
+        }
       } ]
     } ],
     "tradeDate" : {
@@ -46,10 +65,10 @@
       } ],
       "issuerReference" : {
         "externalReference" : "PartyA",
-        "globalReference" : "a21eb706"
+        "globalReference" : "3c0bac94"
       },
       "meta" : {
-        "globalKey" : "a32e89e7"
+        "globalKey" : "61e700bf"
       }
     }, {
       "assignedIdentifier" : [ {
@@ -62,26 +81,26 @@
       } ],
       "issuerReference" : {
         "externalReference" : "PartyB",
-        "globalReference" : "339efcc8"
+        "globalReference" : "37ee66b8"
       },
       "meta" : {
-        "globalKey" : "64fb32c8"
+        "globalKey" : "f8ff8a00"
       }
     } ]
   },
   "transferHistory" : [ {
     "meta" : {
-      "globalKey" : "e8081d26"
+      "globalKey" : "c9434ab0"
     },
     "transfer" : {
       "payerReceiver" : {
         "payerPartyReference" : {
           "externalReference" : "PartyA",
-          "globalReference" : "a21eb706"
+          "globalReference" : "3c0bac94"
         },
         "receiverPartyReference" : {
           "externalReference" : "PartyB",
-          "globalReference" : "339efcc8"
+          "globalReference" : "37ee66b8"
         }
       },
       "quantity" : {

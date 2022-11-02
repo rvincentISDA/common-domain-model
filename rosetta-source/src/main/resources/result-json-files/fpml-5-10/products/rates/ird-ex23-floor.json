@@ -1,10 +1,10 @@
 {
   "meta" : {
-    "globalKey" : "d87dedd5"
+    "globalKey" : "9bf49bf0"
   },
   "trade" : {
     "meta" : {
-      "globalKey" : "d87dedd5"
+      "globalKey" : "9bf49bf0"
     },
     "party" : [ {
       "meta" : {
@@ -12,10 +12,15 @@
         "globalKey" : "33f59567"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+          },
+          "value" : "Party A"
         },
-        "value" : "Party A"
+        "meta" : {
+          "globalKey" : "33f59567"
+        }
       } ]
     }, {
       "meta" : {
@@ -23,10 +28,15 @@
         "globalKey" : "33f59568"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+          },
+          "value" : "Party B"
         },
-        "value" : "Party B"
+        "meta" : {
+          "globalKey" : "33f59568"
+        }
       } ]
     } ],
     "tradableProduct" : {
@@ -45,6 +55,10 @@
       } ],
       "product" : {
         "contractualProduct" : {
+          "productTaxonomy" : [ {
+            "productQualifier" : "InterestRate_CapFloor",
+            "taxonomySource" : "ISDA"
+          } ],
           "economicTerms" : {
             "payout" : {
               "interestRatePayout" : [ {
@@ -73,12 +87,12 @@
                         "globalReference" : "428533f"
                       },
                       "meta" : {
-                        "globalKey" : "9f394efe"
+                        "globalKey" : "622268e1"
                       }
                     },
                     "businessDayConvention" : "MODFOLLOWING",
                     "meta" : {
-                      "globalKey" : "990d05cd"
+                      "globalKey" : "985d6cb2"
                     }
                   },
                   "calculationPeriodFrequency" : {
@@ -108,7 +122,7 @@
                   },
                   "meta" : {
                     "externalKey" : "CalcPeriodDates0",
-                    "globalKey" : "b1dd0f38"
+                    "globalKey" : "ffbbac33"
                   },
                   "terminationDate" : {
                     "adjustableDate" : {
@@ -143,7 +157,7 @@
                   "value" : "ACT/360"
                 },
                 "meta" : {
-                  "globalKey" : "77db4010"
+                  "globalKey" : "449df0b4"
                 },
                 "paymentDates" : {
                   "meta" : {
@@ -252,7 +266,7 @@
                   },
                   "meta" : {
                     "externalKey" : "resetDates0",
-                    "globalKey" : "40ffdb3d"
+                    "globalKey" : "366e4ca0"
                   },
                   "resetDatesAdjustments" : {
                     "businessCenters" : {
@@ -261,12 +275,12 @@
                         "globalReference" : "20a71d"
                       },
                       "meta" : {
-                        "globalKey" : "925eeafc"
+                        "globalKey" : "35a06081"
                       }
                     },
                     "businessDayConvention" : "MODFOLLOWING",
                     "meta" : {
-                      "globalKey" : "7000098b"
+                      "globalKey" : "6bdb6452"
                     }
                   },
                   "resetFrequency" : {
@@ -280,19 +294,16 @@
                 }
               } ],
               "meta" : {
-                "globalKey" : "77db4010"
+                "globalKey" : "449df0b4"
               }
             }
           },
           "meta" : {
-            "globalKey" : "98d654df"
-          },
-          "productIdentification" : {
-            "productQualifier" : "InterestRate_CapFloor"
+            "globalKey" : "449df0b4"
           }
         },
         "meta" : {
-          "globalKey" : "98d654df"
+          "globalKey" : "449df0b4"
         }
       },
       "tradeLot" : [ {
@@ -390,7 +401,7 @@
         "globalReference" : "33f59567"
       },
       "meta" : {
-        "globalKey" : "a50dc391"
+        "globalKey" : "cf509216"
       }
     } ]
   }

@@ -1,24 +1,28 @@
 {
   "meta" : {
-    "globalKey" : "dc6ce5fd"
+    "globalKey" : "87ce8208"
   },
   "trade" : {
     "contractDetails" : {
       "documentation" : [ {
-        "documentationIdentification" : {
-          "masterAgreement" : {
+        "legalAgreementIdentification" : {
+          "agreementName" : {
+            "agreementType" : "MASTER_AGREEMENT",
             "masterAgreementType" : {
-              "value" : "ISDA"
+              "value" : "ISDA_MASTER"
             }
           }
+        },
+        "meta" : {
+          "globalKey" : "c4592b87"
         }
       } ],
       "meta" : {
-        "globalKey" : "226f27"
+        "globalKey" : "c4592b87"
       }
     },
     "meta" : {
-      "globalKey" : "dc6ce5fd"
+      "globalKey" : "87ce8208"
     },
     "party" : [ {
       "meta" : {
@@ -26,10 +30,15 @@
         "globalKey" : "46e37105"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+          },
+          "value" : "0987654321"
         },
-        "value" : "0987654321"
+        "meta" : {
+          "globalKey" : "46e37105"
+        }
       } ]
     }, {
       "meta" : {
@@ -37,218 +46,70 @@
         "globalKey" : "858ff69b"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+          },
+          "value" : "1234567890"
         },
-        "value" : "1234567890"
+        "meta" : {
+          "globalKey" : "858ff69b"
+        }
       } ]
     } ],
     "tradableProduct" : {
       "adjustment" : "STANDARD",
       "counterparty" : [ {
         "partyReference" : {
-          "externalReference" : "PRIMARY",
-          "globalReference" : "46e37105"
+          "externalReference" : "CROSS",
+          "globalReference" : "858ff69b"
         },
         "role" : "PARTY_1"
       }, {
         "partyReference" : {
-          "externalReference" : "CROSS",
-          "globalReference" : "858ff69b"
+          "externalReference" : "PRIMARY",
+          "globalReference" : "46e37105"
         },
         "role" : "PARTY_2"
       } ],
       "product" : {
         "contractualProduct" : {
+          "productTaxonomy" : [ {
+            "taxonomySource" : "OTHER",
+            "taxonomyValue" : {
+              "meta" : {
+                "scheme" : "http://www.primarybank.com/productType"
+              },
+              "value" : "EQCFD"
+            }
+          }, {
+            "productQualifier" : "EquitySwap_TotalReturnBasicPerformance_SingleName",
+            "taxonomySource" : "ISDA"
+          } ],
           "economicTerms" : {
+            "effectiveDate" : {
+              "adjustableDate" : {
+                "dateAdjustments" : {
+                  "businessDayConvention" : "NOT_APPLICABLE",
+                  "meta" : {
+                    "globalKey" : "3a4b88ab"
+                  }
+                },
+                "meta" : {
+                  "globalKey" : "2601cd72"
+                },
+                "unadjustedDate" : "2009-10-07"
+              },
+              "meta" : {
+                "externalKey" : "EffectiveDate__CFD123456789",
+                "globalKey" : "2601cd72"
+              }
+            },
             "payout" : {
-              "equityPayout" : [ {
+              "interestRatePayout" : [ {
                 "payerReceiver" : {
                   "payer" : "PARTY_1",
                   "receiver" : "PARTY_2"
-                },
-                "payoutQuantity" : {
-                  "meta" : {
-                    "globalKey" : "95cb"
-                  },
-                  "quantitySchedule" : {
-                    "initialQuantity" : {
-                      "address" : {
-                        "scope" : "DOCUMENT",
-                        "value" : "quantity-1"
-                      }
-                    }
-                  },
-                  "reset" : false,
-                  "resolvedQuantity" : {
-                    "address" : {
-                      "scope" : "DOCUMENT",
-                      "value" : "quantity-2"
-                    }
-                  }
-                },
-                "settlementTerms" : {
-                  "meta" : {
-                    "globalKey" : "14966"
-                  },
-                  "settlementCurrency" : {
-                    "value" : "USD"
-                  }
-                },
-                "calculationPeriodDates" : {
-                  "effectiveDate" : {
-                    "adjustableDate" : {
-                      "dateAdjustments" : {
-                        "businessDayConvention" : "NOT_APPLICABLE",
-                        "meta" : {
-                          "globalKey" : "3a4b88ab"
-                        }
-                      },
-                      "meta" : {
-                        "globalKey" : "2601cd72"
-                      },
-                      "unadjustedDate" : "2009-10-07"
-                    },
-                    "meta" : {
-                      "externalKey" : "EffectiveDate__CFD123456789",
-                      "globalKey" : "2601cd72"
-                    }
-                  },
-                  "meta" : {
-                    "globalKey" : "2dccd0ba"
-                  },
-                  "terminationDate" : {
-                    "adjustableDate" : {
-                      "dateAdjustments" : {
-                        "businessDayConvention" : "NOT_APPLICABLE",
-                        "meta" : {
-                          "globalKey" : "3a4b88ab"
-                        }
-                      },
-                      "meta" : {
-                        "globalKey" : "272e06ec"
-                      },
-                      "unadjustedDate" : "2019-10-01"
-                    },
-                    "meta" : {
-                      "externalKey" : "TerminationDate__CFD123456789",
-                      "globalKey" : "272e06ec"
-                    }
-                  }
-                },
-                "dividendReturnTerms" : {
-                  "dividendCurrency" : {
-                    "currency" : {
-                      "value" : "USD"
-                    }
-                  },
-                  "dividendEntitlement" : "EX_DATE",
-                  "dividendPaymentDate" : {
-                    "dividendDateReference" : {
-                      "dateReference" : "AD_HOC_DATE"
-                    }
-                  },
-                  "dividendPayout" : [ {
-                    "dividendPayoutRatio" : 1.0
-                  } ],
-                  "dividendPeriodEffectiveDate" : {
-                    "externalReference" : "TradeDate__CFD123456789",
-                    "globalReference" : "3eca5e"
-                  },
-                  "dividendPeriodEndDate" : {
-                    "externalReference" : "FinalValuationDate__CFD123456789",
-                    "globalReference" : "272e06ec"
-                  },
-                  "dividendReinvestment" : false
-                },
-                "fxFeature" : [ {
-                  "referenceCurrency" : {
-                    "meta" : {
-                      "externalKey" : "ReferenceCurrency",
-                      "globalKey" : "14966"
-                    },
-                    "value" : "USD"
-                  }
-                } ],
-                "meta" : {
-                  "externalKey" : "EQ__CFD123456789",
-                  "globalKey" : "cb6ad170"
-                },
-                "paymentDates" : {
-                  "meta" : {
-                    "globalKey" : "aa64376b"
-                  },
-                  "paymentDateSchedule" : {
-                    "finalPaymentDate" : {
-                      "adjustableDate" : {
-                        "dateAdjustments" : {
-                          "businessCenters" : {
-                            "businessCenter" : [ {
-                              "value" : "NYSE"
-                            } ],
-                            "meta" : {
-                              "globalKey" : "24cd5d"
-                            }
-                          },
-                          "businessDayConvention" : "FOLLOWING",
-                          "meta" : {
-                            "globalKey" : "2121e94c"
-                          }
-                        },
-                        "meta" : {
-                          "globalKey" : "aa64376b"
-                        },
-                        "unadjustedDate" : "2019-10-01"
-                      },
-                      "meta" : {
-                        "globalKey" : "aa64376b"
-                      }
-                    }
-                  }
-                },
-                "priceReturnTerms" : {
-                  "valuationPriceFinal" : {
-                    "determinationMethod" : "HEDGE_EXECUTION",
-                    "valuationDate" : {
-                      "adjustableDate" : {
-                        "dateAdjustments" : {
-                          "businessDayConvention" : "NOT_APPLICABLE",
-                          "meta" : {
-                            "globalKey" : "3a4b88ab"
-                          }
-                        },
-                        "meta" : {
-                          "globalKey" : "272e06ec"
-                        },
-                        "unadjustedDate" : "2019-10-01"
-                      },
-                      "meta" : {
-                        "externalKey" : "FinalValuationDate__CFD123456789",
-                        "globalKey" : "272e06ec"
-                      }
-                    }
-                  }
-                },
-                "returnType" : "TOTAL",
-                "underlier" : {
-                  "meta" : {
-                    "globalKey" : "7a5b92c5"
-                  },
-                  "security" : {
-                    "productIdentifier" : [ {
-                      "address" : {
-                        "scope" : "DOCUMENT",
-                        "value" : "productIdentifier-1"
-                      }
-                    } ],
-                    "securityType" : "EQUITY"
-                  }
-                }
-              } ],
-              "interestRatePayout" : [ {
-                "payerReceiver" : {
-                  "payer" : "PARTY_2",
-                  "receiver" : "PARTY_1"
                 },
                 "payoutQuantity" : {
                   "meta" : {
@@ -308,7 +169,7 @@
                 },
                 "meta" : {
                   "externalKey" : "FI__CFD123456789",
-                  "globalKey" : "d1742c9"
+                  "globalKey" : "2aa03933"
                 },
                 "paymentDates" : {
                   "meta" : {
@@ -369,34 +230,195 @@
                     "globalReference" : "2dccd0ba"
                   },
                   "meta" : {
-                    "globalKey" : "7478483"
+                    "globalKey" : "b20fcfd7"
                   },
                   "resetRelativeTo" : "CALCULATION_PERIOD_START_DATE"
                 }
               } ],
               "meta" : {
-                "globalKey" : "9f3b2359"
+                "globalKey" : "f655c90b"
+              },
+              "performancePayout" : [ {
+                "payerReceiver" : {
+                  "payer" : "PARTY_2",
+                  "receiver" : "PARTY_1"
+                },
+                "payoutQuantity" : {
+                  "meta" : {
+                    "globalKey" : "95cb"
+                  },
+                  "quantitySchedule" : {
+                    "initialQuantity" : {
+                      "address" : {
+                        "scope" : "DOCUMENT",
+                        "value" : "quantity-1"
+                      }
+                    }
+                  },
+                  "reset" : false,
+                  "resolvedQuantity" : {
+                    "address" : {
+                      "scope" : "DOCUMENT",
+                      "value" : "quantity-2"
+                    }
+                  }
+                },
+                "settlementTerms" : {
+                  "meta" : {
+                    "globalKey" : "14966"
+                  },
+                  "settlementCurrency" : {
+                    "value" : "USD"
+                  }
+                },
+                "fxFeature" : [ {
+                  "referenceCurrency" : {
+                    "meta" : {
+                      "externalKey" : "ReferenceCurrency",
+                      "globalKey" : "14966"
+                    },
+                    "value" : "USD"
+                  }
+                } ],
+                "meta" : {
+                  "externalKey" : "EQ__CFD123456789",
+                  "globalKey" : "6a4a285e"
+                },
+                "paymentDates" : {
+                  "meta" : {
+                    "globalKey" : "aa64376b"
+                  },
+                  "paymentDateSchedule" : {
+                    "finalPaymentDate" : {
+                      "adjustableDate" : {
+                        "dateAdjustments" : {
+                          "businessCenters" : {
+                            "businessCenter" : [ {
+                              "value" : "NYSE"
+                            } ],
+                            "meta" : {
+                              "globalKey" : "24cd5d"
+                            }
+                          },
+                          "businessDayConvention" : "FOLLOWING",
+                          "meta" : {
+                            "globalKey" : "2121e94c"
+                          }
+                        },
+                        "meta" : {
+                          "globalKey" : "aa64376b"
+                        },
+                        "unadjustedDate" : "2019-10-01"
+                      },
+                      "meta" : {
+                        "globalKey" : "aa64376b"
+                      }
+                    }
+                  }
+                },
+                "returnTerms" : {
+                  "dividendReturnTerms" : {
+                    "dividendCurrency" : {
+                      "currency" : {
+                        "value" : "USD"
+                      }
+                    },
+                    "dividendEntitlement" : "EX_DATE",
+                    "dividendPayoutRatio" : [ {
+                      "totalRatio" : 1.0
+                    } ],
+                    "dividendPeriod" : [ {
+                      "dividendPaymentDate" : {
+                        "dividendDateReference" : {
+                          "dateReference" : "AD_HOC_DATE"
+                        }
+                      },
+                      "endDate" : {
+                        "dividendDate" : {
+                          "externalReference" : "FinalValuationDate__CFD123456789",
+                          "globalReference" : "272e06ec"
+                        }
+                      },
+                      "startDate" : {
+                        "dividendDate" : {
+                          "externalReference" : "TradeDate__CFD123456789",
+                          "globalReference" : "3eca5e"
+                        }
+                      }
+                    } ],
+                    "dividendReinvestment" : false
+                  },
+                  "priceReturnTerms" : {
+                    "returnType" : "TOTAL"
+                  }
+                },
+                "underlier" : {
+                  "meta" : {
+                    "globalKey" : "7a5b92c5"
+                  },
+                  "security" : {
+                    "productIdentifier" : [ {
+                      "address" : {
+                        "scope" : "DOCUMENT",
+                        "value" : "productIdentifier-1"
+                      }
+                    } ],
+                    "securityType" : "EQUITY"
+                  }
+                },
+                "valuationDates" : {
+                  "valuationDatesFinal" : {
+                    "determinationMethod" : "HEDGE_EXECUTION",
+                    "meta" : {
+                      "globalKey" : "98f9886e"
+                    },
+                    "valuationDate" : {
+                      "adjustableDate" : {
+                        "dateAdjustments" : {
+                          "businessDayConvention" : "NOT_APPLICABLE",
+                          "meta" : {
+                            "globalKey" : "3a4b88ab"
+                          }
+                        },
+                        "meta" : {
+                          "globalKey" : "272e06ec"
+                        },
+                        "unadjustedDate" : "2019-10-01"
+                      },
+                      "meta" : {
+                        "externalKey" : "FinalValuationDate__CFD123456789",
+                        "globalKey" : "272e06ec"
+                      }
+                    }
+                  }
+                }
+              } ]
+            },
+            "terminationDate" : {
+              "adjustableDate" : {
+                "dateAdjustments" : {
+                  "businessDayConvention" : "NOT_APPLICABLE",
+                  "meta" : {
+                    "globalKey" : "3a4b88ab"
+                  }
+                },
+                "meta" : {
+                  "globalKey" : "272e06ec"
+                },
+                "unadjustedDate" : "2019-10-01"
+              },
+              "meta" : {
+                "externalKey" : "TerminationDate__CFD123456789",
+                "globalKey" : "272e06ec"
               }
             }
           },
           "meta" : {
-            "globalKey" : "36e08c61"
-          },
-          "productIdentification" : {
-            "externalProductType" : [ {
-              "externalProductTypeSource" : "OTHER",
-              "value" : {
-                "meta" : {
-                  "scheme" : "http://www.primarybank.com/productType"
-                },
-                "value" : "EQCFD"
-              }
-            } ],
-            "productQualifier" : "EquitySwap_TotalReturnBasicPerformance_SingleName"
+            "globalKey" : "b6a3212a"
           }
         },
         "meta" : {
-          "globalKey" : "36e08c61"
+          "globalKey" : "b6a3212a"
         }
       },
       "tradeLot" : [ {
@@ -564,7 +586,7 @@
         "globalReference" : "46e37105"
       },
       "meta" : {
-        "globalKey" : "76f7bb4f"
+        "globalKey" : "a486e9f6"
       }
     }, {
       "assignedIdentifier" : [ {
@@ -580,7 +602,7 @@
         "globalReference" : "858ff69b"
       },
       "meta" : {
-        "globalKey" : "91eca9e7"
+        "globalKey" : "9054f034"
       }
     } ]
   }

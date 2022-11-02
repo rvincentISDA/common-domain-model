@@ -1,50 +1,66 @@
 {
   "meta" : {
-    "globalKey" : "b41edf1"
+    "globalKey" : "49a9802d"
   },
   "trade" : {
     "meta" : {
-      "globalKey" : "b41edf1"
+      "globalKey" : "49a9802d"
     },
     "party" : [ {
       "meta" : {
         "externalKey" : "party1",
-        "globalKey" : "79c675b1"
+        "globalKey" : "7e15dfa1"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+          },
+          "value" : "5299003X2Y7GWCF0KT81"
         },
-        "value" : "5299003X2Y7GWCF0KT81"
+        "identifierType" : "LEI",
+        "meta" : {
+          "globalKey" : "7e15dfa1"
+        }
       } ]
     }, {
       "meta" : {
         "externalKey" : "party2",
-        "globalKey" : "650ebbbb"
+        "globalKey" : "695e25ab"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+          },
+          "value" : "529900DTJ5A7S5UCBB52"
         },
-        "value" : "529900DTJ5A7S5UCBB52"
+        "identifierType" : "LEI",
+        "meta" : {
+          "globalKey" : "695e25ab"
+        }
       } ]
     } ],
     "tradableProduct" : {
       "counterparty" : [ {
         "partyReference" : {
           "externalReference" : "party1",
-          "globalReference" : "79c675b1"
+          "globalReference" : "7e15dfa1"
         },
         "role" : "PARTY_1"
       }, {
         "partyReference" : {
           "externalReference" : "party2",
-          "globalReference" : "650ebbbb"
+          "globalReference" : "695e25ab"
         },
         "role" : "PARTY_2"
       } ],
       "product" : {
         "contractualProduct" : {
+          "productTaxonomy" : [ {
+            "productQualifier" : "InterestRate_IRSwap_FixedFloat",
+            "taxonomySource" : "ISDA"
+          } ],
           "economicTerms" : {
             "payout" : {
               "interestRatePayout" : [ {
@@ -73,12 +89,12 @@
                         "globalReference" : "4158421"
                       },
                       "meta" : {
-                        "globalKey" : "b3dded25"
+                        "globalKey" : "eb13047c"
                       }
                     },
                     "businessDayConvention" : "MODFOLLOWING",
                     "meta" : {
-                      "globalKey" : "adb1a3f4"
+                      "globalKey" : "214e084d"
                     }
                   },
                   "calculationPeriodFrequency" : {
@@ -108,7 +124,7 @@
                   },
                   "meta" : {
                     "externalKey" : "floatingCalcPeriodDates",
-                    "globalKey" : "c85d200d"
+                    "globalKey" : "d641c314"
                   },
                   "terminationDate" : {
                     "adjustableDate" : {
@@ -143,13 +159,13 @@
                   "value" : "ACT/360"
                 },
                 "meta" : {
-                  "globalKey" : "f4d15fbe"
+                  "globalKey" : "c8037d22"
                 },
                 "paymentDates" : {
                   "firstPaymentDate" : "1994-12-14",
                   "lastRegularPaymentDate" : "1996-12-14",
                   "meta" : {
-                    "globalKey" : "723d0d0b"
+                    "globalKey" : "d1de606"
                   },
                   "payRelativeTo" : "CALCULATION_PERIOD_END_DATE",
                   "paymentDatesAdjustments" : {
@@ -159,12 +175,12 @@
                         "globalReference" : "4158421"
                       },
                       "meta" : {
-                        "globalKey" : "b3dded25"
+                        "globalKey" : "eb13047c"
                       }
                     },
                     "businessDayConvention" : "MODFOLLOWING",
                     "meta" : {
-                      "globalKey" : "adb1a3f4"
+                      "globalKey" : "214e084d"
                     }
                   },
                   "paymentFrequency" : {
@@ -216,7 +232,7 @@
                   },
                   "meta" : {
                     "externalKey" : "resetDates",
-                    "globalKey" : "30cc1c3b"
+                    "globalKey" : "e4e7b309"
                   },
                   "resetDatesAdjustments" : {
                     "businessCenters" : {
@@ -225,12 +241,12 @@
                         "globalReference" : "4158421"
                       },
                       "meta" : {
-                        "globalKey" : "b3dded25"
+                        "globalKey" : "eb13047c"
                       }
                     },
                     "businessDayConvention" : "MODFOLLOWING",
                     "meta" : {
-                      "globalKey" : "adb1a3f4"
+                      "globalKey" : "214e084d"
                     }
                   },
                   "resetFrequency" : {
@@ -268,12 +284,12 @@
                         "globalReference" : "4158421"
                       },
                       "meta" : {
-                        "globalKey" : "b3dded25"
+                        "globalKey" : "eb13047c"
                       }
                     },
                     "businessDayConvention" : "MODFOLLOWING",
                     "meta" : {
-                      "globalKey" : "adb1a3f4"
+                      "globalKey" : "214e084d"
                     }
                   },
                   "calculationPeriodFrequency" : {
@@ -303,7 +319,7 @@
                   },
                   "meta" : {
                     "externalKey" : "fixedCalcPeriodDates",
-                    "globalKey" : "e1a0bea"
+                    "globalKey" : "faa5b75e"
                   },
                   "terminationDate" : {
                     "adjustableDate" : {
@@ -314,21 +330,21 @@
                             "globalReference" : "4158421"
                           },
                           "meta" : {
-                            "globalKey" : "b3dded25"
+                            "globalKey" : "eb13047c"
                           }
                         },
                         "businessDayConvention" : "MODFOLLOWING",
                         "meta" : {
-                          "globalKey" : "adb1a3f4"
+                          "globalKey" : "214e084d"
                         }
                       },
                       "meta" : {
-                        "globalKey" : "fed42582"
+                        "globalKey" : "93c845ff"
                       },
                       "unadjustedDate" : "1999-12-14"
                     },
                     "meta" : {
-                      "globalKey" : "fed42582"
+                      "globalKey" : "93c845ff"
                     }
                   }
                 },
@@ -336,11 +352,11 @@
                   "value" : "30/360"
                 },
                 "meta" : {
-                  "globalKey" : "367159db"
+                  "globalKey" : "d96f0582"
                 },
                 "paymentDates" : {
                   "meta" : {
-                    "globalKey" : "957cacba"
+                    "globalKey" : "4fa46135"
                   },
                   "payRelativeTo" : "CALCULATION_PERIOD_END_DATE",
                   "paymentDatesAdjustments" : {
@@ -350,12 +366,12 @@
                         "globalReference" : "4158421"
                       },
                       "meta" : {
-                        "globalKey" : "b3dded25"
+                        "globalKey" : "eb13047c"
                       }
                     },
                     "businessDayConvention" : "MODFOLLOWING",
                     "meta" : {
-                      "globalKey" : "adb1a3f4"
+                      "globalKey" : "214e084d"
                     }
                   },
                   "paymentFrequency" : {
@@ -383,19 +399,16 @@
                 }
               } ],
               "meta" : {
-                "globalKey" : "31ebf019"
+                "globalKey" : "a0656720"
               }
             }
           },
           "meta" : {
-            "globalKey" : "44e314f"
-          },
-          "productIdentification" : {
-            "productQualifier" : "InterestRate_IRSwap_FixedFloat"
+            "globalKey" : "a0656720"
           }
         },
         "meta" : {
-          "globalKey" : "44e314f"
+          "globalKey" : "a0656720"
         }
       },
       "tradeLot" : [ {
@@ -509,10 +522,10 @@
       } ],
       "issuerReference" : {
         "externalReference" : "party1",
-        "globalReference" : "79c675b1"
+        "globalReference" : "7e15dfa1"
       },
       "meta" : {
-        "globalKey" : "88a85b27"
+        "globalKey" : "38f6fe4a"
       }
     } ]
   }

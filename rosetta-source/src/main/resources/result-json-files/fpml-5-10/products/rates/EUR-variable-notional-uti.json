@@ -1,79 +1,137 @@
 {
   "meta" : {
-    "globalKey" : "48be6071"
+    "globalKey" : "f9cb526b"
   },
   "trade" : {
     "contractDetails" : {
       "documentation" : [ {
-        "documentationIdentification" : {
-          "contractualDefinitions" : [ {
-            "meta" : {
-              "scheme" : "http://www.fpml.org/coding-scheme/contractual-definitions"
-            },
-            "value" : "ISDA2006"
-          } ],
-          "masterAgreement" : {
+        "legalAgreementIdentification" : {
+          "agreementName" : {
+            "agreementType" : "MASTER_AGREEMENT",
             "masterAgreementType" : {
               "meta" : {
                 "scheme" : "http://www.fpml.org/coding-scheme/master-agreement-type"
               },
-              "value" : "ISDA"
+              "value" : "ISDA_MASTER"
             }
           }
+        },
+        "meta" : {
+          "globalKey" : "c4592b87"
+        }
+      }, {
+        "legalAgreementIdentification" : {
+          "agreementName" : {
+            "agreementType" : "CONFIRMATION",
+            "contractualDefinitionsType" : [ {
+              "meta" : {
+                "scheme" : "http://www.fpml.org/coding-scheme/contractual-definitions"
+              },
+              "value" : "ISDA2006"
+            } ]
+          }
+        },
+        "meta" : {
+          "globalKey" : "6b413360"
         }
       } ],
       "meta" : {
-        "globalKey" : "15201adc"
+        "globalKey" : "bd492439"
       }
     },
     "meta" : {
-      "globalKey" : "48be6071"
+      "globalKey" : "f9cb526b"
     },
     "party" : [ {
       "meta" : {
         "externalKey" : "party1",
-        "globalKey" : "1ab3e71c"
+        "globalKey" : "7cec034c"
       },
       "name" : {
         "value" : "Party A"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+          },
+          "value" : "54930084UKLVMY22DS16"
         },
-        "value" : "54930084UKLVMY22DS16"
+        "identifierType" : "LEI",
+        "meta" : {
+          "globalKey" : "121d7965"
+        }
       } ]
     }, {
       "meta" : {
         "externalKey" : "party2",
-        "globalKey" : "e6c82f54"
+        "globalKey" : "490e5f44"
       },
       "name" : {
         "value" : "Party B"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+          },
+          "value" : "48750084UKLVTR22DS78"
         },
-        "value" : "48750084UKLVTR22DS78"
+        "identifierType" : "LEI",
+        "meta" : {
+          "globalKey" : "de31bddc"
+        }
       } ]
     } ],
     "tradableProduct" : {
       "counterparty" : [ {
         "partyReference" : {
           "externalReference" : "party2",
-          "globalReference" : "e6c82f54"
+          "globalReference" : "490e5f44"
         },
         "role" : "PARTY_1"
       }, {
         "partyReference" : {
           "externalReference" : "party1",
-          "globalReference" : "1ab3e71c"
+          "globalReference" : "7cec034c"
         },
         "role" : "PARTY_2"
       } ],
       "product" : {
         "contractualProduct" : {
+          "productIdentifier" : [ {
+            "value" : {
+              "identifier" : {
+                "meta" : {
+                  "scheme" : "http://www.fpml.org/coding-scheme/product-taxonomy"
+                },
+                "value" : "InterestRate:IRSwap:FixedFloat"
+              },
+              "meta" : {
+                "globalKey" : "95f4ea06"
+              },
+              "source" : "OTHER"
+            }
+          } ],
+          "productTaxonomy" : [ {
+            "primaryAssetClass" : {
+              "meta" : {
+                "scheme" : "http://www.fpml.org/coding-scheme/asset-class-simple"
+              },
+              "value" : "INTEREST_RATE"
+            }
+          }, {
+            "taxonomySource" : "ISDA",
+            "taxonomyValue" : {
+              "meta" : {
+                "scheme" : "http://www.fpml.org/coding-scheme/product-taxonomy"
+              },
+              "value" : "InterestRate:IRSwap:FixedFloat"
+            }
+          }, {
+            "productQualifier" : "InterestRate_IRSwap_FixedFloat",
+            "taxonomySource" : "ISDA"
+          } ],
           "economicTerms" : {
             "payout" : {
               "interestRatePayout" : [ {
@@ -92,57 +150,55 @@
                         "value" : "quantity-1"
                       }
                     },
-                    "stepSchedule" : {
-                      "step" : [ {
-                        "meta" : {
-                          "globalKey" : "79e23ef"
-                        },
-                        "stepDate" : "2012-09-02",
-                        "stepValue" : 100
-                      }, {
-                        "meta" : {
-                          "globalKey" : "79f1bef"
-                        },
-                        "stepDate" : "2013-09-02",
-                        "stepValue" : 100
-                      }, {
-                        "meta" : {
-                          "globalKey" : "7a013ef"
-                        },
-                        "stepDate" : "2014-09-02",
-                        "stepValue" : 100
-                      }, {
-                        "meta" : {
-                          "globalKey" : "7a10bef"
-                        },
-                        "stepDate" : "2015-09-02",
-                        "stepValue" : 100
-                      }, {
-                        "meta" : {
-                          "globalKey" : "7a203ef"
-                        },
-                        "stepDate" : "2016-09-02",
-                        "stepValue" : 100
-                      }, {
-                        "meta" : {
-                          "globalKey" : "7a2fbef"
-                        },
-                        "stepDate" : "2017-09-02",
-                        "stepValue" : 100
-                      }, {
-                        "meta" : {
-                          "globalKey" : "7a3f3ef"
-                        },
-                        "stepDate" : "2018-09-02",
-                        "stepValue" : 100
-                      }, {
-                        "meta" : {
-                          "globalKey" : "7a4ebef"
-                        },
-                        "stepDate" : "2019-09-02",
-                        "stepValue" : 100
-                      } ]
-                    }
+                    "step" : [ {
+                      "meta" : {
+                        "globalKey" : "79e23ef"
+                      },
+                      "stepDate" : "2012-09-02",
+                      "stepValue" : 100
+                    }, {
+                      "meta" : {
+                        "globalKey" : "79f1bef"
+                      },
+                      "stepDate" : "2013-09-02",
+                      "stepValue" : 100
+                    }, {
+                      "meta" : {
+                        "globalKey" : "7a013ef"
+                      },
+                      "stepDate" : "2014-09-02",
+                      "stepValue" : 100
+                    }, {
+                      "meta" : {
+                        "globalKey" : "7a10bef"
+                      },
+                      "stepDate" : "2015-09-02",
+                      "stepValue" : 100
+                    }, {
+                      "meta" : {
+                        "globalKey" : "7a203ef"
+                      },
+                      "stepDate" : "2016-09-02",
+                      "stepValue" : 100
+                    }, {
+                      "meta" : {
+                        "globalKey" : "7a2fbef"
+                      },
+                      "stepDate" : "2017-09-02",
+                      "stepValue" : 100
+                    }, {
+                      "meta" : {
+                        "globalKey" : "7a3f3ef"
+                      },
+                      "stepDate" : "2018-09-02",
+                      "stepValue" : 100
+                    }, {
+                      "meta" : {
+                        "globalKey" : "7a4ebef"
+                      },
+                      "stepDate" : "2019-09-02",
+                      "stepValue" : 100
+                    } ]
                   }
                 },
                 "calculationPeriodDates" : {
@@ -220,7 +276,7 @@
                 },
                 "meta" : {
                   "externalKey" : "fixedLeg1",
-                  "globalKey" : "8a515d44"
+                  "globalKey" : "aa8fa526"
                 },
                 "paymentDates" : {
                   "meta" : {
@@ -330,105 +386,103 @@
                         "value" : "quantity-2"
                       }
                     },
-                    "stepSchedule" : {
-                      "step" : [ {
-                        "meta" : {
-                          "globalKey" : "79e23ef"
-                        },
-                        "stepDate" : "2012-09-02",
-                        "stepValue" : 100
-                      }, {
-                        "meta" : {
-                          "globalKey" : "79eed6f"
-                        },
-                        "stepDate" : "2013-03-02",
-                        "stepValue" : 100
-                      }, {
-                        "meta" : {
-                          "globalKey" : "79f1bef"
-                        },
-                        "stepDate" : "2013-09-02",
-                        "stepValue" : 100
-                      }, {
-                        "meta" : {
-                          "globalKey" : "79fe56f"
-                        },
-                        "stepDate" : "2014-03-02",
-                        "stepValue" : 100
-                      }, {
-                        "meta" : {
-                          "globalKey" : "7a013ef"
-                        },
-                        "stepDate" : "2014-09-02",
-                        "stepValue" : 100
-                      }, {
-                        "meta" : {
-                          "globalKey" : "7a0dd6f"
-                        },
-                        "stepDate" : "2015-03-02",
-                        "stepValue" : 100
-                      }, {
-                        "meta" : {
-                          "globalKey" : "7a10bef"
-                        },
-                        "stepDate" : "2015-09-02",
-                        "stepValue" : 100
-                      }, {
-                        "meta" : {
-                          "globalKey" : "7a1d56f"
-                        },
-                        "stepDate" : "2016-03-02",
-                        "stepValue" : 100
-                      }, {
-                        "meta" : {
-                          "globalKey" : "7a203ef"
-                        },
-                        "stepDate" : "2016-09-02",
-                        "stepValue" : 100
-                      }, {
-                        "meta" : {
-                          "globalKey" : "7a2cd6f"
-                        },
-                        "stepDate" : "2017-03-02",
-                        "stepValue" : 100
-                      }, {
-                        "meta" : {
-                          "globalKey" : "7a2fbef"
-                        },
-                        "stepDate" : "2017-09-02",
-                        "stepValue" : 100
-                      }, {
-                        "meta" : {
-                          "globalKey" : "7a3c56f"
-                        },
-                        "stepDate" : "2018-03-02",
-                        "stepValue" : 100
-                      }, {
-                        "meta" : {
-                          "globalKey" : "7a3f3ef"
-                        },
-                        "stepDate" : "2018-09-02",
-                        "stepValue" : 100
-                      }, {
-                        "meta" : {
-                          "globalKey" : "7a4bd6f"
-                        },
-                        "stepDate" : "2019-03-02",
-                        "stepValue" : 100
-                      }, {
-                        "meta" : {
-                          "globalKey" : "7a4ebef"
-                        },
-                        "stepDate" : "2019-09-02",
-                        "stepValue" : 100
-                      }, {
-                        "meta" : {
-                          "globalKey" : "7a5b56f"
-                        },
-                        "stepDate" : "2020-03-02",
-                        "stepValue" : 100
-                      } ]
-                    }
+                    "step" : [ {
+                      "meta" : {
+                        "globalKey" : "79e23ef"
+                      },
+                      "stepDate" : "2012-09-02",
+                      "stepValue" : 100
+                    }, {
+                      "meta" : {
+                        "globalKey" : "79eed6f"
+                      },
+                      "stepDate" : "2013-03-02",
+                      "stepValue" : 100
+                    }, {
+                      "meta" : {
+                        "globalKey" : "79f1bef"
+                      },
+                      "stepDate" : "2013-09-02",
+                      "stepValue" : 100
+                    }, {
+                      "meta" : {
+                        "globalKey" : "79fe56f"
+                      },
+                      "stepDate" : "2014-03-02",
+                      "stepValue" : 100
+                    }, {
+                      "meta" : {
+                        "globalKey" : "7a013ef"
+                      },
+                      "stepDate" : "2014-09-02",
+                      "stepValue" : 100
+                    }, {
+                      "meta" : {
+                        "globalKey" : "7a0dd6f"
+                      },
+                      "stepDate" : "2015-03-02",
+                      "stepValue" : 100
+                    }, {
+                      "meta" : {
+                        "globalKey" : "7a10bef"
+                      },
+                      "stepDate" : "2015-09-02",
+                      "stepValue" : 100
+                    }, {
+                      "meta" : {
+                        "globalKey" : "7a1d56f"
+                      },
+                      "stepDate" : "2016-03-02",
+                      "stepValue" : 100
+                    }, {
+                      "meta" : {
+                        "globalKey" : "7a203ef"
+                      },
+                      "stepDate" : "2016-09-02",
+                      "stepValue" : 100
+                    }, {
+                      "meta" : {
+                        "globalKey" : "7a2cd6f"
+                      },
+                      "stepDate" : "2017-03-02",
+                      "stepValue" : 100
+                    }, {
+                      "meta" : {
+                        "globalKey" : "7a2fbef"
+                      },
+                      "stepDate" : "2017-09-02",
+                      "stepValue" : 100
+                    }, {
+                      "meta" : {
+                        "globalKey" : "7a3c56f"
+                      },
+                      "stepDate" : "2018-03-02",
+                      "stepValue" : 100
+                    }, {
+                      "meta" : {
+                        "globalKey" : "7a3f3ef"
+                      },
+                      "stepDate" : "2018-09-02",
+                      "stepValue" : 100
+                    }, {
+                      "meta" : {
+                        "globalKey" : "7a4bd6f"
+                      },
+                      "stepDate" : "2019-03-02",
+                      "stepValue" : 100
+                    }, {
+                      "meta" : {
+                        "globalKey" : "7a4ebef"
+                      },
+                      "stepDate" : "2019-09-02",
+                      "stepValue" : 100
+                    }, {
+                      "meta" : {
+                        "globalKey" : "7a5b56f"
+                      },
+                      "stepDate" : "2020-03-02",
+                      "stepValue" : 100
+                    } ]
                   }
                 },
                 "calculationPeriodDates" : {
@@ -506,7 +560,7 @@
                 },
                 "meta" : {
                   "externalKey" : "floatingLeg2",
-                  "globalKey" : "87daf333"
+                  "globalKey" : "d1cc4c31"
                 },
                 "paymentDates" : {
                   "meta" : {
@@ -684,7 +738,7 @@
                   },
                   "meta" : {
                     "externalKey" : "resetDates2",
-                    "globalKey" : "66a0ecb6"
+                    "globalKey" : "3b1d87b0"
                   },
                   "resetDatesAdjustments" : {
                     "businessCenters" : {
@@ -711,46 +765,16 @@
                 }
               } ],
               "meta" : {
-                "globalKey" : "c10dbb6f"
+                "globalKey" : "2469454b"
               }
             }
           },
           "meta" : {
-            "globalKey" : "ffbc2ac6"
-          },
-          "productIdentification" : {
-            "externalProductType" : [ {
-              "externalProductTypeSource" : "OTHER",
-              "value" : {
-                "meta" : {
-                  "scheme" : "http://www.fpml.org/coding-scheme/product-taxonomy"
-                },
-                "value" : "InterestRate:IRSwap:FixedFloat"
-              }
-            } ],
-            "primaryAssetData" : {
-              "meta" : {
-                "scheme" : "http://www.fpml.org/coding-scheme/asset-class-simple"
-              },
-              "value" : "INTEREST_RATE"
-            },
-            "productIdentifier" : [ {
-              "identifier" : {
-                "meta" : {
-                  "scheme" : "http://www.fpml.org/coding-scheme/product-taxonomy"
-                },
-                "value" : "InterestRate:IRSwap:FixedFloat"
-              },
-              "meta" : {
-                "globalKey" : "95f4ea06"
-              },
-              "source" : "OTHER"
-            } ],
-            "productQualifier" : "InterestRate_IRSwap_FixedFloat"
+            "globalKey" : "4c9c638d"
           }
         },
         "meta" : {
-          "globalKey" : "ffbc2ac6"
+          "globalKey" : "4c9c638d"
         }
       },
       "tradeLot" : [ {

@@ -1,50 +1,66 @@
 {
   "meta" : {
-    "globalKey" : "c45811de"
+    "globalKey" : "7debcf7c"
   },
   "trade" : {
     "meta" : {
-      "globalKey" : "19213e25"
+      "globalKey" : "2f0f16ed"
     },
     "party" : [ {
       "meta" : {
         "externalKey" : "party1",
-        "globalKey" : "347c35d3"
+        "globalKey" : "38cb9fc3"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+          },
+          "value" : "7H6GLXDRUGQFU57RNE97"
         },
-        "value" : "7H6GLXDRUGQFU57RNE97"
+        "identifierType" : "LEI",
+        "meta" : {
+          "globalKey" : "38cb9fc3"
+        }
       } ]
     }, {
       "meta" : {
         "externalKey" : "party2",
-        "globalKey" : "dc00dbe7"
+        "globalKey" : "e05045d7"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+          },
+          "value" : "213800QILIUD4ROSUO03"
         },
-        "value" : "213800QILIUD4ROSUO03"
+        "identifierType" : "LEI",
+        "meta" : {
+          "globalKey" : "e05045d7"
+        }
       } ]
     } ],
     "tradableProduct" : {
       "counterparty" : [ {
         "partyReference" : {
           "externalReference" : "party2",
-          "globalReference" : "dc00dbe7"
+          "globalReference" : "e05045d7"
         },
         "role" : "PARTY_1"
       }, {
         "partyReference" : {
           "externalReference" : "party1",
-          "globalReference" : "347c35d3"
+          "globalReference" : "38cb9fc3"
         },
         "role" : "PARTY_2"
       } ],
       "product" : {
         "contractualProduct" : {
+          "productTaxonomy" : [ {
+            "productQualifier" : "ForeignExchange_VanillaOption",
+            "taxonomySource" : "ISDA"
+          } ],
           "economicTerms" : {
             "payout" : {
               "meta" : {
@@ -124,7 +140,7 @@
                 },
                 "observationTerms" : {
                   "informationSource" : {
-                    "primaryRateSource" : {
+                    "primarySource" : {
                       "sourcePage" : {
                         "value" : "BNBX"
                       },
@@ -480,14 +496,11 @@
             }
           },
           "meta" : {
-            "globalKey" : "3362c15a"
-          },
-          "productIdentification" : {
-            "productQualifier" : "ForeignExchange_VanillaOption"
+            "globalKey" : "f4d6b172"
           }
         },
         "meta" : {
-          "globalKey" : "3362c15a"
+          "globalKey" : "f4d6b172"
         }
       },
       "tradeLot" : [ {
@@ -568,10 +581,10 @@
       } ],
       "issuerReference" : {
         "externalReference" : "party1",
-        "globalReference" : "347c35d3"
+        "globalReference" : "38cb9fc3"
       },
       "meta" : {
-        "globalKey" : "bdbf534"
+        "globalKey" : "58f2643f"
       }
     }, {
       "assignedIdentifier" : [ {
@@ -584,26 +597,26 @@
       } ],
       "issuerReference" : {
         "externalReference" : "party2",
-        "globalReference" : "dc00dbe7"
+        "globalReference" : "e05045d7"
       },
       "meta" : {
-        "globalKey" : "c6150ae3"
+        "globalKey" : "1ac69284"
       }
     } ]
   },
   "transferHistory" : [ {
     "meta" : {
-      "globalKey" : "f095b2b9"
+      "globalKey" : "4979b9cf"
     },
     "transfer" : {
       "payerReceiver" : {
         "payerPartyReference" : {
           "externalReference" : "party2",
-          "globalReference" : "dc00dbe7"
+          "globalReference" : "e05045d7"
         },
         "receiverPartyReference" : {
           "externalReference" : "party1",
-          "globalReference" : "347c35d3"
+          "globalReference" : "38cb9fc3"
         }
       },
       "quantity" : {

@@ -1,53 +1,83 @@
 {
   "meta" : {
-    "globalKey" : "c3eb2e4c"
+    "globalKey" : "4c48203f"
   },
   "trade" : {
     "contractDetails" : {
       "documentation" : [ {
-        "documentationIdentification" : {
-          "contractualDefinitions" : [ {
-            "value" : "ISDA2006"
-          } ],
-          "masterAgreement" : {
-            "masterAgreementDate" : "2010-03-23",
+        "agreementDate" : "2010-03-23",
+        "legalAgreementIdentification" : {
+          "agreementName" : {
+            "agreementType" : "MASTER_AGREEMENT",
             "masterAgreementType" : {
-              "value" : "ISDA"
-            },
-            "masterAgreementVersion" : {
-              "value" : "2002"
+              "value" : "ISDA_MASTER"
             }
+          },
+          "vintage" : 2002
+        },
+        "meta" : {
+          "globalKey" : "9cb8df0"
+        }
+      }, {
+        "legalAgreementIdentification" : {
+          "agreementName" : {
+            "agreementType" : "CONFIRMATION",
+            "contractualDefinitionsType" : [ {
+              "value" : "ISDA2006"
+            } ]
           }
+        },
+        "meta" : {
+          "globalKey" : "6b413360"
         }
       } ],
       "meta" : {
-        "globalKey" : "6d77ffa9"
+        "globalKey" : "fd30db70"
       }
     },
     "meta" : {
-      "globalKey" : "c3eb2e4c"
+      "globalKey" : "4c48203f"
     },
     "party" : [ {
+      "contactInformation" : {
+        "address" : [ {
+          "country" : {
+            "value" : "US"
+          }
+        } ]
+      },
       "meta" : {
         "externalKey" : "PartyA",
-        "globalKey" : "a21eb706"
+        "globalKey" : "3c0bac94"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+          },
+          "value" : "95980020140005196564"
         },
-        "value" : "95980020140005196564"
+        "identifierType" : "LEI",
+        "meta" : {
+          "globalKey" : "a66e20f6"
+        }
       } ]
     }, {
       "meta" : {
         "externalKey" : "PartyB",
-        "globalKey" : "339efcc8"
+        "globalKey" : "37ee66b8"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+          },
+          "value" : "549300XQFX97CITUR430"
         },
-        "value" : "549300XQFX97CITUR430"
+        "identifierType" : "LEI",
+        "meta" : {
+          "globalKey" : "37ee66b8"
+        }
       } ]
     } ],
     "tradeDate" : {
@@ -68,10 +98,10 @@
       } ],
       "issuerReference" : {
         "externalReference" : "PartyA",
-        "globalReference" : "a21eb706"
+        "globalReference" : "3c0bac94"
       },
       "meta" : {
-        "globalKey" : "ab95e7a3"
+        "globalKey" : "f506dc83"
       }
     } ]
   }

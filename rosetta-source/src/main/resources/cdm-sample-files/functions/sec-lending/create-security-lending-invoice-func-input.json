@@ -272,47 +272,62 @@
     "tradeState" : {
       "value" : {
         "meta" : {
-          "globalKey" : "b8e5d89"
+          "globalKey" : "be31d13e"
         },
         "state" : {
           "positionState" : "EXECUTED"
         },
         "trade" : {
           "meta" : {
-            "globalKey" : "a0f47bce"
+            "globalKey" : "a279c557"
           },
           "party" : [ {
             "meta" : {
               "externalKey" : "Lender0",
-              "globalKey" : "ad04f7df"
+              "globalKey" : "a896ecd"
             },
             "name" : {
               "value" : "Standard Fund 1"
             },
             "partyId" : [ {
-              "value" : "FM1LEI11111111111111"
+              "identifier" : {
+                "value" : "FM1LEI11111111111111"
+              },
+              "meta" : {
+                "globalKey" : "87c4d1c6"
+              }
             } ]
           }, {
             "meta" : {
               "externalKey" : "AGENT_LENDER",
-              "globalKey" : "e4c7f1f0"
+              "globalKey" : "73176f1c"
             },
             "name" : {
               "value" : "KTKL"
             },
             "partyId" : [ {
-              "value" : "KTKLLEILLLLLLLLLLLLL"
+              "identifier" : {
+                "value" : "KTKLLEILLLLLLLLLLLLL"
+              },
+              "meta" : {
+                "globalKey" : "60098fe6"
+              }
             } ]
           }, {
             "meta" : {
               "externalKey" : "Borrower",
-              "globalKey" : "7601b530"
+              "globalKey" : "1f061e68"
             },
             "name" : {
               "value" : "CP001"
             },
             "partyId" : [ {
-              "value" : "CP001LEI111111111111"
+              "identifier" : {
+                "value" : "CP001LEI111111111111"
+              },
+              "meta" : {
+                "globalKey" : "12818f8c"
+              }
             } ]
           } ],
           "tradableProduct" : {
@@ -321,13 +336,18 @@
                 "value" : {
                   "meta" : {
                     "externalKey" : "Lender0",
-                    "globalKey" : "ad04f7df"
+                    "globalKey" : "a896ecd"
                   },
                   "name" : {
                     "value" : "Standard Fund 1"
                   },
                   "partyId" : [ {
-                    "value" : "FM1LEI11111111111111"
+                    "identifier" : {
+                      "value" : "FM1LEI11111111111111"
+                    },
+                    "meta" : {
+                      "globalKey" : "87c4d1c6"
+                    }
                   } ]
                 }
               },
@@ -337,13 +357,18 @@
                 "value" : {
                   "meta" : {
                     "externalKey" : "Borrower",
-                    "globalKey" : "7601b530"
+                    "globalKey" : "1f061e68"
                   },
                   "name" : {
                     "value" : "CP001"
                   },
                   "partyId" : [ {
-                    "value" : "CP001LEI111111111111"
+                    "identifier" : {
+                      "value" : "CP001LEI111111111111"
+                    },
+                    "meta" : {
+                      "globalKey" : "12818f8c"
+                    }
                   } ]
                 }
               },
@@ -351,6 +376,10 @@
             } ],
             "product" : {
               "contractualProduct" : {
+                "productTaxonomy" : [ {
+                  "productQualifier" : "SecurityLendingAgreement",
+                  "taxonomySource" : "ISDA"
+                } ],
                 "economicTerms" : {
                   "effectiveDate" : {
                     "adjustableDate" : {
@@ -511,7 +540,7 @@
                       },
                       "dividendTerms" : {
                         "manufacturedIncomeRequirement" : {
-                          "dividendPayoutRatio" : 1
+                          "totalRatio" : 1
                         }
                       },
                       "durationType" : {
@@ -628,14 +657,11 @@
                   }
                 },
                 "meta" : {
-                  "globalKey" : "11b2c09b"
-                },
-                "productIdentification" : {
-                  "productQualifier" : "SecurityLendingAgreement"
+                  "globalKey" : "6a802194"
                 }
               },
               "meta" : {
-                "globalKey" : "11b2c09b"
+                "globalKey" : "6a802194"
               }
             },
             "tradeLot" : [ {
@@ -764,7 +790,7 @@
         },
         "transferHistory" : [ {
           "meta" : {
-            "globalKey" : "150ffb8b"
+            "globalKey" : "a4abe7b4"
           },
           "transfer" : {
             "payerReceiver" : {
@@ -772,13 +798,18 @@
                 "value" : {
                   "meta" : {
                     "externalKey" : "Borrower",
-                    "globalKey" : "7601b530"
+                    "globalKey" : "1f061e68"
                   },
                   "name" : {
                     "value" : "CP001"
                   },
                   "partyId" : [ {
-                    "value" : "CP001LEI111111111111"
+                    "identifier" : {
+                      "value" : "CP001LEI111111111111"
+                    },
+                    "meta" : {
+                      "globalKey" : "12818f8c"
+                    }
                   } ]
                 }
               },
@@ -786,13 +817,18 @@
                 "value" : {
                   "meta" : {
                     "externalKey" : "Lender0",
-                    "globalKey" : "ad04f7df"
+                    "globalKey" : "a896ecd"
                   },
                   "name" : {
                     "value" : "Standard Fund 1"
                   },
                   "partyId" : [ {
-                    "value" : "FM1LEI11111111111111"
+                    "identifier" : {
+                      "value" : "FM1LEI11111111111111"
+                    },
+                    "meta" : {
+                      "globalKey" : "87c4d1c6"
+                    }
                   } ]
                 }
               }
@@ -821,7 +857,7 @@
           }
         }, {
           "meta" : {
-            "globalKey" : "7aa0bf33"
+            "globalKey" : "858fe01a"
           },
           "transfer" : {
             "observable" : {
@@ -845,13 +881,18 @@
                 "value" : {
                   "meta" : {
                     "externalKey" : "Lender0",
-                    "globalKey" : "ad04f7df"
+                    "globalKey" : "a896ecd"
                   },
                   "name" : {
                     "value" : "Standard Fund 1"
                   },
                   "partyId" : [ {
-                    "value" : "FM1LEI11111111111111"
+                    "identifier" : {
+                      "value" : "FM1LEI11111111111111"
+                    },
+                    "meta" : {
+                      "globalKey" : "87c4d1c6"
+                    }
                   } ]
                 }
               },
@@ -859,13 +900,18 @@
                 "value" : {
                   "meta" : {
                     "externalKey" : "Borrower",
-                    "globalKey" : "7601b530"
+                    "globalKey" : "1f061e68"
                   },
                   "name" : {
                     "value" : "CP001"
                   },
                   "partyId" : [ {
-                    "value" : "CP001LEI111111111111"
+                    "identifier" : {
+                      "value" : "CP001LEI111111111111"
+                    },
+                    "meta" : {
+                      "globalKey" : "12818f8c"
+                    }
                   } ]
                 }
               }
@@ -1009,44 +1055,59 @@
     "tradeState" : {
       "value" : {
         "meta" : {
-          "globalKey" : "e6307cb8"
+          "globalKey" : "f92831ad"
         },
         "trade" : {
           "meta" : {
-            "globalKey" : "e12d4e10"
+            "globalKey" : "e2b29799"
           },
           "party" : [ {
             "meta" : {
               "externalKey" : "Lender0",
-              "globalKey" : "ad04f7df"
+              "globalKey" : "a896ecd"
             },
             "name" : {
               "value" : "Standard Fund 1"
             },
             "partyId" : [ {
-              "value" : "FM1LEI11111111111111"
+              "identifier" : {
+                "value" : "FM1LEI11111111111111"
+              },
+              "meta" : {
+                "globalKey" : "87c4d1c6"
+              }
             } ]
           }, {
             "meta" : {
               "externalKey" : "AGENT_LENDER",
-              "globalKey" : "e4c7f1f0"
+              "globalKey" : "73176f1c"
             },
             "name" : {
               "value" : "KTKL"
             },
             "partyId" : [ {
-              "value" : "KTKLLEILLLLLLLLLLLLL"
+              "identifier" : {
+                "value" : "KTKLLEILLLLLLLLLLLLL"
+              },
+              "meta" : {
+                "globalKey" : "60098fe6"
+              }
             } ]
           }, {
             "meta" : {
               "externalKey" : "Borrower",
-              "globalKey" : "7601b530"
+              "globalKey" : "1f061e68"
             },
             "name" : {
               "value" : "CP001"
             },
             "partyId" : [ {
-              "value" : "CP001LEI111111111111"
+              "identifier" : {
+                "value" : "CP001LEI111111111111"
+              },
+              "meta" : {
+                "globalKey" : "12818f8c"
+              }
             } ]
           } ],
           "tradableProduct" : {
@@ -1055,13 +1116,18 @@
                 "value" : {
                   "meta" : {
                     "externalKey" : "Lender0",
-                    "globalKey" : "ad04f7df"
+                    "globalKey" : "a896ecd"
                   },
                   "name" : {
                     "value" : "Standard Fund 1"
                   },
                   "partyId" : [ {
-                    "value" : "FM1LEI11111111111111"
+                    "identifier" : {
+                      "value" : "FM1LEI11111111111111"
+                    },
+                    "meta" : {
+                      "globalKey" : "87c4d1c6"
+                    }
                   } ]
                 }
               },
@@ -1071,13 +1137,18 @@
                 "value" : {
                   "meta" : {
                     "externalKey" : "Borrower",
-                    "globalKey" : "7601b530"
+                    "globalKey" : "1f061e68"
                   },
                   "name" : {
                     "value" : "CP001"
                   },
                   "partyId" : [ {
-                    "value" : "CP001LEI111111111111"
+                    "identifier" : {
+                      "value" : "CP001LEI111111111111"
+                    },
+                    "meta" : {
+                      "globalKey" : "12818f8c"
+                    }
                   } ]
                 }
               },
@@ -1085,6 +1156,10 @@
             } ],
             "product" : {
               "contractualProduct" : {
+                "productTaxonomy" : [ {
+                  "productQualifier" : "SecurityLendingAgreement",
+                  "taxonomySource" : "ISDA"
+                } ],
                 "economicTerms" : {
                   "effectiveDate" : {
                     "adjustableDate" : {
@@ -1245,7 +1320,7 @@
                       },
                       "dividendTerms" : {
                         "manufacturedIncomeRequirement" : {
-                          "dividendPayoutRatio" : 1
+                          "totalRatio" : 1
                         }
                       },
                       "durationType" : {
@@ -1362,14 +1437,11 @@
                   }
                 },
                 "meta" : {
-                  "globalKey" : "11b2c09b"
-                },
-                "productIdentification" : {
-                  "productQualifier" : "SecurityLendingAgreement"
+                  "globalKey" : "6a802194"
                 }
               },
               "meta" : {
-                "globalKey" : "11b2c09b"
+                "globalKey" : "6a802194"
               }
             },
             "tradeLot" : [ {
@@ -1498,7 +1570,7 @@
         },
         "transferHistory" : [ {
           "meta" : {
-            "globalKey" : "150ffb8b"
+            "globalKey" : "a4abe7b4"
           },
           "transfer" : {
             "payerReceiver" : {
@@ -1506,13 +1578,18 @@
                 "value" : {
                   "meta" : {
                     "externalKey" : "Borrower",
-                    "globalKey" : "7601b530"
+                    "globalKey" : "1f061e68"
                   },
                   "name" : {
                     "value" : "CP001"
                   },
                   "partyId" : [ {
-                    "value" : "CP001LEI111111111111"
+                    "identifier" : {
+                      "value" : "CP001LEI111111111111"
+                    },
+                    "meta" : {
+                      "globalKey" : "12818f8c"
+                    }
                   } ]
                 }
               },
@@ -1520,13 +1597,18 @@
                 "value" : {
                   "meta" : {
                     "externalKey" : "Lender0",
-                    "globalKey" : "ad04f7df"
+                    "globalKey" : "a896ecd"
                   },
                   "name" : {
                     "value" : "Standard Fund 1"
                   },
                   "partyId" : [ {
-                    "value" : "FM1LEI11111111111111"
+                    "identifier" : {
+                      "value" : "FM1LEI11111111111111"
+                    },
+                    "meta" : {
+                      "globalKey" : "87c4d1c6"
+                    }
                   } ]
                 }
               }
@@ -1555,7 +1637,7 @@
           }
         }, {
           "meta" : {
-            "globalKey" : "7aa0bf33"
+            "globalKey" : "858fe01a"
           },
           "transfer" : {
             "observable" : {
@@ -1579,13 +1661,18 @@
                 "value" : {
                   "meta" : {
                     "externalKey" : "Lender0",
-                    "globalKey" : "ad04f7df"
+                    "globalKey" : "a896ecd"
                   },
                   "name" : {
                     "value" : "Standard Fund 1"
                   },
                   "partyId" : [ {
-                    "value" : "FM1LEI11111111111111"
+                    "identifier" : {
+                      "value" : "FM1LEI11111111111111"
+                    },
+                    "meta" : {
+                      "globalKey" : "87c4d1c6"
+                    }
                   } ]
                 }
               },
@@ -1593,13 +1680,18 @@
                 "value" : {
                   "meta" : {
                     "externalKey" : "Borrower",
-                    "globalKey" : "7601b530"
+                    "globalKey" : "1f061e68"
                   },
                   "name" : {
                     "value" : "CP001"
                   },
                   "partyId" : [ {
-                    "value" : "CP001LEI111111111111"
+                    "identifier" : {
+                      "value" : "CP001LEI111111111111"
+                    },
+                    "meta" : {
+                      "globalKey" : "12818f8c"
+                    }
                   } ]
                 }
               }
@@ -1791,44 +1883,59 @@
     "tradeState" : {
       "value" : {
         "meta" : {
-          "globalKey" : "e5b5f42f"
+          "globalKey" : "d5481478"
         },
         "trade" : {
           "meta" : {
-            "globalKey" : "e12d4e10"
+            "globalKey" : "e2b29799"
           },
           "party" : [ {
             "meta" : {
               "externalKey" : "Lender0",
-              "globalKey" : "ad04f7df"
+              "globalKey" : "a896ecd"
             },
             "name" : {
               "value" : "Standard Fund 1"
             },
             "partyId" : [ {
-              "value" : "FM1LEI11111111111111"
+              "identifier" : {
+                "value" : "FM1LEI11111111111111"
+              },
+              "meta" : {
+                "globalKey" : "87c4d1c6"
+              }
             } ]
           }, {
             "meta" : {
               "externalKey" : "AGENT_LENDER",
-              "globalKey" : "e4c7f1f0"
+              "globalKey" : "73176f1c"
             },
             "name" : {
               "value" : "KTKL"
             },
             "partyId" : [ {
-              "value" : "KTKLLEILLLLLLLLLLLLL"
+              "identifier" : {
+                "value" : "KTKLLEILLLLLLLLLLLLL"
+              },
+              "meta" : {
+                "globalKey" : "60098fe6"
+              }
             } ]
           }, {
             "meta" : {
               "externalKey" : "Borrower",
-              "globalKey" : "7601b530"
+              "globalKey" : "1f061e68"
             },
             "name" : {
               "value" : "CP001"
             },
             "partyId" : [ {
-              "value" : "CP001LEI111111111111"
+              "identifier" : {
+                "value" : "CP001LEI111111111111"
+              },
+              "meta" : {
+                "globalKey" : "12818f8c"
+              }
             } ]
           } ],
           "tradableProduct" : {
@@ -1837,13 +1944,18 @@
                 "value" : {
                   "meta" : {
                     "externalKey" : "Lender0",
-                    "globalKey" : "ad04f7df"
+                    "globalKey" : "a896ecd"
                   },
                   "name" : {
                     "value" : "Standard Fund 1"
                   },
                   "partyId" : [ {
-                    "value" : "FM1LEI11111111111111"
+                    "identifier" : {
+                      "value" : "FM1LEI11111111111111"
+                    },
+                    "meta" : {
+                      "globalKey" : "87c4d1c6"
+                    }
                   } ]
                 }
               },
@@ -1853,13 +1965,18 @@
                 "value" : {
                   "meta" : {
                     "externalKey" : "Borrower",
-                    "globalKey" : "7601b530"
+                    "globalKey" : "1f061e68"
                   },
                   "name" : {
                     "value" : "CP001"
                   },
                   "partyId" : [ {
-                    "value" : "CP001LEI111111111111"
+                    "identifier" : {
+                      "value" : "CP001LEI111111111111"
+                    },
+                    "meta" : {
+                      "globalKey" : "12818f8c"
+                    }
                   } ]
                 }
               },
@@ -1867,6 +1984,10 @@
             } ],
             "product" : {
               "contractualProduct" : {
+                "productTaxonomy" : [ {
+                  "productQualifier" : "SecurityLendingAgreement",
+                  "taxonomySource" : "ISDA"
+                } ],
                 "economicTerms" : {
                   "effectiveDate" : {
                     "adjustableDate" : {
@@ -2027,7 +2148,7 @@
                       },
                       "dividendTerms" : {
                         "manufacturedIncomeRequirement" : {
-                          "dividendPayoutRatio" : 1
+                          "totalRatio" : 1
                         }
                       },
                       "durationType" : {
@@ -2144,14 +2265,11 @@
                   }
                 },
                 "meta" : {
-                  "globalKey" : "11b2c09b"
-                },
-                "productIdentification" : {
-                  "productQualifier" : "SecurityLendingAgreement"
+                  "globalKey" : "6a802194"
                 }
               },
               "meta" : {
-                "globalKey" : "11b2c09b"
+                "globalKey" : "6a802194"
               }
             },
             "tradeLot" : [ {
@@ -2280,7 +2398,7 @@
         },
         "transferHistory" : [ {
           "meta" : {
-            "globalKey" : "150ffb8b"
+            "globalKey" : "a4abe7b4"
           },
           "transfer" : {
             "payerReceiver" : {
@@ -2288,13 +2406,18 @@
                 "value" : {
                   "meta" : {
                     "externalKey" : "Borrower",
-                    "globalKey" : "7601b530"
+                    "globalKey" : "1f061e68"
                   },
                   "name" : {
                     "value" : "CP001"
                   },
                   "partyId" : [ {
-                    "value" : "CP001LEI111111111111"
+                    "identifier" : {
+                      "value" : "CP001LEI111111111111"
+                    },
+                    "meta" : {
+                      "globalKey" : "12818f8c"
+                    }
                   } ]
                 }
               },
@@ -2302,13 +2425,18 @@
                 "value" : {
                   "meta" : {
                     "externalKey" : "Lender0",
-                    "globalKey" : "ad04f7df"
+                    "globalKey" : "a896ecd"
                   },
                   "name" : {
                     "value" : "Standard Fund 1"
                   },
                   "partyId" : [ {
-                    "value" : "FM1LEI11111111111111"
+                    "identifier" : {
+                      "value" : "FM1LEI11111111111111"
+                    },
+                    "meta" : {
+                      "globalKey" : "87c4d1c6"
+                    }
                   } ]
                 }
               }
@@ -2337,7 +2465,7 @@
           }
         }, {
           "meta" : {
-            "globalKey" : "7aa0bf33"
+            "globalKey" : "858fe01a"
           },
           "transfer" : {
             "observable" : {
@@ -2361,13 +2489,18 @@
                 "value" : {
                   "meta" : {
                     "externalKey" : "Lender0",
-                    "globalKey" : "ad04f7df"
+                    "globalKey" : "a896ecd"
                   },
                   "name" : {
                     "value" : "Standard Fund 1"
                   },
                   "partyId" : [ {
-                    "value" : "FM1LEI11111111111111"
+                    "identifier" : {
+                      "value" : "FM1LEI11111111111111"
+                    },
+                    "meta" : {
+                      "globalKey" : "87c4d1c6"
+                    }
                   } ]
                 }
               },
@@ -2375,13 +2508,18 @@
                 "value" : {
                   "meta" : {
                     "externalKey" : "Borrower",
-                    "globalKey" : "7601b530"
+                    "globalKey" : "1f061e68"
                   },
                   "name" : {
                     "value" : "CP001"
                   },
                   "partyId" : [ {
-                    "value" : "CP001LEI111111111111"
+                    "identifier" : {
+                      "value" : "CP001LEI111111111111"
+                    },
+                    "meta" : {
+                      "globalKey" : "12818f8c"
+                    }
                   } ]
                 }
               }
@@ -2408,7 +2546,7 @@
           }
         }, {
           "meta" : {
-            "globalKey" : "6b3bb8d5"
+            "globalKey" : "7282e9d4"
           },
           "transfer" : {
             "payerReceiver" : {
@@ -2416,13 +2554,18 @@
                 "value" : {
                   "meta" : {
                     "externalKey" : "Lender0",
-                    "globalKey" : "ad04f7df"
+                    "globalKey" : "a896ecd"
                   },
                   "name" : {
                     "value" : "Standard Fund 1"
                   },
                   "partyId" : [ {
-                    "value" : "FM1LEI11111111111111"
+                    "identifier" : {
+                      "value" : "FM1LEI11111111111111"
+                    },
+                    "meta" : {
+                      "globalKey" : "87c4d1c6"
+                    }
                   } ]
                 }
               },
@@ -2430,13 +2573,18 @@
                 "value" : {
                   "meta" : {
                     "externalKey" : "Borrower",
-                    "globalKey" : "7601b530"
+                    "globalKey" : "1f061e68"
                   },
                   "name" : {
                     "value" : "CP001"
                   },
                   "partyId" : [ {
-                    "value" : "CP001LEI111111111111"
+                    "identifier" : {
+                      "value" : "CP001LEI111111111111"
+                    },
+                    "meta" : {
+                      "globalKey" : "12818f8c"
+                    }
                   } ]
                 }
               }
@@ -2465,7 +2613,7 @@
           }
         }, {
           "meta" : {
-            "globalKey" : "910c63dc"
+            "globalKey" : "63cb2d19"
           },
           "transfer" : {
             "observable" : {
@@ -2489,13 +2637,18 @@
                 "value" : {
                   "meta" : {
                     "externalKey" : "Borrower",
-                    "globalKey" : "7601b530"
+                    "globalKey" : "1f061e68"
                   },
                   "name" : {
                     "value" : "CP001"
                   },
                   "partyId" : [ {
-                    "value" : "CP001LEI111111111111"
+                    "identifier" : {
+                      "value" : "CP001LEI111111111111"
+                    },
+                    "meta" : {
+                      "globalKey" : "12818f8c"
+                    }
                   } ]
                 }
               },
@@ -2503,13 +2656,18 @@
                 "value" : {
                   "meta" : {
                     "externalKey" : "Lender0",
-                    "globalKey" : "ad04f7df"
+                    "globalKey" : "a896ecd"
                   },
                   "name" : {
                     "value" : "Standard Fund 1"
                   },
                   "partyId" : [ {
-                    "value" : "FM1LEI11111111111111"
+                    "identifier" : {
+                      "value" : "FM1LEI11111111111111"
+                    },
+                    "meta" : {
+                      "globalKey" : "87c4d1c6"
+                    }
                   } ]
                 }
               }
@@ -2542,25 +2700,35 @@
   "receivingParty" : {
     "meta" : {
       "externalKey" : "Borrower",
-      "globalKey" : "7601b530"
+      "globalKey" : "1f061e68"
     },
     "name" : {
       "value" : "CP001"
     },
     "partyId" : [ {
-      "value" : "CP001LEI111111111111"
+      "identifier" : {
+        "value" : "CP001LEI111111111111"
+      },
+      "meta" : {
+        "globalKey" : "12818f8c"
+      }
     } ]
   },
   "sendingParty" : {
     "meta" : {
       "externalKey" : "Lender0",
-      "globalKey" : "ad04f7df"
+      "globalKey" : "a896ecd"
     },
     "name" : {
       "value" : "Standard Fund 1"
     },
     "partyId" : [ {
-      "value" : "FM1LEI11111111111111"
+      "identifier" : {
+        "value" : "FM1LEI11111111111111"
+      },
+      "meta" : {
+        "globalKey" : "87c4d1c6"
+      }
     } ]
   }
 }

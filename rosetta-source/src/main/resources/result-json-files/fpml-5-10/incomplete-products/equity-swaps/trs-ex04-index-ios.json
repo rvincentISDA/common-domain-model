@@ -1,64 +1,199 @@
 {
   "meta" : {
     "externalKey" : "trs-ex4-trade",
-    "globalKey" : "8a3e083a"
+    "globalKey" : "a315a9dc"
   },
   "trade" : {
     "meta" : {
-      "globalKey" : "8a3e083a"
+      "globalKey" : "a315a9dc"
     },
     "party" : [ {
       "meta" : {
         "externalKey" : "party1",
-        "globalKey" : "549dd51c"
+        "globalKey" : "54527a4c"
       },
       "name" : {
         "value" : "ABCD Fund"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+          },
+          "value" : "QGPGHQ1ENZOOLJRFTH41"
         },
-        "value" : "QGPGHQ1ENZOOLJRFTH41"
+        "identifierType" : "LEI",
+        "meta" : {
+          "globalKey" : "f54dfc9"
+        }
       } ]
     }, {
       "meta" : {
         "externalKey" : "party2",
-        "globalKey" : "4086cd4d"
+        "globalKey" : "770069bd"
       },
       "name" : {
         "value" : "HedgeCo Capital L.L.C."
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+          },
+          "value" : "J6W9XJWVE853A9CVRQ85"
         },
-        "value" : "J6W9XJWVE853A9CVRQ85"
+        "identifierType" : "LEI",
+        "meta" : {
+          "globalKey" : "e4c8d6a7"
+        }
       } ]
     } ],
     "tradableProduct" : {
       "adjustment" : "STANDARD",
       "counterparty" : [ {
         "partyReference" : {
-          "externalReference" : "party1",
-          "globalReference" : "549dd51c"
+          "externalReference" : "party2",
+          "globalReference" : "770069bd"
         },
         "role" : "PARTY_1"
       }, {
         "partyReference" : {
-          "externalReference" : "party2",
-          "globalReference" : "4086cd4d"
+          "externalReference" : "party1",
+          "globalReference" : "54527a4c"
         },
         "role" : "PARTY_2"
       } ],
       "product" : {
         "contractualProduct" : {
+          "productTaxonomy" : [ {
+            "taxonomySource" : "OTHER",
+            "taxonomyValue" : {
+              "value" : "Equity:Swap:PriceReturnBasicPerformance:SingleIndex"
+            }
+          }, {
+            "productQualifier" : "EquitySwap_PriceReturnBasicPerformance_Index",
+            "taxonomySource" : "ISDA"
+          } ],
           "economicTerms" : {
+            "effectiveDate" : {
+              "adjustableDate" : {
+                "dateAdjustments" : {
+                  "businessDayConvention" : "NOT_APPLICABLE",
+                  "meta" : {
+                    "globalKey" : "3a4b88ab"
+                  }
+                },
+                "meta" : {
+                  "globalKey" : "261b36f7"
+                },
+                "unadjustedDate" : "2010-05-12"
+              },
+              "meta" : {
+                "globalKey" : "261b36f7"
+              }
+            },
             "payout" : {
-              "equityPayout" : [ {
+              "interestRatePayout" : [ {
                 "payerReceiver" : {
                   "payer" : "PARTY_1",
                   "receiver" : "PARTY_2"
+                },
+                "payoutQuantity" : {
+                  "meta" : {
+                    "globalKey" : "17f35490"
+                  },
+                  "quantityReference" : {
+                    "externalReference" : "returnNotional",
+                    "globalReference" : "0"
+                  }
+                },
+                "calculationPeriodDates" : {
+                  "effectiveDate" : {
+                    "meta" : {
+                      "globalKey" : "7794f09a"
+                    },
+                    "relativeDate" : {
+                      "meta" : {
+                        "globalKey" : "7794f09a"
+                      },
+                      "period" : "D",
+                      "periodMultiplier" : 0,
+                      "businessDayConvention" : "NOT_APPLICABLE",
+                      "dateRelativeTo" : {
+                        "externalReference" : "initialValuationDate"
+                      }
+                    }
+                  },
+                  "meta" : {
+                    "externalKey" : "interestCalculationDates",
+                    "globalKey" : "eb4735ce"
+                  },
+                  "terminationDate" : {
+                    "meta" : {
+                      "globalKey" : "b9d527a8"
+                    },
+                    "relativeDate" : {
+                      "meta" : {
+                        "globalKey" : "b9d527a8"
+                      },
+                      "period" : "D",
+                      "periodMultiplier" : 0,
+                      "businessDayConvention" : "NOT_APPLICABLE",
+                      "dateRelativeTo" : {
+                        "externalReference" : "finalValuationDate",
+                        "globalReference" : "296055f7"
+                      }
+                    }
+                  }
+                },
+                "dayCountFraction" : {
+                  "value" : "30/360"
+                },
+                "meta" : {
+                  "globalKey" : "2fbce0ac"
+                },
+                "paymentDates" : {
+                  "meta" : {
+                    "globalKey" : "785dc99e"
+                  },
+                  "paymentDateSchedule" : {
+                    "interimPaymentDates" : [ {
+                      "meta" : {
+                        "globalKey" : "785dc99e"
+                      },
+                      "relativeDates" : {
+                        "meta" : {
+                          "globalKey" : "785dc99e"
+                        },
+                        "period" : "D",
+                        "periodMultiplier" : 0,
+                        "businessDayConvention" : "NOT_APPLICABLE",
+                        "dateRelativeTo" : {
+                          "externalReference" : "returnPaymentDates",
+                          "globalReference" : "d2189e1"
+                        }
+                      }
+                    } ]
+                  }
+                },
+                "resetDates" : {
+                  "calculationPeriodDatesReference" : {
+                    "externalReference" : "interimValuationDates",
+                    "globalReference" : "cd78cd69"
+                  },
+                  "meta" : {
+                    "globalKey" : "a7c92a17"
+                  },
+                  "resetRelativeTo" : "CALCULATION_PERIOD_START_DATE"
+                }
+              } ],
+              "meta" : {
+                "globalKey" : "45ea03ee"
+              },
+              "performancePayout" : [ {
+                "payerReceiver" : {
+                  "payer" : "PARTY_2",
+                  "receiver" : "PARTY_1"
                 },
                 "payoutQuantity" : {
                   "meta" : {
@@ -74,47 +209,8 @@
                     }
                   }
                 },
-                "calculationPeriodDates" : {
-                  "effectiveDate" : {
-                    "adjustableDate" : {
-                      "dateAdjustments" : {
-                        "businessDayConvention" : "NOT_APPLICABLE",
-                        "meta" : {
-                          "globalKey" : "3a4b88ab"
-                        }
-                      },
-                      "meta" : {
-                        "globalKey" : "261b36f7"
-                      },
-                      "unadjustedDate" : "2010-05-12"
-                    },
-                    "meta" : {
-                      "globalKey" : "261b36f7"
-                    }
-                  },
-                  "meta" : {
-                    "globalKey" : "6753e160"
-                  },
-                  "terminationDate" : {
-                    "adjustableDate" : {
-                      "dateAdjustments" : {
-                        "businessDayConvention" : "NOT_APPLICABLE",
-                        "meta" : {
-                          "globalKey" : "3a4b88ab"
-                        }
-                      },
-                      "meta" : {
-                        "globalKey" : "296055f7"
-                      },
-                      "unadjustedDate" : "2038-01-12"
-                    },
-                    "meta" : {
-                      "globalKey" : "296055f7"
-                    }
-                  }
-                },
                 "meta" : {
-                  "globalKey" : "b78bc0c4"
+                  "globalKey" : "ff084842"
                 },
                 "paymentDates" : {
                   "meta" : {
@@ -171,9 +267,35 @@
                     } ]
                   }
                 },
-                "priceReturnTerms" : {
-                  "valuationPriceFinal" : {
+                "returnTerms" : {
+                  "priceReturnTerms" : {
+                    "returnType" : "TOTAL"
+                  }
+                },
+                "underlier" : {
+                  "index" : {
+                    "productIdentifier" : [ {
+                      "address" : {
+                        "scope" : "DOCUMENT",
+                        "value" : "productIdentifier-1"
+                      }
+                    }, {
+                      "address" : {
+                        "scope" : "DOCUMENT",
+                        "value" : "productIdentifier-2"
+                      }
+                    } ]
+                  },
+                  "meta" : {
+                    "globalKey" : "0"
+                  }
+                },
+                "valuationDates" : {
+                  "valuationDatesFinal" : {
                     "determinationMethod" : "VALUATION_TIME",
+                    "meta" : {
+                      "globalKey" : "fbc70e6c"
+                    },
                     "valuationDate" : {
                       "adjustableDate" : {
                         "dateAdjustments" : {
@@ -193,8 +315,11 @@
                       }
                     }
                   },
-                  "valuationPriceInterim" : {
+                  "valuationDatesInterim" : {
                     "determinationMethod" : "VALUATION_TIME",
+                    "meta" : {
+                      "globalKey" : "341a3b14"
+                    },
                     "valuationDates" : {
                       "meta" : {
                         "externalKey" : "interimValuationDates",
@@ -252,141 +377,33 @@
                       }
                     }
                   }
-                },
-                "returnType" : "TOTAL",
-                "underlier" : {
-                  "index" : {
-                    "productIdentifier" : [ {
-                      "address" : {
-                        "scope" : "DOCUMENT",
-                        "value" : "productIdentifier-1"
-                      }
-                    }, {
-                      "address" : {
-                        "scope" : "DOCUMENT",
-                        "value" : "productIdentifier-2"
-                      }
-                    } ]
-                  },
-                  "meta" : {
-                    "globalKey" : "0"
-                  }
                 }
-              } ],
-              "interestRatePayout" : [ {
-                "payerReceiver" : {
-                  "payer" : "PARTY_2",
-                  "receiver" : "PARTY_1"
-                },
-                "payoutQuantity" : {
+              } ]
+            },
+            "terminationDate" : {
+              "adjustableDate" : {
+                "dateAdjustments" : {
+                  "businessDayConvention" : "NOT_APPLICABLE",
                   "meta" : {
-                    "globalKey" : "e8707090"
-                  },
-                  "quantityReference" : {
-                    "externalReference" : "returnNotional",
-                    "globalReference" : "0"
+                    "globalKey" : "3a4b88ab"
                   }
-                },
-                "calculationPeriodDates" : {
-                  "effectiveDate" : {
-                    "meta" : {
-                      "globalKey" : "7794f09a"
-                    },
-                    "relativeDate" : {
-                      "meta" : {
-                        "globalKey" : "7794f09a"
-                      },
-                      "period" : "D",
-                      "periodMultiplier" : 0,
-                      "businessDayConvention" : "NOT_APPLICABLE",
-                      "dateRelativeTo" : {
-                        "externalReference" : "initialValuationDate"
-                      }
-                    }
-                  },
-                  "meta" : {
-                    "externalKey" : "interestCalculationDates",
-                    "globalKey" : "eb4735ce"
-                  },
-                  "terminationDate" : {
-                    "meta" : {
-                      "globalKey" : "b9d527a8"
-                    },
-                    "relativeDate" : {
-                      "meta" : {
-                        "globalKey" : "b9d527a8"
-                      },
-                      "period" : "D",
-                      "periodMultiplier" : 0,
-                      "businessDayConvention" : "NOT_APPLICABLE",
-                      "dateRelativeTo" : {
-                        "externalReference" : "finalValuationDate",
-                        "globalReference" : "296055f7"
-                      }
-                    }
-                  }
-                },
-                "dayCountFraction" : {
-                  "value" : "30/360"
                 },
                 "meta" : {
-                  "globalKey" : "99ccc0e"
+                  "globalKey" : "296055f7"
                 },
-                "paymentDates" : {
-                  "meta" : {
-                    "globalKey" : "785dc99e"
-                  },
-                  "paymentDateSchedule" : {
-                    "interimPaymentDates" : [ {
-                      "meta" : {
-                        "globalKey" : "785dc99e"
-                      },
-                      "relativeDates" : {
-                        "meta" : {
-                          "globalKey" : "785dc99e"
-                        },
-                        "period" : "D",
-                        "periodMultiplier" : 0,
-                        "businessDayConvention" : "NOT_APPLICABLE",
-                        "dateRelativeTo" : {
-                          "externalReference" : "returnPaymentDates",
-                          "globalReference" : "d2189e1"
-                        }
-                      }
-                    } ]
-                  }
-                },
-                "resetDates" : {
-                  "calculationPeriodDatesReference" : {
-                    "externalReference" : "interimValuationDates",
-                    "globalReference" : "cd78cd69"
-                  },
-                  "meta" : {
-                    "globalKey" : "a7c92a17"
-                  },
-                  "resetRelativeTo" : "CALCULATION_PERIOD_START_DATE"
-                }
-              } ],
+                "unadjustedDate" : "2038-01-12"
+              },
               "meta" : {
-                "globalKey" : "634576ca"
+                "globalKey" : "296055f7"
               }
             }
           },
           "meta" : {
-            "globalKey" : "ad7699b5"
-          },
-          "productIdentification" : {
-            "externalProductType" : [ {
-              "externalProductTypeSource" : "OTHER",
-              "value" : {
-                "value" : "Equity:Swap:PriceReturnBasicPerformance:SingleIndex"
-              }
-            } ],
-            "productQualifier" : "EquitySwap_TotalReturnBasicPerformance_Index"
+            "globalKey" : "ce4096a9"
           }
         },
         "meta" : {
-          "globalKey" : "ad7699b5"
+          "globalKey" : "ce4096a9"
         }
       },
       "tradeLot" : [ {
@@ -472,10 +489,10 @@
       } ],
       "issuerReference" : {
         "externalReference" : "party1",
-        "globalReference" : "549dd51c"
+        "globalReference" : "54527a4c"
       },
       "meta" : {
-        "globalKey" : "15537a98"
+        "globalKey" : "5c7fdd04"
       }
     }, {
       "assignedIdentifier" : [ {
@@ -488,10 +505,10 @@
       } ],
       "issuerReference" : {
         "externalReference" : "party2",
-        "globalReference" : "4086cd4d"
+        "globalReference" : "770069bd"
       },
       "meta" : {
-        "globalKey" : "ba7095bb"
+        "globalKey" : "2c3a2ad2"
       }
     } ]
   }

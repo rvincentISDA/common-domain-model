@@ -1,56 +1,77 @@
 {
   "meta" : {
-    "globalKey" : "7ddba0b5"
+    "globalKey" : "848f9c25"
   },
   "trade" : {
     "meta" : {
-      "globalKey" : "111fc928"
+      "globalKey" : "82fcbfba"
     },
     "party" : [ {
       "meta" : {
         "externalKey" : "party1",
-        "globalKey" : "d2c659ec"
+        "globalKey" : "9afed11c"
       },
       "name" : {
         "value" : "PARTYA"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+          },
+          "value" : "549300VBWWV6BYQOWM67"
         },
-        "value" : "549300VBWWV6BYQOWM67"
+        "identifierType" : "LEI",
+        "meta" : {
+          "globalKey" : "618c3061"
+        }
       } ]
     }, {
       "meta" : {
         "externalKey" : "party2",
-        "globalKey" : "c46f1e62"
+        "globalKey" : "ccc85952"
       },
       "name" : {
         "value" : "ABN Amro"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+          },
+          "value" : "BFXS5XCH7N0Y05NIXW11"
         },
-        "value" : "BFXS5XCH7N0Y05NIXW11"
+        "identifierType" : "LEI",
+        "meta" : {
+          "globalKey" : "cff0a7d6"
+        }
       } ]
     } ],
     "tradableProduct" : {
       "counterparty" : [ {
         "partyReference" : {
           "externalReference" : "party1",
-          "globalReference" : "d2c659ec"
+          "globalReference" : "9afed11c"
         },
         "role" : "PARTY_1"
       }, {
         "partyReference" : {
           "externalReference" : "party2",
-          "globalReference" : "c46f1e62"
+          "globalReference" : "ccc85952"
         },
         "role" : "PARTY_2"
       } ],
       "product" : {
         "contractualProduct" : {
+          "productTaxonomy" : [ {
+            "taxonomySource" : "OTHER",
+            "taxonomyValue" : {
+              "value" : "ForeignExchange:NDO"
+            }
+          }, {
+            "productQualifier" : "ForeignExchange_VanillaOption",
+            "taxonomySource" : "ISDA"
+          } ],
           "economicTerms" : {
             "payout" : {
               "meta" : {
@@ -99,7 +120,7 @@
                     "valuationMethod" : {
                       "valuationSource" : {
                         "informationSource" : {
-                          "primaryRateSource" : {
+                          "primarySource" : {
                             "sourcePage" : {
                               "value" : "VEB01"
                             },
@@ -231,20 +252,11 @@
             }
           },
           "meta" : {
-            "globalKey" : "3c515622"
-          },
-          "productIdentification" : {
-            "externalProductType" : [ {
-              "externalProductTypeSource" : "OTHER",
-              "value" : {
-                "value" : "ForeignExchange:NDO"
-              }
-            } ],
-            "productQualifier" : "ForeignExchange_VanillaOption"
+            "globalKey" : "1695cba"
           }
         },
         "meta" : {
-          "globalKey" : "3c515622"
+          "globalKey" : "1695cba"
         }
       },
       "tradeLot" : [ {
@@ -325,10 +337,10 @@
       } ],
       "issuerReference" : {
         "externalReference" : "party1",
-        "globalReference" : "d2c659ec"
+        "globalReference" : "9afed11c"
       },
       "meta" : {
-        "globalKey" : "383a0d93"
+        "globalKey" : "6d965ff9"
       }
     }, {
       "assignedIdentifier" : [ {
@@ -341,26 +353,26 @@
       } ],
       "issuerReference" : {
         "externalReference" : "party2",
-        "globalReference" : "c46f1e62"
+        "globalReference" : "ccc85952"
       },
       "meta" : {
-        "globalKey" : "2b97aaa8"
+        "globalKey" : "6d965ffa"
       }
     } ]
   },
   "transferHistory" : [ {
     "meta" : {
-      "globalKey" : "1257a38d"
+      "globalKey" : "bbd996eb"
     },
     "transfer" : {
       "payerReceiver" : {
         "payerPartyReference" : {
           "externalReference" : "party1",
-          "globalReference" : "d2c659ec"
+          "globalReference" : "9afed11c"
         },
         "receiverPartyReference" : {
           "externalReference" : "party2",
-          "globalReference" : "c46f1e62"
+          "globalReference" : "ccc85952"
         }
       },
       "quantity" : {

@@ -1,13 +1,13 @@
 namespace cdm.base.staticdata.asset.common : <"Basic static asset concepts that apply across asset classes: taxonomy etc.">
 version "${project.version}"
 
-import cdm.base.math.*
 import cdm.base.datetime.*
+import cdm.base.math.*
 import cdm.base.staticdata.party.*
 
 import cdm.observable.asset.*
 
-import cdm.synonyms.config.*
+import cdm.product.template.*
 
 type AssetPool: <"Characterizes the asset pool behind an asset backed bond.">
 
@@ -15,15 +15,19 @@ type AssetPool: <"Characterizes the asset pool behind an asset backed bond.">
 	effectiveDate date (0..1) <"Optionally it is possible to specify a version effective date when a version is supplied.">
 	initialFactor number (1..1) <"The part of the mortgage that is outstanding on trade inception, i.e. has not been repaid yet as principal. It is expressed as a multiplier factor to the mortgage: 1 means that the whole mortgage amount is outstanding, 0.8 means that 20% has been repaid.">
 	currentFactor number (0..1) <"The part of the mortgage that is currently outstanding. It is expressed similarly to the initial factor, as factor multiplier to the mortgage. This term is formally defined as part of the 'ISDA Standard Terms Supplement for use with credit derivatives transactions on mortgage-backed security with pas-as-you-go or physical settlement'.">
+
 	condition EffectiveDate: <"FpML specifies that it is possible to specify a version effective date when a versionId is supplied.">
 		if version is absent
 		then effectiveDate is absent
 
 type Bond extends IdentifiedProduct: <"A class to specify a bond as having a product identifier. As a difference versus the FpML standard, the CDM structure of this class only includes the productIdentifier class, which consists of an identifier, productTaxonomy, and source of the identifier. The reason for this approach is to avoid the potential for conflicting information between the information associated with the contractual product and the reference information maintained by the relevant service provider.">
+    [deprecated]
 
 type ConvertibleBond extends IdentifiedProduct: <"A class to specify a convertible bond as having a product identifier. As a difference versus the FpML standard, the CDM structure of this class only includes the productIdentifier class, which consists of an identifier, productTaxonomy, and source of the identifier. The reason for this approach is to avoid the potential for conflicting information between the information associated with the contractual product and the reference information maintained by the relevant service provider.">
+    [deprecated]
 
 type Equity extends IdentifiedProduct: <"A class to specify an equity as having a product identifier. As a difference versus the FpML standard, the CDM structure of this class only includes the productIdentifier class, which consists of an identifier, productTaxonomy, and source of the identifier. The reason for this approach is to avoid the potential for conflicting information between the information associated with the contractual product and the reference information maintained by the relevant service provider.">
+    [deprecated]
 
 type ProductIdentifier: <"Comprises an identifier and a source. The associated metadata key denotes the ability to associate a hash value to the ProductIdentifier instantiations for the purpose of model cross-referencing, in support of functionality such as the event effect and the lineage.">
 	[metadata key]
@@ -35,16 +39,34 @@ type IdentifiedProduct: <"An abstract class to specify a product which terms are
 	productIdentifier ProductIdentifier (1..1)
 
 type ProductBase: <"Serves as an abstract class to specify a product using a productIdentifier.">
-	productIdentifier ProductIdentifier (1..*)
-        [metadata address "pointsTo"=Observable->productIdentifier]
+	productTaxonomy ProductTaxonomy (0..*) <"Specifies the product taxonomy, which is composed of a taxonomy value and a taxonomy source.">
+	productIdentifier ProductIdentifier (0..*) <"Comprises an identifier and a source. The associated metadata key denotes the ability to associate a hash value to the ProductIdentifier instantiations for the purpose of model cross-referencing, in support of functionality such as the event effect and the lineage.">
+		[metadata address "pointsTo"=Observable->productIdentifier]
+
+type ProductTaxonomy: <"Specifies the product taxonomy, which is composed of a taxonomy value and a taxonomy source.">
+	primaryAssetClass AssetClassEnum (0..1) <"Classifies the most important risk class of the trade.">
+		[metadata scheme]
+	secondaryAssetClass AssetClassEnum (0..*) <" Classifies additional risk classes of the trade, if any.">
+		[metadata scheme]
+	taxonomyValue string (0..1) <"Specifies the taxonomy value.">
+		[metadata scheme]
+	taxonomySource TaxonomySourceEnum (0..1) <"Specifies the taxonomy source.">
+	productQualifier string (0..1) <"Derived from the product payout features using a CDM product qualification function that determines the product type based on the product payout features.">
+
+	condition TaxonomyValue: <"Requires a taxonomy value to be chosen.">
+		required choice taxonomyValue, productQualifier, primaryAssetClass, secondaryAssetClass
+
+	condition TaxonomySource: <"A taxonomy source can only be associated with a taxonomyValue or productQualifier">
+		if taxonomySource exists then
+			taxonomyValue exists or productQualifier exists
 
 type Index extends ProductBase: <"Identifies an index by referencing a product identifier.">
-	indexType IndexTypeEnum (1..1) <"Indentifies the index product type.">
 
 type Commodity extends ProductBase: <"Identifies a specific commodity by referencing a product identifier or by a product definition.">
 	commodityProductDefinition CommodityProductDefinition (0..1)  <"Specifies the commodity underlier in the event that no ISDA Commodity Reference Benchmark exists.">
 	priceQuoteType QuotationSideEnum (1..1) <"Describes the required quote type of the underlying price that will be observed. Example values include 'Bid, 'Ask', 'Settlement' (for a futures contract) and 'WeightedAverage' (for some published prices and indices).">
 	deliveryDateReference DeliveryDateParameters (0..1) <"Specifies the parameters for identifying the relevant contract date when the commodity reference price is a futures contract.">
+    description string (0..1) <"Provides additional information about the commodity underlier.">
 
 type CommodityProductDefinition: <"Specifies the commodity underlier in the event that no ISDA Commodity Reference Price exists.">
 	referenceFramework CommodityReferenceFramework (1..1) <"Specifies the type of commodity.">
@@ -89,10 +111,6 @@ type Loan extends ProductBase: <"Identifies a loan by referencing a product iden
 	tranche string (0..1) <"Denotes the loan tranche that is subject to the derivative transaction. It will typically be referenced as the Bloomberg tranche number. ISDA Standards Terms Supplement term: Bloomberg Tranche Number.">
 		[metadata scheme]
 
-type ProductTaxonomy: <"Specifies the product taxonomy, which is composed of a taxonomy value and a taxonomy source.">
-	taxonomyValue string (1..1) <"Specifies the taxonomy value.">
-	taxonomySource TaxonomySourceEnum (1..1) <"Specifies the taxonomy source.">
-
 type CollateralTaxonomy: <"Specifies the collateral taxonomy, which is composed of a taxonomy value and a taxonomy source.">
     taxonomyValue CollateralTaxonomyValue (1..1) <"Specifies the taxonomy value.">
     taxonomySource TaxonomySourceEnum (1..1) <"Specifies the taxonomy source.">
@@ -109,7 +127,7 @@ type CollateralTaxonomy: <"Specifies the collateral taxonomy, which is composed 
 		if taxonomySource = TaxonomySourceEnum-> US_CFTC_PR_EligibleCollateralAssetClass
 			then taxonomyValue -> us_CFTC_PR_EligibleCollateral exists
 	
-	condition taxonomyValue: <"If the Taxonomy Value is specified as a string then the taxonomy Source cannot be either EU Eligible Collateral or Uk Eligible Collateral or US Eligible Collateral.">
+	condition TaxonomyValue: <"If the Taxonomy Value is specified as a string then the taxonomy Source cannot be either EU Eligible Collateral or Uk Eligible Collateral or US Eligible Collateral.">
 		if taxonomyValue -> nonEnumeratedTaxonomyValue exists
 			then taxonomySource <> TaxonomySourceEnum -> EU_EMIR_EligibleCollateralAssetClass
 				and taxonomySource <> TaxonomySourceEnum -> UK_EMIR_EligibleCollateralAssetClass
@@ -129,6 +147,7 @@ type Security extends ProductBase: <"Identifies a security by referencing a prod
 	debtType DebtType (0..1) <"Identifies the type of debt and selected debt economics.">
 	equityType EquityTypeEnum (0..1) <"Identifies the type of equity.">
 	fundType FundProductTypeEnum (0..1) <"Identifies the type of fund.">
+	economicTerms EconomicTerms (0..1) <"The economic terms associated with a contractual product, i.e. the set of features that are price-forming.">
 
 	condition DebtSubType:
 		if securityType <> SecurityTypeEnum -> Debt
@@ -141,6 +160,10 @@ type Security extends ProductBase: <"Identifies a security by referencing a prod
 	condition FundSubType:
 		if securityType <> SecurityTypeEnum -> Fund
 		then fundType is absent
+
+	condition BondEconomicTerms:
+		if economicTerms exists then
+			securityType = SecurityTypeEnum -> Debt
 
 type DebtType: <"Specifies the type of debt instrument.">
 	debtClass DebtClassEnum (0..1) <"Specifies the characteristics of a debt instrument.">
@@ -189,11 +212,6 @@ type RegionalGovernmentIssuerType: <"Represents a class to allow specification o
 	
 type SpecialPurposeVehicleIssuerType: <"Represents a class to allow specification of different types of special purpose vehicle (SPV) collateral.">
 	creditRisk CreditRiskEnum (0..1) <"Indicates tranched or untranched credit risk."> 
-	
-type ExternalProductType: <"Provides a classification of the type of product that is external to the product qualifications used in the CDM. Product types mapped from external models are mapped to this data type.">
-	value string (1..1) <"Stores the product type value.">
-	    [metadata scheme]
-	externalProductTypeSource ExternalProductTypeSourceEnum (1..1) <"Denotes the enumerated value to identify the source for the specified product type.">
 
 type AssetType: <"Represents a class to allow specification of the asset product type.">
 	assetType AssetTypeEnum (1..1) <"Represents a filter based on the type of collateral asset.">
@@ -220,7 +238,7 @@ type AssetType: <"Represents a class to allow specification of the asset product
 		then fundType is absent
 
 	condition OtherAssetSubType:
-		if assetType <> AssetTypeEnum -> Other 
+		if assetType = AssetTypeEnum -> Other 
 		then otherAssetType exists
 		
 type PriceSource: <"Specifies a publication that provides the commodity price, including, where applicable, the details of where in the publication the price is published.">

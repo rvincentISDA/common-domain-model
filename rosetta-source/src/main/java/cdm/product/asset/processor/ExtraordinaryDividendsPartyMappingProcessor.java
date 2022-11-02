@@ -8,11 +8,13 @@ import com.regnosys.rosetta.common.translation.MappingProcessor;
 import com.regnosys.rosetta.common.translation.Path;
 import com.rosetta.model.lib.RosettaModelObjectBuilder;
 import com.rosetta.model.lib.path.RosettaPath;
+import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Consumer;
 
 /**
  * FpML mapping processor.
@@ -28,10 +30,17 @@ public class ExtraordinaryDividendsPartyMappingProcessor extends MappingProcesso
 
 	@Override
 	public <T> void mapBasic(Path synonymPath, Optional<T> instance, RosettaModelObjectBuilder parent) {
-		PartyMappingHelper.getInstanceOrThrow(getContext())
-				.setAncillaryRoleEnum(getModelPath(),
-						synonymPath,
-						((DividendReturnTerms.DividendReturnTermsBuilder) parent)::setExtraordinaryDividendsParty,
-						AncillaryRoleEnum.EXTRAORDINARY_DIVIDENDS_PARTY);
+		getSetter(parent).ifPresent(setter ->
+				PartyMappingHelper.getInstanceOrThrow(getContext())
+						.setAncillaryRoleEnum(getModelPath(), synonymPath, setter, AncillaryRoleEnum.EXTRAORDINARY_DIVIDENDS_PARTY));
+	}
+
+	@NotNull
+	private Optional<Consumer<AncillaryRoleEnum>> getSetter(RosettaModelObjectBuilder parent) {
+		if (parent instanceof DividendReturnTerms.DividendReturnTermsBuilder) {
+			return Optional.of(((DividendReturnTerms.DividendReturnTermsBuilder) parent)::setExtraordinaryDividendsParty);
+		} else {
+			return Optional.empty();
+		}
 	}
 }

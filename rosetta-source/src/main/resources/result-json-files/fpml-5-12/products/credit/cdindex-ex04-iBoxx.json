@@ -1,74 +1,103 @@
 {
   "meta" : {
-    "globalKey" : "d822622d"
+    "globalKey" : "dc04fa06"
   },
   "trade" : {
     "contractDetails" : {
       "documentation" : [ {
-        "documentationIdentification" : {
-          "contractualDefinitions" : [ {
-            "meta" : {
-              "scheme" : "http://www.fpml.org/coding-scheme/contractual-definitions"
-            },
-            "value" : "ISDA2006"
-          } ],
-          "masterConfirmation" : {
-            "masterConfirmationDate" : "2004-10-18"
+        "agreementDate" : "2004-10-18",
+        "legalAgreementIdentification" : {
+          "agreementName" : {
+            "agreementType" : "MASTER_CONFIRMATION"
           }
+        },
+        "meta" : {
+          "globalKey" : "842d2b20"
+        }
+      }, {
+        "legalAgreementIdentification" : {
+          "agreementName" : {
+            "agreementType" : "CONFIRMATION",
+            "contractualDefinitionsType" : [ {
+              "meta" : {
+                "scheme" : "http://www.fpml.org/coding-scheme/contractual-definitions"
+              },
+              "value" : "ISDA2006"
+            } ]
+          }
+        },
+        "meta" : {
+          "globalKey" : "6b413360"
         }
       } ],
       "meta" : {
-        "globalKey" : "19b22c3d"
+        "globalKey" : "1231fc40"
       }
     },
     "meta" : {
-      "globalKey" : "12a56e53"
+      "globalKey" : "a417f914"
     },
     "party" : [ {
       "meta" : {
         "externalKey" : "party1",
-        "globalKey" : "66ba964f"
+        "globalKey" : "a0936c7f"
       },
       "name" : {
         "value" : "New Bank, New York"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+          },
+          "value" : "HPFHU0OQ28E4N0NFVK49"
         },
-        "value" : "HPFHU0OQ28E4N0NFVK49"
+        "identifierType" : "LEI",
+        "meta" : {
+          "globalKey" : "eb844200"
+        }
       } ]
     }, {
       "meta" : {
         "externalKey" : "party2",
-        "globalKey" : "b4e4279f"
+        "globalKey" : "9518becf"
       },
       "name" : {
         "value" : "Massive Bank, New York"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+          },
+          "value" : "254900O1WT2BXINL9612"
         },
-        "value" : "254900O1WT2BXINL9612"
+        "identifierType" : "LEI",
+        "meta" : {
+          "globalKey" : "f5817694"
+        }
       } ]
     } ],
     "tradableProduct" : {
       "counterparty" : [ {
         "partyReference" : {
           "externalReference" : "party2",
-          "globalReference" : "b4e4279f"
+          "globalReference" : "9518becf"
         },
         "role" : "PARTY_1"
       }, {
         "partyReference" : {
           "externalReference" : "party1",
-          "globalReference" : "66ba964f"
+          "globalReference" : "a0936c7f"
         },
         "role" : "PARTY_2"
       } ],
       "product" : {
         "contractualProduct" : {
+          "productTaxonomy" : [ {
+            "productQualifier" : "CreditDefaultSwap_Index",
+            "taxonomySource" : "ISDA"
+          } ],
           "economicTerms" : {
             "effectiveDate" : {
               "adjustableDate" : {
@@ -216,14 +245,11 @@
             }
           },
           "meta" : {
-            "globalKey" : "a231b3b6"
-          },
-          "productIdentification" : {
-            "productQualifier" : "CreditDefaultSwap_Index"
+            "globalKey" : "919dd7a8"
           }
         },
         "meta" : {
-          "globalKey" : "a231b3b6"
+          "globalKey" : "919dd7a8"
         }
       },
       "tradeLot" : [ {
@@ -333,10 +359,10 @@
       } ],
       "issuerReference" : {
         "externalReference" : "party1",
-        "globalReference" : "66ba964f"
+        "globalReference" : "a0936c7f"
       },
       "meta" : {
-        "globalKey" : "7df5c42b"
+        "globalKey" : "affe98a4"
       }
     }, {
       "assignedIdentifier" : [ {
@@ -349,26 +375,26 @@
       } ],
       "issuerReference" : {
         "externalReference" : "party2",
-        "globalReference" : "b4e4279f"
+        "globalReference" : "9518becf"
       },
       "meta" : {
-        "globalKey" : "d68d155c"
+        "globalKey" : "55beb023"
       }
     } ]
   },
   "transferHistory" : [ {
     "meta" : {
-      "globalKey" : "87bdfcda"
+      "globalKey" : "3cb073f2"
     },
     "transfer" : {
       "payerReceiver" : {
         "payerPartyReference" : {
           "externalReference" : "party1",
-          "globalReference" : "66ba964f"
+          "globalReference" : "a0936c7f"
         },
         "receiverPartyReference" : {
           "externalReference" : "party2",
-          "globalReference" : "b4e4279f"
+          "globalReference" : "9518becf"
         }
       },
       "quantity" : {

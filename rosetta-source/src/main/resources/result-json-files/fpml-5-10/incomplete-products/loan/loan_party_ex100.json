@@ -1,24 +1,39 @@
 {
   "meta" : {
-    "globalKey" : "9d40b7a9"
+    "globalKey" : "f1dc5aa8"
   },
   "trade" : {
     "meta" : {
-      "globalKey" : "9d40b7a9"
+      "globalKey" : "f1dc5aa8"
     },
     "party" : [ {
+      "contactInformation" : {
+        "address" : [ {
+          "country" : {
+            "meta" : {
+              "scheme" : "http://www.fpml.org/coding-scheme/external/iso3166"
+            },
+            "value" : "USA"
+          }
+        } ]
+      },
       "meta" : {
         "externalKey" : "LenderParty",
-        "globalKey" : "9d40b7a9"
+        "globalKey" : "f1dc5aa8"
       },
       "name" : {
         "value" : "EatonVance"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/external/party-id-MEI-1-0"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/external/party-id-MEI-1-0"
+          },
+          "value" : "EV1000001"
         },
-        "value" : "EV1000001"
+        "meta" : {
+          "globalKey" : "50cbe7a1"
+        }
       } ],
       "person" : [ {
         "firstName" : "John",

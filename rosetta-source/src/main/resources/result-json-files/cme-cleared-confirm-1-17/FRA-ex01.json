@@ -1,68 +1,89 @@
 {
-  "account" : [ {
-    "accountNumber" : {
-      "meta" : {
-        "scheme" : "clearing_firm_accounts"
+  "creditLimitInformation" : {
+    "limitApplicable" : [ {
+      "amountRemaining" : 999999999999833220,
+      "amountUtilized" : -165719,
+      "currency" : {
+        "meta" : {
+          "scheme" : "http://www.fpml.org/ext/iso4217-2001-08-15"
+        },
+        "value" : "AUD"
       },
-      "value" : "999-123"
+      "limitType" : {
+        "meta" : {
+          "scheme" : "http://www.fpml.org/coding-scheme/credit-limit-type"
+        },
+        "value" : "PV01"
+      },
+      "limitAmount" : 999999999999998980,
+      "limitImpactDueToTrade" : -5029,
+      "limitLevel" : {
+        "meta" : {
+          "scheme" : "creditLimitLevelScheme"
+        },
+        "value" : "CUSTOMER"
+      }
+    } ]
+  },
+  "messageInformation" : {
+    "messageId" : {
+      "meta" : {
+        "scheme" : "cme_message_id"
+      },
+      "value" : "6002553802"
     },
-    "meta" : {
-      "externalKey" : "account1",
-      "globalKey" : "cb2ae09e"
+    "sentBy" : {
+      "meta" : {
+        "scheme" : "cme_clearingorg_id"
+      },
+      "value" : "CME"
     },
-    "partyReference" : {
-      "externalReference" : "clearing_firm",
-      "globalReference" : "dd19"
-    },
-    "servicingParty" : {
-      "externalReference" : "clearing_firm",
-      "globalReference" : "dd19"
-    }
-  } ],
-  "businessEvent" : {
-    "eventDate" : "2014-10-03",
-    "eventQualifier" : "ContractFormation",
-    "meta" : {
-      "globalKey" : "81adaa1e"
-    },
-    "primitives" : [ {
-      "contractFormation" : {
-        "after" : {
+    "sentTo" : [ {
+      "meta" : {
+        "scheme" : "cme_firm_id"
+      },
+      "value" : "999"
+    }, {
+      "meta" : {
+        "scheme" : "cme_exchange_id"
+      },
+      "value" : "CME"
+    } ]
+  },
+  "meta" : {
+    "globalKey" : "f4895f80"
+  },
+  "proposedEvent" : {
+    "instruction" : [ {
+      "before" : {
+        "value" : {
           "meta" : {
-            "globalKey" : "f9763ca2"
+            "globalKey" : "65ff5d3b"
           },
           "trade" : {
-            "clearedDate" : "2014-10-03",
-            "contractDetails" : {
-              "meta" : {
-                "globalKey" : "1258a0b0"
+            "account" : [ {
+              "accountNumber" : {
+                "meta" : {
+                  "scheme" : "clearing_firm_accounts"
+                },
+                "value" : "999-123"
               },
-              "partyContractInformation" : [ {
-                "accountReference" : {
-                  "externalReference" : "account1",
-                  "globalReference" : "88c5360e"
-                },
-                "category" : {
-                  "meta" : {
-                    "scheme" : "cme_origin_code"
-                  },
-                  "value" : "CUSTOMER"
-                },
-                "partyReference" : {
-                  "externalReference" : "clearing_firm",
-                  "globalReference" : "dd19"
-                },
-                "relatedParty" : [ {
-                  "partyReference" : {
-                    "externalReference" : "trade_source",
-                    "globalReference" : "9e635873"
-                  },
-                  "role" : "DATA_SUBMITTER"
-                } ]
-              } ]
-            },
+              "meta" : {
+                "externalKey" : "account1",
+                "globalKey" : "88c5360e"
+              },
+              "partyReference" : {
+                "externalReference" : "clearing_firm",
+                "globalReference" : "dd19"
+              },
+              "servicingParty" : {
+                "externalReference" : "clearing_firm",
+                "globalReference" : "dd19"
+              }
+            } ],
+            "clearedDate" : "2014-10-03",
             "meta" : {
-              "globalKey" : "f9763ca2"
+              "globalKey" : "65ff5d3b"
             },
             "party" : [ {
               "meta" : {
@@ -70,10 +91,15 @@
                 "globalKey" : "dd19"
               },
               "partyId" : [ {
-                "meta" : {
-                  "scheme" : "clearing_member_firms"
+                "identifier" : {
+                  "meta" : {
+                    "scheme" : "clearing_member_firms"
+                  },
+                  "value" : "999"
                 },
-                "value" : "999"
+                "meta" : {
+                  "globalKey" : "dd19"
+                }
               } ]
             }, {
               "meta" : {
@@ -81,7 +107,12 @@
                 "globalKey" : "1051b"
               },
               "partyId" : [ {
-                "value" : "CME"
+                "identifier" : {
+                  "value" : "CME"
+                },
+                "meta" : {
+                  "globalKey" : "1051b"
+                }
               } ]
             }, {
               "meta" : {
@@ -89,7 +120,12 @@
                 "globalKey" : "9e635873"
               },
               "partyId" : [ {
-                "value" : "PLATFORM"
+                "identifier" : {
+                  "value" : "PLATFORM"
+                },
+                "meta" : {
+                  "globalKey" : "9e635873"
+                }
               } ]
             } ],
             "partyRole" : [ {
@@ -119,6 +155,10 @@
               } ],
               "product" : {
                 "contractualProduct" : {
+                  "productTaxonomy" : [ {
+                    "productQualifier" : "InterestRate_Fra",
+                    "taxonomySource" : "ISDA"
+                  } ],
                   "economicTerms" : {
                     "payout" : {
                       "interestRatePayout" : [ {
@@ -134,7 +174,7 @@
                             "initialQuantity" : {
                               "address" : {
                                 "scope" : "DOCUMENT",
-                                "value" : "quantity-2"
+                                "value" : "quantity-1"
                               }
                             }
                           }
@@ -234,7 +274,7 @@
                             "initialQuantity" : {
                               "address" : {
                                 "scope" : "DOCUMENT",
-                                "value" : "quantity-1"
+                                "value" : "quantity-2"
                               }
                             }
                           }
@@ -352,14 +392,11 @@
                     }
                   },
                   "meta" : {
-                    "globalKey" : "75df93ae"
-                  },
-                  "productIdentification" : {
-                    "productQualifier" : "InterestRate_Fra"
+                    "globalKey" : "c3c360ae"
                   }
                 },
                 "meta" : {
-                  "globalKey" : "75df93ae"
+                  "globalKey" : "c3c360ae"
                 }
               },
               "tradeLot" : [ {
@@ -395,7 +432,7 @@
                     "meta" : {
                       "location" : [ {
                         "scope" : "DOCUMENT",
-                        "value" : "quantity-2"
+                        "value" : "quantity-1"
                       } ]
                     },
                     "value" : {
@@ -440,7 +477,7 @@
                     "meta" : {
                       "location" : [ {
                         "scope" : "DOCUMENT",
-                        "value" : "quantity-1"
+                        "value" : "quantity-2"
                       } ]
                     },
                     "value" : {
@@ -496,7 +533,7 @@
                 "globalReference" : "1051b"
               },
               "meta" : {
-                "globalKey" : "82824c56"
+                "globalKey" : "94df7aa5"
               }
             }, {
               "assignedIdentifier" : [ {
@@ -520,61 +557,8 @@
           }
         }
       }
-    } ]
-  },
-  "creditLimitInformation" : {
-    "limitApplicable" : [ {
-      "amountRemaining" : 999999999999833220,
-      "amountUtilized" : -165719,
-      "currency" : {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/ext/iso4217-2001-08-15"
-        },
-        "value" : "AUD"
-      },
-      "limitType" : {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/credit-limit-type"
-        },
-        "value" : "PV01"
-      },
-      "limitAmount" : 999999999999998980,
-      "limitImpactDueToTrade" : -5029,
-      "limitLevel" : {
-        "meta" : {
-          "scheme" : "creditLimitLevelScheme"
-        },
-        "value" : "CUSTOMER"
-      }
-    } ]
-  },
-  "messageInformation" : {
-    "messageId" : {
-      "meta" : {
-        "scheme" : "cme_message_id"
-      },
-      "value" : "6002553802"
-    },
-    "sentBy" : {
-      "meta" : {
-        "scheme" : "cme_clearingorg_id"
-      },
-      "value" : "CME"
-    },
-    "sentTo" : [ {
-      "meta" : {
-        "scheme" : "cme_firm_id"
-      },
-      "value" : "999"
-    }, {
-      "meta" : {
-        "scheme" : "cme_exchange_id"
-      },
-      "value" : "CME"
-    } ]
-  },
-  "meta" : {
-    "globalKey" : "8448cc3f"
+    } ],
+    "intent" : "CONTRACT_FORMATION"
   },
   "timestamp" : [ {
     "dateTime" : "2014-10-03T07:06:24-05:00",

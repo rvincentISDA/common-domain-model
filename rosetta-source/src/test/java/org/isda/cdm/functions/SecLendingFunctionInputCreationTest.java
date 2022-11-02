@@ -2,19 +2,18 @@ package org.isda.cdm.functions;
 
 import cdm.base.math.FinancialUnitEnum;
 import cdm.base.math.Quantity;
+import cdm.base.math.QuantityChangeDirectionEnum;
 import cdm.base.math.UnitType;
 import cdm.base.math.metafields.FieldWithMetaQuantity;
 import cdm.base.staticdata.identifier.Identifier;
 import cdm.base.staticdata.party.*;
 import cdm.base.staticdata.party.metafields.ReferenceWithMetaParty;
 import cdm.event.common.*;
-import cdm.event.common.functions.Create_Allocation;
+import cdm.event.common.functions.Create_BusinessEvent;
 import cdm.event.common.functions.Create_Execution;
 import cdm.event.common.metafields.ReferenceWithMetaTradeState;
-import cdm.event.position.PositionStatusEnum;
 import cdm.event.workflow.Workflow;
 import cdm.event.workflow.WorkflowStep;
-import cdm.legalagreement.common.ClosedStateEnum;
 import cdm.observable.asset.Price;
 import cdm.observable.event.Observation;
 import cdm.observable.event.ObservationIdentifier;
@@ -25,42 +24,53 @@ import cdm.security.lending.functions.RunReturnSettlementWorkflow;
 import cdm.security.lending.functions.RunReturnSettlementWorkflowInput;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.JsonNodeFactory;
-import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.google.common.collect.Lists;
 import com.google.common.io.Resources;
 import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.Module;
 import com.google.inject.util.Modules;
+import com.regnosys.rosetta.common.postprocess.WorkflowPostProcessor;
 import com.regnosys.rosetta.common.serialisation.RosettaObjectMapper;
 import com.rosetta.model.lib.process.PostProcessor;
 import com.rosetta.model.lib.records.Date;
-import com.rosetta.model.lib.validation.ModelObjectValidator;
 import com.rosetta.model.metafields.FieldWithMetaString;
 import com.rosetta.model.metafields.MetaFields;
 import org.isda.cdm.CdmRuntimeModule;
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
-import util.ResourcesUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.net.URL;
 import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static util.ResourcesUtils.getJson;
+import static util.ResourcesUtils.reKey;
 
 class SecLendingFunctionInputCreationTest {
+
+    private static final boolean WRITE_EXPECTATIONS =
+            Optional.ofNullable(System.getenv("WRITE_EXPECTATIONS"))
+                    .map(Boolean::parseBoolean).orElse(false);
+    private static final Optional<Path> TEST_WRITE_BASE_PATH =
+            Optional.ofNullable(System.getenv("TEST_WRITE_BASE_PATH")).map(Paths::get);
+    private static final Logger LOGGER = LoggerFactory.getLogger(SecLendingFunctionInputCreationTest.class);
+
 
     private static final ObjectMapper STRICT_MAPPER = RosettaObjectMapper.getNewRosettaObjectMapper()
             .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true)
@@ -86,8 +96,7 @@ class SecLendingFunctionInputCreationTest {
                 .with(new AbstractModule() {
                     @Override
                     protected void configure() {
-                        bind(PostProcessor.class).to(GlobalKeyProcessRunner.class);
-                        bind(ModelObjectValidator.class).toInstance(Mockito.mock(ModelObjectValidator.class));
+                        bind(PostProcessor.class).to(WorkflowPostProcessor.class);
                     }
                 });
         injector = Guice.createInjector(module);
@@ -131,20 +140,18 @@ class SecLendingFunctionInputCreationTest {
     void validateFullReturnSettlementWorkflowFuncInputJson() throws IOException {
         assertJsonConformsToRosettaType("/cdm-sample-files/functions/sec-lending/full-return-settlement-workflow-func-input.json", RunReturnSettlementWorkflowInput.class);
 
+        ReturnInstruction returnInstruction = ReturnInstruction.builder()
+                .addQuantity(Quantity.builder()
+                        .setAmount(BigDecimal.valueOf(200000))
+                        .setUnitOfAmount(UnitType.builder().setFinancialUnit(FinancialUnitEnum.SHARE)))
+                .addQuantity(Quantity.builder()
+                        .setAmount(BigDecimal.valueOf(5000000))
+                        .setUnitOfAmount(UnitType.builder().setCurrencyValue("USD")))
+                .build();
+
         RunReturnSettlementWorkflowInput actual = new RunReturnSettlementWorkflowInput(getTransferTradeState(),
-                ReturnInstruction.builder()
-                        .addQuantity(Quantity.builder()
-                                .setAmount(BigDecimal.valueOf(200000))
-                                .setUnitOfAmount(UnitType.builder().setFinancialUnit(FinancialUnitEnum.SHARE).build())
-                                .build())
-                        .addQuantity(Quantity.builder()
-                                .setAmount(BigDecimal.valueOf(5000000))
-                                .setUnitOfAmount(UnitType.builder()
-                                        .setCurrency(FieldWithMetaString.builder().setValue("USD").build()).build())
-                                .build())
-                        .build(),
-                Date.of(2020, 10, 21)
-        );
+                returnInstruction,
+                Date.of(2020, 10, 21));
 
         assertEquals(readResource("/cdm-sample-files/functions/sec-lending/full-return-settlement-workflow-func-input.json"),
                 STRICT_MAPPER.writerWithDefaultPrettyPrinter().writeValueAsString(actual),
@@ -153,92 +160,93 @@ class SecLendingFunctionInputCreationTest {
 
     @Test
     void validateCreateAllocationFuncInputJson() throws IOException {
-        TradeState actualTradeState = getBlockExecutionTradeState();
+        CreateBusinessEventInput actual = getAllocationInput();
 
-        AllocationInstruction actualAllocationInstruction = AllocationInstruction.builder()
-                .addBreakdowns(createAllocationBreakdown(actualTradeState, "lender-1", "Fund 1", 0.40))
-                .addBreakdowns(createAllocationBreakdown(actualTradeState, "lender-2", "Fund 2", 0.60))
-                .build();
+        assertJsonEquals("cdm-sample-files/functions/sec-lending/allocation/allocation-sec-lending-func-input.json", actual);
+    }
 
-        JsonNode expectedJsonNode = STRICT_MAPPER
-                .readTree(this.getClass().getResource("/cdm-sample-files/functions/sec-lending/create-allocation-func-input.json"));
-        TradeState expectedTradeState = assertJsonConformsToRosettaType(expectedJsonNode
-                .get("tradeState"), TradeState.class);
-        AllocationInstruction expectedAllocationInstruction = assertJsonConformsToRosettaType(expectedJsonNode
-                .get("allocationInstruction"), AllocationInstruction.class);
+    @NotNull
+    private CreateBusinessEventInput getAllocationInput() throws IOException {
+        // Agent Lender lends 200k SDOL to Borrower CP001
+        TradeState blockExecutionTradeState = getBlockExecutionTradeState();
 
-        assertEquals(STRICT_MAPPER.writerWithDefaultPrettyPrinter().writeValueAsString(asJsonNode(Stream
-						.of(new AbstractMap.SimpleEntry<>("tradeState", expectedTradeState),
-								new AbstractMap.SimpleEntry<>("allocationInstruction", expectedAllocationInstruction))
-						.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue)))),
-                STRICT_MAPPER.writerWithDefaultPrettyPrinter().writeValueAsString(asJsonNode(Stream
-                        .of(new AbstractMap.SimpleEntry<>("tradeState", actualTradeState),
-                                new AbstractMap.SimpleEntry<>("allocationInstruction", actualAllocationInstruction))
-                        .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue)))),
-                "The input JSON for create-allocation-func-input.json has been updated (probably due to a model change). Update the input file");
+        SplitInstruction splitInstruction = SplitInstruction.builder()
+                // Fund 1 lends 120k SDOL to Borrower CP001
+                .addBreakdown(createAllocationInstruction(blockExecutionTradeState,
+                        "lender-1",
+                        "Fund 1",
+                        CounterpartyRoleEnum.PARTY_1,
+                        0.60))
+                // Fund 2 lends 80k SDOL to Borrower CP001
+                .addBreakdown(createAllocationInstruction(blockExecutionTradeState,
+                        "lender-2",
+                        "Fund 2",
+                        CounterpartyRoleEnum.PARTY_1,
+                        0.40))
+                // Close original trade
+                .addBreakdown(PrimitiveInstruction.builder()
+                        .setQuantityChange(QuantityChangeInstruction.builder()
+                                .setDirection(QuantityChangeDirectionEnum.REPLACE)
+                                .addChange(PriceQuantity.builder()
+                                        .addQuantityValue(Quantity.builder()
+                                                .setAmount(BigDecimal.valueOf(0.0))
+                                                .setUnitOfAmount(UnitType.builder()
+                                                        .setCurrencyValue("USD")))
+                                        .addQuantityValue(Quantity.builder()
+                                                .setAmount(BigDecimal.valueOf(0.0))
+                                                .setUnitOfAmount(UnitType.builder()
+                                                        .setFinancialUnit(FinancialUnitEnum.SHARE))))));
+
+        Instruction.InstructionBuilder instruction = Instruction.builder()
+                .setBeforeValue(blockExecutionTradeState)
+                .setPrimitiveInstruction(PrimitiveInstruction.builder().setSplit(splitInstruction));
+
+        reKey(instruction);
+
+        return new CreateBusinessEventInput(
+                Lists.newArrayList(instruction.build()),
+                EventIntentEnum.ALLOCATION,
+                Date.of(2020, 9, 21),
+                null);
     }
 
     @Test
     void validateCreateReallocationFuncInputJson() throws IOException {
-        // Agent Lender lends 200k SDOL to Borrower CP001
-        TradeState originalBlockTradeState = getBlockExecutionTradeState().toBuilder().build();
+        // We want to get the contract formation for the 40% allocated trade, and back it out by 25% causing a
+        // decrease quantity change (so notional will be 10% of the original block).
+        // We then want to do a new allocation of 10% of the original block.
+        BusinessEvent originalAllocationBusinessEvent = runCreateBusinessEventFunc(getAllocationInput());
 
+        // Trade state where the quantity is 40%
+        TradeState tradeStateToBeReallocated = originalAllocationBusinessEvent.getAfter().get(1);
 
-        AllocationInstruction actualAllocationInstruction = AllocationInstruction.builder()
-                //Fund 1 lends 120k SDOL to Borrower CP001
-                .addBreakdowns(createAllocationBreakdown(originalBlockTradeState, "lender-1", "Fund 1", 0.60))
-                // Fund 2 lends 80k SDOL to Borrower CP001
-                .addBreakdowns(createAllocationBreakdown(originalBlockTradeState, "lender-2", "Fund 2", 0.40))
-                .build();
-
-        // we want to get the contract formation for the 40% allocated trade, and back it out by 25% causing a decrease quantity change (so notional will be 10% of the original block)
-        // we then want to do a new allocation of 10% of the original block.
-        BusinessEvent originalAllocationBusinessEvent = injector.getInstance(Create_Allocation.class)
-                .evaluate(originalBlockTradeState, actualAllocationInstruction);
-        TradeState closedBlockTradeState = originalAllocationBusinessEvent.getPrimitives().stream()
-                .map(PrimitiveEvent::getSplit).filter(Objects::nonNull)
-                .map(SplitPrimitive::getAfter).flatMap(Collection::stream)
-                .filter(x -> x.getState().getClosedState().getState() == ClosedStateEnum.ALLOCATED)
-                .filter(x -> x.getState().getPositionState() == PositionStatusEnum.CLOSED)
-                .findFirst().orElseThrow(RuntimeException::new);
-
-        // trade state where the quantity is 40%
-        TradeState tradeStateToBeDecreased = originalAllocationBusinessEvent.getPrimitives().stream()
-                .map(PrimitiveEvent::getContractFormation).filter(Objects::nonNull)
-                .map(ContractFormationPrimitive::getAfter)
-                .reduce((first, second) -> second)
-                .orElseThrow(RuntimeException::new);
-
-        AllocationBreakdown.AllocationBreakdownBuilder reallocationBreakdown = createAllocationBreakdown(originalBlockTradeState, "lender-3", "Fund 3", 0.10);
-        ReallocationInstruction actualReallocationInstruction = ReallocationInstruction.builder()
+        SplitInstruction splitInstruction = SplitInstruction.builder()
                 // Fund 3 lends 20k SDOL to Borrower CP001
-                .addBreakdowns(reallocationBreakdown.build())
+                .addBreakdown(createAllocationInstruction(tradeStateToBeReallocated,
+                        "lender-3",
+                        "Fund 3",
+                        CounterpartyRoleEnum.PARTY_1,
+                        0.25))
                 // Fund 2 lends 60k SDOL to Borrower CP001
-                .addDecrease(DecreasedTrade.builder()
-                        .setTradeState(tradeStateToBeDecreased)
-                        .setQuantity(scaleQuantities(tradeStateToBeDecreased, 0.75))
-                        .build())
-                .build();
+                .addBreakdown(PrimitiveInstruction.builder()
+                        .setQuantityChange(QuantityChangeInstruction.builder()
+                                .setDirection(QuantityChangeDirectionEnum.REPLACE)
+                                .addChange(PriceQuantity.builder()
+                                        .setQuantityValue(scaleQuantities(tradeStateToBeReallocated, 0.75)))));
 
-        JsonNode expectedJsonNode = STRICT_MAPPER
-                .readTree(this.getClass()
-                        .getResource("/cdm-sample-files/functions/sec-lending/create-reallocation-pre-settled-func-input.json"));
+        Instruction.InstructionBuilder instruction = Instruction.builder()
+                .setBeforeValue(tradeStateToBeReallocated)
+                .setPrimitiveInstruction(PrimitiveInstruction.builder().setSplit(splitInstruction));
 
-        TradeState expectedTradeState = assertJsonConformsToRosettaType(expectedJsonNode
-                .get("originalBlock"), TradeState.class);
-        ReallocationInstruction expectedReallocationInstruction = assertJsonConformsToRosettaType(expectedJsonNode
-                .get("reallocationInstruction"), ReallocationInstruction.class);
+        reKey(instruction);
 
-        assertEquals(STRICT_MAPPER.writerWithDefaultPrettyPrinter().writeValueAsString(asJsonNode(Stream
-						.of(new AbstractMap.SimpleEntry<>("originalBlock", expectedTradeState),
-								new AbstractMap.SimpleEntry<>("reallocationInstruction", expectedReallocationInstruction))
-						.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue)))),
-                STRICT_MAPPER.writerWithDefaultPrettyPrinter().writeValueAsString(asJsonNode(Stream
-                        .of(new AbstractMap.SimpleEntry<>("originalBlock", closedBlockTradeState),
-                                new AbstractMap.SimpleEntry<>("reallocationInstruction", actualReallocationInstruction)
-                        )
-                        .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue)))),
-                "The input JSON for create-reallocation-pre-settled-func-input.json has been updated (probably due to a model change). Update the input file");
+        CreateBusinessEventInput actual = new CreateBusinessEventInput(
+                Lists.newArrayList(instruction.build()),
+                EventIntentEnum.REALLOCATION,
+                Date.of(2020, 9, 21),
+                null);
+
+        assertJsonEquals("cdm-sample-files/functions/sec-lending/reallocation/reallocation-pre-settled-func-input.json", actual);
     }
 
     @Test
@@ -248,20 +256,14 @@ class SecLendingFunctionInputCreationTest {
 
         TradeState fullReturnAfterTradeState = getTransferTradeState();
 
-		TradeState partReturnBeforeTradeState = part.getSteps().stream()
-                .map(WorkflowStep::getBusinessEvent).filter(Objects::nonNull)
-                .map(BusinessEvent::getPrimitives).flatMap(Collection::stream).filter(Objects::nonNull)
-                .map(PrimitiveEvent::getTransfer).filter(Objects::nonNull)
-                .map(TransferPrimitive::getBefore).filter(Objects::nonNull)
-                .map(ReferenceWithMetaTradeState::getValue)
-                .findFirst().orElseThrow(RuntimeException::new);
+        WorkflowStep partReturnWorkflowStep = part.getSteps().get(2);
 
-        TradeState partReturnAfterTradeState = part.getSteps().stream()
-                .map(WorkflowStep::getBusinessEvent).filter(Objects::nonNull)
-                .map(BusinessEvent::getPrimitives).flatMap(Collection::stream).filter(Objects::nonNull)
-                .map(PrimitiveEvent::getTransfer).filter(Objects::nonNull)
-                .map(TransferPrimitive::getAfter).filter(Objects::nonNull)
-                .findFirst().orElseThrow(RuntimeException::new);
+        TradeState partReturnBeforeTradeState = partReturnWorkflowStep.getBusinessEvent()
+                .getInstruction().get(0)
+                .getBefore().getValue();
+
+        TradeState partReturnAfterTradeState = partReturnWorkflowStep.getBusinessEvent()
+                .getAfter().get(0);
 
         BillingInstruction actualBillingInstruction = BillingInstruction.builder()
                 .setSendingParty(getParty(partReturnAfterTradeState, CounterpartyRoleEnum.PARTY_1))
@@ -365,18 +367,10 @@ class SecLendingFunctionInputCreationTest {
         ExecutionInstruction executionInstruction = STRICT_MAPPER.readValue(resource, ExecutionInstruction.class);
         Create_Execution createExecution = injector.getInstance(Create_Execution.class);
 
-        BusinessEvent businessEvent = createExecution.evaluate(executionInstruction);
+        TradeState tradeState = createExecution.evaluate(executionInstruction);
 
-        assertNotNull(businessEvent, "Expected a business event");
-        List<? extends PrimitiveEvent> primitives = businessEvent.getPrimitives();
-        assertNotNull(primitives, "Expected a primitive");
-        assertEquals(1, primitives.size(), "Expected 1 primitive but was " + primitives.size());
-        PrimitiveEvent primitiveEvent = primitives.get(0);
-        ExecutionPrimitive executionPrimitive = primitiveEvent.getExecution();
-        assertNotNull(executionPrimitive, "Expected an execution");
-        TradeState afterTradeState = executionPrimitive.getAfter();
-        assertNotNull(afterTradeState, "Expected an after trade state");
-        return afterTradeState;
+        assertNotNull(tradeState, "Expected an after trade state");
+        return tradeState;
     }
 
 
@@ -384,7 +378,9 @@ class SecLendingFunctionInputCreationTest {
         URL resource = SecLendingFunctionInputCreationTest.class.getResource(SETTLEMENT_WORKFLOW_FUNC_INPUT_JSON);
         ExecutionInstruction executionInstruction = STRICT_MAPPER.readValue(resource, ExecutionInstruction.class);
         RunNewSettlementWorkflow runNewSettlementWorkflow = injector.getInstance(RunNewSettlementWorkflow.class);
-        Workflow workflow = runNewSettlementWorkflow.execute(executionInstruction);
+        Workflow.WorkflowBuilder workflowBuilder = runNewSettlementWorkflow.execute(executionInstruction).toBuilder();
+        reKey(workflowBuilder);
+        Workflow workflow = workflowBuilder.build();
 
         assertNotNull(workflow, "Expected a workflow");
         List<? extends WorkflowStep> workflowSteps = workflow.getSteps();
@@ -393,46 +389,38 @@ class SecLendingFunctionInputCreationTest {
         WorkflowStep workflowStep = workflowSteps.get(2);
         BusinessEvent businessEvent = workflowStep.getBusinessEvent();
         assertNotNull(businessEvent, "Expected a business event");
-        List<? extends PrimitiveEvent> primitives = businessEvent.getPrimitives();
-        assertNotNull(primitives, "Expected a primitive");
-        assertEquals(1, primitives.size(), "Expected 1 primitive but was " + primitives.size());
-        PrimitiveEvent primitiveEvent = primitives.get(0);
-        TransferPrimitive primitiveEventTransfer = primitiveEvent.getTransfer();
-        assertNotNull(primitiveEventTransfer, "Expected a transfer");
-        TradeState afterTradeState = primitiveEventTransfer.getAfter();
+        TradeState afterTradeState = businessEvent.getAfter().get(0);
         assertNotNull(afterTradeState, "Expected an after trade state");
         return afterTradeState;
     }
 
-    private static AllocationBreakdown.AllocationBreakdownBuilder createAllocationBreakdown(TradeState tradeState, String partyId, String partyName, double percent) {
-        Identifier allocationIdentifier = createAllocationIdentifier(tradeState.build()
-                .toBuilder(), "allocation-" + partyId);
-
-        Party agentLenderParty = getParty(tradeState, CounterpartyRoleEnum.PARTY_1);
-
-        PartyRole agentLenderPartyRole = PartyRole.builder()
-                .setPartyReferenceValue(agentLenderParty)
-                .setRole(PartyRoleEnum.AGENT_LENDER).build();
-
-        Counterparty counterparty1 = Counterparty.builder()
-                .setPartyReferenceValue(Party.builder()
-                        .setMeta(MetaFields.builder().setExternalKey(partyId))
-                        .addPartyIdValue(partyName)
-                        .setNameValue(partyName))
-                .setRole(CounterpartyRoleEnum.PARTY_1)
-                .build();
-
+    private PrimitiveInstruction createAllocationInstruction(TradeState tradeState, String externalKey, String partyId, CounterpartyRoleEnum role, double percent) {
+        Party agentLenderParty = getParty(tradeState, role);
+        Identifier allocationIdentifier = createAllocationIdentifier(tradeState.build().toBuilder(), "allocation-" + externalKey);
         List<Quantity> allocatedQuantities = scaleQuantities(tradeState, percent);
 
-        AllocationBreakdown.AllocationBreakdownBuilder allocationBreakdownBuilder = AllocationBreakdown.builder()
-                .addAllocationTradeId(allocationIdentifier)
-                .setCounterparty(counterparty1)
-                .setQuantity(allocatedQuantities)
-                .setAncillaryParty(agentLenderPartyRole);
+        PartyChangeInstruction.PartyChangeInstructionBuilder partyChangeInstruction = PartyChangeInstruction.builder()
+                .setCounterparty(Counterparty.builder()
+                        .setPartyReferenceValue(Party.builder()
+                                .setMeta(MetaFields.builder().setExternalKey(externalKey))
+                                .setNameValue(partyId)
+                                .addPartyId(PartyIdentifier.builder()
+                                        .setIdentifierValue(partyId)
+                                        .build()))
+                        .setRole(role))
+                .setPartyRole(PartyRole.builder()
+                        .setPartyReferenceValue(agentLenderParty)
+                        .setRole(PartyRoleEnum.AGENT_LENDER))
+                .setTradeId(Lists.newArrayList(allocationIdentifier));
 
-        ResourcesUtils.reKey(allocationBreakdownBuilder);
+        QuantityChangeInstruction.QuantityChangeInstructionBuilder quantityChangeInstruction = QuantityChangeInstruction.builder()
+                .setDirection(QuantityChangeDirectionEnum.REPLACE)
+                .addChange(PriceQuantity.builder()
+                        .setQuantityValue(allocatedQuantities));
 
-        return allocationBreakdownBuilder;
+        return PrimitiveInstruction.builder()
+                .setPartyChange(partyChangeInstruction)
+                .setQuantityChange(quantityChangeInstruction);
     }
 
     private static Party getParty(TradeState tradeState, CounterpartyRoleEnum counterpartyRoleEnum) {
@@ -467,27 +455,10 @@ class SecLendingFunctionInputCreationTest {
         return allocationIdentifierBuilder.build();
     }
 
-    private static ObjectNode asJsonNode(Map<String, Object> objectMap) {
-        ObjectNode actual = STRICT_MAPPER.createObjectNode();
-        objectMap.forEach((k, v) -> actual.setAll(STRICT_MAPPER.createObjectNode().putPOJO(k, v)));
-        return actual;
-    }
-
     private static String readResource(String inputJson) throws IOException {
+        URL resource = SecLendingFunctionInputCreationTest.class.getResource(inputJson);
         //noinspection UnstableApiUsage
-        return Resources
-                .toString(Objects
-                        .requireNonNull(SecLendingFunctionInputCreationTest.class.getResource(inputJson)), Charset
-                        .defaultCharset());
-    }
-
-    private <T> T assertJsonConformsToRosettaType(JsonNode node, Class<T> rosettaType) throws IOException {
-        T actual = MAPPER.convertValue(node, rosettaType);
-
-        assertEquals(STRICT_MAPPER.writerWithDefaultPrettyPrinter().writeValueAsString(node),
-                STRICT_MAPPER.writerWithDefaultPrettyPrinter().writeValueAsString(actual),
-                "The input JSON has been updated (probably due to a model change). Update the input file");
-        return actual;
+        return Resources.toString(Objects.requireNonNull(resource), Charset.defaultCharset());
     }
 
     private <T> T assertJsonConformsToRosettaType(String inputJson, Class<T> rosettaType) throws IOException {
@@ -501,4 +472,43 @@ class SecLendingFunctionInputCreationTest {
         return actual;
     }
 
+    private BusinessEvent runCreateBusinessEventFunc(CreateBusinessEventInput input) {
+        Create_BusinessEvent func = injector.getInstance(Create_BusinessEvent.class);
+        BusinessEvent.BusinessEventBuilder businessEvent =
+                func.evaluate(input.getInstruction(),
+                                input.getIntent(),
+                                input.getEventDate(),
+                                null)
+                        .toBuilder();
+        PostProcessor postProcessor = injector.getInstance(PostProcessor.class);
+        postProcessor.postProcess(BusinessEvent.class, businessEvent);
+        return businessEvent.build();
+    }
+
+    private void assertJsonEquals(String expectedJsonPath, Object actual) throws IOException {
+        String actualJson = STRICT_MAPPER.writerWithDefaultPrettyPrinter().writeValueAsString(actual);
+        String expectedJson = getJson(expectedJsonPath);
+        if (!expectedJson.equals(actualJson)) {
+            if (WRITE_EXPECTATIONS) {
+                writeExpectation(expectedJsonPath, actualJson);
+            }
+        }
+        assertEquals(expectedJson, actualJson,
+                "The input JSON for " + Paths.get(expectedJsonPath).getFileName() + " has been updated (probably due to a model change). Update the input file");
+    }
+
+    private void writeExpectation(String writePath, String json) {
+        // Add environment variable TEST_WRITE_BASE_PATH to override the base write path, e.g.
+        // TEST_WRITE_BASE_PATH=/Users/hugohills/dev/github/REGnosys/rosetta-cdm/rosetta-source/src/main/resources/
+        TEST_WRITE_BASE_PATH.filter(Files::exists).ifPresent(basePath -> {
+            Path expectationFilePath = basePath.resolve(writePath);
+            try {
+                Files.createDirectories(expectationFilePath.getParent());
+                Files.write(expectationFilePath, json.getBytes());
+                LOGGER.warn("Updated expectation file {}", expectationFilePath.toAbsolutePath());
+            } catch (IOException e) {
+                LOGGER.error("Failed to write expectation file {}", expectationFilePath.toAbsolutePath(), e);
+            }
+        });
+    }
 }

@@ -1,33 +1,44 @@
 {
   "meta" : {
-    "globalKey" : "dd02defc"
+    "globalKey" : "cb778d3f"
   },
   "trade" : {
     "contractDetails" : {
       "documentation" : [ {
-        "documentationIdentification" : {
-          "contractualDefinitions" : [ {
-            "value" : "ISDA_2002_EQUITY"
-          } ],
-          "masterAgreement" : {
+        "legalAgreementIdentification" : {
+          "agreementName" : {
+            "agreementType" : "MASTER_AGREEMENT",
             "masterAgreementType" : {
-              "value" : "ISDA"
-            },
-            "masterAgreementVersion" : {
-              "value" : "2002"
+              "value" : "ISDA_MASTER"
             }
+          },
+          "vintage" : 2002
+        },
+        "meta" : {
+          "globalKey" : "328cfa59"
+        }
+      }, {
+        "legalAgreementIdentification" : {
+          "agreementName" : {
+            "agreementType" : "CONFIRMATION",
+            "contractualDefinitionsType" : [ {
+              "value" : "ISDA_2002_EQUITY"
+            } ]
           }
+        },
+        "meta" : {
+          "globalKey" : "2092c901"
         }
       } ],
       "governingLaw" : {
         "value" : "GBEN"
       },
       "meta" : {
-        "globalKey" : "9917db9f"
+        "globalKey" : "6234330c"
       }
     },
     "meta" : {
-      "globalKey" : "e5fe9ab1"
+      "globalKey" : "dfea7f0b"
     },
     "party" : [ {
       "meta" : {
@@ -35,10 +46,15 @@
         "globalKey" : "33f59567"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+          },
+          "value" : "Party A"
         },
-        "value" : "Party A"
+        "meta" : {
+          "globalKey" : "33f59567"
+        }
       } ]
     }, {
       "meta" : {
@@ -46,10 +62,15 @@
         "globalKey" : "33f59568"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+          },
+          "value" : "Party B"
         },
-        "value" : "Party B"
+        "meta" : {
+          "globalKey" : "33f59568"
+        }
       } ]
     } ],
     "tradableProduct" : {
@@ -116,7 +137,7 @@
             },
             "payout" : {
               "meta" : {
-                "globalKey" : "7c9964e0"
+                "globalKey" : "977c6877"
               },
               "optionPayout" : [ {
                 "payerReceiver" : {
@@ -133,6 +154,15 @@
                       "value" : "quantity-3"
                     }
                   }
+                },
+                "settlementTerms" : {
+                  "meta" : {
+                    "globalKey" : "4790ef7b"
+                  },
+                  "settlementCurrency" : {
+                    "value" : "EUR"
+                  },
+                  "settlementType" : "ELECTION"
                 },
                 "buyerSeller" : {
                   "buyer" : "PARTY_1",
@@ -175,6 +205,7 @@
                           "globalKey" : "eb6226d3"
                         }
                       },
+                      "expirationTimeType" : "CLOSE",
                       "latestExerciseTime" : {
                         "businessCenter" : {
                           "value" : "GBLO"
@@ -182,7 +213,7 @@
                         "hourMinuteTime" : "17:15:00"
                       },
                       "meta" : {
-                        "globalKey" : "5fc7f1c6"
+                        "globalKey" : "260f119e"
                       },
                       "multipleExercise" : {
                         "integralMultipleAmount" : 1,
@@ -209,18 +240,18 @@
                   }
                 },
                 "meta" : {
-                  "globalKey" : "7c9964e0"
+                  "globalKey" : "977c6877"
                 },
                 "optionType" : "CALL"
               } ]
             }
           },
           "meta" : {
-            "globalKey" : "7cfc1d80"
+            "globalKey" : "911413d7"
           }
         },
         "meta" : {
-          "globalKey" : "7cfc1d80"
+          "globalKey" : "911413d7"
         }
       },
       "tradeLot" : [ {
@@ -247,11 +278,11 @@
       }, {
         "priceQuantity" : [ {
           "meta" : {
-            "globalKey" : "f0e2fb26"
+            "globalKey" : "a283d93b"
           },
           "observable" : {
             "meta" : {
-              "globalKey" : "111b7"
+              "globalKey" : "bad3638c"
             },
             "productIdentifier" : [ {
               "meta" : {
@@ -271,6 +302,22 @@
                   "globalKey" : "111b7"
                 }
               }
+            }, {
+              "meta" : {
+                "location" : [ {
+                  "scope" : "DOCUMENT",
+                  "value" : "productIdentifier-2"
+                } ]
+              },
+              "value" : {
+                "identifier" : {
+                  "value" : "FTSE/Xinhua China 25 Index"
+                },
+                "meta" : {
+                  "globalKey" : "a78afae3"
+                },
+                "source" : "NAME"
+              }
             } ]
           },
           "quantity" : [ {
@@ -289,17 +336,17 @@
           } ]
         }, {
           "meta" : {
-            "globalKey" : "56ff0b94"
+            "globalKey" : "afd4e4d3"
           },
           "observable" : {
             "meta" : {
-              "globalKey" : "9666ccdb"
+              "globalKey" : "d5ec415a"
             },
             "productIdentifier" : [ {
               "meta" : {
                 "location" : [ {
                   "scope" : "DOCUMENT",
-                  "value" : "productIdentifier-2"
+                  "value" : "productIdentifier-3"
                 } ]
               },
               "value" : {
@@ -310,7 +357,23 @@
                   "value" : "005440.KS"
                 },
                 "meta" : {
-                  "globalKey" : "9666ccdb"
+                  "globalKey" : "1f38c8a6"
+                },
+                "source" : "NAME"
+              }
+            }, {
+              "meta" : {
+                "location" : [ {
+                  "scope" : "DOCUMENT",
+                  "value" : "productIdentifier-6"
+                } ]
+              },
+              "value" : {
+                "identifier" : {
+                  "value" : "HYUNDAI MOTOR COMPANY"
+                },
+                "meta" : {
+                  "globalKey" : "7343bb4"
                 }
               }
             } ]
@@ -331,17 +394,17 @@
           } ]
         }, {
           "meta" : {
-            "globalKey" : "5dbab894"
+            "globalKey" : "f5a9a0e2"
           },
           "observable" : {
             "meta" : {
-              "globalKey" : "8aa839db"
+              "globalKey" : "d8c6f4a9"
             },
             "productIdentifier" : [ {
               "meta" : {
                 "location" : [ {
                   "scope" : "DOCUMENT",
-                  "value" : "productIdentifier-3"
+                  "value" : "productIdentifier-5"
                 } ]
               },
               "value" : {
@@ -352,7 +415,23 @@
                   "value" : "000270.KS"
                 },
                 "meta" : {
-                  "globalKey" : "8aa839db"
+                  "globalKey" : "137a35a6"
+                },
+                "source" : "NAME"
+              }
+            }, {
+              "meta" : {
+                "location" : [ {
+                  "scope" : "DOCUMENT",
+                  "value" : "productIdentifier-4"
+                } ]
+              },
+              "value" : {
+                "identifier" : {
+                  "value" : "KIA MOTORS CORPORATION"
+                },
+                "meta" : {
+                  "globalKey" : "1e4c0203"
                 }
               }
             } ]
@@ -395,13 +474,13 @@
         "globalReference" : "33f59567"
       },
       "meta" : {
-        "globalKey" : "571de47a"
+        "globalKey" : "1b2141cd"
       }
     } ]
   },
   "transferHistory" : [ {
     "meta" : {
-      "globalKey" : "1d4d074b"
+      "globalKey" : "f53c9af4"
     },
     "transfer" : {
       "payerReceiver" : {

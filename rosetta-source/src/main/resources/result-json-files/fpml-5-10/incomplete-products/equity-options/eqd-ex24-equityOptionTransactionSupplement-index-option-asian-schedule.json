@@ -1,6 +1,6 @@
 {
   "meta" : {
-    "globalKey" : "92d20d68"
+    "globalKey" : "26e3f413"
   },
   "trade" : {
     "collateral" : {
@@ -30,21 +30,25 @@
     },
     "contractDetails" : {
       "documentation" : [ {
-        "documentationIdentification" : {
-          "masterConfirmation" : {
-            "masterConfirmationDate" : "2002-06-20",
+        "agreementDate" : "2002-06-20",
+        "legalAgreementIdentification" : {
+          "agreementName" : {
+            "agreementType" : "MASTER_CONFIRMATION",
             "masterConfirmationType" : {
               "value" : "ISDA_2004_EQUITY_AMERICAS_INTERDEALER"
             }
           }
+        },
+        "meta" : {
+          "globalKey" : "cebfff6e"
         }
       } ],
       "meta" : {
-        "globalKey" : "8b0a76a4"
+        "globalKey" : "cebfff6e"
       }
     },
     "meta" : {
-      "globalKey" : "ee7284ab"
+      "globalKey" : "a2b48aef"
     },
     "party" : [ {
       "meta" : {
@@ -52,10 +56,15 @@
         "globalKey" : "5d661eab"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "DTCC"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "DTCC"
+          },
+          "value" : "DTCC00006441"
         },
-        "value" : "DTCC00006441"
+        "meta" : {
+          "globalKey" : "5d661eab"
+        }
       } ]
     }, {
       "meta" : {
@@ -63,10 +72,15 @@
         "globalKey" : "5d661eaa"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "DTCC"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "DTCC"
+          },
+          "value" : "DTCC00006440"
         },
-        "value" : "DTCC00006440"
+        "meta" : {
+          "globalKey" : "5d661eaa"
+        }
       } ]
     } ],
     "tradeDate" : {
@@ -89,13 +103,13 @@
         "globalReference" : "5d661eab"
       },
       "meta" : {
-        "globalKey" : "7d8dcfc1"
+        "globalKey" : "24dd6aa"
       }
     } ]
   },
   "transferHistory" : [ {
     "meta" : {
-      "globalKey" : "266819bd"
+      "globalKey" : "6e6ca6e4"
     },
     "transfer" : {
       "payerReceiver" : {

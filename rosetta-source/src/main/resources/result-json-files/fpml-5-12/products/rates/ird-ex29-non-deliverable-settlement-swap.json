@@ -1,24 +1,29 @@
 {
   "meta" : {
-    "globalKey" : "9f69dc3e"
+    "globalKey" : "c4710da7"
   },
   "trade" : {
     "meta" : {
-      "globalKey" : "9f69dc3e"
+      "globalKey" : "c4710da7"
     },
     "party" : [ {
       "meta" : {
         "externalKey" : "party1",
-        "globalKey" : "cb52329c"
+        "globalKey" : "4e41782e"
       },
       "name" : {
         "value" : "Party A"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+          },
+          "value" : "76095221801"
         },
-        "value" : "76095221801"
+        "meta" : {
+          "globalKey" : "be6c5af5"
+        }
       } ]
     }, {
       "meta" : {
@@ -26,17 +31,22 @@
         "globalKey" : "f9ea7c0d"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+          },
+          "value" : "00680112001"
         },
-        "value" : "00680112001"
+        "meta" : {
+          "globalKey" : "f9ea7c0d"
+        }
       } ]
     } ],
     "tradableProduct" : {
       "counterparty" : [ {
         "partyReference" : {
           "externalReference" : "party1",
-          "globalReference" : "cb52329c"
+          "globalReference" : "4e41782e"
         },
         "role" : "PARTY_1"
       }, {
@@ -48,6 +58,10 @@
       } ],
       "product" : {
         "contractualProduct" : {
+          "productTaxonomy" : [ {
+            "productQualifier" : "InterestRate_CrossCurrency_FixedFloat",
+            "taxonomySource" : "ISDA"
+          } ],
           "economicTerms" : {
             "payout" : {
               "interestRatePayout" : [ {
@@ -71,19 +85,19 @@
                 },
                 "settlementTerms" : {
                   "meta" : {
-                    "globalKey" : "3ee01fc6"
+                    "globalKey" : "765135f9"
                   },
                   "settlementCurrency" : {
                     "value" : "USD"
                   },
                   "cashSettlementTerms" : [ {
                     "meta" : {
-                      "globalKey" : "b614afe0"
+                      "globalKey" : "28999d13"
                     },
                     "valuationDate" : {
                       "fxFixingDate" : {
                         "meta" : {
-                          "globalKey" : "d20b8d3"
+                          "globalKey" : "35d317c0"
                         },
                         "period" : "D",
                         "periodMultiplier" : 2,
@@ -219,7 +233,7 @@
                   "value" : "ACT/360"
                 },
                 "meta" : {
-                  "globalKey" : "fe62dcff"
+                  "globalKey" : "e5efb3f2"
                 },
                 "paymentDates" : {
                   "meta" : {
@@ -382,7 +396,7 @@
                   "value" : "ACT/360"
                 },
                 "meta" : {
-                  "globalKey" : "f8f0c60f"
+                  "globalKey" : "332d33b2"
                 },
                 "paymentDates" : {
                   "meta" : {
@@ -471,7 +485,7 @@
                   },
                   "meta" : {
                     "externalKey" : "E2000098N10DDE",
-                    "globalKey" : "13a429dc"
+                    "globalKey" : "cd3b0b7f"
                   },
                   "resetDatesAdjustments" : {
                     "businessCenters" : {
@@ -498,19 +512,16 @@
                 }
               } ],
               "meta" : {
-                "globalKey" : "663a15ce"
+                "globalKey" : "609af624"
               }
             }
           },
           "meta" : {
-            "globalKey" : "484739b9"
-          },
-          "productIdentification" : {
-            "productQualifier" : "InterestRate_CrossCurrency_FixedFloat"
+            "globalKey" : "609af624"
           }
         },
         "meta" : {
-          "globalKey" : "484739b9"
+          "globalKey" : "609af624"
         }
       },
       "tradeLot" : [ {
@@ -623,10 +634,10 @@
       } ],
       "issuerReference" : {
         "externalReference" : "party1",
-        "globalReference" : "cb52329c"
+        "globalReference" : "4e41782e"
       },
       "meta" : {
-        "globalKey" : "2a6c7425"
+        "globalKey" : "7ae32cd7"
       }
     }, {
       "assignedIdentifier" : [ {
@@ -642,7 +653,7 @@
         "globalReference" : "f9ea7c0d"
       },
       "meta" : {
-        "globalKey" : "1d133f7f"
+        "globalKey" : "1b2141ce"
       }
     } ]
   }

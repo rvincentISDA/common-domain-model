@@ -1,73 +1,102 @@
 {
   "meta" : {
-    "globalKey" : "60db851f"
+    "globalKey" : "742fb9b0"
   },
   "trade" : {
     "contractDetails" : {
       "documentation" : [ {
-        "documentationIdentification" : {
-          "contractualDefinitions" : [ {
-            "value" : "ISDA_2005_COMMODITY"
-          } ],
-          "masterAgreement" : {
+        "legalAgreementIdentification" : {
+          "agreementName" : {
+            "agreementType" : "MASTER_AGREEMENT",
             "masterAgreementType" : {
-              "value" : "ISDA"
+              "value" : "ISDA_MASTER"
             }
           }
+        },
+        "meta" : {
+          "globalKey" : "c4592b87"
+        }
+      }, {
+        "legalAgreementIdentification" : {
+          "agreementName" : {
+            "agreementType" : "CONFIRMATION",
+            "contractualDefinitionsType" : [ {
+              "value" : "ISDA_2005_COMMODITY"
+            } ]
+          }
+        },
+        "meta" : {
+          "globalKey" : "a977e59e"
         }
       } ],
       "meta" : {
-        "globalKey" : "f43057de"
+        "globalKey" : "fb7fd677"
       }
     },
     "meta" : {
-      "globalKey" : "60db851f"
+      "globalKey" : "742fb9b0"
     },
     "party" : [ {
       "meta" : {
         "externalKey" : "partyA",
-        "globalKey" : "b119110c"
+        "globalKey" : "d42113fc"
       },
       "name" : {
         "value" : "Bank"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+          },
+          "value" : "549300KFSLY4U7N3LL12"
         },
-        "value" : "549300KFSLY4U7N3LL12"
+        "identifierType" : "LEI",
+        "meta" : {
+          "globalKey" : "3f3e27a0"
+        }
       } ]
     }, {
       "meta" : {
         "externalKey" : "partyB",
-        "globalKey" : "3f36b5d5"
+        "globalKey" : "6e437d45"
       },
       "name" : {
         "value" : "Energy Co."
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+          },
+          "value" : "549300AJRHKBLY9GM262"
         },
-        "value" : "549300AJRHKBLY9GM262"
+        "identifierType" : "LEI",
+        "meta" : {
+          "globalKey" : "c803429b"
+        }
       } ]
     } ],
     "tradableProduct" : {
       "counterparty" : [ {
         "partyReference" : {
           "externalReference" : "partyA",
-          "globalReference" : "b119110c"
+          "globalReference" : "d42113fc"
         },
         "role" : "PARTY_1"
       }, {
         "partyReference" : {
           "externalReference" : "partyB",
-          "globalReference" : "3f36b5d5"
+          "globalReference" : "6e437d45"
         },
         "role" : "PARTY_2"
       } ],
       "product" : {
         "contractualProduct" : {
+          "productTaxonomy" : [ {
+            "productQualifier" : "Commodity_Swap_Basis",
+            "taxonomySource" : "ISDA"
+          } ],
           "economicTerms" : {
             "effectiveDate" : {
               "adjustableDate" : {
@@ -155,29 +184,13 @@
                 },
                 "underlier" : {
                   "commodity" : {
-                    "value" : {
-                      "productIdentifier" : [ {
-                        "value" : {
-                          "meta" : {
-                            "globalKey" : "a725f13a"
-                          },
-                          "source" : "ISDACRP"
-                        }
-                      } ],
-                      "deliveryDateReference" : {
-                        "deliveryNearby" : {
-                          "meta" : {
-                            "globalKey" : "954"
-                          },
-                          "period" : "M",
-                          "periodMultiplier" : 1
-                        }
-                      },
-                      "priceQuoteType" : "SETTLEMENT"
+                    "address" : {
+                      "scope" : "DOCUMENT",
+                      "value" : "commodity-1"
                     }
                   },
                   "meta" : {
-                    "globalKey" : "17318503"
+                    "globalKey" : "0"
                   }
                 },
                 "commodityPriceReturnTerms" : {
@@ -191,11 +204,18 @@
                   }
                 },
                 "meta" : {
-                  "globalKey" : "93c9956c"
+                  "globalKey" : "9254e8fb"
                 },
                 "pricingDates" : {
                   "parametricDates" : {
-                    "businessCalendar" : "NYMEXNATURALGAS",
+                    "businessCenters" : {
+                      "businessCenter" : [ {
+                        "value" : "NYMEXNATURALGAS"
+                      } ],
+                      "meta" : {
+                        "globalKey" : "2f9777e5"
+                      }
+                    },
                     "dayDistribution" : "LAST",
                     "dayType" : "BUSINESS"
                   }
@@ -246,20 +266,13 @@
                 },
                 "underlier" : {
                   "commodity" : {
-                    "value" : {
-                      "productIdentifier" : [ {
-                        "value" : {
-                          "meta" : {
-                            "globalKey" : "a725f13a"
-                          },
-                          "source" : "ISDACRP"
-                        }
-                      } ],
-                      "priceQuoteType" : "MEAN_OF_HIGH_AND_LOW"
+                    "address" : {
+                      "scope" : "DOCUMENT",
+                      "value" : "commodity-2"
                     }
                   },
                   "meta" : {
-                    "globalKey" : "20ee1e03"
+                    "globalKey" : "0"
                   }
                 },
                 "averagingMethod" : "UNWEIGHTED",
@@ -267,18 +280,25 @@
                   "conversionFactor" : 0.4913
                 },
                 "meta" : {
-                  "globalKey" : "ff6a1ab2"
+                  "globalKey" : "a5936d15"
                 },
                 "pricingDates" : {
                   "parametricDates" : {
-                    "businessCalendar" : "DOW_JONES_POWER",
+                    "businessCenters" : {
+                      "businessCenter" : [ {
+                        "value" : "DOW_JONES_POWER"
+                      } ],
+                      "meta" : {
+                        "globalKey" : "e1cbae2a"
+                      }
+                    },
                     "dayDistribution" : "ALL",
                     "dayType" : "CALENDAR"
                   }
                 }
               } ],
               "meta" : {
-                "globalKey" : "6966961e"
+                "globalKey" : "dd0bd510"
               }
             },
             "terminationDate" : {
@@ -300,20 +320,17 @@
             }
           },
           "meta" : {
-            "globalKey" : "1ed738c4"
-          },
-          "productIdentification" : {
-            "productQualifier" : "Commodity_Swap_Basis"
+            "globalKey" : "c368300e"
           }
         },
         "meta" : {
-          "globalKey" : "1ed738c4"
+          "globalKey" : "c368300e"
         }
       },
       "tradeLot" : [ {
         "priceQuantity" : [ {
           "meta" : {
-            "globalKey" : "f96380b3"
+            "globalKey" : "2e025036"
           },
           "observable" : {
             "commodity" : {
@@ -326,8 +343,14 @@
               "value" : {
                 "productIdentifier" : [ {
                   "value" : {
+                    "identifier" : {
+                      "meta" : {
+                        "scheme" : "http://www.fpml.org/coding-scheme/commodity-reference-price"
+                      },
+                      "value" : "NATURAL GAS-HENRY HUB-NYMEX"
+                    },
                     "meta" : {
-                      "globalKey" : "a725f13a"
+                      "globalKey" : "8ac8d504"
                     },
                     "source" : "ISDACRP"
                   }
@@ -345,7 +368,7 @@
               }
             },
             "meta" : {
-              "globalKey" : "17318503"
+              "globalKey" : "dd976f79"
             }
           },
           "price" : [ {
@@ -378,22 +401,14 @@
             "value" : {
               "amount" : 15000.0,
               "unitOfAmount" : {
-                "capacityUnit" : "MMBTU",
-                "frequency" : {
-                  "meta" : {
-                    "globalKey" : "83d"
-                  },
-                  "period" : "D",
-                  "periodMultiplier" : 1
-                }
+                "capacityUnit" : "MMBTU"
               },
-              "multiplierUnit" : {
-                "frequency" : {
-                  "meta" : {
-                    "globalKey" : "1"
-                  },
-                  "periodMultiplier" : 1
-                }
+              "frequency" : {
+                "meta" : {
+                  "globalKey" : "83d"
+                },
+                "period" : "D",
+                "periodMultiplier" : 1
               }
             }
           }, {
@@ -412,7 +427,7 @@
           } ]
         }, {
           "meta" : {
-            "globalKey" : "3c68d950"
+            "globalKey" : "6d1a0529"
           },
           "observable" : {
             "commodity" : {
@@ -425,8 +440,14 @@
               "value" : {
                 "productIdentifier" : [ {
                   "value" : {
+                    "identifier" : {
+                      "meta" : {
+                        "scheme" : "http://www.fpml.org/coding-scheme/commodity-reference-price-1-0"
+                      },
+                      "value" : "ELECTRICITY-MID-COLUMBIA FIRM (ON-PEAK)-DOW JONES POWER"
+                    },
                     "meta" : {
-                      "globalKey" : "a725f13a"
+                      "globalKey" : "7dbe4bf4"
                     },
                     "source" : "ISDACRP"
                   }
@@ -435,7 +456,7 @@
               }
             },
             "meta" : {
-              "globalKey" : "20ee1e03"
+              "globalKey" : "1d611a89"
             }
           },
           "quantity" : [ {
@@ -448,22 +469,14 @@
             "value" : {
               "amount" : 15000.0,
               "unitOfAmount" : {
-                "capacityUnit" : "MMBTU",
-                "frequency" : {
-                  "meta" : {
-                    "globalKey" : "83d"
-                  },
-                  "period" : "D",
-                  "periodMultiplier" : 1
-                }
+                "capacityUnit" : "MMBTU"
               },
-              "multiplierUnit" : {
-                "frequency" : {
-                  "meta" : {
-                    "globalKey" : "1"
-                  },
-                  "periodMultiplier" : 1
-                }
+              "frequency" : {
+                "meta" : {
+                  "globalKey" : "83d"
+                },
+                "period" : "D",
+                "periodMultiplier" : 1
               }
             }
           }, {
@@ -500,10 +513,10 @@
       } ],
       "issuerReference" : {
         "externalReference" : "partyA",
-        "globalReference" : "b119110c"
+        "globalReference" : "d42113fc"
       },
       "meta" : {
-        "globalKey" : "c6b7714f"
+        "globalKey" : "1b2141dd"
       }
     }, {
       "assignedIdentifier" : [ {
@@ -516,10 +529,10 @@
       } ],
       "issuerReference" : {
         "externalReference" : "partyB",
-        "globalReference" : "3f36b5d5"
+        "globalReference" : "6e437d45"
       },
       "meta" : {
-        "globalKey" : "dbddae77"
+        "globalKey" : "1ce4aa1e"
       }
     } ]
   }

@@ -1,31 +1,44 @@
 {
   "meta" : {
-    "globalKey" : "58a33312"
+    "globalKey" : "e2a614dc"
   },
   "trade" : {
     "contractDetails" : {
       "documentation" : [ {
-        "documentationIdentification" : {
-          "contractualDefinitions" : [ {
-            "value" : "ISDA_2002_EQUITY"
-          } ],
-          "masterConfirmation" : {
-            "masterConfirmationDate" : "2007-09-24",
+        "agreementDate" : "2007-09-24",
+        "legalAgreementIdentification" : {
+          "agreementName" : {
+            "agreementType" : "MASTER_CONFIRMATION",
             "masterConfirmationType" : {
               "value" : "ISDA_2007_EQUITY_EUROPEAN"
             }
           }
+        },
+        "meta" : {
+          "globalKey" : "62998f41"
+        }
+      }, {
+        "legalAgreementIdentification" : {
+          "agreementName" : {
+            "agreementType" : "CONFIRMATION",
+            "contractualDefinitionsType" : [ {
+              "value" : "ISDA_2002_EQUITY"
+            } ]
+          }
+        },
+        "meta" : {
+          "globalKey" : "2092c901"
         }
       } ],
       "governingLaw" : {
         "value" : "GBEN"
       },
       "meta" : {
-        "globalKey" : "32f4548f"
+        "globalKey" : "9ea9c924"
       }
     },
     "meta" : {
-      "globalKey" : "58a33312"
+      "globalKey" : "e2a614dc"
     },
     "party" : [ {
       "meta" : {
@@ -33,10 +46,15 @@
         "globalKey" : "33f59567"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+          },
+          "value" : "Party A"
         },
-        "value" : "Party A"
+        "meta" : {
+          "globalKey" : "33f59567"
+        }
       } ]
     }, {
       "meta" : {
@@ -44,10 +62,15 @@
         "globalKey" : "33f59568"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+          },
+          "value" : "Party B"
         },
-        "value" : "Party B"
+        "meta" : {
+          "globalKey" : "33f59568"
+        }
       } ]
     } ],
     "tradableProduct" : {
@@ -61,243 +84,60 @@
       } ],
       "counterparty" : [ {
         "partyReference" : {
-          "externalReference" : "party1",
-          "globalReference" : "33f59567"
+          "externalReference" : "party2",
+          "globalReference" : "33f59568"
         },
         "role" : "PARTY_1"
       }, {
         "partyReference" : {
-          "externalReference" : "party2",
-          "globalReference" : "33f59568"
+          "externalReference" : "party1",
+          "globalReference" : "33f59567"
         },
         "role" : "PARTY_2"
       } ],
       "product" : {
         "contractualProduct" : {
+          "productTaxonomy" : [ {
+            "taxonomySource" : "OTHER",
+            "taxonomyValue" : {
+              "value" : "Equity:Swap:PriceReturnBasicPerformance:SingleName"
+            }
+          }, {
+            "productQualifier" : "EquitySwap_TotalReturnBasicPerformance_SingleName",
+            "taxonomySource" : "ISDA"
+          } ],
           "economicTerms" : {
             "calculationAgent" : {
               "calculationAgentParty" : "CALCULATION_AGENT_INDEPENDENT"
             },
+            "effectiveDate" : {
+              "meta" : {
+                "externalKey" : "EffectiveDate",
+                "globalKey" : "6a2df5e0"
+              },
+              "relativeDate" : {
+                "meta" : {
+                  "globalKey" : "6a2df5e0"
+                },
+                "period" : "D",
+                "periodMultiplier" : 3,
+                "dayType" : "EXCHANGE_BUSINESS",
+                "businessDayConvention" : "NOT_APPLICABLE",
+                "dateRelativeTo" : {
+                  "externalReference" : "TradeDate",
+                  "globalReference" : "3eba58"
+                }
+              }
+            },
             "payout" : {
-              "equityPayout" : [ {
+              "interestRatePayout" : [ {
                 "payerReceiver" : {
                   "payer" : "PARTY_1",
                   "receiver" : "PARTY_2"
                 },
                 "payoutQuantity" : {
                   "meta" : {
-                    "externalKey" : "EquityNotionalAmount",
-                    "globalKey" : "9511"
-                  },
-                  "quantitySchedule" : {
-                    "initialQuantity" : {
-                      "address" : {
-                        "scope" : "DOCUMENT",
-                        "value" : "quantity-1"
-                      }
-                    }
-                  },
-                  "reset" : true,
-                  "resolvedQuantity" : {
-                    "address" : {
-                      "scope" : "DOCUMENT",
-                      "value" : "quantity-2"
-                    }
-                  }
-                },
-                "settlementTerms" : {
-                  "meta" : {
-                    "globalKey" : "10da2"
-                  },
-                  "settlementCurrency" : {
-                    "value" : "EUR"
-                  }
-                },
-                "calculationPeriodDates" : {
-                  "effectiveDate" : {
-                    "meta" : {
-                      "externalKey" : "EffectiveDate",
-                      "globalKey" : "dbcf8078"
-                    },
-                    "relativeDate" : {
-                      "meta" : {
-                        "globalKey" : "dbcf8078"
-                      },
-                      "period" : "D",
-                      "periodMultiplier" : 3,
-                      "dayType" : "EXCHANGE_BUSINESS",
-                      "businessDayConvention" : "NOT_APPLICABLE",
-                      "dateRelativeTo" : {
-                        "externalReference" : "TradeDate",
-                        "globalReference" : "3eba58"
-                      }
-                    }
-                  },
-                  "meta" : {
-                    "globalKey" : "46dd04d0"
-                  },
-                  "terminationDate" : {
-                    "meta" : {
-                      "externalKey" : "TerminationDate",
-                      "globalKey" : "f18f7c48"
-                    },
-                    "relativeDate" : {
-                      "meta" : {
-                        "globalKey" : "f18f7c48"
-                      },
-                      "period" : "D",
-                      "periodMultiplier" : 0,
-                      "businessDayConvention" : "NOT_APPLICABLE",
-                      "dateRelativeTo" : {
-                        "externalReference" : "FinalEquityPaymentDate",
-                        "globalReference" : "ad48d812"
-                      }
-                    }
-                  }
-                },
-                "dividendReturnTerms" : {
-                  "dividendPaymentDate" : {
-                    "dividendDateReference" : {
-                      "dateReference" : "EQUITY_PAYMENT_DATE"
-                    }
-                  },
-                  "dividendPayout" : [ {
-                    "dividendPayoutRatio" : 1,
-                    "dividendPayoutRatioCash" : 0.01
-                  } ],
-                  "dividendPeriod" : "FIRST_PERIOD"
-                },
-                "meta" : {
-                  "globalKey" : "3e0a3bd2"
-                },
-                "paymentDates" : {
-                  "meta" : {
-                    "externalKey" : "EquityPaymentDate",
-                    "globalKey" : "86c6366d"
-                  },
-                  "paymentDateSchedule" : {
-                    "finalPaymentDate" : {
-                      "meta" : {
-                        "externalKey" : "FinalEquityPaymentDate",
-                        "globalKey" : "6b25345d"
-                      },
-                      "relativeDate" : {
-                        "meta" : {
-                          "globalKey" : "6b25345d"
-                        },
-                        "period" : "D",
-                        "periodMultiplier" : 3,
-                        "dayType" : "CURRENCY_BUSINESS",
-                        "businessCentersReference" : {
-                          "externalReference" : "PrimaryBusinessCenter",
-                          "globalReference" : "20a71d"
-                        },
-                        "businessDayConvention" : "FOLLOWING",
-                        "dateRelativeTo" : {
-                          "externalReference" : "FinalValuationDate",
-                          "globalReference" : "25e31503"
-                        }
-                      }
-                    },
-                    "interimPaymentDates" : [ {
-                      "meta" : {
-                        "externalKey" : "InterimEquityPaymentDate",
-                        "globalKey" : "9ead6ea"
-                      },
-                      "relativeDates" : {
-                        "meta" : {
-                          "globalKey" : "9ead6ea"
-                        },
-                        "period" : "D",
-                        "periodMultiplier" : 3,
-                        "dayType" : "CURRENCY_BUSINESS",
-                        "businessCenters" : {
-                          "businessCenter" : [ {
-                            "value" : "EUTA"
-                          } ],
-                          "meta" : {
-                            "externalKey" : "PrimaryBusinessCenter",
-                            "globalKey" : "20a71d"
-                          }
-                        },
-                        "businessDayConvention" : "FOLLOWING",
-                        "dateRelativeTo" : {
-                          "externalReference" : "InterimValuationDate",
-                          "globalReference" : "4ae48233"
-                        }
-                      }
-                    } ]
-                  }
-                },
-                "priceReturnTerms" : {
-                  "valuationPriceFinal" : {
-                    "determinationMethod" : "HEDGE_EXECUTION",
-                    "valuationDate" : {
-                      "adjustableDate" : {
-                        "dateAdjustments" : {
-                          "businessDayConvention" : "NOT_APPLICABLE",
-                          "meta" : {
-                            "globalKey" : "3a4b88ab"
-                          }
-                        },
-                        "meta" : {
-                          "globalKey" : "25e31503"
-                        },
-                        "unadjustedDate" : "2008-09-24"
-                      },
-                      "meta" : {
-                        "externalKey" : "FinalValuationDate",
-                        "globalKey" : "25e31503"
-                      }
-                    }
-                  },
-                  "valuationPriceInterim" : {
-                    "determinationMethod" : "VALUATION_TIME",
-                    "valuationDates" : {
-                      "adjustableDates" : {
-                        "dateAdjustments" : {
-                          "businessDayConvention" : "NOT_APPLICABLE",
-                          "meta" : {
-                            "globalKey" : "3a4b88ab"
-                          }
-                        },
-                        "meta" : {
-                          "globalKey" : "4ae48233"
-                        },
-                        "unadjustedDate" : [ "2007-10-12", "2007-11-13", "2007-12-12", "2008-01-14", "2008-02-12", "2008-03-12", "2008-04-12", "2008-05-13", "2008-06-12", "2008-07-12", "2008-08-12" ]
-                      },
-                      "meta" : {
-                        "externalKey" : "InterimValuationDate",
-                        "globalKey" : "4ae48233"
-                      }
-                    },
-                    "valuationTimeType" : "CLOSE"
-                  }
-                },
-                "returnType" : "TOTAL",
-                "underlier" : {
-                  "meta" : {
-                    "globalKey" : "7a5b92c5"
-                  },
-                  "security" : {
-                    "productIdentifier" : [ {
-                      "address" : {
-                        "scope" : "DOCUMENT",
-                        "value" : "productIdentifier-1"
-                      }
-                    } ],
-                    "securityType" : "EQUITY"
-                  }
-                }
-              } ],
-              "interestRatePayout" : [ {
-                "payerReceiver" : {
-                  "payer" : "PARTY_2",
-                  "receiver" : "PARTY_1"
-                },
-                "payoutQuantity" : {
-                  "meta" : {
-                    "globalKey" : "b44a588c"
+                    "globalKey" : "aef6ada3"
                   },
                   "quantityReference" : {
                     "externalReference" : "EquityNotionalAmount",
@@ -315,11 +155,11 @@
                 "calculationPeriodDates" : {
                   "effectiveDate" : {
                     "meta" : {
-                      "globalKey" : "dbcf8078"
+                      "globalKey" : "6a2df5e0"
                     },
                     "relativeDate" : {
                       "meta" : {
-                        "globalKey" : "dbcf8078"
+                        "globalKey" : "6a2df5e0"
                       },
                       "period" : "D",
                       "periodMultiplier" : 3,
@@ -333,7 +173,7 @@
                   },
                   "meta" : {
                     "externalKey" : "InterestLegPeriodDates",
-                    "globalKey" : "46dd04d0"
+                    "globalKey" : "8fbb2a68"
                   },
                   "terminationDate" : {
                     "meta" : {
@@ -357,7 +197,7 @@
                   "value" : "ACT/360"
                 },
                 "meta" : {
-                  "globalKey" : "907ffc38"
+                  "globalKey" : "4efb201"
                 },
                 "paymentDates" : {
                   "meta" : {
@@ -410,41 +250,236 @@
                     "globalReference" : "8fbb2a68"
                   },
                   "meta" : {
-                    "globalKey" : "d32176fd"
+                    "globalKey" : "9e9ada33"
                   },
                   "resetRelativeTo" : "CALCULATION_PERIOD_START_DATE"
                 }
               } ],
               "meta" : {
-                "globalKey" : "c0af8e26"
+                "globalKey" : "e698fda2"
+              },
+              "performancePayout" : [ {
+                "payerReceiver" : {
+                  "payer" : "PARTY_2",
+                  "receiver" : "PARTY_1"
+                },
+                "payoutQuantity" : {
+                  "meta" : {
+                    "externalKey" : "EquityNotionalAmount",
+                    "globalKey" : "9511"
+                  },
+                  "quantitySchedule" : {
+                    "initialQuantity" : {
+                      "address" : {
+                        "scope" : "DOCUMENT",
+                        "value" : "quantity-1"
+                      }
+                    }
+                  },
+                  "reset" : true,
+                  "resolvedQuantity" : {
+                    "address" : {
+                      "scope" : "DOCUMENT",
+                      "value" : "quantity-2"
+                    }
+                  }
+                },
+                "settlementTerms" : {
+                  "meta" : {
+                    "globalKey" : "10da2"
+                  },
+                  "settlementCurrency" : {
+                    "value" : "EUR"
+                  }
+                },
+                "meta" : {
+                  "globalKey" : "ab01a0e1"
+                },
+                "paymentDates" : {
+                  "meta" : {
+                    "externalKey" : "EquityPaymentDate",
+                    "globalKey" : "2da89f98"
+                  },
+                  "paymentDateSchedule" : {
+                    "finalPaymentDate" : {
+                      "meta" : {
+                        "externalKey" : "FinalEquityPaymentDate",
+                        "globalKey" : "ad48d812"
+                      },
+                      "relativeDate" : {
+                        "meta" : {
+                          "globalKey" : "ad48d812"
+                        },
+                        "period" : "D",
+                        "periodMultiplier" : 3,
+                        "dayType" : "CURRENCY_BUSINESS",
+                        "businessCentersReference" : {
+                          "externalReference" : "PrimaryBusinessCenter",
+                          "globalReference" : "20a71d"
+                        },
+                        "businessDayConvention" : "FOLLOWING",
+                        "dateRelativeTo" : {
+                          "externalReference" : "FinalValuationDate",
+                          "globalReference" : "25e31503"
+                        }
+                      }
+                    },
+                    "interimPaymentDates" : [ {
+                      "meta" : {
+                        "externalKey" : "InterimEquityPaymentDate",
+                        "globalKey" : "9ead6ea"
+                      },
+                      "relativeDates" : {
+                        "meta" : {
+                          "globalKey" : "9ead6ea"
+                        },
+                        "period" : "D",
+                        "periodMultiplier" : 3,
+                        "dayType" : "CURRENCY_BUSINESS",
+                        "businessCenters" : {
+                          "businessCenter" : [ {
+                            "value" : "EUTA"
+                          } ],
+                          "meta" : {
+                            "externalKey" : "PrimaryBusinessCenter",
+                            "globalKey" : "20a71d"
+                          }
+                        },
+                        "businessDayConvention" : "FOLLOWING",
+                        "dateRelativeTo" : {
+                          "externalReference" : "InterimValuationDate",
+                          "globalReference" : "4ae48233"
+                        }
+                      }
+                    } ]
+                  }
+                },
+                "returnTerms" : {
+                  "dividendReturnTerms" : {
+                    "dividendPayoutRatio" : [ {
+                      "cashRatio" : 0.01,
+                      "totalRatio" : 1
+                    } ],
+                    "dividendPeriod" : [ {
+                      "dividendPaymentDate" : {
+                        "dividendDateReference" : {
+                          "dateReference" : "EQUITY_PAYMENT_DATE"
+                        }
+                      }
+                    } ],
+                    "firstOrSecondPeriod" : "FIRST_PERIOD"
+                  },
+                  "priceReturnTerms" : {
+                    "returnType" : "TOTAL"
+                  }
+                },
+                "underlier" : {
+                  "meta" : {
+                    "globalKey" : "7a5b92c5"
+                  },
+                  "security" : {
+                    "productIdentifier" : [ {
+                      "address" : {
+                        "scope" : "DOCUMENT",
+                        "value" : "productIdentifier-1"
+                      }
+                    }, {
+                      "address" : {
+                        "scope" : "DOCUMENT",
+                        "value" : "productIdentifier-2"
+                      }
+                    } ],
+                    "securityType" : "EQUITY"
+                  }
+                },
+                "valuationDates" : {
+                  "valuationDatesFinal" : {
+                    "determinationMethod" : "HEDGE_EXECUTION",
+                    "meta" : {
+                      "globalKey" : "97ae9685"
+                    },
+                    "valuationDate" : {
+                      "adjustableDate" : {
+                        "dateAdjustments" : {
+                          "businessDayConvention" : "NOT_APPLICABLE",
+                          "meta" : {
+                            "globalKey" : "3a4b88ab"
+                          }
+                        },
+                        "meta" : {
+                          "globalKey" : "25e31503"
+                        },
+                        "unadjustedDate" : "2008-09-24"
+                      },
+                      "meta" : {
+                        "externalKey" : "FinalValuationDate",
+                        "globalKey" : "25e31503"
+                      }
+                    }
+                  },
+                  "valuationDatesInterim" : {
+                    "determinationMethod" : "VALUATION_TIME",
+                    "meta" : {
+                      "globalKey" : "9a240dc6"
+                    },
+                    "valuationDates" : {
+                      "adjustableDates" : {
+                        "dateAdjustments" : {
+                          "businessDayConvention" : "NOT_APPLICABLE",
+                          "meta" : {
+                            "globalKey" : "3a4b88ab"
+                          }
+                        },
+                        "meta" : {
+                          "globalKey" : "4ae48233"
+                        },
+                        "unadjustedDate" : [ "2007-10-12", "2007-11-13", "2007-12-12", "2008-01-14", "2008-02-12", "2008-03-12", "2008-04-12", "2008-05-13", "2008-06-12", "2008-07-12", "2008-08-12" ]
+                      },
+                      "meta" : {
+                        "externalKey" : "InterimValuationDate",
+                        "globalKey" : "4ae48233"
+                      }
+                    },
+                    "valuationTimeType" : "CLOSE"
+                  }
+                }
+              } ]
+            },
+            "terminationDate" : {
+              "meta" : {
+                "externalKey" : "TerminationDate",
+                "globalKey" : "f18f7c48"
+              },
+              "relativeDate" : {
+                "meta" : {
+                  "globalKey" : "f18f7c48"
+                },
+                "period" : "D",
+                "periodMultiplier" : 0,
+                "businessDayConvention" : "NOT_APPLICABLE",
+                "dateRelativeTo" : {
+                  "externalReference" : "FinalEquityPaymentDate",
+                  "globalReference" : "ad48d812"
+                }
               }
             }
           },
           "meta" : {
-            "globalKey" : "e1960733"
-          },
-          "productIdentification" : {
-            "externalProductType" : [ {
-              "externalProductTypeSource" : "OTHER",
-              "value" : {
-                "value" : "Equity:Swap:PriceReturnBasicPerformance:SingleName"
-              }
-            } ],
-            "productQualifier" : "EquitySwap_TotalReturnBasicPerformance_SingleName"
+            "globalKey" : "9b4ab3c"
           }
         },
         "meta" : {
-          "globalKey" : "e1960733"
+          "globalKey" : "9b4ab3c"
         }
       },
       "tradeLot" : [ {
         "priceQuantity" : [ {
           "meta" : {
-            "globalKey" : "b5658db1"
+            "globalKey" : "481a0002"
           },
           "observable" : {
             "meta" : {
-              "globalKey" : "62f843cc"
+              "globalKey" : "476cc05b"
             },
             "productIdentifier" : [ {
               "meta" : {
@@ -461,7 +496,23 @@
                   "value" : "NOK1V.HE"
                 },
                 "meta" : {
-                  "globalKey" : "62f843cc"
+                  "globalKey" : "54fb4a7"
+                },
+                "source" : "NAME"
+              }
+            }, {
+              "meta" : {
+                "location" : [ {
+                  "scope" : "DOCUMENT",
+                  "value" : "productIdentifier-2"
+                } ]
+              },
+              "value" : {
+                "identifier" : {
+                  "value" : "Nokya Oyj"
+                },
+                "meta" : {
+                  "globalKey" : "e12a4a2"
                 },
                 "source" : "OTHER"
               }
@@ -597,7 +648,7 @@
         "globalReference" : "33f59567"
       },
       "meta" : {
-        "globalKey" : "3c740f7f"
+        "globalKey" : "23a97ce8"
       }
     }, {
       "assignedIdentifier" : [ {
@@ -613,7 +664,7 @@
         "globalReference" : "33f59568"
       },
       "meta" : {
-        "globalKey" : "1b52f75a"
+        "globalKey" : "23d5334e"
       }
     } ]
   }

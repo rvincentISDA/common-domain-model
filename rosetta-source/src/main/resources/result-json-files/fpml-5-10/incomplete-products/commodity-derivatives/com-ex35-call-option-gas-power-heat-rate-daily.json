@@ -1,74 +1,103 @@
 {
   "meta" : {
-    "globalKey" : "1a46688d"
+    "globalKey" : "5982222e"
   },
   "trade" : {
     "contractDetails" : {
       "documentation" : [ {
-        "documentationIdentification" : {
-          "contractualDefinitions" : [ {
-            "value" : "ISDA_2005_COMMODITY"
-          } ],
-          "masterAgreement" : {
-            "masterAgreementDate" : "2007-07-05",
+        "agreementDate" : "2007-07-05",
+        "legalAgreementIdentification" : {
+          "agreementName" : {
+            "agreementType" : "MASTER_AGREEMENT",
             "masterAgreementType" : {
-              "value" : "ISDA"
+              "value" : "ISDA_MASTER"
             }
           }
+        },
+        "meta" : {
+          "globalKey" : "3b90c4e2"
+        }
+      }, {
+        "legalAgreementIdentification" : {
+          "agreementName" : {
+            "agreementType" : "CONFIRMATION",
+            "contractualDefinitionsType" : [ {
+              "value" : "ISDA_2005_COMMODITY"
+            } ]
+          }
+        },
+        "meta" : {
+          "globalKey" : "a977e59e"
         }
       } ],
       "meta" : {
-        "globalKey" : "7948f9d5"
+        "globalKey" : "1f68ddfc"
       }
     },
     "meta" : {
-      "globalKey" : "c5132815"
+      "globalKey" : "70c57631"
     },
     "party" : [ {
       "meta" : {
         "externalKey" : "partyA",
-        "globalKey" : "f6eedb41"
+        "globalKey" : "c03438b1"
       },
       "name" : {
         "value" : "Company A Inc."
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+          },
+          "value" : "549300U2FJ850G1P3962"
         },
-        "value" : "549300U2FJ850G1P3962"
+        "identifierType" : "LEI",
+        "meta" : {
+          "globalKey" : "139247df"
+        }
       } ]
     }, {
       "meta" : {
         "externalKey" : "partyB",
-        "globalKey" : "d3f99fe"
+        "globalKey" : "62ed3bae"
       },
       "name" : {
         "value" : "Company B Inc."
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+          },
+          "value" : "549300B23HNTO1OHFU87"
         },
-        "value" : "549300B23HNTO1OHFU87"
+        "identifierType" : "LEI",
+        "meta" : {
+          "globalKey" : "c201d9bd"
+        }
       } ]
     } ],
     "tradableProduct" : {
       "counterparty" : [ {
         "partyReference" : {
           "externalReference" : "partyA",
-          "globalReference" : "f6eedb41"
+          "globalReference" : "c03438b1"
         },
         "role" : "PARTY_1"
       }, {
         "partyReference" : {
           "externalReference" : "partyB",
-          "globalReference" : "d3f99fe"
+          "globalReference" : "62ed3bae"
         },
         "role" : "PARTY_2"
       } ],
       "product" : {
         "contractualProduct" : {
+          "productTaxonomy" : [ {
+            "productQualifier" : "Commodity_Option",
+            "taxonomySource" : "ISDA"
+          } ],
           "economicTerms" : {
             "effectiveDate" : {
               "adjustableDate" : {
@@ -89,7 +118,7 @@
             },
             "payout" : {
               "meta" : {
-                "globalKey" : "2dcd8335"
+                "globalKey" : "79ba6f03"
               },
               "optionPayout" : [ {
                 "payerReceiver" : {
@@ -104,14 +133,14 @@
                     "initialQuantity" : {
                       "address" : {
                         "scope" : "DOCUMENT",
-                        "value" : "quantity-1"
+                        "value" : "quantity-2"
                       }
                     }
                   },
                   "resolvedQuantity" : {
                     "address" : {
                       "scope" : "DOCUMENT",
-                      "value" : "quantity-2"
+                      "value" : "quantity-1"
                     }
                   }
                 },
@@ -155,7 +184,7 @@
                   }
                 },
                 "meta" : {
-                  "globalKey" : "2dcd8335"
+                  "globalKey" : "79ba6f03"
                 },
                 "observationTerms" : {
                   "calculationPeriodDates" : {
@@ -176,12 +205,13 @@
                 "optionType" : "CALL",
                 "underlier" : {
                   "commodity" : {
-                    "value" : {
-                      "priceQuoteType" : "LOCATIONAL_MARGINAL"
+                    "address" : {
+                      "scope" : "DOCUMENT",
+                      "value" : "commodity-1"
                     }
                   },
                   "meta" : {
-                    "globalKey" : "8750f518"
+                    "globalKey" : "0"
                   }
                 }
               } ]
@@ -205,20 +235,17 @@
             }
           },
           "meta" : {
-            "globalKey" : "d1166b41"
-          },
-          "productIdentification" : {
-            "productQualifier" : "Commodity_Option"
+            "globalKey" : "6ea877da"
           }
         },
         "meta" : {
-          "globalKey" : "d1166b41"
+          "globalKey" : "6ea877da"
         }
       },
       "tradeLot" : [ {
         "priceQuantity" : [ {
           "meta" : {
-            "globalKey" : "8750f518"
+            "globalKey" : "c64d395d"
           },
           "observable" : {
             "commodity" : {
@@ -229,101 +256,51 @@
                 } ]
               },
               "value" : {
+                "productIdentifier" : [ {
+                  "value" : {
+                    "identifier" : {
+                      "meta" : {
+                        "scheme" : "http://www.companyA.com/coding-scheme/commodity-reference-price"
+                      },
+                      "value" : "ELECTRICITY-CAISO-SP 15 GEN HUB-DAY AHEAD"
+                    },
+                    "meta" : {
+                      "globalKey" : "a6a503fa"
+                    }
+                  }
+                } ],
                 "priceQuoteType" : "LOCATIONAL_MARGINAL"
               }
             },
             "meta" : {
-              "globalKey" : "8750f518"
-            }
-          }
-        }, {
-          "meta" : {
-            "globalKey" : "a53a6811"
-          },
-          "quantity" : [ {
-            "meta" : {
-              "location" : [ {
-                "scope" : "DOCUMENT",
-                "value" : "quantity-3"
-              } ]
-            },
-            "value" : {
-              "amount" : 25.00,
-              "unitOfAmount" : {
-                "capacityUnit" : "MW",
-                "frequency" : {
-                  "meta" : {
-                    "globalKey" : "83d"
-                  },
-                  "period" : "D",
-                  "periodMultiplier" : 1
-                }
-              },
-              "multiplierUnit" : {
-                "frequency" : {
-                  "meta" : {
-                    "globalKey" : "1"
-                  },
-                  "periodMultiplier" : 1
-                }
-              }
-            }
-          } ]
-        } ]
-      }, {
-        "priceQuantity" : [ {
-          "meta" : {
-            "globalKey" : "27176712"
-          },
-          "observable" : {
-            "commodity" : {
-              "meta" : {
-                "location" : [ {
-                  "scope" : "DOCUMENT",
-                  "value" : "commodity-2"
-                } ]
-              },
-              "value" : {
-                "priceQuoteType" : "LOCATIONAL_MARGINAL"
-              }
-            },
-            "meta" : {
-              "globalKey" : "8750f518"
+              "globalKey" : "b54c705e"
             }
           },
           "quantity" : [ {
             "meta" : {
               "location" : [ {
                 "scope" : "DOCUMENT",
-                "value" : "quantity-1"
+                "value" : "quantity-2"
               } ]
             },
             "value" : {
               "amount" : 25.00,
               "unitOfAmount" : {
-                "capacityUnit" : "MW",
-                "frequency" : {
-                  "meta" : {
-                    "globalKey" : "83d"
-                  },
-                  "period" : "D",
-                  "periodMultiplier" : 1
-                }
+                "capacityUnit" : "MW"
               },
-              "multiplierUnit" : {
-                "frequency" : {
-                  "meta" : {
-                    "globalKey" : "1"
-                  },
-                  "periodMultiplier" : 1
-                }
+              "frequency" : {
+                "meta" : {
+                  "globalKey" : "83d"
+                },
+                "period" : "D",
+                "periodMultiplier" : 1
               }
             }
           }, {
             "meta" : {
               "location" : [ {
                 "scope" : "DOCUMENT",
-                "value" : "quantity-2"
+                "value" : "quantity-1"
               } ]
             },
             "value" : {
@@ -353,10 +330,10 @@
       } ],
       "issuerReference" : {
         "externalReference" : "partyA",
-        "globalReference" : "f6eedb41"
+        "globalReference" : "c03438b1"
       },
       "meta" : {
-        "globalKey" : "864ab9c1"
+        "globalKey" : "29531180"
       }
     }, {
       "assignedIdentifier" : [ {
@@ -369,26 +346,26 @@
       } ],
       "issuerReference" : {
         "externalReference" : "partyB",
-        "globalReference" : "d3f99fe"
+        "globalReference" : "62ed3bae"
       },
       "meta" : {
-        "globalKey" : "9e50511d"
+        "globalKey" : "29531181"
       }
     } ]
   },
   "transferHistory" : [ {
     "meta" : {
-      "globalKey" : "7181f8"
+      "globalKey" : "c951763d"
     },
     "transfer" : {
       "payerReceiver" : {
         "payerPartyReference" : {
           "externalReference" : "partyA",
-          "globalReference" : "f6eedb41"
+          "globalReference" : "c03438b1"
         },
         "receiverPartyReference" : {
           "externalReference" : "partyB",
-          "globalReference" : "d3f99fe"
+          "globalReference" : "62ed3bae"
         }
       },
       "quantity" : {

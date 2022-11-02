@@ -1,50 +1,74 @@
 {
   "meta" : {
-    "globalKey" : "f79230ae"
+    "globalKey" : "8a065d1b"
   },
   "trade" : {
     "meta" : {
-      "globalKey" : "f79230ae"
+      "globalKey" : "8a065d1b"
     },
     "party" : [ {
       "meta" : {
         "externalKey" : "party1",
-        "globalKey" : "5d3cc671"
+        "globalKey" : "618c3061"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+          },
+          "value" : "549300VBWWV6BYQOWM67"
         },
-        "value" : "549300VBWWV6BYQOWM67"
+        "identifierType" : "LEI",
+        "meta" : {
+          "globalKey" : "618c3061"
+        }
       } ]
     }, {
       "meta" : {
         "externalKey" : "party2",
-        "globalKey" : "dc00dbe7"
+        "globalKey" : "e05045d7"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+          },
+          "value" : "213800QILIUD4ROSUO03"
         },
-        "value" : "213800QILIUD4ROSUO03"
+        "identifierType" : "LEI",
+        "meta" : {
+          "globalKey" : "e05045d7"
+        }
       } ]
     } ],
     "tradableProduct" : {
       "counterparty" : [ {
         "partyReference" : {
           "externalReference" : "party2",
-          "globalReference" : "dc00dbe7"
+          "globalReference" : "e05045d7"
         },
         "role" : "PARTY_1"
       }, {
         "partyReference" : {
           "externalReference" : "party1",
-          "globalReference" : "5d3cc671"
+          "globalReference" : "618c3061"
         },
         "role" : "PARTY_2"
       } ],
       "product" : {
         "contractualProduct" : {
+          "productTaxonomy" : [ {
+            "taxonomySource" : "OTHER",
+            "taxonomyValue" : {
+              "meta" : {
+                "scheme" : "http://www.fpml.org/coding-scheme/product-type-simple"
+              },
+              "value" : "FxSwap"
+            }
+          }, {
+            "productQualifier" : "ForeignExchange_Swap",
+            "taxonomySource" : "ISDA"
+          } ],
           "economicTerms" : {
             "payout" : {
               "forwardPayout" : [ {
@@ -178,23 +202,11 @@
             }
           },
           "meta" : {
-            "globalKey" : "81feecec"
-          },
-          "productIdentification" : {
-            "externalProductType" : [ {
-              "externalProductTypeSource" : "OTHER",
-              "value" : {
-                "meta" : {
-                  "scheme" : "http://www.fpml.org/coding-scheme/product-type-simple"
-                },
-                "value" : "FxSwap"
-              }
-            } ],
-            "productQualifier" : "ForeignExchange_Swap"
+            "globalKey" : "e3712831"
           }
         },
         "meta" : {
-          "globalKey" : "81feecec"
+          "globalKey" : "e3712831"
         }
       },
       "tradeLot" : [ {
@@ -376,10 +388,10 @@
       } ],
       "issuerReference" : {
         "externalReference" : "party1",
-        "globalReference" : "5d3cc671"
+        "globalReference" : "618c3061"
       },
       "meta" : {
-        "globalKey" : "e0a23ded"
+        "globalKey" : "1ae1a04"
       }
     }, {
       "assignedIdentifier" : [ {
@@ -392,10 +404,10 @@
       } ],
       "issuerReference" : {
         "externalReference" : "party2",
-        "globalReference" : "dc00dbe7"
+        "globalReference" : "e05045d7"
       },
       "meta" : {
-        "globalKey" : "c779971a"
+        "globalKey" : "efe549ad"
       }
     } ]
   }

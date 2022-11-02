@@ -1,55 +1,69 @@
 {
   "meta" : {
-    "globalKey" : "2bc67875"
+    "globalKey" : "6b96cbaa"
   },
   "trade" : {
     "contractDetails" : {
       "documentation" : [ {
-        "documentationIdentification" : {
-          "masterAgreement" : {
+        "legalAgreementIdentification" : {
+          "agreementName" : {
+            "agreementType" : "MASTER_AGREEMENT",
             "masterAgreementType" : {
               "value" : "LBMA"
-            },
-            "masterAgreementVersion" : {
-              "value" : "1994"
             }
-          }
+          },
+          "vintage" : 1994
+        },
+        "meta" : {
+          "globalKey" : "9e4f2961"
         }
       } ],
       "meta" : {
-        "globalKey" : "858d764d"
+        "globalKey" : "9e4f2961"
       }
     },
     "meta" : {
-      "globalKey" : "2bc67875"
+      "globalKey" : "6b96cbaa"
     },
     "party" : [ {
       "meta" : {
         "externalKey" : "partyA",
-        "globalKey" : "b4cc7ce7"
+        "globalKey" : "4631cb97"
       },
       "name" : {
         "value" : "Bank A"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+          },
+          "value" : "5299000NIGT14YW8ZD26"
         },
-        "value" : "5299000NIGT14YW8ZD26"
+        "identifierType" : "LEI",
+        "meta" : {
+          "globalKey" : "24297a9a"
+        }
       } ]
     }, {
       "meta" : {
         "externalKey" : "partyB",
-        "globalKey" : "a35aea7e"
+        "globalKey" : "34ce4cee"
       },
       "name" : {
         "value" : "Bank B"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+          },
+          "value" : "549300UXZ1R1RBZVU469"
         },
-        "value" : "549300UXZ1R1RBZVU469"
+        "identifierType" : "LEI",
+        "meta" : {
+          "globalKey" : "12b7e470"
+        }
       } ]
     } ],
     "tradeDate" : {
@@ -69,10 +83,10 @@
       } ],
       "issuerReference" : {
         "externalReference" : "partyA",
-        "globalReference" : "b4cc7ce7"
+        "globalReference" : "4631cb97"
       },
       "meta" : {
-        "globalKey" : "84f9a628"
+        "globalKey" : "339c521f"
       }
     }, {
       "assignedIdentifier" : [ {
@@ -85,10 +99,10 @@
       } ],
       "issuerReference" : {
         "externalReference" : "partyB",
-        "globalReference" : "a35aea7e"
+        "globalReference" : "34ce4cee"
       },
       "meta" : {
-        "globalKey" : "b5e6efdb"
+        "globalKey" : "a3f35483"
       }
     } ]
   }

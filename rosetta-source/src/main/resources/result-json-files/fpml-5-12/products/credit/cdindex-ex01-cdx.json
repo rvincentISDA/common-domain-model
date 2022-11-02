@@ -1,71 +1,91 @@
 {
   "meta" : {
-    "globalKey" : "3accf633"
+    "globalKey" : "f8f6489"
   },
   "trade" : {
     "contractDetails" : {
       "documentation" : [ {
-        "documentationIdentification" : {
-          "masterConfirmation" : {
-            "masterConfirmationDate" : "2004-10-18",
+        "agreementDate" : "2004-10-18",
+        "legalAgreementIdentification" : {
+          "agreementName" : {
+            "agreementType" : "MASTER_CONFIRMATION",
             "masterConfirmationType" : {
               "value" : "DJ.CDX.NA"
             }
           }
+        },
+        "meta" : {
+          "globalKey" : "ae7fb3d4"
         }
       } ],
       "meta" : {
-        "globalKey" : "6c1116c6"
+        "globalKey" : "ae7fb3d4"
       }
     },
     "meta" : {
-      "globalKey" : "cea03459"
+      "globalKey" : "e23b4d7"
     },
     "party" : [ {
       "meta" : {
         "externalKey" : "party1",
-        "globalKey" : "66ba964f"
+        "globalKey" : "a0936c7f"
       },
       "name" : {
         "value" : "New Bank, New York"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+          },
+          "value" : "HPFHU0OQ28E4N0NFVK49"
         },
-        "value" : "HPFHU0OQ28E4N0NFVK49"
+        "identifierType" : "LEI",
+        "meta" : {
+          "globalKey" : "eb844200"
+        }
       } ]
     }, {
       "meta" : {
         "externalKey" : "party2",
-        "globalKey" : "b4e4279f"
+        "globalKey" : "9518becf"
       },
       "name" : {
         "value" : "Massive Bank, New York"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+          },
+          "value" : "254900O1WT2BXINL9612"
         },
-        "value" : "254900O1WT2BXINL9612"
+        "identifierType" : "LEI",
+        "meta" : {
+          "globalKey" : "f5817694"
+        }
       } ]
     } ],
     "tradableProduct" : {
       "counterparty" : [ {
         "partyReference" : {
           "externalReference" : "party2",
-          "globalReference" : "b4e4279f"
+          "globalReference" : "9518becf"
         },
         "role" : "PARTY_1"
       }, {
         "partyReference" : {
           "externalReference" : "party1",
-          "globalReference" : "66ba964f"
+          "globalReference" : "a0936c7f"
         },
         "role" : "PARTY_2"
       } ],
       "product" : {
         "contractualProduct" : {
+          "productTaxonomy" : [ {
+            "productQualifier" : "CreditDefaultSwap_Index",
+            "taxonomySource" : "ISDA"
+          } ],
           "economicTerms" : {
             "effectiveDate" : {
               "adjustableDate" : {
@@ -157,14 +177,11 @@
             }
           },
           "meta" : {
-            "globalKey" : "8fddeb6e"
-          },
-          "productIdentification" : {
-            "productQualifier" : "CreditDefaultSwap_Index"
+            "globalKey" : "75e49d60"
           }
         },
         "meta" : {
-          "globalKey" : "8fddeb6e"
+          "globalKey" : "75e49d60"
         }
       },
       "tradeLot" : [ {
@@ -236,10 +253,10 @@
       } ],
       "issuerReference" : {
         "externalReference" : "party1",
-        "globalReference" : "66ba964f"
+        "globalReference" : "a0936c7f"
       },
       "meta" : {
-        "globalKey" : "7df5c42b"
+        "globalKey" : "affe98a4"
       }
     }, {
       "assignedIdentifier" : [ {
@@ -252,26 +269,26 @@
       } ],
       "issuerReference" : {
         "externalReference" : "party2",
-        "globalReference" : "b4e4279f"
+        "globalReference" : "9518becf"
       },
       "meta" : {
-        "globalKey" : "d68d155c"
+        "globalKey" : "55beb023"
       }
     } ]
   },
   "transferHistory" : [ {
     "meta" : {
-      "globalKey" : "87bdfcda"
+      "globalKey" : "3cb073f2"
     },
     "transfer" : {
       "payerReceiver" : {
         "payerPartyReference" : {
           "externalReference" : "party1",
-          "globalReference" : "66ba964f"
+          "globalReference" : "a0936c7f"
         },
         "receiverPartyReference" : {
           "externalReference" : "party2",
-          "globalReference" : "b4e4279f"
+          "globalReference" : "9518becf"
         }
       },
       "quantity" : {

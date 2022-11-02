@@ -1,56 +1,106 @@
 {
   "meta" : {
-    "globalKey" : "96912924"
+    "globalKey" : "fb32fb44"
   },
   "trade" : {
     "meta" : {
-      "globalKey" : "50b189f4"
+      "globalKey" : "7f83f474"
     },
     "party" : [ {
       "meta" : {
         "externalKey" : "party1",
-        "globalKey" : "1ab3e71c"
+        "globalKey" : "7cec034c"
       },
       "name" : {
         "value" : "Party A"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+          },
+          "value" : "54930084UKLVMY22DS16"
         },
-        "value" : "54930084UKLVMY22DS16"
+        "identifierType" : "LEI",
+        "meta" : {
+          "globalKey" : "121d7965"
+        }
       } ]
     }, {
       "meta" : {
         "externalKey" : "party2",
-        "globalKey" : "e6c82f54"
+        "globalKey" : "490e5f44"
       },
       "name" : {
         "value" : "Party B"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+          },
+          "value" : "48750084UKLVTR22DS78"
         },
-        "value" : "48750084UKLVTR22DS78"
+        "identifierType" : "LEI",
+        "meta" : {
+          "globalKey" : "de31bddc"
+        }
       } ]
     } ],
     "tradableProduct" : {
       "counterparty" : [ {
         "partyReference" : {
           "externalReference" : "party1",
-          "globalReference" : "1ab3e71c"
+          "globalReference" : "7cec034c"
         },
         "role" : "PARTY_1"
       }, {
         "partyReference" : {
           "externalReference" : "party2",
-          "globalReference" : "e6c82f54"
+          "globalReference" : "490e5f44"
         },
         "role" : "PARTY_2"
       } ],
       "product" : {
         "contractualProduct" : {
+          "productIdentifier" : [ {
+            "value" : {
+              "identifier" : {
+                "meta" : {
+                  "scheme" : "http://www.dtcc.com/coding-scheme/external/GTR-Product-Id"
+                },
+                "value" : "InterestRate:CrossCurrency:Basis"
+              },
+              "meta" : {
+                "globalKey" : "b0bf3e75"
+              },
+              "source" : "OTHER"
+            }
+          } ],
+          "productTaxonomy" : [ {
+            "primaryAssetClass" : {
+              "value" : "INTEREST_RATE"
+            }
+          }, {
+            "taxonomySource" : "CFI",
+            "taxonomyValue" : {
+              "meta" : {
+                "scheme" : "http://www.fpml.org/coding-scheme/external/product-classification/iso10962"
+              },
+              "value" : "SRAXCC"
+            }
+          }, {
+            "taxonomySource" : "EMIR",
+            "taxonomyValue" : {
+              "meta" : {
+                "scheme" : "http://www.dtcc.com/coding-scheme/external/product-classification/emir-contract-type"
+              },
+              "value" : "SW"
+            }
+          }, {
+            "productQualifier" : "InterestRate_CrossCurrency_Basis",
+            "taxonomySource" : "ISDA"
+          } ],
           "economicTerms" : {
             "payout" : {
               "interestRatePayout" : [ {
@@ -60,7 +110,7 @@
                 },
                 "payoutQuantity" : {
                   "meta" : {
-                    "globalKey" : "ceee1fa3"
+                    "globalKey" : "4aecb69d"
                   },
                   "quantityMultiplier" : {
                     "fxLinkedNotionalSchedule" : {
@@ -71,7 +121,7 @@
                         "hourMinuteTime" : "11:00:00"
                       },
                       "fxSpotRateSource" : {
-                        "primaryRateSource" : {
+                        "primarySource" : {
                           "sourcePage" : {
                             "value" : "WM Company LDN 11am Mid"
                           },
@@ -86,7 +136,7 @@
                       },
                       "varyingNotionalFixingDates" : {
                         "meta" : {
-                          "globalKey" : "1e03c090"
+                          "globalKey" : "937e4a3"
                         },
                         "period" : "D",
                         "periodMultiplier" : 2,
@@ -107,7 +157,7 @@
                       },
                       "varyingNotionalInterimExchangePaymentDates" : {
                         "meta" : {
-                          "globalKey" : "1e03c090"
+                          "globalKey" : "937e4a3"
                         },
                         "period" : "D",
                         "periodMultiplier" : 2,
@@ -253,7 +303,7 @@
                   "value" : "ACT/360"
                 },
                 "meta" : {
-                  "globalKey" : "6a7fa4e7"
+                  "globalKey" : "700693a"
                 },
                 "paymentDates" : {
                   "firstPaymentDate" : "2018-06-21",
@@ -344,7 +394,7 @@
                   },
                   "meta" : {
                     "externalKey" : "d0e5651",
-                    "globalKey" : "c8a25ede"
+                    "globalKey" : "3c25fa77"
                   },
                   "resetDatesAdjustments" : {
                     "businessCenters" : {
@@ -513,7 +563,7 @@
                   "value" : "ACT/360"
                 },
                 "meta" : {
-                  "globalKey" : "3c3bce4d"
+                  "globalKey" : "5704c2e6"
                 },
                 "paymentDates" : {
                   "firstPaymentDate" : "2018-06-21",
@@ -604,7 +654,7 @@
                   },
                   "meta" : {
                     "externalKey" : "d0e6369",
-                    "globalKey" : "304ea85a"
+                    "globalKey" : "3dfddeb3"
                   },
                   "resetDatesAdjustments" : {
                     "businessCenters" : {
@@ -631,51 +681,16 @@
                 }
               } ],
               "meta" : {
-                "globalKey" : "fb555306"
+                "globalKey" : "b25e45ec"
               }
             }
           },
           "meta" : {
-            "globalKey" : "86a59339"
-          },
-          "productIdentification" : {
-            "externalProductType" : [ {
-              "externalProductTypeSource" : "OTHER",
-              "value" : {
-                "meta" : {
-                  "scheme" : "http://www.fpml.org/coding-scheme/external/product-classification/iso10962"
-                },
-                "value" : "SRAXCC"
-              }
-            }, {
-              "externalProductTypeSource" : "OTHER",
-              "value" : {
-                "meta" : {
-                  "scheme" : "http://www.dtcc.com/coding-scheme/external/product-classification/emir-contract-type"
-                },
-                "value" : "SW"
-              }
-            } ],
-            "primaryAssetData" : {
-              "value" : "INTEREST_RATE"
-            },
-            "productIdentifier" : [ {
-              "identifier" : {
-                "meta" : {
-                  "scheme" : "http://www.dtcc.com/coding-scheme/external/GTR-Product-Id"
-                },
-                "value" : "InterestRate:CrossCurrency:Basis"
-              },
-              "meta" : {
-                "globalKey" : "b0bf3e75"
-              },
-              "source" : "OTHER"
-            } ],
-            "productQualifier" : "InterestRate_CrossCurrency_Basis"
+            "globalKey" : "3b812713"
           }
         },
         "meta" : {
-          "globalKey" : "86a59339"
+          "globalKey" : "3b812713"
         }
       },
       "tradeLot" : [ {
@@ -877,17 +892,18 @@
   },
   "transferHistory" : [ {
     "meta" : {
-      "globalKey" : "5d835898"
+      "externalKey" : "SDB123-AB5.EUR.20180209.0",
+      "globalKey" : "9384e638"
     },
     "transfer" : {
       "payerReceiver" : {
         "payerPartyReference" : {
           "externalReference" : "party1",
-          "globalReference" : "1ab3e71c"
+          "globalReference" : "7cec034c"
         },
         "receiverPartyReference" : {
           "externalReference" : "party2",
-          "globalReference" : "e6c82f54"
+          "globalReference" : "490e5f44"
         }
       },
       "quantity" : {

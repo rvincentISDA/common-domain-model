@@ -1,33 +1,44 @@
 {
   "meta" : {
-    "globalKey" : "feecf99e"
+    "globalKey" : "c2c3b70"
   },
   "trade" : {
     "contractDetails" : {
       "documentation" : [ {
-        "documentationIdentification" : {
-          "contractualDefinitions" : [ {
-            "value" : "ISDA_2002_EQUITY"
-          } ],
-          "masterAgreement" : {
+        "legalAgreementIdentification" : {
+          "agreementName" : {
+            "agreementType" : "MASTER_AGREEMENT",
             "masterAgreementType" : {
-              "value" : "ISDA"
-            },
-            "masterAgreementVersion" : {
-              "value" : "2002"
+              "value" : "ISDA_MASTER"
             }
+          },
+          "vintage" : 2002
+        },
+        "meta" : {
+          "globalKey" : "328cfa59"
+        }
+      }, {
+        "legalAgreementIdentification" : {
+          "agreementName" : {
+            "agreementType" : "CONFIRMATION",
+            "contractualDefinitionsType" : [ {
+              "value" : "ISDA_2002_EQUITY"
+            } ]
           }
+        },
+        "meta" : {
+          "globalKey" : "2092c901"
         }
       } ],
       "governingLaw" : {
         "value" : "GBEN"
       },
       "meta" : {
-        "globalKey" : "9917db9f"
+        "globalKey" : "6234330c"
       }
     },
     "meta" : {
-      "globalKey" : "df77fb53"
+      "globalKey" : "86bc077c"
     },
     "party" : [ {
       "meta" : {
@@ -35,10 +46,15 @@
         "globalKey" : "33f59567"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+          },
+          "value" : "Party A"
         },
-        "value" : "Party A"
+        "meta" : {
+          "globalKey" : "33f59567"
+        }
       } ]
     }, {
       "meta" : {
@@ -46,10 +62,15 @@
         "globalKey" : "33f59568"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+          },
+          "value" : "Party B"
         },
-        "value" : "Party B"
+        "meta" : {
+          "globalKey" : "33f59568"
+        }
       } ]
     } ],
     "tradableProduct" : {
@@ -81,6 +102,12 @@
       } ],
       "product" : {
         "contractualProduct" : {
+          "productTaxonomy" : [ {
+            "taxonomySource" : "OTHER",
+            "taxonomyValue" : {
+              "value" : "Equity:Option:PriceReturnBasicPerformance:SingleName"
+            }
+          } ],
           "economicTerms" : {
             "calculationAgent" : {
               "calculationAgentParty" : "CALCULATION_AGENT_INDEPENDENT"
@@ -116,7 +143,7 @@
             },
             "payout" : {
               "meta" : {
-                "globalKey" : "d94f4ea0"
+                "globalKey" : "75700177"
               },
               "optionPayout" : [ {
                 "payerReceiver" : {
@@ -133,6 +160,15 @@
                       "value" : "quantity-1"
                     }
                   }
+                },
+                "settlementTerms" : {
+                  "meta" : {
+                    "globalKey" : "4790ef7b"
+                  },
+                  "settlementCurrency" : {
+                    "value" : "EUR"
+                  },
+                  "settlementType" : "ELECTION"
                 },
                 "buyerSeller" : {
                   "buyer" : "PARTY_1",
@@ -175,6 +211,7 @@
                           "globalKey" : "eb6226d3"
                         }
                       },
+                      "expirationTimeType" : "CLOSE",
                       "latestExerciseTime" : {
                         "businessCenter" : {
                           "value" : "GBLO"
@@ -182,7 +219,7 @@
                         "hourMinuteTime" : "17:15:00"
                       },
                       "meta" : {
-                        "globalKey" : "5fc7f1c6"
+                        "globalKey" : "260f119e"
                       },
                       "multipleExercise" : {
                         "integralMultipleAmount" : 1,
@@ -220,7 +257,7 @@
                   }
                 },
                 "meta" : {
-                  "globalKey" : "d94f4ea0"
+                  "globalKey" : "75700177"
                 },
                 "optionType" : "CALL",
                 "underlier" : {
@@ -233,6 +270,11 @@
                         "scope" : "DOCUMENT",
                         "value" : "productIdentifier-1"
                       }
+                    }, {
+                      "address" : {
+                        "scope" : "DOCUMENT",
+                        "value" : "productIdentifier-2"
+                      }
                     } ],
                     "securityType" : "EQUITY"
                   }
@@ -241,29 +283,21 @@
             }
           },
           "meta" : {
-            "globalKey" : "e49b8952"
-          },
-          "productIdentification" : {
-            "externalProductType" : [ {
-              "externalProductTypeSource" : "OTHER",
-              "value" : {
-                "value" : "Equity:Option:PriceReturnBasicPerformance:SingleName"
-              }
-            } ]
+            "globalKey" : "a4bb0705"
           }
         },
         "meta" : {
-          "globalKey" : "e49b8952"
+          "globalKey" : "a4bb0705"
         }
       },
       "tradeLot" : [ {
         "priceQuantity" : [ {
           "meta" : {
-            "globalKey" : "6034d2ff"
+            "globalKey" : "a28ebf8a"
           },
           "observable" : {
             "meta" : {
-              "globalKey" : "78e02f1b"
+              "globalKey" : "b5eeea30"
             },
             "productIdentifier" : [ {
               "meta" : {
@@ -280,7 +314,23 @@
                   "value" : "STM-FP"
                 },
                 "meta" : {
-                  "globalKey" : "78e02f1b"
+                  "globalKey" : "1b379ff6"
+                },
+                "source" : "NAME"
+              }
+            }, {
+              "meta" : {
+                "location" : [ {
+                  "scope" : "DOCUMENT",
+                  "value" : "productIdentifier-2"
+                } ]
+              },
+              "value" : {
+                "identifier" : {
+                  "value" : "STMicroelectronics N.V. ordinary shares"
+                },
+                "meta" : {
+                  "globalKey" : "70730066"
                 },
                 "source" : "OTHER"
               }
@@ -328,13 +378,13 @@
         "globalReference" : "33f59567"
       },
       "meta" : {
-        "globalKey" : "571de47a"
+        "globalKey" : "1b2141cd"
       }
     } ]
   },
   "transferHistory" : [ {
     "meta" : {
-      "globalKey" : "1d4d074b"
+      "globalKey" : "f53c9af4"
     },
     "transfer" : {
       "payerReceiver" : {

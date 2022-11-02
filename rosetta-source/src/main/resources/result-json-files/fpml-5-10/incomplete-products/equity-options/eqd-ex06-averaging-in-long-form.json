@@ -1,35 +1,46 @@
 {
   "meta" : {
-    "globalKey" : "5e8d32d"
+    "globalKey" : "3e82ea9b"
   },
   "trade" : {
     "contractDetails" : {
       "documentation" : [ {
-        "documentationIdentification" : {
-          "contractualDefinitions" : [ {
-            "value" : "ISDA2000"
-          }, {
-            "value" : "ISDA_2002_EQUITY"
-          } ],
-          "masterAgreement" : {
+        "legalAgreementIdentification" : {
+          "agreementName" : {
+            "agreementType" : "MASTER_AGREEMENT",
             "masterAgreementType" : {
-              "value" : "ISDA"
-            },
-            "masterAgreementVersion" : {
-              "value" : "2002"
+              "value" : "ISDA_MASTER"
             }
+          },
+          "vintage" : 2002
+        },
+        "meta" : {
+          "globalKey" : "328cfa59"
+        }
+      }, {
+        "legalAgreementIdentification" : {
+          "agreementName" : {
+            "agreementType" : "CONFIRMATION",
+            "contractualDefinitionsType" : [ {
+              "value" : "ISDA2000"
+            }, {
+              "value" : "ISDA_2002_EQUITY"
+            } ]
           }
+        },
+        "meta" : {
+          "globalKey" : "ed9ef3fc"
         }
       } ],
       "governingLaw" : {
         "value" : "GBEN"
       },
       "meta" : {
-        "globalKey" : "a22f9f04"
+        "globalKey" : "92c7c587"
       }
     },
     "meta" : {
-      "globalKey" : "d7776155"
+      "globalKey" : "4273a89a"
     },
     "party" : [ {
       "meta" : {
@@ -37,10 +48,15 @@
         "globalKey" : "33f59567"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+          },
+          "value" : "Party A"
         },
-        "value" : "Party A"
+        "meta" : {
+          "globalKey" : "33f59567"
+        }
       } ]
     }, {
       "meta" : {
@@ -48,10 +64,15 @@
         "globalKey" : "33f59568"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+          },
+          "value" : "Party B"
         },
-        "value" : "Party B"
+        "meta" : {
+          "globalKey" : "33f59568"
+        }
       } ]
     } ],
     "tradableProduct" : {
@@ -83,6 +104,10 @@
       } ],
       "product" : {
         "contractualProduct" : {
+          "productTaxonomy" : [ {
+            "productQualifier" : "EquityOption_PriceReturnBasicPerformance_Index",
+            "taxonomySource" : "ISDA"
+          } ],
           "economicTerms" : {
             "calculationAgent" : {
               "calculationAgentParty" : "CALCULATION_AGENT_INDEPENDENT"
@@ -112,7 +137,7 @@
             },
             "payout" : {
               "meta" : {
-                "globalKey" : "2e69ddb1"
+                "globalKey" : "f743a320"
               },
               "optionPayout" : [ {
                 "payerReceiver" : {
@@ -129,6 +154,15 @@
                       "value" : "quantity-1"
                     }
                   }
+                },
+                "settlementTerms" : {
+                  "meta" : {
+                    "globalKey" : "76108015"
+                  },
+                  "settlementCurrency" : {
+                    "value" : "EUR"
+                  },
+                  "settlementType" : "CASH"
                 },
                 "buyerSeller" : {
                   "buyer" : "PARTY_1",
@@ -154,8 +188,9 @@
                           "globalKey" : "eb05ccb9"
                         }
                       } ],
+                      "expirationTimeType" : "CLOSE",
                       "meta" : {
-                        "globalKey" : "eb05ccb9"
+                        "globalKey" : "896fcde1"
                       }
                     }
                   },
@@ -177,7 +212,7 @@
                   }
                 },
                 "meta" : {
-                  "globalKey" : "2e69ddb1"
+                  "globalKey" : "f743a320"
                 },
                 "optionType" : "CALL",
                 "underlier" : {
@@ -186,6 +221,11 @@
                       "address" : {
                         "scope" : "DOCUMENT",
                         "value" : "productIdentifier-1"
+                      }
+                    }, {
+                      "address" : {
+                        "scope" : "DOCUMENT",
+                        "value" : "productIdentifier-2"
                       }
                     } ]
                   },
@@ -197,24 +237,21 @@
             }
           },
           "meta" : {
-            "globalKey" : "5e6e0b5b"
-          },
-          "productIdentification" : {
-            "productQualifier" : "IndexVanillaOption"
+            "globalKey" : "1b398df4"
           }
         },
         "meta" : {
-          "globalKey" : "5e6e0b5b"
+          "globalKey" : "1b398df4"
         }
       },
       "tradeLot" : [ {
         "priceQuantity" : [ {
           "meta" : {
-            "globalKey" : "4a48265"
+            "globalKey" : "56584f3e"
           },
           "observable" : {
             "meta" : {
-              "globalKey" : "e926fb05"
+              "globalKey" : "a5c5a60c"
             },
             "productIdentifier" : [ {
               "meta" : {
@@ -234,6 +271,22 @@
                   "globalKey" : "e926fb05"
                 },
                 "source" : "OTHER"
+              }
+            }, {
+              "meta" : {
+                "location" : [ {
+                  "scope" : "DOCUMENT",
+                  "value" : "productIdentifier-2"
+                } ]
+              },
+              "value" : {
+                "identifier" : {
+                  "value" : "NIKKEI 225 INDEX"
+                },
+                "meta" : {
+                  "globalKey" : "6e3f85f1"
+                },
+                "source" : "NAME"
               }
             } ]
           },
@@ -278,13 +331,13 @@
         "globalReference" : "33f59567"
       },
       "meta" : {
-        "globalKey" : "571de47a"
+        "globalKey" : "1b2141cd"
       }
     } ]
   },
   "transferHistory" : [ {
     "meta" : {
-      "globalKey" : "323ae0d8"
+      "globalKey" : "a2a7481"
     },
     "transfer" : {
       "payerReceiver" : {

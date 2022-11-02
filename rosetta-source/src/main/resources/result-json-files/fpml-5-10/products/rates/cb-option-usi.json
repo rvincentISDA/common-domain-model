@@ -1,57 +1,87 @@
 {
   "meta" : {
-    "globalKey" : "a5a56c68"
+    "globalKey" : "a55809a0"
   },
   "trade" : {
     "meta" : {
-      "globalKey" : "a5a56c68"
+      "globalKey" : "a55809a0"
     },
     "party" : [ {
       "meta" : {
         "externalKey" : "jhf45s",
-        "globalKey" : "33f59567"
+        "globalKey" : "37b9cf43"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/external/iso9362"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/external/iso9362"
+          },
+          "value" : "Party A"
         },
-        "value" : "Party A"
+        "identifierType" : "BIC",
+        "meta" : {
+          "globalKey" : "37b9cf43"
+        }
       } ]
     }, {
       "meta" : {
         "externalKey" : "fdkhjbgr",
-        "globalKey" : "33f59568"
+        "globalKey" : "37b9cf44"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/external/iso9362"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/external/iso9362"
+          },
+          "value" : "Party B"
         },
-        "value" : "Party B"
+        "identifierType" : "BIC",
+        "meta" : {
+          "globalKey" : "37b9cf44"
+        }
       } ]
     } ],
     "tradableProduct" : {
       "ancillaryParty" : [ {
         "partyReference" : [ {
           "externalReference" : "jhf45s",
-          "globalReference" : "33f59567"
+          "globalReference" : "37b9cf43"
         } ],
         "role" : "CALCULATION_AGENT_INDEPENDENT"
       } ],
       "counterparty" : [ {
         "partyReference" : {
           "externalReference" : "fdkhjbgr",
-          "globalReference" : "33f59568"
+          "globalReference" : "37b9cf44"
         },
         "role" : "PARTY_1"
       }, {
         "partyReference" : {
           "externalReference" : "jhf45s",
-          "globalReference" : "33f59567"
+          "globalReference" : "37b9cf43"
         },
         "role" : "PARTY_2"
       } ],
       "product" : {
         "contractualProduct" : {
+          "productIdentifier" : [ {
+            "value" : {
+              "identifier" : {
+                "meta" : {
+                  "scheme" : "ISIN"
+                },
+                "value" : "ExampleISIN1"
+              },
+              "meta" : {
+                "globalKey" : "847bd747"
+              },
+              "source" : "ISIN"
+            }
+          } ],
+          "productTaxonomy" : [ {
+            "productQualifier" : "InterestRate_Option_DebtOption",
+            "taxonomySource" : "ISDA"
+          } ],
           "economicTerms" : {
             "calculationAgent" : {
               "calculationAgentParty" : "CALCULATION_AGENT_INDEPENDENT"
@@ -255,14 +285,11 @@
             }
           },
           "meta" : {
-            "globalKey" : "518f48f7"
-          },
-          "productIdentification" : {
-            "productQualifier" : "InterestRate_Option_DebtOption"
+            "globalKey" : "423e5841"
           }
         },
         "meta" : {
-          "globalKey" : "518f48f7"
+          "globalKey" : "423e5841"
         }
       },
       "tradeLot" : [ {

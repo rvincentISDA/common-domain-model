@@ -1,50 +1,66 @@
 {
   "meta" : {
-    "globalKey" : "afc0335f"
+    "globalKey" : "78fc2b29"
   },
   "trade" : {
     "meta" : {
-      "globalKey" : "afc0335f"
+      "globalKey" : "78fc2b29"
     },
     "party" : [ {
       "meta" : {
         "externalKey" : "party1",
-        "globalKey" : "5d3cc671"
+        "globalKey" : "618c3061"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+          },
+          "value" : "549300VBWWV6BYQOWM67"
         },
-        "value" : "549300VBWWV6BYQOWM67"
+        "identifierType" : "LEI",
+        "meta" : {
+          "globalKey" : "618c3061"
+        }
       } ]
     }, {
       "meta" : {
         "externalKey" : "party2",
-        "globalKey" : "d0b38214"
+        "globalKey" : "d502ec04"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+          },
+          "value" : "391200ZGI3FROE0WYF22"
         },
-        "value" : "391200ZGI3FROE0WYF22"
+        "identifierType" : "LEI",
+        "meta" : {
+          "globalKey" : "d502ec04"
+        }
       } ]
     } ],
     "tradableProduct" : {
       "counterparty" : [ {
         "partyReference" : {
           "externalReference" : "party2",
-          "globalReference" : "d0b38214"
+          "globalReference" : "d502ec04"
         },
         "role" : "PARTY_1"
       }, {
         "partyReference" : {
           "externalReference" : "party1",
-          "globalReference" : "5d3cc671"
+          "globalReference" : "618c3061"
         },
         "role" : "PARTY_2"
       } ],
       "product" : {
         "contractualProduct" : {
+          "productTaxonomy" : [ {
+            "productQualifier" : "ForeignExchange_NDF",
+            "taxonomySource" : "ISDA"
+          } ],
           "economicTerms" : {
             "payout" : {
               "forwardPayout" : [ {
@@ -89,7 +105,7 @@
                     "valuationMethod" : {
                       "valuationSource" : {
                         "informationSource" : {
-                          "primaryRateSource" : {
+                          "primarySource" : {
                             "sourcePage" : {
                               "value" : "RBIB"
                             },
@@ -168,14 +184,11 @@
             }
           },
           "meta" : {
-            "globalKey" : "95a02f47"
-          },
-          "productIdentification" : {
-            "productQualifier" : "ForeignExchange_NDF"
+            "globalKey" : "55f0d2ff"
           }
         },
         "meta" : {
-          "globalKey" : "95a02f47"
+          "globalKey" : "55f0d2ff"
         }
       },
       "tradeLot" : [ {
@@ -328,10 +341,10 @@
       } ],
       "issuerReference" : {
         "externalReference" : "party1",
-        "globalReference" : "5d3cc671"
+        "globalReference" : "618c3061"
       },
       "meta" : {
-        "globalKey" : "c735e24d"
+        "globalKey" : "bc73d1a4"
       }
     }, {
       "assignedIdentifier" : [ {
@@ -344,10 +357,10 @@
       } ],
       "issuerReference" : {
         "externalReference" : "party2",
-        "globalReference" : "d0b38214"
+        "globalReference" : "d502ec04"
       },
       "meta" : {
-        "globalKey" : "d31eb11f"
+        "globalKey" : "357324d5"
       }
     } ]
   }

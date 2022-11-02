@@ -1,10 +1,10 @@
 {
   "meta" : {
-    "globalKey" : "ef771710"
+    "globalKey" : "dea643ab"
   },
   "trade" : {
     "meta" : {
-      "globalKey" : "516045a3"
+      "globalKey" : "d507557f"
     },
     "party" : [ {
       "meta" : {
@@ -12,10 +12,15 @@
         "globalKey" : "33f59557"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/external"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/external"
+          },
+          "value" : "Party 1"
         },
-        "value" : "Party 1"
+        "meta" : {
+          "globalKey" : "33f59557"
+        }
       } ]
     }, {
       "meta" : {
@@ -23,10 +28,15 @@
         "globalKey" : "33f59558"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/external"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/external"
+          },
+          "value" : "Party 2"
         },
-        "value" : "Party 2"
+        "meta" : {
+          "globalKey" : "33f59558"
+        }
       } ]
     } ],
     "tradableProduct" : {
@@ -45,6 +55,10 @@
       } ],
       "product" : {
         "contractualProduct" : {
+          "productTaxonomy" : [ {
+            "productQualifier" : "InterestRate_IRSwap_FixedFloat_ZeroCoupon",
+            "taxonomySource" : "ISDA"
+          } ],
           "economicTerms" : {
             "payout" : {
               "interestRatePayout" : [ {
@@ -328,7 +342,7 @@
                 },
                 "meta" : {
                   "externalKey" : "sw-2345",
-                  "globalKey" : "67dd857c"
+                  "globalKey" : "cd1bb3b1"
                 },
                 "paymentDates" : {
                   "meta" : {
@@ -398,7 +412,7 @@
                   },
                   "meta" : {
                     "externalKey" : "resetDates",
-                    "globalKey" : "cdf55bb9"
+                    "globalKey" : "cdba576e"
                   },
                   "resetDatesAdjustments" : {
                     "businessCenters" : {
@@ -424,19 +438,16 @@
                 }
               } ],
               "meta" : {
-                "globalKey" : "940647d3"
+                "globalKey" : "59968e88"
               }
             }
           },
           "meta" : {
-            "globalKey" : "b7cd6c8a"
-          },
-          "productIdentification" : {
-            "productQualifier" : "InterestRate_IRSwap_FixedFloat_ZeroCoupon"
+            "globalKey" : "59968e88"
           }
         },
         "meta" : {
-          "globalKey" : "b7cd6c8a"
+          "globalKey" : "59968e88"
         }
       },
       "tradeLot" : [ {
@@ -553,13 +564,13 @@
         "globalReference" : "33f59557"
       },
       "meta" : {
-        "globalKey" : "2a3da1e9"
+        "globalKey" : "f1cb8cae"
       }
     } ]
   },
   "transferHistory" : [ {
     "meta" : {
-      "globalKey" : "70c2ca93"
+      "globalKey" : "55fee3ca"
     },
     "transfer" : {
       "payerReceiver" : {

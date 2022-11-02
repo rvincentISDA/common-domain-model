@@ -1,68 +1,158 @@
 {
-  "account" : [ {
-    "accountNumber" : {
-      "meta" : {
-        "scheme" : "clearing_firm_accounts"
+  "creditLimitInformation" : {
+    "limitApplicable" : [ {
+      "amountRemaining" : 999999999999971710,
+      "amountUtilized" : -27327,
+      "currency" : {
+        "meta" : {
+          "scheme" : "http://www.fpml.org/ext/iso4217-2001-08-15"
+        },
+        "value" : "USD"
       },
-      "value" : "999-123"
+      "limitType" : {
+        "meta" : {
+          "scheme" : "http://www.fpml.org/coding-scheme/credit-limit-type"
+        },
+        "value" : "PV01"
+      },
+      "limitAmount" : 999999999999998980,
+      "limitImpactDueToTrade" : -2682,
+      "limitLevel" : {
+        "meta" : {
+          "scheme" : "creditLimitLevelScheme"
+        },
+        "value" : "HOUSE"
+      }
+    }, {
+      "amountRemaining" : 999999999994680,
+      "amountUtilized" : 5318,
+      "currency" : {
+        "meta" : {
+          "scheme" : "http://www.fpml.org/ext/iso4217-2001-08-15"
+        },
+        "value" : "USD"
+      },
+      "limitType" : {
+        "meta" : {
+          "scheme" : "http://www.fpml.org/coding-scheme/credit-limit-type"
+        },
+        "value" : "PV01"
+      },
+      "limitAmount" : 999999999999999,
+      "limitImpactDueToTrade" : -2682,
+      "limitLevel" : {
+        "meta" : {
+          "scheme" : "creditLimitLevelScheme"
+        },
+        "value" : "ACCOUNT"
+      }
+    }, {
+      "amountRemaining" : 999999988651958,
+      "amountUtilized" : 11348040,
+      "currency" : {
+        "meta" : {
+          "scheme" : "http://www.fpml.org/ext/iso4217-2001-08-15"
+        },
+        "value" : "USD"
+      },
+      "limitType" : {
+        "meta" : {
+          "scheme" : "http://www.fpml.org/coding-scheme/credit-limit-type"
+        },
+        "value" : "NOTIONAL"
+      },
+      "limitAmount" : 999999999999999,
+      "limitImpactDueToTrade" : 2134797,
+      "limitLevel" : {
+        "meta" : {
+          "scheme" : "creditLimitLevelScheme"
+        },
+        "value" : "ACCOUNT"
+      }
+    }, {
+      "amountRemaining" : 999999999882034,
+      "amountUtilized" : 117964,
+      "currency" : {
+        "meta" : {
+          "scheme" : "http://www.fpml.org/ext/iso4217-2001-08-15"
+        },
+        "value" : "USD"
+      },
+      "limitType" : {
+        "meta" : {
+          "scheme" : "http://www.fpml.org/coding-scheme/credit-limit-type"
+        },
+        "value" : "NPV"
+      },
+      "limitAmount" : 999999999999999,
+      "limitImpactDueToTrade" : -266248,
+      "limitLevel" : {
+        "meta" : {
+          "scheme" : "creditLimitLevelScheme"
+        },
+        "value" : "ACCOUNT"
+      }
+    } ]
+  },
+  "messageInformation" : {
+    "messageId" : {
+      "meta" : {
+        "scheme" : "cme_message_id"
+      },
+      "value" : "6008842628"
     },
-    "meta" : {
-      "externalKey" : "account1",
-      "globalKey" : "cb2ae09e"
+    "sentBy" : {
+      "meta" : {
+        "scheme" : "cme_clearingorg_id"
+      },
+      "value" : "CME"
     },
-    "partyReference" : {
-      "externalReference" : "clearing_firm",
-      "globalReference" : "dd19"
-    },
-    "servicingParty" : {
-      "externalReference" : "clearing_firm",
-      "globalReference" : "dd19"
-    }
-  } ],
-  "businessEvent" : {
-    "eventDate" : "2018-04-20",
-    "eventQualifier" : "ContractFormation",
-    "meta" : {
-      "globalKey" : "3aa3f7f2"
-    },
-    "primitives" : [ {
-      "contractFormation" : {
-        "after" : {
+    "sentTo" : [ {
+      "meta" : {
+        "scheme" : "cme_firm_id"
+      },
+      "value" : "999"
+    }, {
+      "meta" : {
+        "scheme" : "cme_exchange_id"
+      },
+      "value" : "CME"
+    } ]
+  },
+  "meta" : {
+    "globalKey" : "c28e69d5"
+  },
+  "proposedEvent" : {
+    "instruction" : [ {
+      "before" : {
+        "value" : {
           "meta" : {
-            "globalKey" : "748d3e5d"
+            "globalKey" : "d42cfbce"
           },
           "trade" : {
-            "clearedDate" : "2018-04-20",
-            "contractDetails" : {
-              "meta" : {
-                "globalKey" : "6420e8e0"
+            "account" : [ {
+              "accountNumber" : {
+                "meta" : {
+                  "scheme" : "clearing_firm_accounts"
+                },
+                "value" : "999-123"
               },
-              "partyContractInformation" : [ {
-                "accountReference" : {
-                  "externalReference" : "account1",
-                  "globalReference" : "88c5360e"
-                },
-                "category" : {
-                  "meta" : {
-                    "scheme" : "cme_origin_code"
-                  },
-                  "value" : "PRINCIPAL"
-                },
-                "partyReference" : {
-                  "externalReference" : "clearing_firm",
-                  "globalReference" : "dd19"
-                },
-                "relatedParty" : [ {
-                  "partyReference" : {
-                    "externalReference" : "trade_source",
-                    "globalReference" : "9e635873"
-                  },
-                  "role" : "DATA_SUBMITTER"
-                } ]
-              } ]
-            },
+              "meta" : {
+                "externalKey" : "account1",
+                "globalKey" : "88c5360e"
+              },
+              "partyReference" : {
+                "externalReference" : "clearing_firm",
+                "globalReference" : "dd19"
+              },
+              "servicingParty" : {
+                "externalReference" : "clearing_firm",
+                "globalReference" : "dd19"
+              }
+            } ],
+            "clearedDate" : "2018-04-20",
             "meta" : {
-              "globalKey" : "917f2a3a"
+              "globalKey" : "d1ed0e3d"
             },
             "party" : [ {
               "meta" : {
@@ -70,10 +160,15 @@
                 "globalKey" : "dd19"
               },
               "partyId" : [ {
-                "meta" : {
-                  "scheme" : "clearing_member_firms"
+                "identifier" : {
+                  "meta" : {
+                    "scheme" : "clearing_member_firms"
+                  },
+                  "value" : "999"
                 },
-                "value" : "999"
+                "meta" : {
+                  "globalKey" : "dd19"
+                }
               } ]
             }, {
               "meta" : {
@@ -81,7 +176,12 @@
                 "globalKey" : "1051b"
               },
               "partyId" : [ {
-                "value" : "CME"
+                "identifier" : {
+                  "value" : "CME"
+                },
+                "meta" : {
+                  "globalKey" : "1051b"
+                }
               } ]
             }, {
               "meta" : {
@@ -89,7 +189,12 @@
                 "globalKey" : "9e635873"
               },
               "partyId" : [ {
-                "value" : "PLATFORM"
+                "identifier" : {
+                  "value" : "PLATFORM"
+                },
+                "meta" : {
+                  "globalKey" : "9e635873"
+                }
               } ]
             } ],
             "partyRole" : [ {
@@ -119,6 +224,10 @@
               } ],
               "product" : {
                 "contractualProduct" : {
+                  "productTaxonomy" : [ {
+                    "productQualifier" : "InterestRate_IRSwap_FixedFloat",
+                    "taxonomySource" : "ISDA"
+                  } ],
                   "economicTerms" : {
                     "payout" : {
                       "interestRatePayout" : [ {
@@ -134,84 +243,82 @@
                             "initialQuantity" : {
                               "address" : {
                                 "scope" : "DOCUMENT",
-                                "value" : "quantity-2"
+                                "value" : "quantity-1"
                               }
                             },
-                            "stepSchedule" : {
-                              "step" : [ {
-                                "meta" : {
-                                  "globalKey" : "bee4fb92"
-                                },
-                                "stepDate" : "2018-04-24",
-                                "stepValue" : 2800000.00
-                              }, {
-                                "meta" : {
-                                  "globalKey" : "eeacdb76"
-                                },
-                                "stepDate" : "2018-10-24",
-                                "stepValue" : 3500000.00
-                              }, {
-                                "meta" : {
-                                  "globalKey" : "1e75565a"
-                                },
-                                "stepDate" : "2019-04-24",
-                                "stepValue" : 4200000.00
-                              }, {
-                                "meta" : {
-                                  "globalKey" : "2a677133"
-                                },
-                                "stepDate" : "2019-10-24",
-                                "stepValue" : 4900000.00
-                              }, {
-                                "meta" : {
-                                  "globalKey" : "5a2fec17"
-                                },
-                                "stepDate" : "2020-04-24",
-                                "stepValue" : 5600000.00
-                              }, {
-                                "meta" : {
-                                  "globalKey" : "89f7cbfb"
-                                },
-                                "stepDate" : "2020-10-24",
-                                "stepValue" : 6300000.00
-                              }, {
-                                "meta" : {
-                                  "globalKey" : "b9c046df"
-                                },
-                                "stepDate" : "2021-04-24",
-                                "stepValue" : 7000000.00
-                              }, {
-                                "meta" : {
-                                  "globalKey" : "c5b261b8"
-                                },
-                                "stepDate" : "2021-10-24",
-                                "stepValue" : 7700000.00
-                              }, {
-                                "meta" : {
-                                  "globalKey" : "f57adc9c"
-                                },
-                                "stepDate" : "2022-04-24",
-                                "stepValue" : 8400000.00
-                              }, {
-                                "meta" : {
-                                  "globalKey" : "2542bc80"
-                                },
-                                "stepDate" : "2022-10-24",
-                                "stepValue" : 9100000.00
-                              }, {
-                                "meta" : {
-                                  "globalKey" : "31357259"
-                                },
-                                "stepDate" : "2023-04-24",
-                                "stepValue" : 9800000.00
-                              }, {
-                                "meta" : {
-                                  "globalKey" : "32189862"
-                                },
-                                "stepDate" : "2023-10-24",
-                                "stepValue" : 10500000.00
-                              } ]
-                            }
+                            "step" : [ {
+                              "meta" : {
+                                "globalKey" : "bee4fb92"
+                              },
+                              "stepDate" : "2018-04-24",
+                              "stepValue" : 2800000.00
+                            }, {
+                              "meta" : {
+                                "globalKey" : "eeacdb76"
+                              },
+                              "stepDate" : "2018-10-24",
+                              "stepValue" : 3500000.00
+                            }, {
+                              "meta" : {
+                                "globalKey" : "1e75565a"
+                              },
+                              "stepDate" : "2019-04-24",
+                              "stepValue" : 4200000.00
+                            }, {
+                              "meta" : {
+                                "globalKey" : "2a677133"
+                              },
+                              "stepDate" : "2019-10-24",
+                              "stepValue" : 4900000.00
+                            }, {
+                              "meta" : {
+                                "globalKey" : "5a2fec17"
+                              },
+                              "stepDate" : "2020-04-24",
+                              "stepValue" : 5600000.00
+                            }, {
+                              "meta" : {
+                                "globalKey" : "89f7cbfb"
+                              },
+                              "stepDate" : "2020-10-24",
+                              "stepValue" : 6300000.00
+                            }, {
+                              "meta" : {
+                                "globalKey" : "b9c046df"
+                              },
+                              "stepDate" : "2021-04-24",
+                              "stepValue" : 7000000.00
+                            }, {
+                              "meta" : {
+                                "globalKey" : "c5b261b8"
+                              },
+                              "stepDate" : "2021-10-24",
+                              "stepValue" : 7700000.00
+                            }, {
+                              "meta" : {
+                                "globalKey" : "f57adc9c"
+                              },
+                              "stepDate" : "2022-04-24",
+                              "stepValue" : 8400000.00
+                            }, {
+                              "meta" : {
+                                "globalKey" : "2542bc80"
+                              },
+                              "stepDate" : "2022-10-24",
+                              "stepValue" : 9100000.00
+                            }, {
+                              "meta" : {
+                                "globalKey" : "31357259"
+                              },
+                              "stepDate" : "2023-04-24",
+                              "stepValue" : 9800000.00
+                            }, {
+                              "meta" : {
+                                "globalKey" : "32189862"
+                              },
+                              "stepDate" : "2023-10-24",
+                              "stepValue" : 10500000.00
+                            } ]
                           }
                         },
                         "calculationPeriodDates" : {
@@ -222,12 +329,12 @@
                                 "globalReference" : "26cfaa"
                               },
                               "meta" : {
-                                "globalKey" : "ff8806b2"
+                                "globalKey" : "245965f8"
                               }
                             },
                             "businessDayConvention" : "MODFOLLOWING",
                             "meta" : {
-                              "globalKey" : "dd292541"
+                              "globalKey" : "5a9469c9"
                             }
                           },
                           "calculationPeriodFrequency" : {
@@ -257,7 +364,7 @@
                           },
                           "meta" : {
                             "externalKey" : "floatingCalcPeriodDates",
-                            "globalKey" : "5b49a172"
+                            "globalKey" : "73411fb0"
                           },
                           "terminationDate" : {
                             "adjustableDate" : {
@@ -268,21 +375,21 @@
                                     "globalReference" : "26cfaa"
                                   },
                                   "meta" : {
-                                    "globalKey" : "ff8806b2"
+                                    "globalKey" : "245965f8"
                                   }
                                 },
                                 "businessDayConvention" : "MODFOLLOWING",
                                 "meta" : {
-                                  "globalKey" : "dd292541"
+                                  "globalKey" : "5a9469c9"
                                 }
                               },
                               "meta" : {
-                                "globalKey" : "7501ce59"
+                                "globalKey" : "bdaa17b1"
                               },
                               "unadjustedDate" : "2024-04-24"
                             },
                             "meta" : {
-                              "globalKey" : "7501ce59"
+                              "globalKey" : "bdaa17b1"
                             }
                           }
                         },
@@ -559,7 +666,7 @@
                         },
                         "meta" : {
                           "externalKey" : "floatLeg",
-                          "globalKey" : "15c1f1a9"
+                          "globalKey" : "6b4e819f"
                         },
                         "paymentDates" : {
                           "meta" : {
@@ -633,7 +740,7 @@
                           },
                           "meta" : {
                             "externalKey" : "floatingLegResetDates",
-                            "globalKey" : "9516da6a"
+                            "globalKey" : "27f3a9c4"
                           },
                           "resetDatesAdjustments" : {
                             "businessCenters" : {
@@ -642,12 +749,12 @@
                                 "globalReference" : "26cfaa"
                               },
                               "meta" : {
-                                "globalKey" : "ff8806b2"
+                                "globalKey" : "245965f8"
                               }
                             },
                             "businessDayConvention" : "MODFOLLOWING",
                             "meta" : {
-                              "globalKey" : "dd292541"
+                              "globalKey" : "5a9469c9"
                             }
                           },
                           "resetFrequency" : {
@@ -672,84 +779,82 @@
                             "initialQuantity" : {
                               "address" : {
                                 "scope" : "DOCUMENT",
-                                "value" : "quantity-1"
+                                "value" : "quantity-2"
                               }
                             },
-                            "stepSchedule" : {
-                              "step" : [ {
-                                "meta" : {
-                                  "globalKey" : "bee4fb92"
-                                },
-                                "stepDate" : "2018-04-24",
-                                "stepValue" : 2800000.00
-                              }, {
-                                "meta" : {
-                                  "globalKey" : "eeacdb76"
-                                },
-                                "stepDate" : "2018-10-24",
-                                "stepValue" : 3500000.00
-                              }, {
-                                "meta" : {
-                                  "globalKey" : "1e75565a"
-                                },
-                                "stepDate" : "2019-04-24",
-                                "stepValue" : 4200000.00
-                              }, {
-                                "meta" : {
-                                  "globalKey" : "2a677133"
-                                },
-                                "stepDate" : "2019-10-24",
-                                "stepValue" : 4900000.00
-                              }, {
-                                "meta" : {
-                                  "globalKey" : "5a2fec17"
-                                },
-                                "stepDate" : "2020-04-24",
-                                "stepValue" : 5600000.00
-                              }, {
-                                "meta" : {
-                                  "globalKey" : "89f7cbfb"
-                                },
-                                "stepDate" : "2020-10-24",
-                                "stepValue" : 6300000.00
-                              }, {
-                                "meta" : {
-                                  "globalKey" : "b9c046df"
-                                },
-                                "stepDate" : "2021-04-24",
-                                "stepValue" : 7000000.00
-                              }, {
-                                "meta" : {
-                                  "globalKey" : "c5b261b8"
-                                },
-                                "stepDate" : "2021-10-24",
-                                "stepValue" : 7700000.00
-                              }, {
-                                "meta" : {
-                                  "globalKey" : "f57adc9c"
-                                },
-                                "stepDate" : "2022-04-24",
-                                "stepValue" : 8400000.00
-                              }, {
-                                "meta" : {
-                                  "globalKey" : "2542bc80"
-                                },
-                                "stepDate" : "2022-10-24",
-                                "stepValue" : 9100000.00
-                              }, {
-                                "meta" : {
-                                  "globalKey" : "31357259"
-                                },
-                                "stepDate" : "2023-04-24",
-                                "stepValue" : 9800000.00
-                              }, {
-                                "meta" : {
-                                  "globalKey" : "32189862"
-                                },
-                                "stepDate" : "2023-10-24",
-                                "stepValue" : 10500000.00
-                              } ]
-                            }
+                            "step" : [ {
+                              "meta" : {
+                                "globalKey" : "bee4fb92"
+                              },
+                              "stepDate" : "2018-04-24",
+                              "stepValue" : 2800000.00
+                            }, {
+                              "meta" : {
+                                "globalKey" : "eeacdb76"
+                              },
+                              "stepDate" : "2018-10-24",
+                              "stepValue" : 3500000.00
+                            }, {
+                              "meta" : {
+                                "globalKey" : "1e75565a"
+                              },
+                              "stepDate" : "2019-04-24",
+                              "stepValue" : 4200000.00
+                            }, {
+                              "meta" : {
+                                "globalKey" : "2a677133"
+                              },
+                              "stepDate" : "2019-10-24",
+                              "stepValue" : 4900000.00
+                            }, {
+                              "meta" : {
+                                "globalKey" : "5a2fec17"
+                              },
+                              "stepDate" : "2020-04-24",
+                              "stepValue" : 5600000.00
+                            }, {
+                              "meta" : {
+                                "globalKey" : "89f7cbfb"
+                              },
+                              "stepDate" : "2020-10-24",
+                              "stepValue" : 6300000.00
+                            }, {
+                              "meta" : {
+                                "globalKey" : "b9c046df"
+                              },
+                              "stepDate" : "2021-04-24",
+                              "stepValue" : 7000000.00
+                            }, {
+                              "meta" : {
+                                "globalKey" : "c5b261b8"
+                              },
+                              "stepDate" : "2021-10-24",
+                              "stepValue" : 7700000.00
+                            }, {
+                              "meta" : {
+                                "globalKey" : "f57adc9c"
+                              },
+                              "stepDate" : "2022-04-24",
+                              "stepValue" : 8400000.00
+                            }, {
+                              "meta" : {
+                                "globalKey" : "2542bc80"
+                              },
+                              "stepDate" : "2022-10-24",
+                              "stepValue" : 9100000.00
+                            }, {
+                              "meta" : {
+                                "globalKey" : "31357259"
+                              },
+                              "stepDate" : "2023-04-24",
+                              "stepValue" : 9800000.00
+                            }, {
+                              "meta" : {
+                                "globalKey" : "32189862"
+                              },
+                              "stepDate" : "2023-10-24",
+                              "stepValue" : 10500000.00
+                            } ]
                           }
                         },
                         "calculationPeriodDates" : {
@@ -760,12 +865,12 @@
                                 "globalReference" : "26cfaa"
                               },
                               "meta" : {
-                                "globalKey" : "c2a0ac9a"
+                                "globalKey" : "116cc910"
                               }
                             },
                             "businessDayConvention" : "MODFOLLOWING",
                             "meta" : {
-                              "globalKey" : "a041cb29"
+                              "globalKey" : "47a7cce1"
                             }
                           },
                           "calculationPeriodFrequency" : {
@@ -795,7 +900,7 @@
                           },
                           "meta" : {
                             "externalKey" : "fixedCalcPeriodDates",
-                            "globalKey" : "6654e942"
+                            "globalKey" : "b3c0b2b0"
                           },
                           "terminationDate" : {
                             "adjustableDate" : {
@@ -806,21 +911,21 @@
                                     "globalReference" : "26cfaa"
                                   },
                                   "meta" : {
-                                    "globalKey" : "c2a0ac9a"
+                                    "globalKey" : "116cc910"
                                   }
                                 },
                                 "businessDayConvention" : "MODFOLLOWING",
                                 "meta" : {
-                                  "globalKey" : "a041cb29"
+                                  "globalKey" : "47a7cce1"
                                 }
                               },
                               "meta" : {
-                                "globalKey" : "381a7441"
+                                "globalKey" : "aabd7ac9"
                               },
                               "unadjustedDate" : "2024-04-24"
                             },
                             "meta" : {
-                              "globalKey" : "381a7441"
+                              "globalKey" : "aabd7ac9"
                             }
                           }
                         },
@@ -1001,7 +1106,7 @@
                         },
                         "meta" : {
                           "externalKey" : "fixedLeg",
-                          "globalKey" : "8a3b520d"
+                          "globalKey" : "715be0bd"
                         },
                         "paymentDates" : {
                           "meta" : {
@@ -1049,19 +1154,16 @@
                         }
                       } ],
                       "meta" : {
-                        "globalKey" : "1cc9a36"
+                        "globalKey" : "e9ac367e"
                       }
                     }
                   },
                   "meta" : {
-                    "globalKey" : "5eacc82c"
-                  },
-                  "productIdentification" : {
-                    "productQualifier" : "InterestRate_IRSwap_FixedFloat"
+                    "globalKey" : "e9ac367e"
                   }
                 },
                 "meta" : {
-                  "globalKey" : "5eacc82c"
+                  "globalKey" : "e9ac367e"
                 }
               },
               "tradeLot" : [ {
@@ -1098,7 +1200,7 @@
                     "meta" : {
                       "location" : [ {
                         "scope" : "DOCUMENT",
-                        "value" : "quantity-2"
+                        "value" : "quantity-1"
                       } ]
                     },
                     "value" : {
@@ -1142,7 +1244,7 @@
                     "meta" : {
                       "location" : [ {
                         "scope" : "DOCUMENT",
-                        "value" : "quantity-1"
+                        "value" : "quantity-2"
                       } ]
                     },
                     "value" : {
@@ -1205,7 +1307,7 @@
                 "globalReference" : "1051b"
               },
               "meta" : {
-                "globalKey" : "e7c7f232"
+                "globalKey" : "da630249"
               }
             }, {
               "assignedIdentifier" : [ {
@@ -1229,7 +1331,7 @@
           },
           "transferHistory" : [ {
             "meta" : {
-              "globalKey" : "22dafcd7"
+              "globalKey" : "e1e7d1eb"
             },
             "transfer" : {
               "payerReceiver" : {
@@ -1274,130 +1376,8 @@
           } ]
         }
       }
-    } ]
-  },
-  "creditLimitInformation" : {
-    "limitApplicable" : [ {
-      "amountRemaining" : 999999999999971710,
-      "amountUtilized" : -27327,
-      "currency" : {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/ext/iso4217-2001-08-15"
-        },
-        "value" : "USD"
-      },
-      "limitType" : {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/credit-limit-type"
-        },
-        "value" : "PV01"
-      },
-      "limitAmount" : 999999999999998980,
-      "limitImpactDueToTrade" : -2682,
-      "limitLevel" : {
-        "meta" : {
-          "scheme" : "creditLimitLevelScheme"
-        },
-        "value" : "HOUSE"
-      }
-    }, {
-      "amountRemaining" : 999999999994680,
-      "amountUtilized" : 5318,
-      "currency" : {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/ext/iso4217-2001-08-15"
-        },
-        "value" : "USD"
-      },
-      "limitType" : {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/credit-limit-type"
-        },
-        "value" : "PV01"
-      },
-      "limitAmount" : 999999999999999,
-      "limitImpactDueToTrade" : -2682,
-      "limitLevel" : {
-        "meta" : {
-          "scheme" : "creditLimitLevelScheme"
-        },
-        "value" : "ACCOUNT"
-      }
-    }, {
-      "amountRemaining" : 999999988651958,
-      "amountUtilized" : 11348040,
-      "currency" : {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/ext/iso4217-2001-08-15"
-        },
-        "value" : "USD"
-      },
-      "limitType" : {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/credit-limit-type"
-        },
-        "value" : "NOTIONAL"
-      },
-      "limitAmount" : 999999999999999,
-      "limitImpactDueToTrade" : 2134797,
-      "limitLevel" : {
-        "meta" : {
-          "scheme" : "creditLimitLevelScheme"
-        },
-        "value" : "ACCOUNT"
-      }
-    }, {
-      "amountRemaining" : 999999999882034,
-      "amountUtilized" : 117964,
-      "currency" : {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/ext/iso4217-2001-08-15"
-        },
-        "value" : "USD"
-      },
-      "limitType" : {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/credit-limit-type"
-        },
-        "value" : "NPV"
-      },
-      "limitAmount" : 999999999999999,
-      "limitImpactDueToTrade" : -266248,
-      "limitLevel" : {
-        "meta" : {
-          "scheme" : "creditLimitLevelScheme"
-        },
-        "value" : "ACCOUNT"
-      }
-    } ]
-  },
-  "messageInformation" : {
-    "messageId" : {
-      "meta" : {
-        "scheme" : "cme_message_id"
-      },
-      "value" : "6008842628"
-    },
-    "sentBy" : {
-      "meta" : {
-        "scheme" : "cme_clearingorg_id"
-      },
-      "value" : "CME"
-    },
-    "sentTo" : [ {
-      "meta" : {
-        "scheme" : "cme_firm_id"
-      },
-      "value" : "999"
-    }, {
-      "meta" : {
-        "scheme" : "cme_exchange_id"
-      },
-      "value" : "CME"
-    } ]
-  },
-  "meta" : {
-    "globalKey" : "847c6e95"
+    } ],
+    "intent" : "CONTRACT_FORMATION"
   },
   "timestamp" : [ {
     "dateTime" : "2018-04-20T06:23:50-05:00",

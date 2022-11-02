@@ -1,65 +1,81 @@
 {
   "meta" : {
-    "globalKey" : "7fad6aff"
+    "globalKey" : "1c65b4a0"
   },
   "trade" : {
     "contractDetails" : {
       "documentation" : [ {
-        "documentationIdentification" : {
-          "masterAgreement" : {
+        "legalAgreementIdentification" : {
+          "agreementName" : {
+            "agreementType" : "MASTER_AGREEMENT",
             "masterAgreementType" : {
               "value" : "EFET_GAS"
             }
           }
+        },
+        "meta" : {
+          "globalKey" : "21983017"
         }
       } ],
       "meta" : {
-        "globalKey" : "f12fa70a"
+        "globalKey" : "21983017"
       }
     },
     "meta" : {
-      "globalKey" : "7fad6aff"
+      "globalKey" : "1c65b4a0"
     },
     "party" : [ {
       "meta" : {
         "externalKey" : "partyA",
-        "globalKey" : "b119110c"
+        "globalKey" : "d42113fc"
       },
       "name" : {
         "value" : "Bank"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+          },
+          "value" : "549300KFSLY4U7N3LL12"
         },
-        "value" : "549300KFSLY4U7N3LL12"
+        "identifierType" : "LEI",
+        "meta" : {
+          "globalKey" : "3f3e27a0"
+        }
       } ]
     }, {
       "meta" : {
         "externalKey" : "partyB",
-        "globalKey" : "3f36b5d5"
+        "globalKey" : "6e437d45"
       },
       "name" : {
         "value" : "Energy Co."
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+          },
+          "value" : "549300AJRHKBLY9GM262"
         },
-        "value" : "549300AJRHKBLY9GM262"
+        "identifierType" : "LEI",
+        "meta" : {
+          "globalKey" : "c803429b"
+        }
       } ]
     } ],
     "tradableProduct" : {
       "counterparty" : [ {
         "partyReference" : {
           "externalReference" : "partyB",
-          "globalReference" : "3f36b5d5"
+          "globalReference" : "6e437d45"
         },
         "role" : "PARTY_1"
       }, {
         "partyReference" : {
           "externalReference" : "partyA",
-          "globalReference" : "b119110c"
+          "globalReference" : "d42113fc"
         },
         "role" : "PARTY_2"
       } ],
@@ -97,23 +113,27 @@
                   "globalKey" : "10da2"
                 }
               } ],
-              "fixedForwardPayout" : [ {
+              "fixedPricePayout" : [ {
                 "payerReceiver" : {
                   "payer" : "PARTY_1",
                   "receiver" : "PARTY_2"
                 },
                 "fixedPrice" : {
-                  "address" : {
-                    "scope" : "DOCUMENT",
-                    "value" : "price-1"
+                  "fixedPriceSchedule" : {
+                    "initialPrice" : {
+                      "address" : {
+                        "scope" : "DOCUMENT",
+                        "value" : "price-1"
+                      }
+                    }
                   }
                 },
                 "meta" : {
-                  "globalKey" : "71129f01"
+                  "globalKey" : "76e6e2c1"
                 }
               } ],
               "meta" : {
-                "globalKey" : "48b00ba3"
+                "globalKey" : "dcdbaee3"
               }
             },
             "terminationDate" : {
@@ -135,11 +155,11 @@
             }
           },
           "meta" : {
-            "globalKey" : "e0f6d155"
+            "globalKey" : "2a8ab15"
           }
         },
         "meta" : {
-          "globalKey" : "e0f6d155"
+          "globalKey" : "2a8ab15"
         }
       },
       "tradeLot" : [ {
@@ -192,10 +212,10 @@
       } ],
       "issuerReference" : {
         "externalReference" : "partyA",
-        "globalReference" : "b119110c"
+        "globalReference" : "d42113fc"
       },
       "meta" : {
-        "globalKey" : "c6b7714f"
+        "globalKey" : "1b2141dd"
       }
     }, {
       "assignedIdentifier" : [ {
@@ -208,10 +228,10 @@
       } ],
       "issuerReference" : {
         "externalReference" : "partyB",
-        "globalReference" : "3f36b5d5"
+        "globalReference" : "6e437d45"
       },
       "meta" : {
-        "globalKey" : "dbddae77"
+        "globalKey" : "1ce4aa1e"
       }
     } ]
   }

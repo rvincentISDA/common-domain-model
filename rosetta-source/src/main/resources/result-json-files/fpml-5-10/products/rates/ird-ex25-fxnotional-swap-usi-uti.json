@@ -1,56 +1,72 @@
 {
   "meta" : {
-    "globalKey" : "a1ba3484"
+    "globalKey" : "8aa43946"
   },
   "trade" : {
     "meta" : {
-      "globalKey" : "a1ba3484"
+      "globalKey" : "8aa43946"
     },
     "party" : [ {
       "meta" : {
         "externalKey" : "party1",
-        "globalKey" : "1ab3e71c"
+        "globalKey" : "7cec034c"
       },
       "name" : {
         "value" : "Party A"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+          },
+          "value" : "54930084UKLVMY22DS16"
         },
-        "value" : "54930084UKLVMY22DS16"
+        "identifierType" : "LEI",
+        "meta" : {
+          "globalKey" : "121d7965"
+        }
       } ]
     }, {
       "meta" : {
         "externalKey" : "party2",
-        "globalKey" : "e6c82f54"
+        "globalKey" : "490e5f44"
       },
       "name" : {
         "value" : "Party B"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+          },
+          "value" : "48750084UKLVTR22DS78"
         },
-        "value" : "48750084UKLVTR22DS78"
+        "identifierType" : "LEI",
+        "meta" : {
+          "globalKey" : "de31bddc"
+        }
       } ]
     } ],
     "tradableProduct" : {
       "counterparty" : [ {
         "partyReference" : {
           "externalReference" : "party2",
-          "globalReference" : "e6c82f54"
+          "globalReference" : "490e5f44"
         },
         "role" : "PARTY_1"
       }, {
         "partyReference" : {
           "externalReference" : "party1",
-          "globalReference" : "1ab3e71c"
+          "globalReference" : "7cec034c"
         },
         "role" : "PARTY_2"
       } ],
       "product" : {
         "contractualProduct" : {
+          "productTaxonomy" : [ {
+            "productQualifier" : "InterestRate_CrossCurrency_FixedFloat",
+            "taxonomySource" : "ISDA"
+          } ],
           "economicTerms" : {
             "payout" : {
               "interestRatePayout" : [ {
@@ -217,7 +233,7 @@
                 },
                 "payoutQuantity" : {
                   "meta" : {
-                    "globalKey" : "b65a3610"
+                    "globalKey" : "98907a10"
                   },
                   "quantityMultiplier" : {
                     "fxLinkedNotionalSchedule" : {
@@ -228,7 +244,7 @@
                         "hourMinuteTime" : "17:00:00"
                       },
                       "fxSpotRateSource" : {
-                        "primaryRateSource" : {
+                        "primarySource" : {
                           "sourceProvider" : {
                             "value" : "BANK_OF_JAPAN"
                           }
@@ -361,7 +377,7 @@
                   "value" : "ACT/360"
                 },
                 "meta" : {
-                  "globalKey" : "49606e94"
+                  "globalKey" : "f0cade09"
                 },
                 "paymentDates" : {
                   "meta" : {
@@ -444,7 +460,7 @@
                   },
                   "meta" : {
                     "externalKey" : "floatingResetDates",
-                    "globalKey" : "aadf8c8a"
+                    "globalKey" : "58bd1f13"
                   },
                   "resetDatesAdjustments" : {
                     "businessCenters" : {
@@ -475,19 +491,16 @@
                 }
               } ],
               "meta" : {
-                "globalKey" : "6cd3116e"
+                "globalKey" : "2c9c8fef"
               }
             }
           },
           "meta" : {
-            "globalKey" : "c8fcd59"
-          },
-          "productIdentification" : {
-            "productQualifier" : "InterestRate_CrossCurrency_FixedFloat"
+            "globalKey" : "2c9c8fef"
           }
         },
         "meta" : {
-          "globalKey" : "c8fcd59"
+          "globalKey" : "2c9c8fef"
         }
       },
       "tradeLot" : [ {

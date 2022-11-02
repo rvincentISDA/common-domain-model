@@ -2,55 +2,785 @@
   "steps" : [ {
     "action" : "NEW",
     "businessEvent" : {
+      "after" : [ {
+        "meta" : {
+          "globalKey" : "8fc326ce"
+        },
+        "state" : {
+          "positionState" : "CLOSED"
+        },
+        "trade" : {
+          "meta" : {
+            "globalKey" : "8c05ee04"
+          },
+          "party" : [ {
+            "meta" : {
+              "externalKey" : "Lender0",
+              "globalKey" : "a896ecd"
+            },
+            "name" : {
+              "value" : "Standard Fund 1"
+            },
+            "partyId" : [ {
+              "identifier" : {
+                "value" : "FM1LEI11111111111111"
+              },
+              "meta" : {
+                "globalKey" : "87c4d1c6"
+              }
+            } ]
+          }, {
+            "meta" : {
+              "externalKey" : "AGENT_LENDER",
+              "globalKey" : "73176f1c"
+            },
+            "name" : {
+              "value" : "KTKL"
+            },
+            "partyId" : [ {
+              "identifier" : {
+                "value" : "KTKLLEILLLLLLLLLLLLL"
+              },
+              "meta" : {
+                "globalKey" : "60098fe6"
+              }
+            } ]
+          }, {
+            "meta" : {
+              "externalKey" : "Borrower",
+              "globalKey" : "1f061e68"
+            },
+            "name" : {
+              "value" : "CP001"
+            },
+            "partyId" : [ {
+              "identifier" : {
+                "value" : "CP001LEI111111111111"
+              },
+              "meta" : {
+                "globalKey" : "12818f8c"
+              }
+            } ]
+          } ],
+          "tradableProduct" : {
+            "counterparty" : [ {
+              "partyReference" : {
+                "value" : {
+                  "meta" : {
+                    "externalKey" : "Lender0",
+                    "globalKey" : "a896ecd"
+                  },
+                  "name" : {
+                    "value" : "Standard Fund 1"
+                  },
+                  "partyId" : [ {
+                    "identifier" : {
+                      "value" : "FM1LEI11111111111111"
+                    },
+                    "meta" : {
+                      "globalKey" : "87c4d1c6"
+                    }
+                  } ]
+                }
+              },
+              "role" : "PARTY_1"
+            }, {
+              "partyReference" : {
+                "value" : {
+                  "meta" : {
+                    "externalKey" : "Borrower",
+                    "globalKey" : "1f061e68"
+                  },
+                  "name" : {
+                    "value" : "CP001"
+                  },
+                  "partyId" : [ {
+                    "identifier" : {
+                      "value" : "CP001LEI111111111111"
+                    },
+                    "meta" : {
+                      "globalKey" : "12818f8c"
+                    }
+                  } ]
+                }
+              },
+              "role" : "PARTY_2"
+            } ],
+            "product" : {
+              "contractualProduct" : {
+                "productTaxonomy" : [ {
+                  "productQualifier" : "SecurityLendingAgreement",
+                  "taxonomySource" : "ISDA"
+                } ],
+                "economicTerms" : {
+                  "effectiveDate" : {
+                    "adjustableDate" : {
+                      "dateAdjustments" : {
+                        "businessDayConvention" : "MODFOLLOWING",
+                        "meta" : {
+                          "globalKey" : "fa42f5cf"
+                        }
+                      },
+                      "meta" : {
+                        "globalKey" : "e742daa5"
+                      },
+                      "unadjustedDate" : "2020-09-22"
+                    },
+                    "meta" : {
+                      "globalKey" : "e742daa5"
+                    }
+                  },
+                  "payout" : {
+                    "interestRatePayout" : [ {
+                      "payerReceiver" : {
+                        "payer" : "PARTY_1",
+                        "receiver" : "PARTY_2"
+                      },
+                      "payoutQuantity" : {
+                        "meta" : {
+                          "globalKey" : "0"
+                        },
+                        "quantitySchedule" : {
+                          "initialQuantity" : {
+                            "address" : {
+                              "scope" : "DOCUMENT",
+                              "value" : "quantity-8"
+                            }
+                          }
+                        }
+                      },
+                      "calculationPeriodDates" : {
+                        "calculationPeriodFrequency" : {
+                          "meta" : {
+                            "globalKey" : "25e2ab"
+                          },
+                          "period" : "T",
+                          "periodMultiplier" : 1,
+                          "rollConvention" : "NONE"
+                        },
+                        "effectiveDate" : {
+                          "adjustableDate" : {
+                            "adjustedDate" : {
+                              "meta" : {
+                                "globalKey" : "3f2256"
+                              },
+                              "value" : "2020-09-22"
+                            },
+                            "dateAdjustments" : {
+                              "businessDayConvention" : "MODFOLLOWING",
+                              "meta" : {
+                                "globalKey" : "fa42f5cf"
+                              }
+                            },
+                            "meta" : {
+                              "externalKey" : "Effective_Date",
+                              "globalKey" : "fa42f5cf"
+                            }
+                          },
+                          "meta" : {
+                            "globalKey" : "fa42f5cf"
+                          }
+                        },
+                        "meta" : {
+                          "globalKey" : "a4273c9"
+                        },
+                        "terminationDate" : {
+                          "adjustableDate" : {
+                            "adjustedDate" : {
+                              "meta" : {
+                                "globalKey" : "3f2296"
+                              },
+                              "value" : "2020-10-22"
+                            },
+                            "dateAdjustments" : {
+                              "businessDayConvention" : "MODFOLLOWING",
+                              "meta" : {
+                                "globalKey" : "fa42f5cf"
+                              }
+                            },
+                            "meta" : {
+                              "externalKey" : "Termination_Date",
+                              "globalKey" : "fa42f5cf"
+                            }
+                          },
+                          "meta" : {
+                            "globalKey" : "fa42f5cf"
+                          }
+                        }
+                      },
+                      "dayCountFraction" : {
+                        "value" : "ACT/360"
+                      },
+                      "meta" : {
+                        "globalKey" : "83b490a9"
+                      },
+                      "paymentDates" : {
+                        "meta" : {
+                          "globalKey" : "b578507f"
+                        },
+                        "paymentDatesAdjustments" : {
+                          "businessCenters" : {
+                            "businessCenter" : [ {
+                              "value" : "EUTA"
+                            } ],
+                            "meta" : {
+                              "globalKey" : "20a71d"
+                            }
+                          },
+                          "businessDayConvention" : "MODFOLLOWING",
+                          "meta" : {
+                            "globalKey" : "365baaee"
+                          }
+                        },
+                        "paymentFrequency" : {
+                          "meta" : {
+                            "globalKey" : "a2d"
+                          },
+                          "period" : "T",
+                          "periodMultiplier" : 1
+                        }
+                      },
+                      "rateSpecification" : {
+                        "fixedRate" : {
+                          "meta" : {
+                            "globalKey" : "0"
+                          },
+                          "rateSchedule" : {
+                            "initialValue" : {
+                              "address" : {
+                                "scope" : "DOCUMENT",
+                                "value" : "price-2"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    } ],
+                    "meta" : {
+                      "globalKey" : "4fe69a7c"
+                    },
+                    "securityFinancePayout" : [ {
+                      "payerReceiver" : {
+                        "payer" : "PARTY_1",
+                        "receiver" : "PARTY_2"
+                      },
+                      "collateralProvisions" : {
+                        "collateralType" : "CASH",
+                        "marginPercentage" : {
+                          "haircutPercentage" : 0.02
+                        }
+                      },
+                      "dividendTerms" : {
+                        "manufacturedIncomeRequirement" : {
+                          "totalRatio" : 1
+                        }
+                      },
+                      "durationType" : {
+                        "durationType" : "TERM"
+                      },
+                      "meta" : {
+                        "globalKey" : "f67ad093"
+                      },
+                      "minimumFee" : {
+                        "amount" : 0,
+                        "unitOfAmount" : {
+                          "currency" : {
+                            "value" : "USD"
+                          }
+                        },
+                        "meta" : {
+                          "globalKey" : "171b36"
+                        }
+                      },
+                      "securityFinanceLeg" : [ {
+                        "deliveryMethod" : "DELIVERY_VERSUS_PAYMENT",
+                        "meta" : {
+                          "externalKey" : "startLeg",
+                          "globalKey" : "61576d58"
+                        },
+                        "settlementDate" : {
+                          "adjustableDate" : {
+                            "adjustedDate" : {
+                              "meta" : {
+                                "globalKey" : "3f2256"
+                              },
+                              "value" : "2020-09-22"
+                            },
+                            "dateAdjustments" : {
+                              "businessDayConvention" : "NONE",
+                              "meta" : {
+                                "globalKey" : "24a738"
+                              }
+                            },
+                            "meta" : {
+                              "globalKey" : "24a738"
+                            }
+                          },
+                          "meta" : {
+                            "globalKey" : "24a738"
+                          }
+                        }
+                      }, {
+                        "deliveryMethod" : "DELIVERY_VERSUS_PAYMENT",
+                        "meta" : {
+                          "externalKey" : "endLeg",
+                          "globalKey" : "61576d58"
+                        },
+                        "settlementDate" : {
+                          "adjustableDate" : {
+                            "adjustedDate" : {
+                              "meta" : {
+                                "globalKey" : "3f2296"
+                              },
+                              "value" : "2020-10-22"
+                            },
+                            "dateAdjustments" : {
+                              "businessDayConvention" : "NONE",
+                              "meta" : {
+                                "globalKey" : "24a738"
+                              }
+                            },
+                            "meta" : {
+                              "globalKey" : "24a738"
+                            }
+                          },
+                          "meta" : {
+                            "globalKey" : "24a738"
+                          }
+                        }
+                      } ],
+                      "securityInformation" : {
+                        "meta" : {
+                          "globalKey" : "7548eca6"
+                        },
+                        "security" : {
+                          "productIdentifier" : [ {
+                            "value" : {
+                              "identifier" : {
+                                "value" : "ST001"
+                              },
+                              "meta" : {
+                                "globalKey" : "a4ff65ff"
+                              },
+                              "source" : "SEDOL"
+                            }
+                          } ],
+                          "securityType" : "EQUITY"
+                        }
+                      }
+                    } ]
+                  },
+                  "terminationDate" : {
+                    "adjustableDate" : {
+                      "dateAdjustments" : {
+                        "businessDayConvention" : "MODFOLLOWING",
+                        "meta" : {
+                          "globalKey" : "fa42f5cf"
+                        }
+                      },
+                      "meta" : {
+                        "globalKey" : "e743cae5"
+                      },
+                      "unadjustedDate" : "2020-10-22"
+                    },
+                    "meta" : {
+                      "globalKey" : "e743cae5"
+                    }
+                  }
+                },
+                "meta" : {
+                  "globalKey" : "6a802194"
+                }
+              },
+              "meta" : {
+                "globalKey" : "6a802194"
+              }
+            },
+            "tradeLot" : [ {
+              "priceQuantity" : [ {
+                "meta" : {
+                  "globalKey" : "76ac7822"
+                },
+                "price" : [ {
+                  "meta" : {
+                    "location" : [ {
+                      "scope" : "DOCUMENT",
+                      "value" : "price-2"
+                    } ]
+                  },
+                  "value" : {
+                    "amount" : 0.01,
+                    "unitOfAmount" : {
+                      "currency" : {
+                        "value" : "USD"
+                      }
+                    },
+                    "perUnitOfAmount" : {
+                      "currency" : {
+                        "value" : "USD"
+                      }
+                    },
+                    "priceExpression" : {
+                      "priceType" : "INTEREST_RATE"
+                    }
+                  }
+                } ],
+                "quantity" : [ {
+                  "meta" : {
+                    "location" : [ {
+                      "scope" : "DOCUMENT",
+                      "value" : "quantity-8"
+                    } ]
+                  },
+                  "value" : {
+                    "amount" : 0,
+                    "unitOfAmount" : {
+                      "currency" : {
+                        "value" : "USD"
+                      }
+                    }
+                  }
+                } ]
+              }, {
+                "meta" : {
+                  "globalKey" : "c6f57c8c"
+                },
+                "observable" : {
+                  "meta" : {
+                    "globalKey" : "a4ff65ff"
+                  },
+                  "productIdentifier" : [ {
+                    "value" : {
+                      "identifier" : {
+                        "value" : "ST001"
+                      },
+                      "meta" : {
+                        "globalKey" : "a4ff65ff"
+                      },
+                      "source" : "SEDOL"
+                    }
+                  } ]
+                },
+                "price" : [ {
+                  "meta" : {
+                    "location" : [ {
+                      "scope" : "DOCUMENT",
+                      "value" : "price-1"
+                    } ]
+                  },
+                  "value" : {
+                    "amount" : 25,
+                    "unitOfAmount" : {
+                      "currency" : {
+                        "value" : "USD"
+                      }
+                    },
+                    "perUnitOfAmount" : {
+                      "financialUnit" : "SHARE"
+                    },
+                    "priceExpression" : {
+                      "priceType" : "ASSET_PRICE"
+                    }
+                  }
+                } ],
+                "quantity" : [ {
+                  "meta" : {
+                    "location" : [ {
+                      "scope" : "DOCUMENT",
+                      "value" : "quantity-9"
+                    } ]
+                  },
+                  "value" : {
+                    "amount" : 0,
+                    "unitOfAmount" : {
+                      "financialUnit" : "SHARE"
+                    }
+                  }
+                } ]
+              } ]
+            } ]
+          },
+          "tradeDate" : {
+            "meta" : {
+              "globalKey" : "3f2255"
+            },
+            "value" : "2020-09-21"
+          },
+          "tradeIdentifier" : [ {
+            "assignedIdentifier" : [ {
+              "identifier" : {
+                "value" : "0266001"
+              }
+            } ],
+            "issuer" : {
+              "value" : "KTKL"
+            },
+            "meta" : {
+              "globalKey" : "9e641379"
+            }
+          } ]
+        },
+        "transferHistory" : [ {
+          "meta" : {
+            "globalKey" : "a4abe7b4"
+          },
+          "transfer" : {
+            "payerReceiver" : {
+              "payerPartyReference" : {
+                "value" : {
+                  "meta" : {
+                    "externalKey" : "Borrower",
+                    "globalKey" : "1f061e68"
+                  },
+                  "name" : {
+                    "value" : "CP001"
+                  },
+                  "partyId" : [ {
+                    "identifier" : {
+                      "value" : "CP001LEI111111111111"
+                    },
+                    "meta" : {
+                      "globalKey" : "12818f8c"
+                    }
+                  } ]
+                }
+              },
+              "receiverPartyReference" : {
+                "value" : {
+                  "meta" : {
+                    "externalKey" : "Lender0",
+                    "globalKey" : "a896ecd"
+                  },
+                  "name" : {
+                    "value" : "Standard Fund 1"
+                  },
+                  "partyId" : [ {
+                    "identifier" : {
+                      "value" : "FM1LEI11111111111111"
+                    },
+                    "meta" : {
+                      "globalKey" : "87c4d1c6"
+                    }
+                  } ]
+                }
+              }
+            },
+            "quantity" : {
+              "amount" : 5102040.816326530612244897959183675000000,
+              "unitOfAmount" : {
+                "currency" : {
+                  "value" : "USD"
+                }
+              }
+            },
+            "settlementDate" : {
+              "adjustedDate" : {
+                "meta" : {
+                  "globalKey" : "3f2256"
+                },
+                "value" : "2020-09-22"
+              }
+            },
+            "settlementOrigin" : {
+              "securityFinancePayout" : {
+                "globalReference" : "f67ad093"
+              }
+            }
+          }
+        }, {
+          "meta" : {
+            "globalKey" : "858fe01a"
+          },
+          "transfer" : {
+            "observable" : {
+              "meta" : {
+                "globalKey" : "a4ff65ff"
+              },
+              "productIdentifier" : [ {
+                "value" : {
+                  "identifier" : {
+                    "value" : "ST001"
+                  },
+                  "meta" : {
+                    "globalKey" : "a4ff65ff"
+                  },
+                  "source" : "SEDOL"
+                }
+              } ]
+            },
+            "payerReceiver" : {
+              "payerPartyReference" : {
+                "value" : {
+                  "meta" : {
+                    "externalKey" : "Lender0",
+                    "globalKey" : "a896ecd"
+                  },
+                  "name" : {
+                    "value" : "Standard Fund 1"
+                  },
+                  "partyId" : [ {
+                    "identifier" : {
+                      "value" : "FM1LEI11111111111111"
+                    },
+                    "meta" : {
+                      "globalKey" : "87c4d1c6"
+                    }
+                  } ]
+                }
+              },
+              "receiverPartyReference" : {
+                "value" : {
+                  "meta" : {
+                    "externalKey" : "Borrower",
+                    "globalKey" : "1f061e68"
+                  },
+                  "name" : {
+                    "value" : "CP001"
+                  },
+                  "partyId" : [ {
+                    "identifier" : {
+                      "value" : "CP001LEI111111111111"
+                    },
+                    "meta" : {
+                      "globalKey" : "12818f8c"
+                    }
+                  } ]
+                }
+              }
+            },
+            "quantity" : {
+              "amount" : 200000,
+              "unitOfAmount" : {
+                "financialUnit" : "SHARE"
+              }
+            },
+            "settlementDate" : {
+              "adjustedDate" : {
+                "meta" : {
+                  "globalKey" : "3f2256"
+                },
+                "value" : "2020-09-22"
+              }
+            },
+            "settlementOrigin" : {
+              "securityFinancePayout" : {
+                "globalReference" : "f67ad093"
+              }
+            }
+          }
+        } ]
+      } ],
       "eventDate" : "2020-10-21",
       "meta" : {
-        "globalKey" : "d211b6ad"
-      },
-      "primitives" : [ {
-        "quantityChange" : {
-          "after" : {
+        "globalKey" : "eef4a099"
+      }
+    },
+    "eventIdentifier" : [ {
+      "assignedIdentifier" : [ {
+        "identifier" : {
+          "value" : "workflow-id-0"
+        }
+      } ],
+      "meta" : {
+        "globalKey" : "414b814c"
+      }
+    } ],
+    "messageInformation" : {
+      "messageId" : {
+        "value" : "message-id-0"
+      }
+    },
+    "meta" : {
+      "globalKey" : "3fb0d02c"
+    },
+    "timestamp" : [ {
+      "dateTime" : "2020-10-21T09:00:00Z",
+      "qualification" : "EVENT_CREATION_DATE_TIME"
+    } ]
+  }, {
+    "eventIdentifier" : [ {
+      "assignedIdentifier" : [ {
+        "identifier" : {
+          "value" : "workflow-id-1"
+        }
+      } ],
+      "meta" : {
+        "globalKey" : "414b814d"
+      }
+    } ],
+    "messageInformation" : {
+      "messageId" : {
+        "value" : "message-id-1"
+      }
+    },
+    "meta" : {
+      "globalKey" : "90202dba"
+    },
+    "previousWorkflowStep" : {
+      "globalReference" : "84f1f54c"
+    },
+    "proposedEvent" : {
+      "eventDate" : "2020-10-22",
+      "instruction" : [ {
+        "before" : {
+          "value" : {
             "meta" : {
-              "globalKey" : "fab05cd9"
+              "globalKey" : "8fc326ce"
             },
             "state" : {
               "positionState" : "CLOSED"
             },
             "trade" : {
               "meta" : {
-                "globalKey" : "8a80a47b"
+                "globalKey" : "8c05ee04"
               },
               "party" : [ {
                 "meta" : {
                   "externalKey" : "Lender0",
-                  "globalKey" : "ad04f7df"
+                  "globalKey" : "a896ecd"
                 },
                 "name" : {
                   "value" : "Standard Fund 1"
                 },
                 "partyId" : [ {
-                  "value" : "FM1LEI11111111111111"
+                  "identifier" : {
+                    "value" : "FM1LEI11111111111111"
+                  },
+                  "meta" : {
+                    "globalKey" : "87c4d1c6"
+                  }
                 } ]
               }, {
                 "meta" : {
                   "externalKey" : "AGENT_LENDER",
-                  "globalKey" : "e4c7f1f0"
+                  "globalKey" : "73176f1c"
                 },
                 "name" : {
                   "value" : "KTKL"
                 },
                 "partyId" : [ {
-                  "value" : "KTKLLEILLLLLLLLLLLLL"
+                  "identifier" : {
+                    "value" : "KTKLLEILLLLLLLLLLLLL"
+                  },
+                  "meta" : {
+                    "globalKey" : "60098fe6"
+                  }
                 } ]
               }, {
                 "meta" : {
                   "externalKey" : "Borrower",
-                  "globalKey" : "7601b530"
+                  "globalKey" : "1f061e68"
                 },
                 "name" : {
                   "value" : "CP001"
                 },
                 "partyId" : [ {
-                  "value" : "CP001LEI111111111111"
+                  "identifier" : {
+                    "value" : "CP001LEI111111111111"
+                  },
+                  "meta" : {
+                    "globalKey" : "12818f8c"
+                  }
                 } ]
               } ],
               "tradableProduct" : {
@@ -59,13 +789,18 @@
                     "value" : {
                       "meta" : {
                         "externalKey" : "Lender0",
-                        "globalKey" : "ad04f7df"
+                        "globalKey" : "a896ecd"
                       },
                       "name" : {
                         "value" : "Standard Fund 1"
                       },
                       "partyId" : [ {
-                        "value" : "FM1LEI11111111111111"
+                        "identifier" : {
+                          "value" : "FM1LEI11111111111111"
+                        },
+                        "meta" : {
+                          "globalKey" : "87c4d1c6"
+                        }
                       } ]
                     }
                   },
@@ -75,13 +810,18 @@
                     "value" : {
                       "meta" : {
                         "externalKey" : "Borrower",
-                        "globalKey" : "7601b530"
+                        "globalKey" : "1f061e68"
                       },
                       "name" : {
                         "value" : "CP001"
                       },
                       "partyId" : [ {
-                        "value" : "CP001LEI111111111111"
+                        "identifier" : {
+                          "value" : "CP001LEI111111111111"
+                        },
+                        "meta" : {
+                          "globalKey" : "12818f8c"
+                        }
                       } ]
                     }
                   },
@@ -89,6 +829,10 @@
                 } ],
                 "product" : {
                   "contractualProduct" : {
+                    "productTaxonomy" : [ {
+                      "productQualifier" : "SecurityLendingAgreement",
+                      "taxonomySource" : "ISDA"
+                    } ],
                     "economicTerms" : {
                       "effectiveDate" : {
                         "adjustableDate" : {
@@ -249,7 +993,7 @@
                           },
                           "dividendTerms" : {
                             "manufacturedIncomeRequirement" : {
-                              "dividendPayoutRatio" : 1
+                              "totalRatio" : 1
                             }
                           },
                           "durationType" : {
@@ -366,14 +1110,11 @@
                       }
                     },
                     "meta" : {
-                      "globalKey" : "11b2c09b"
-                    },
-                    "productIdentification" : {
-                      "productQualifier" : "SecurityLendingAgreement"
+                      "globalKey" : "6a802194"
                     }
                   },
                   "meta" : {
-                    "globalKey" : "11b2c09b"
+                    "globalKey" : "6a802194"
                   }
                 },
                 "tradeLot" : [ {
@@ -502,7 +1243,7 @@
             },
             "transferHistory" : [ {
               "meta" : {
-                "globalKey" : "150ffb8b"
+                "globalKey" : "a4abe7b4"
               },
               "transfer" : {
                 "payerReceiver" : {
@@ -510,13 +1251,18 @@
                     "value" : {
                       "meta" : {
                         "externalKey" : "Borrower",
-                        "globalKey" : "7601b530"
+                        "globalKey" : "1f061e68"
                       },
                       "name" : {
                         "value" : "CP001"
                       },
                       "partyId" : [ {
-                        "value" : "CP001LEI111111111111"
+                        "identifier" : {
+                          "value" : "CP001LEI111111111111"
+                        },
+                        "meta" : {
+                          "globalKey" : "12818f8c"
+                        }
                       } ]
                     }
                   },
@@ -524,13 +1270,18 @@
                     "value" : {
                       "meta" : {
                         "externalKey" : "Lender0",
-                        "globalKey" : "ad04f7df"
+                        "globalKey" : "a896ecd"
                       },
                       "name" : {
                         "value" : "Standard Fund 1"
                       },
                       "partyId" : [ {
-                        "value" : "FM1LEI11111111111111"
+                        "identifier" : {
+                          "value" : "FM1LEI11111111111111"
+                        },
+                        "meta" : {
+                          "globalKey" : "87c4d1c6"
+                        }
                       } ]
                     }
                   }
@@ -559,7 +1310,7 @@
               }
             }, {
               "meta" : {
-                "globalKey" : "7aa0bf33"
+                "globalKey" : "858fe01a"
               },
               "transfer" : {
                 "observable" : {
@@ -583,13 +1334,18 @@
                     "value" : {
                       "meta" : {
                         "externalKey" : "Lender0",
-                        "globalKey" : "ad04f7df"
+                        "globalKey" : "a896ecd"
                       },
                       "name" : {
                         "value" : "Standard Fund 1"
                       },
                       "partyId" : [ {
-                        "value" : "FM1LEI11111111111111"
+                        "identifier" : {
+                          "value" : "FM1LEI11111111111111"
+                        },
+                        "meta" : {
+                          "globalKey" : "87c4d1c6"
+                        }
                       } ]
                     }
                   },
@@ -597,13 +1353,18 @@
                     "value" : {
                       "meta" : {
                         "externalKey" : "Borrower",
-                        "globalKey" : "7601b530"
+                        "globalKey" : "1f061e68"
                       },
                       "name" : {
                         "value" : "CP001"
                       },
                       "partyId" : [ {
-                        "value" : "CP001LEI111111111111"
+                        "identifier" : {
+                          "value" : "CP001LEI111111111111"
+                        },
+                        "meta" : {
+                          "globalKey" : "12818f8c"
+                        }
                       } ]
                     }
                   }
@@ -629,92 +1390,336 @@
                 }
               }
             } ]
-          },
-          "before" : {
-            "value" : {
+          }
+        },
+        "primitiveInstruction" : {
+          "transfer" : {
+            "transferState" : [ {
               "meta" : {
-                "globalKey" : "b8e5d89"
+                "globalKey" : "860b24ca"
               },
-              "state" : {
-                "positionState" : "EXECUTED"
-              },
-              "trade" : {
-                "meta" : {
-                  "globalKey" : "a0f47bce"
+              "transfer" : {
+                "payerReceiver" : {
+                  "payerPartyReference" : {
+                    "value" : {
+                      "meta" : {
+                        "externalKey" : "Lender0",
+                        "globalKey" : "a896ecd"
+                      },
+                      "name" : {
+                        "value" : "Standard Fund 1"
+                      },
+                      "partyId" : [ {
+                        "identifier" : {
+                          "value" : "FM1LEI11111111111111"
+                        },
+                        "meta" : {
+                          "globalKey" : "87c4d1c6"
+                        }
+                      } ]
+                    }
+                  },
+                  "receiverPartyReference" : {
+                    "value" : {
+                      "meta" : {
+                        "externalKey" : "Borrower",
+                        "globalKey" : "1f061e68"
+                      },
+                      "name" : {
+                        "value" : "CP001"
+                      },
+                      "partyId" : [ {
+                        "identifier" : {
+                          "value" : "CP001LEI111111111111"
+                        },
+                        "meta" : {
+                          "globalKey" : "12818f8c"
+                        }
+                      } ]
+                    }
+                  }
                 },
-                "party" : [ {
+                "quantity" : {
+                  "amount" : 5102040.816326530612244897959183675000000,
+                  "unitOfAmount" : {
+                    "currency" : {
+                      "value" : "USD"
+                    }
+                  }
+                },
+                "settlementDate" : {
+                  "adjustedDate" : {
+                    "meta" : {
+                      "globalKey" : "3f2296"
+                    },
+                    "value" : "2020-10-22"
+                  }
+                },
+                "settlementOrigin" : {
+                  "securityFinancePayout" : {
+                    "globalReference" : "f67ad093"
+                  }
+                }
+              }
+            }, {
+              "meta" : {
+                "globalKey" : "2bb617f0"
+              },
+              "transfer" : {
+                "observable" : {
+                  "meta" : {
+                    "globalKey" : "a4ff65ff"
+                  },
+                  "productIdentifier" : [ {
+                    "value" : {
+                      "identifier" : {
+                        "value" : "ST001"
+                      },
+                      "meta" : {
+                        "globalKey" : "a4ff65ff"
+                      },
+                      "source" : "SEDOL"
+                    }
+                  } ]
+                },
+                "payerReceiver" : {
+                  "payerPartyReference" : {
+                    "value" : {
+                      "meta" : {
+                        "externalKey" : "Borrower",
+                        "globalKey" : "1f061e68"
+                      },
+                      "name" : {
+                        "value" : "CP001"
+                      },
+                      "partyId" : [ {
+                        "identifier" : {
+                          "value" : "CP001LEI111111111111"
+                        },
+                        "meta" : {
+                          "globalKey" : "12818f8c"
+                        }
+                      } ]
+                    }
+                  },
+                  "receiverPartyReference" : {
+                    "value" : {
+                      "meta" : {
+                        "externalKey" : "Lender0",
+                        "globalKey" : "a896ecd"
+                      },
+                      "name" : {
+                        "value" : "Standard Fund 1"
+                      },
+                      "partyId" : [ {
+                        "identifier" : {
+                          "value" : "FM1LEI11111111111111"
+                        },
+                        "meta" : {
+                          "globalKey" : "87c4d1c6"
+                        }
+                      } ]
+                    }
+                  }
+                },
+                "quantity" : {
+                  "amount" : 200000,
+                  "unitOfAmount" : {
+                    "financialUnit" : "SHARE"
+                  }
+                },
+                "settlementDate" : {
+                  "adjustedDate" : {
+                    "meta" : {
+                      "globalKey" : "3f2296"
+                    },
+                    "value" : "2020-10-22"
+                  }
+                },
+                "settlementOrigin" : {
+                  "securityFinancePayout" : {
+                    "globalReference" : "f67ad093"
+                  }
+                }
+              }
+            } ]
+          }
+        }
+      } ]
+    },
+    "timestamp" : [ {
+      "dateTime" : "2020-10-21T15:00:00Z",
+      "qualification" : "EVENT_CREATION_DATE_TIME"
+    } ]
+  }, {
+    "businessEvent" : {
+      "after" : [ {
+        "meta" : {
+          "globalKey" : "ae44b955"
+        },
+        "state" : {
+          "closedState" : {
+            "state" : "TERMINATED"
+          },
+          "positionState" : "CLOSED"
+        },
+        "trade" : {
+          "meta" : {
+            "globalKey" : "8c05ee04"
+          },
+          "party" : [ {
+            "meta" : {
+              "externalKey" : "Lender0",
+              "globalKey" : "a896ecd"
+            },
+            "name" : {
+              "value" : "Standard Fund 1"
+            },
+            "partyId" : [ {
+              "identifier" : {
+                "value" : "FM1LEI11111111111111"
+              },
+              "meta" : {
+                "globalKey" : "87c4d1c6"
+              }
+            } ]
+          }, {
+            "meta" : {
+              "externalKey" : "AGENT_LENDER",
+              "globalKey" : "73176f1c"
+            },
+            "name" : {
+              "value" : "KTKL"
+            },
+            "partyId" : [ {
+              "identifier" : {
+                "value" : "KTKLLEILLLLLLLLLLLLL"
+              },
+              "meta" : {
+                "globalKey" : "60098fe6"
+              }
+            } ]
+          }, {
+            "meta" : {
+              "externalKey" : "Borrower",
+              "globalKey" : "1f061e68"
+            },
+            "name" : {
+              "value" : "CP001"
+            },
+            "partyId" : [ {
+              "identifier" : {
+                "value" : "CP001LEI111111111111"
+              },
+              "meta" : {
+                "globalKey" : "12818f8c"
+              }
+            } ]
+          } ],
+          "tradableProduct" : {
+            "counterparty" : [ {
+              "partyReference" : {
+                "value" : {
                   "meta" : {
                     "externalKey" : "Lender0",
-                    "globalKey" : "ad04f7df"
+                    "globalKey" : "a896ecd"
                   },
                   "name" : {
                     "value" : "Standard Fund 1"
                   },
                   "partyId" : [ {
-                    "value" : "FM1LEI11111111111111"
+                    "identifier" : {
+                      "value" : "FM1LEI11111111111111"
+                    },
+                    "meta" : {
+                      "globalKey" : "87c4d1c6"
+                    }
                   } ]
-                }, {
-                  "meta" : {
-                    "externalKey" : "AGENT_LENDER",
-                    "globalKey" : "e4c7f1f0"
-                  },
-                  "name" : {
-                    "value" : "KTKL"
-                  },
-                  "partyId" : [ {
-                    "value" : "KTKLLEILLLLLLLLLLLLL"
-                  } ]
-                }, {
+                }
+              },
+              "role" : "PARTY_1"
+            }, {
+              "partyReference" : {
+                "value" : {
                   "meta" : {
                     "externalKey" : "Borrower",
-                    "globalKey" : "7601b530"
+                    "globalKey" : "1f061e68"
                   },
                   "name" : {
                     "value" : "CP001"
                   },
                   "partyId" : [ {
-                    "value" : "CP001LEI111111111111"
+                    "identifier" : {
+                      "value" : "CP001LEI111111111111"
+                    },
+                    "meta" : {
+                      "globalKey" : "12818f8c"
+                    }
                   } ]
+                }
+              },
+              "role" : "PARTY_2"
+            } ],
+            "product" : {
+              "contractualProduct" : {
+                "productTaxonomy" : [ {
+                  "productQualifier" : "SecurityLendingAgreement",
+                  "taxonomySource" : "ISDA"
                 } ],
-                "tradableProduct" : {
-                  "counterparty" : [ {
-                    "partyReference" : {
-                      "value" : {
+                "economicTerms" : {
+                  "effectiveDate" : {
+                    "adjustableDate" : {
+                      "dateAdjustments" : {
+                        "businessDayConvention" : "MODFOLLOWING",
                         "meta" : {
-                          "externalKey" : "Lender0",
-                          "globalKey" : "ad04f7df"
-                        },
-                        "name" : {
-                          "value" : "Standard Fund 1"
-                        },
-                        "partyId" : [ {
-                          "value" : "FM1LEI11111111111111"
-                        } ]
-                      }
+                          "globalKey" : "fa42f5cf"
+                        }
+                      },
+                      "meta" : {
+                        "globalKey" : "e742daa5"
+                      },
+                      "unadjustedDate" : "2020-09-22"
                     },
-                    "role" : "PARTY_1"
-                  }, {
-                    "partyReference" : {
-                      "value" : {
+                    "meta" : {
+                      "globalKey" : "e742daa5"
+                    }
+                  },
+                  "payout" : {
+                    "interestRatePayout" : [ {
+                      "payerReceiver" : {
+                        "payer" : "PARTY_1",
+                        "receiver" : "PARTY_2"
+                      },
+                      "payoutQuantity" : {
                         "meta" : {
-                          "externalKey" : "Borrower",
-                          "globalKey" : "7601b530"
+                          "globalKey" : "0"
                         },
-                        "name" : {
-                          "value" : "CP001"
+                        "quantitySchedule" : {
+                          "initialQuantity" : {
+                            "address" : {
+                              "scope" : "DOCUMENT",
+                              "value" : "quantity-8"
+                            }
+                          }
+                        }
+                      },
+                      "calculationPeriodDates" : {
+                        "calculationPeriodFrequency" : {
+                          "meta" : {
+                            "globalKey" : "25e2ab"
+                          },
+                          "period" : "T",
+                          "periodMultiplier" : 1,
+                          "rollConvention" : "NONE"
                         },
-                        "partyId" : [ {
-                          "value" : "CP001LEI111111111111"
-                        } ]
-                      }
-                    },
-                    "role" : "PARTY_2"
-                  } ],
-                  "product" : {
-                    "contractualProduct" : {
-                      "economicTerms" : {
                         "effectiveDate" : {
                           "adjustableDate" : {
+                            "adjustedDate" : {
+                              "meta" : {
+                                "globalKey" : "3f2256"
+                              },
+                              "value" : "2020-09-22"
+                            },
                             "dateAdjustments" : {
                               "businessDayConvention" : "MODFOLLOWING",
                               "meta" : {
@@ -722,256 +1727,25 @@
                               }
                             },
                             "meta" : {
-                              "globalKey" : "e742daa5"
-                            },
-                            "unadjustedDate" : "2020-09-22"
+                              "externalKey" : "Effective_Date",
+                              "globalKey" : "fa42f5cf"
+                            }
                           },
                           "meta" : {
-                            "globalKey" : "e742daa5"
+                            "globalKey" : "fa42f5cf"
                           }
                         },
-                        "payout" : {
-                          "interestRatePayout" : [ {
-                            "payerReceiver" : {
-                              "payer" : "PARTY_1",
-                              "receiver" : "PARTY_2"
-                            },
-                            "payoutQuantity" : {
-                              "meta" : {
-                                "globalKey" : "0"
-                              },
-                              "quantitySchedule" : {
-                                "initialQuantity" : {
-                                  "address" : {
-                                    "scope" : "DOCUMENT",
-                                    "value" : "quantity-8"
-                                  }
-                                }
-                              }
-                            },
-                            "calculationPeriodDates" : {
-                              "calculationPeriodFrequency" : {
-                                "meta" : {
-                                  "globalKey" : "25e2ab"
-                                },
-                                "period" : "T",
-                                "periodMultiplier" : 1,
-                                "rollConvention" : "NONE"
-                              },
-                              "effectiveDate" : {
-                                "adjustableDate" : {
-                                  "adjustedDate" : {
-                                    "meta" : {
-                                      "globalKey" : "3f2256"
-                                    },
-                                    "value" : "2020-09-22"
-                                  },
-                                  "dateAdjustments" : {
-                                    "businessDayConvention" : "MODFOLLOWING",
-                                    "meta" : {
-                                      "globalKey" : "fa42f5cf"
-                                    }
-                                  },
-                                  "meta" : {
-                                    "externalKey" : "Effective_Date",
-                                    "globalKey" : "fa42f5cf"
-                                  }
-                                },
-                                "meta" : {
-                                  "globalKey" : "fa42f5cf"
-                                }
-                              },
-                              "meta" : {
-                                "globalKey" : "a4273c9"
-                              },
-                              "terminationDate" : {
-                                "adjustableDate" : {
-                                  "adjustedDate" : {
-                                    "meta" : {
-                                      "globalKey" : "3f2296"
-                                    },
-                                    "value" : "2020-10-22"
-                                  },
-                                  "dateAdjustments" : {
-                                    "businessDayConvention" : "MODFOLLOWING",
-                                    "meta" : {
-                                      "globalKey" : "fa42f5cf"
-                                    }
-                                  },
-                                  "meta" : {
-                                    "externalKey" : "Termination_Date",
-                                    "globalKey" : "fa42f5cf"
-                                  }
-                                },
-                                "meta" : {
-                                  "globalKey" : "fa42f5cf"
-                                }
-                              }
-                            },
-                            "dayCountFraction" : {
-                              "value" : "ACT/360"
-                            },
-                            "meta" : {
-                              "globalKey" : "83b490a9"
-                            },
-                            "paymentDates" : {
-                              "meta" : {
-                                "globalKey" : "b578507f"
-                              },
-                              "paymentDatesAdjustments" : {
-                                "businessCenters" : {
-                                  "businessCenter" : [ {
-                                    "value" : "EUTA"
-                                  } ],
-                                  "meta" : {
-                                    "globalKey" : "20a71d"
-                                  }
-                                },
-                                "businessDayConvention" : "MODFOLLOWING",
-                                "meta" : {
-                                  "globalKey" : "365baaee"
-                                }
-                              },
-                              "paymentFrequency" : {
-                                "meta" : {
-                                  "globalKey" : "a2d"
-                                },
-                                "period" : "T",
-                                "periodMultiplier" : 1
-                              }
-                            },
-                            "rateSpecification" : {
-                              "fixedRate" : {
-                                "meta" : {
-                                  "globalKey" : "0"
-                                },
-                                "rateSchedule" : {
-                                  "initialValue" : {
-                                    "address" : {
-                                      "scope" : "DOCUMENT",
-                                      "value" : "price-2"
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          } ],
-                          "meta" : {
-                            "globalKey" : "4fe69a7c"
-                          },
-                          "securityFinancePayout" : [ {
-                            "payerReceiver" : {
-                              "payer" : "PARTY_1",
-                              "receiver" : "PARTY_2"
-                            },
-                            "collateralProvisions" : {
-                              "collateralType" : "CASH",
-                              "marginPercentage" : {
-                                "haircutPercentage" : 0.02
-                              }
-                            },
-                            "dividendTerms" : {
-                              "manufacturedIncomeRequirement" : {
-                                "dividendPayoutRatio" : 1
-                              }
-                            },
-                            "durationType" : {
-                              "durationType" : "TERM"
-                            },
-                            "meta" : {
-                              "globalKey" : "f67ad093"
-                            },
-                            "minimumFee" : {
-                              "amount" : 0,
-                              "unitOfAmount" : {
-                                "currency" : {
-                                  "value" : "USD"
-                                }
-                              },
-                              "meta" : {
-                                "globalKey" : "171b36"
-                              }
-                            },
-                            "securityFinanceLeg" : [ {
-                              "deliveryMethod" : "DELIVERY_VERSUS_PAYMENT",
-                              "meta" : {
-                                "externalKey" : "startLeg",
-                                "globalKey" : "61576d58"
-                              },
-                              "settlementDate" : {
-                                "adjustableDate" : {
-                                  "adjustedDate" : {
-                                    "meta" : {
-                                      "globalKey" : "3f2256"
-                                    },
-                                    "value" : "2020-09-22"
-                                  },
-                                  "dateAdjustments" : {
-                                    "businessDayConvention" : "NONE",
-                                    "meta" : {
-                                      "globalKey" : "24a738"
-                                    }
-                                  },
-                                  "meta" : {
-                                    "globalKey" : "24a738"
-                                  }
-                                },
-                                "meta" : {
-                                  "globalKey" : "24a738"
-                                }
-                              }
-                            }, {
-                              "deliveryMethod" : "DELIVERY_VERSUS_PAYMENT",
-                              "meta" : {
-                                "externalKey" : "endLeg",
-                                "globalKey" : "61576d58"
-                              },
-                              "settlementDate" : {
-                                "adjustableDate" : {
-                                  "adjustedDate" : {
-                                    "meta" : {
-                                      "globalKey" : "3f2296"
-                                    },
-                                    "value" : "2020-10-22"
-                                  },
-                                  "dateAdjustments" : {
-                                    "businessDayConvention" : "NONE",
-                                    "meta" : {
-                                      "globalKey" : "24a738"
-                                    }
-                                  },
-                                  "meta" : {
-                                    "globalKey" : "24a738"
-                                  }
-                                },
-                                "meta" : {
-                                  "globalKey" : "24a738"
-                                }
-                              }
-                            } ],
-                            "securityInformation" : {
-                              "meta" : {
-                                "globalKey" : "7548eca6"
-                              },
-                              "security" : {
-                                "productIdentifier" : [ {
-                                  "value" : {
-                                    "identifier" : {
-                                      "value" : "ST001"
-                                    },
-                                    "meta" : {
-                                      "globalKey" : "a4ff65ff"
-                                    },
-                                    "source" : "SEDOL"
-                                  }
-                                } ],
-                                "securityType" : "EQUITY"
-                              }
-                            }
-                          } ]
+                        "meta" : {
+                          "globalKey" : "a4273c9"
                         },
                         "terminationDate" : {
                           "adjustableDate" : {
+                            "adjustedDate" : {
+                              "meta" : {
+                                "globalKey" : "3f2296"
+                              },
+                              "value" : "2020-10-22"
+                            },
                             "dateAdjustments" : {
                               "businessDayConvention" : "MODFOLLOWING",
                               "meta" : {
@@ -979,348 +1753,432 @@
                               }
                             },
                             "meta" : {
-                              "globalKey" : "e743cae5"
-                            },
-                            "unadjustedDate" : "2020-10-22"
+                              "externalKey" : "Termination_Date",
+                              "globalKey" : "fa42f5cf"
+                            }
                           },
                           "meta" : {
-                            "globalKey" : "e743cae5"
+                            "globalKey" : "fa42f5cf"
                           }
                         }
                       },
-                      "meta" : {
-                        "globalKey" : "11b2c09b"
+                      "dayCountFraction" : {
+                        "value" : "ACT/360"
                       },
-                      "productIdentification" : {
-                        "productQualifier" : "SecurityLendingAgreement"
+                      "meta" : {
+                        "globalKey" : "83b490a9"
+                      },
+                      "paymentDates" : {
+                        "meta" : {
+                          "globalKey" : "b578507f"
+                        },
+                        "paymentDatesAdjustments" : {
+                          "businessCenters" : {
+                            "businessCenter" : [ {
+                              "value" : "EUTA"
+                            } ],
+                            "meta" : {
+                              "globalKey" : "20a71d"
+                            }
+                          },
+                          "businessDayConvention" : "MODFOLLOWING",
+                          "meta" : {
+                            "globalKey" : "365baaee"
+                          }
+                        },
+                        "paymentFrequency" : {
+                          "meta" : {
+                            "globalKey" : "a2d"
+                          },
+                          "period" : "T",
+                          "periodMultiplier" : 1
+                        }
+                      },
+                      "rateSpecification" : {
+                        "fixedRate" : {
+                          "meta" : {
+                            "globalKey" : "0"
+                          },
+                          "rateSchedule" : {
+                            "initialValue" : {
+                              "address" : {
+                                "scope" : "DOCUMENT",
+                                "value" : "price-2"
+                              }
+                            }
+                          }
+                        }
                       }
-                    },
+                    } ],
                     "meta" : {
-                      "globalKey" : "11b2c09b"
-                    }
-                  },
-                  "tradeLot" : [ {
-                    "priceQuantity" : [ {
-                      "meta" : {
-                        "globalKey" : "90a63fbd"
+                      "globalKey" : "4fe69a7c"
+                    },
+                    "securityFinancePayout" : [ {
+                      "payerReceiver" : {
+                        "payer" : "PARTY_1",
+                        "receiver" : "PARTY_2"
                       },
-                      "price" : [ {
-                        "meta" : {
-                          "location" : [ {
-                            "scope" : "DOCUMENT",
-                            "value" : "price-2"
-                          } ]
-                        },
-                        "value" : {
-                          "amount" : 0.01,
-                          "unitOfAmount" : {
-                            "currency" : {
-                              "value" : "USD"
-                            }
-                          },
-                          "perUnitOfAmount" : {
-                            "currency" : {
-                              "value" : "USD"
-                            }
-                          },
-                          "priceExpression" : {
-                            "priceType" : "INTEREST_RATE"
-                          }
+                      "collateralProvisions" : {
+                        "collateralType" : "CASH",
+                        "marginPercentage" : {
+                          "haircutPercentage" : 0.02
                         }
-                      } ],
-                      "quantity" : [ {
-                        "meta" : {
-                          "location" : [ {
-                            "scope" : "DOCUMENT",
-                            "value" : "quantity-8"
-                          } ]
-                        },
-                        "value" : {
-                          "amount" : 5000000,
-                          "unitOfAmount" : {
-                            "currency" : {
-                              "value" : "USD"
-                            }
-                          }
-                        }
-                      } ]
-                    }, {
-                      "meta" : {
-                        "globalKey" : "50be341a"
                       },
-                      "observable" : {
-                        "meta" : {
-                          "globalKey" : "a4ff65ff"
+                      "dividendTerms" : {
+                        "manufacturedIncomeRequirement" : {
+                          "totalRatio" : 1
+                        }
+                      },
+                      "durationType" : {
+                        "durationType" : "TERM"
+                      },
+                      "meta" : {
+                        "globalKey" : "f67ad093"
+                      },
+                      "minimumFee" : {
+                        "amount" : 0,
+                        "unitOfAmount" : {
+                          "currency" : {
+                            "value" : "USD"
+                          }
                         },
-                        "productIdentifier" : [ {
-                          "value" : {
-                            "identifier" : {
-                              "value" : "ST001"
+                        "meta" : {
+                          "globalKey" : "171b36"
+                        }
+                      },
+                      "securityFinanceLeg" : [ {
+                        "deliveryMethod" : "DELIVERY_VERSUS_PAYMENT",
+                        "meta" : {
+                          "externalKey" : "startLeg",
+                          "globalKey" : "61576d58"
+                        },
+                        "settlementDate" : {
+                          "adjustableDate" : {
+                            "adjustedDate" : {
+                              "meta" : {
+                                "globalKey" : "3f2256"
+                              },
+                              "value" : "2020-09-22"
+                            },
+                            "dateAdjustments" : {
+                              "businessDayConvention" : "NONE",
+                              "meta" : {
+                                "globalKey" : "24a738"
+                              }
                             },
                             "meta" : {
-                              "globalKey" : "a4ff65ff"
-                            },
-                            "source" : "SEDOL"
-                          }
-                        } ]
-                      },
-                      "price" : [ {
-                        "meta" : {
-                          "location" : [ {
-                            "scope" : "DOCUMENT",
-                            "value" : "price-1"
-                          } ]
-                        },
-                        "value" : {
-                          "amount" : 25,
-                          "unitOfAmount" : {
-                            "currency" : {
-                              "value" : "USD"
+                              "globalKey" : "24a738"
                             }
                           },
-                          "perUnitOfAmount" : {
-                            "financialUnit" : "SHARE"
+                          "meta" : {
+                            "globalKey" : "24a738"
+                          }
+                        }
+                      }, {
+                        "deliveryMethod" : "DELIVERY_VERSUS_PAYMENT",
+                        "meta" : {
+                          "externalKey" : "endLeg",
+                          "globalKey" : "61576d58"
+                        },
+                        "settlementDate" : {
+                          "adjustableDate" : {
+                            "adjustedDate" : {
+                              "meta" : {
+                                "globalKey" : "3f2296"
+                              },
+                              "value" : "2020-10-22"
+                            },
+                            "dateAdjustments" : {
+                              "businessDayConvention" : "NONE",
+                              "meta" : {
+                                "globalKey" : "24a738"
+                              }
+                            },
+                            "meta" : {
+                              "globalKey" : "24a738"
+                            }
                           },
-                          "priceExpression" : {
-                            "priceType" : "ASSET_PRICE"
+                          "meta" : {
+                            "globalKey" : "24a738"
                           }
                         }
                       } ],
-                      "quantity" : [ {
+                      "securityInformation" : {
                         "meta" : {
-                          "location" : [ {
-                            "scope" : "DOCUMENT",
-                            "value" : "quantity-9"
-                          } ]
+                          "globalKey" : "7548eca6"
                         },
-                        "value" : {
-                          "amount" : 200000,
-                          "unitOfAmount" : {
-                            "financialUnit" : "SHARE"
-                          }
+                        "security" : {
+                          "productIdentifier" : [ {
+                            "value" : {
+                              "identifier" : {
+                                "value" : "ST001"
+                              },
+                              "meta" : {
+                                "globalKey" : "a4ff65ff"
+                              },
+                              "source" : "SEDOL"
+                            }
+                          } ],
+                          "securityType" : "EQUITY"
                         }
-                      } ]
+                      }
                     } ]
-                  } ]
-                },
-                "tradeDate" : {
-                  "meta" : {
-                    "globalKey" : "3f2255"
                   },
-                  "value" : "2020-09-21"
-                },
-                "tradeIdentifier" : [ {
-                  "assignedIdentifier" : [ {
-                    "identifier" : {
-                      "value" : "0266001"
-                    }
-                  } ],
-                  "issuer" : {
-                    "value" : "KTKL"
-                  },
-                  "meta" : {
-                    "globalKey" : "9e641379"
-                  }
-                } ]
-              },
-              "transferHistory" : [ {
-                "meta" : {
-                  "globalKey" : "150ffb8b"
-                },
-                "transfer" : {
-                  "payerReceiver" : {
-                    "payerPartyReference" : {
-                      "value" : {
+                  "terminationDate" : {
+                    "adjustableDate" : {
+                      "dateAdjustments" : {
+                        "businessDayConvention" : "MODFOLLOWING",
                         "meta" : {
-                          "externalKey" : "Borrower",
-                          "globalKey" : "7601b530"
-                        },
-                        "name" : {
-                          "value" : "CP001"
-                        },
-                        "partyId" : [ {
-                          "value" : "CP001LEI111111111111"
-                        } ]
+                          "globalKey" : "fa42f5cf"
+                        }
+                      },
+                      "meta" : {
+                        "globalKey" : "e743cae5"
+                      },
+                      "unadjustedDate" : "2020-10-22"
+                    },
+                    "meta" : {
+                      "globalKey" : "e743cae5"
+                    }
+                  }
+                },
+                "meta" : {
+                  "globalKey" : "6a802194"
+                }
+              },
+              "meta" : {
+                "globalKey" : "6a802194"
+              }
+            },
+            "tradeLot" : [ {
+              "priceQuantity" : [ {
+                "meta" : {
+                  "globalKey" : "76ac7822"
+                },
+                "price" : [ {
+                  "meta" : {
+                    "location" : [ {
+                      "scope" : "DOCUMENT",
+                      "value" : "price-2"
+                    } ]
+                  },
+                  "value" : {
+                    "amount" : 0.01,
+                    "unitOfAmount" : {
+                      "currency" : {
+                        "value" : "USD"
                       }
                     },
-                    "receiverPartyReference" : {
-                      "value" : {
-                        "meta" : {
-                          "externalKey" : "Lender0",
-                          "globalKey" : "ad04f7df"
-                        },
-                        "name" : {
-                          "value" : "Standard Fund 1"
-                        },
-                        "partyId" : [ {
-                          "value" : "FM1LEI11111111111111"
-                        } ]
+                    "perUnitOfAmount" : {
+                      "currency" : {
+                        "value" : "USD"
                       }
+                    },
+                    "priceExpression" : {
+                      "priceType" : "INTEREST_RATE"
                     }
+                  }
+                } ],
+                "quantity" : [ {
+                  "meta" : {
+                    "location" : [ {
+                      "scope" : "DOCUMENT",
+                      "value" : "quantity-8"
+                    } ]
                   },
-                  "quantity" : {
-                    "amount" : 5102040.816326530612244897959183675000000,
+                  "value" : {
+                    "amount" : 0,
                     "unitOfAmount" : {
                       "currency" : {
                         "value" : "USD"
                       }
                     }
-                  },
-                  "settlementDate" : {
-                    "adjustedDate" : {
-                      "meta" : {
-                        "globalKey" : "3f2256"
-                      },
-                      "value" : "2020-09-22"
-                    }
-                  },
-                  "settlementOrigin" : {
-                    "securityFinancePayout" : {
-                      "globalReference" : "f67ad093"
-                    }
                   }
-                }
+                } ]
               }, {
                 "meta" : {
-                  "globalKey" : "7aa0bf33"
+                  "globalKey" : "c6f57c8c"
                 },
-                "transfer" : {
-                  "observable" : {
-                    "meta" : {
-                      "globalKey" : "a4ff65ff"
-                    },
-                    "productIdentifier" : [ {
-                      "value" : {
-                        "identifier" : {
-                          "value" : "ST001"
-                        },
-                        "meta" : {
-                          "globalKey" : "a4ff65ff"
-                        },
-                        "source" : "SEDOL"
-                      }
+                "observable" : {
+                  "meta" : {
+                    "globalKey" : "a4ff65ff"
+                  },
+                  "productIdentifier" : [ {
+                    "value" : {
+                      "identifier" : {
+                        "value" : "ST001"
+                      },
+                      "meta" : {
+                        "globalKey" : "a4ff65ff"
+                      },
+                      "source" : "SEDOL"
+                    }
+                  } ]
+                },
+                "price" : [ {
+                  "meta" : {
+                    "location" : [ {
+                      "scope" : "DOCUMENT",
+                      "value" : "price-1"
                     } ]
                   },
-                  "payerReceiver" : {
-                    "payerPartyReference" : {
-                      "value" : {
-                        "meta" : {
-                          "externalKey" : "Lender0",
-                          "globalKey" : "ad04f7df"
-                        },
-                        "name" : {
-                          "value" : "Standard Fund 1"
-                        },
-                        "partyId" : [ {
-                          "value" : "FM1LEI11111111111111"
-                        } ]
+                  "value" : {
+                    "amount" : 25,
+                    "unitOfAmount" : {
+                      "currency" : {
+                        "value" : "USD"
                       }
                     },
-                    "receiverPartyReference" : {
-                      "value" : {
-                        "meta" : {
-                          "externalKey" : "Borrower",
-                          "globalKey" : "7601b530"
-                        },
-                        "name" : {
-                          "value" : "CP001"
-                        },
-                        "partyId" : [ {
-                          "value" : "CP001LEI111111111111"
-                        } ]
-                      }
+                    "perUnitOfAmount" : {
+                      "financialUnit" : "SHARE"
+                    },
+                    "priceExpression" : {
+                      "priceType" : "ASSET_PRICE"
                     }
+                  }
+                } ],
+                "quantity" : [ {
+                  "meta" : {
+                    "location" : [ {
+                      "scope" : "DOCUMENT",
+                      "value" : "quantity-9"
+                    } ]
                   },
-                  "quantity" : {
-                    "amount" : 200000,
+                  "value" : {
+                    "amount" : 0,
                     "unitOfAmount" : {
                       "financialUnit" : "SHARE"
                     }
-                  },
-                  "settlementDate" : {
-                    "adjustedDate" : {
-                      "meta" : {
-                        "globalKey" : "3f2256"
-                      },
-                      "value" : "2020-09-22"
-                    }
-                  },
-                  "settlementOrigin" : {
-                    "securityFinancePayout" : {
-                      "globalReference" : "f67ad093"
-                    }
                   }
-                }
+                } ]
               } ]
+            } ]
+          },
+          "tradeDate" : {
+            "meta" : {
+              "globalKey" : "3f2255"
+            },
+            "value" : "2020-09-21"
+          },
+          "tradeIdentifier" : [ {
+            "assignedIdentifier" : [ {
+              "identifier" : {
+                "value" : "0266001"
+              }
+            } ],
+            "issuer" : {
+              "value" : "KTKL"
+            },
+            "meta" : {
+              "globalKey" : "9e641379"
             }
-          }
-        }
-      } ]
-    },
-    "eventIdentifier" : [ {
-      "assignedIdentifier" : [ {
-        "identifier" : {
-          "value" : "workflow-id-0"
-        }
-      } ],
-      "meta" : {
-        "globalKey" : "414b814c"
-      }
-    } ],
-    "messageInformation" : {
-      "messageId" : {
-        "value" : "message-id-0"
-      }
-    },
-    "meta" : {
-      "globalKey" : "6e1fd40"
-    },
-    "timestamp" : [ {
-      "dateTime" : "2020-10-21T09:00:00Z",
-      "qualification" : "EVENT_CREATION_DATE_TIME"
-    } ]
-  }, {
-    "eventIdentifier" : [ {
-      "assignedIdentifier" : [ {
-        "identifier" : {
-          "value" : "workflow-id-1"
-        }
-      } ],
-      "meta" : {
-        "globalKey" : "414b814d"
-      }
-    } ],
-    "messageInformation" : {
-      "messageId" : {
-        "value" : "message-id-1"
-      }
-    },
-    "meta" : {
-      "globalKey" : "cddf7212"
-    },
-    "previousWorkflowStep" : {
-      "globalReference" : "6e1fd40"
-    },
-    "proposedInstruction" : {
-      "instructionFunction" : "Create_Transfer",
-      "transfer" : {
-        "transferState" : [ {
+          } ]
+        },
+        "transferHistory" : [ {
           "meta" : {
-            "globalKey" : "c5cc3c4b"
+            "globalKey" : "a4abe7b4"
           },
           "transfer" : {
             "payerReceiver" : {
               "payerPartyReference" : {
                 "value" : {
                   "meta" : {
+                    "externalKey" : "Borrower",
+                    "globalKey" : "1f061e68"
+                  },
+                  "name" : {
+                    "value" : "CP001"
+                  },
+                  "partyId" : [ {
+                    "identifier" : {
+                      "value" : "CP001LEI111111111111"
+                    },
+                    "meta" : {
+                      "globalKey" : "12818f8c"
+                    }
+                  } ]
+                }
+              },
+              "receiverPartyReference" : {
+                "value" : {
+                  "meta" : {
                     "externalKey" : "Lender0",
-                    "globalKey" : "ad04f7df"
+                    "globalKey" : "a896ecd"
                   },
                   "name" : {
                     "value" : "Standard Fund 1"
                   },
                   "partyId" : [ {
-                    "value" : "FM1LEI11111111111111"
+                    "identifier" : {
+                      "value" : "FM1LEI11111111111111"
+                    },
+                    "meta" : {
+                      "globalKey" : "87c4d1c6"
+                    }
+                  } ]
+                }
+              }
+            },
+            "quantity" : {
+              "amount" : 5102040.816326530612244897959183675000000,
+              "unitOfAmount" : {
+                "currency" : {
+                  "value" : "USD"
+                }
+              }
+            },
+            "settlementDate" : {
+              "adjustedDate" : {
+                "meta" : {
+                  "globalKey" : "3f2256"
+                },
+                "value" : "2020-09-22"
+              }
+            },
+            "settlementOrigin" : {
+              "securityFinancePayout" : {
+                "globalReference" : "f67ad093"
+              }
+            }
+          }
+        }, {
+          "meta" : {
+            "globalKey" : "858fe01a"
+          },
+          "transfer" : {
+            "observable" : {
+              "meta" : {
+                "globalKey" : "a4ff65ff"
+              },
+              "productIdentifier" : [ {
+                "value" : {
+                  "identifier" : {
+                    "value" : "ST001"
+                  },
+                  "meta" : {
+                    "globalKey" : "a4ff65ff"
+                  },
+                  "source" : "SEDOL"
+                }
+              } ]
+            },
+            "payerReceiver" : {
+              "payerPartyReference" : {
+                "value" : {
+                  "meta" : {
+                    "externalKey" : "Lender0",
+                    "globalKey" : "a896ecd"
+                  },
+                  "name" : {
+                    "value" : "Standard Fund 1"
+                  },
+                  "partyId" : [ {
+                    "identifier" : {
+                      "value" : "FM1LEI11111111111111"
+                    },
+                    "meta" : {
+                      "globalKey" : "87c4d1c6"
+                    }
                   } ]
                 }
               },
@@ -1328,13 +2186,83 @@
                 "value" : {
                   "meta" : {
                     "externalKey" : "Borrower",
-                    "globalKey" : "7601b530"
+                    "globalKey" : "1f061e68"
                   },
                   "name" : {
                     "value" : "CP001"
                   },
                   "partyId" : [ {
-                    "value" : "CP001LEI111111111111"
+                    "identifier" : {
+                      "value" : "CP001LEI111111111111"
+                    },
+                    "meta" : {
+                      "globalKey" : "12818f8c"
+                    }
+                  } ]
+                }
+              }
+            },
+            "quantity" : {
+              "amount" : 200000,
+              "unitOfAmount" : {
+                "financialUnit" : "SHARE"
+              }
+            },
+            "settlementDate" : {
+              "adjustedDate" : {
+                "meta" : {
+                  "globalKey" : "3f2256"
+                },
+                "value" : "2020-09-22"
+              }
+            },
+            "settlementOrigin" : {
+              "securityFinancePayout" : {
+                "globalReference" : "f67ad093"
+              }
+            }
+          }
+        }, {
+          "meta" : {
+            "globalKey" : "860b24ca"
+          },
+          "transfer" : {
+            "payerReceiver" : {
+              "payerPartyReference" : {
+                "value" : {
+                  "meta" : {
+                    "externalKey" : "Lender0",
+                    "globalKey" : "a896ecd"
+                  },
+                  "name" : {
+                    "value" : "Standard Fund 1"
+                  },
+                  "partyId" : [ {
+                    "identifier" : {
+                      "value" : "FM1LEI11111111111111"
+                    },
+                    "meta" : {
+                      "globalKey" : "87c4d1c6"
+                    }
+                  } ]
+                }
+              },
+              "receiverPartyReference" : {
+                "value" : {
+                  "meta" : {
+                    "externalKey" : "Borrower",
+                    "globalKey" : "1f061e68"
+                  },
+                  "name" : {
+                    "value" : "CP001"
+                  },
+                  "partyId" : [ {
+                    "identifier" : {
+                      "value" : "CP001LEI111111111111"
+                    },
+                    "meta" : {
+                      "globalKey" : "12818f8c"
+                    }
                   } ]
                 }
               }
@@ -1363,7 +2291,7 @@
           }
         }, {
           "meta" : {
-            "globalKey" : "e04817f3"
+            "globalKey" : "2bb617f0"
           },
           "transfer" : {
             "observable" : {
@@ -1387,13 +2315,18 @@
                 "value" : {
                   "meta" : {
                     "externalKey" : "Borrower",
-                    "globalKey" : "7601b530"
+                    "globalKey" : "1f061e68"
                   },
                   "name" : {
                     "value" : "CP001"
                   },
                   "partyId" : [ {
-                    "value" : "CP001LEI111111111111"
+                    "identifier" : {
+                      "value" : "CP001LEI111111111111"
+                    },
+                    "meta" : {
+                      "globalKey" : "12818f8c"
+                    }
                   } ]
                 }
               },
@@ -1401,13 +2334,18 @@
                 "value" : {
                   "meta" : {
                     "externalKey" : "Lender0",
-                    "globalKey" : "ad04f7df"
+                    "globalKey" : "a896ecd"
                   },
                   "name" : {
                     "value" : "Standard Fund 1"
                   },
                   "partyId" : [ {
-                    "value" : "FM1LEI11111111111111"
+                    "identifier" : {
+                      "value" : "FM1LEI11111111111111"
+                    },
+                    "meta" : {
+                      "globalKey" : "87c4d1c6"
+                    }
                   } ]
                 }
               }
@@ -1433,60 +2371,69 @@
             }
           }
         } ]
-      }
-    },
-    "timestamp" : [ {
-      "dateTime" : "2020-10-21T15:00:00Z",
-      "qualification" : "EVENT_CREATION_DATE_TIME"
-    } ]
-  }, {
-    "businessEvent" : {
+      } ],
       "eventDate" : "2020-10-22",
-      "eventEffect" : {
-        "effectedTrade" : [ {
+      "eventQualifier" : "CashAndSecurityTransfer",
+      "instruction" : [ {
+        "before" : {
           "value" : {
             "meta" : {
-              "globalKey" : "fab05cd9"
+              "globalKey" : "8fc326ce"
             },
             "state" : {
               "positionState" : "CLOSED"
             },
             "trade" : {
               "meta" : {
-                "globalKey" : "8a80a47b"
+                "globalKey" : "8c05ee04"
               },
               "party" : [ {
                 "meta" : {
                   "externalKey" : "Lender0",
-                  "globalKey" : "ad04f7df"
+                  "globalKey" : "a896ecd"
                 },
                 "name" : {
                   "value" : "Standard Fund 1"
                 },
                 "partyId" : [ {
-                  "value" : "FM1LEI11111111111111"
+                  "identifier" : {
+                    "value" : "FM1LEI11111111111111"
+                  },
+                  "meta" : {
+                    "globalKey" : "87c4d1c6"
+                  }
                 } ]
               }, {
                 "meta" : {
                   "externalKey" : "AGENT_LENDER",
-                  "globalKey" : "e4c7f1f0"
+                  "globalKey" : "73176f1c"
                 },
                 "name" : {
                   "value" : "KTKL"
                 },
                 "partyId" : [ {
-                  "value" : "KTKLLEILLLLLLLLLLLLL"
+                  "identifier" : {
+                    "value" : "KTKLLEILLLLLLLLLLLLL"
+                  },
+                  "meta" : {
+                    "globalKey" : "60098fe6"
+                  }
                 } ]
               }, {
                 "meta" : {
                   "externalKey" : "Borrower",
-                  "globalKey" : "7601b530"
+                  "globalKey" : "1f061e68"
                 },
                 "name" : {
                   "value" : "CP001"
                 },
                 "partyId" : [ {
-                  "value" : "CP001LEI111111111111"
+                  "identifier" : {
+                    "value" : "CP001LEI111111111111"
+                  },
+                  "meta" : {
+                    "globalKey" : "12818f8c"
+                  }
                 } ]
               } ],
               "tradableProduct" : {
@@ -1495,13 +2442,18 @@
                     "value" : {
                       "meta" : {
                         "externalKey" : "Lender0",
-                        "globalKey" : "ad04f7df"
+                        "globalKey" : "a896ecd"
                       },
                       "name" : {
                         "value" : "Standard Fund 1"
                       },
                       "partyId" : [ {
-                        "value" : "FM1LEI11111111111111"
+                        "identifier" : {
+                          "value" : "FM1LEI11111111111111"
+                        },
+                        "meta" : {
+                          "globalKey" : "87c4d1c6"
+                        }
                       } ]
                     }
                   },
@@ -1511,13 +2463,18 @@
                     "value" : {
                       "meta" : {
                         "externalKey" : "Borrower",
-                        "globalKey" : "7601b530"
+                        "globalKey" : "1f061e68"
                       },
                       "name" : {
                         "value" : "CP001"
                       },
                       "partyId" : [ {
-                        "value" : "CP001LEI111111111111"
+                        "identifier" : {
+                          "value" : "CP001LEI111111111111"
+                        },
+                        "meta" : {
+                          "globalKey" : "12818f8c"
+                        }
                       } ]
                     }
                   },
@@ -1525,6 +2482,10 @@
                 } ],
                 "product" : {
                   "contractualProduct" : {
+                    "productTaxonomy" : [ {
+                      "productQualifier" : "SecurityLendingAgreement",
+                      "taxonomySource" : "ISDA"
+                    } ],
                     "economicTerms" : {
                       "effectiveDate" : {
                         "adjustableDate" : {
@@ -1685,7 +2646,7 @@
                           },
                           "dividendTerms" : {
                             "manufacturedIncomeRequirement" : {
-                              "dividendPayoutRatio" : 1
+                              "totalRatio" : 1
                             }
                           },
                           "durationType" : {
@@ -1802,14 +2763,11 @@
                       }
                     },
                     "meta" : {
-                      "globalKey" : "11b2c09b"
-                    },
-                    "productIdentification" : {
-                      "productQualifier" : "SecurityLendingAgreement"
+                      "globalKey" : "6a802194"
                     }
                   },
                   "meta" : {
-                    "globalKey" : "11b2c09b"
+                    "globalKey" : "6a802194"
                   }
                 },
                 "tradeLot" : [ {
@@ -1938,7 +2896,7 @@
             },
             "transferHistory" : [ {
               "meta" : {
-                "globalKey" : "150ffb8b"
+                "globalKey" : "a4abe7b4"
               },
               "transfer" : {
                 "payerReceiver" : {
@@ -1946,13 +2904,18 @@
                     "value" : {
                       "meta" : {
                         "externalKey" : "Borrower",
-                        "globalKey" : "7601b530"
+                        "globalKey" : "1f061e68"
                       },
                       "name" : {
                         "value" : "CP001"
                       },
                       "partyId" : [ {
-                        "value" : "CP001LEI111111111111"
+                        "identifier" : {
+                          "value" : "CP001LEI111111111111"
+                        },
+                        "meta" : {
+                          "globalKey" : "12818f8c"
+                        }
                       } ]
                     }
                   },
@@ -1960,13 +2923,18 @@
                     "value" : {
                       "meta" : {
                         "externalKey" : "Lender0",
-                        "globalKey" : "ad04f7df"
+                        "globalKey" : "a896ecd"
                       },
                       "name" : {
                         "value" : "Standard Fund 1"
                       },
                       "partyId" : [ {
-                        "value" : "FM1LEI11111111111111"
+                        "identifier" : {
+                          "value" : "FM1LEI11111111111111"
+                        },
+                        "meta" : {
+                          "globalKey" : "87c4d1c6"
+                        }
                       } ]
                     }
                   }
@@ -1995,7 +2963,7 @@
               }
             }, {
               "meta" : {
-                "globalKey" : "7aa0bf33"
+                "globalKey" : "858fe01a"
               },
               "transfer" : {
                 "observable" : {
@@ -2019,13 +2987,18 @@
                     "value" : {
                       "meta" : {
                         "externalKey" : "Lender0",
-                        "globalKey" : "ad04f7df"
+                        "globalKey" : "a896ecd"
                       },
                       "name" : {
                         "value" : "Standard Fund 1"
                       },
                       "partyId" : [ {
-                        "value" : "FM1LEI11111111111111"
+                        "identifier" : {
+                          "value" : "FM1LEI11111111111111"
+                        },
+                        "meta" : {
+                          "globalKey" : "87c4d1c6"
+                        }
                       } ]
                     }
                   },
@@ -2033,13 +3006,18 @@
                     "value" : {
                       "meta" : {
                         "externalKey" : "Borrower",
-                        "globalKey" : "7601b530"
+                        "globalKey" : "1f061e68"
                       },
                       "name" : {
                         "value" : "CP001"
                       },
                       "partyId" : [ {
-                        "value" : "CP001LEI111111111111"
+                        "identifier" : {
+                          "value" : "CP001LEI111111111111"
+                        },
+                        "meta" : {
+                          "globalKey" : "12818f8c"
+                        }
                       } ]
                     }
                   }
@@ -2066,636 +3044,12 @@
               }
             } ]
           }
-        } ]
-      },
-      "meta" : {
-        "globalKey" : "e197eb"
-      },
-      "primitives" : [ {
-        "transfer" : {
-          "after" : {
-            "meta" : {
-              "globalKey" : "28a0b14f"
-            },
-            "state" : {
-              "positionState" : "CLOSED"
-            },
-            "trade" : {
+        },
+        "primitiveInstruction" : {
+          "transfer" : {
+            "transferState" : [ {
               "meta" : {
-                "globalKey" : "8a80a47b"
-              },
-              "party" : [ {
-                "meta" : {
-                  "externalKey" : "Lender0",
-                  "globalKey" : "ad04f7df"
-                },
-                "name" : {
-                  "value" : "Standard Fund 1"
-                },
-                "partyId" : [ {
-                  "value" : "FM1LEI11111111111111"
-                } ]
-              }, {
-                "meta" : {
-                  "externalKey" : "AGENT_LENDER",
-                  "globalKey" : "e4c7f1f0"
-                },
-                "name" : {
-                  "value" : "KTKL"
-                },
-                "partyId" : [ {
-                  "value" : "KTKLLEILLLLLLLLLLLLL"
-                } ]
-              }, {
-                "meta" : {
-                  "externalKey" : "Borrower",
-                  "globalKey" : "7601b530"
-                },
-                "name" : {
-                  "value" : "CP001"
-                },
-                "partyId" : [ {
-                  "value" : "CP001LEI111111111111"
-                } ]
-              } ],
-              "tradableProduct" : {
-                "counterparty" : [ {
-                  "partyReference" : {
-                    "value" : {
-                      "meta" : {
-                        "externalKey" : "Lender0",
-                        "globalKey" : "ad04f7df"
-                      },
-                      "name" : {
-                        "value" : "Standard Fund 1"
-                      },
-                      "partyId" : [ {
-                        "value" : "FM1LEI11111111111111"
-                      } ]
-                    }
-                  },
-                  "role" : "PARTY_1"
-                }, {
-                  "partyReference" : {
-                    "value" : {
-                      "meta" : {
-                        "externalKey" : "Borrower",
-                        "globalKey" : "7601b530"
-                      },
-                      "name" : {
-                        "value" : "CP001"
-                      },
-                      "partyId" : [ {
-                        "value" : "CP001LEI111111111111"
-                      } ]
-                    }
-                  },
-                  "role" : "PARTY_2"
-                } ],
-                "product" : {
-                  "contractualProduct" : {
-                    "economicTerms" : {
-                      "effectiveDate" : {
-                        "adjustableDate" : {
-                          "dateAdjustments" : {
-                            "businessDayConvention" : "MODFOLLOWING",
-                            "meta" : {
-                              "globalKey" : "fa42f5cf"
-                            }
-                          },
-                          "meta" : {
-                            "globalKey" : "e742daa5"
-                          },
-                          "unadjustedDate" : "2020-09-22"
-                        },
-                        "meta" : {
-                          "globalKey" : "e742daa5"
-                        }
-                      },
-                      "payout" : {
-                        "interestRatePayout" : [ {
-                          "payerReceiver" : {
-                            "payer" : "PARTY_1",
-                            "receiver" : "PARTY_2"
-                          },
-                          "payoutQuantity" : {
-                            "meta" : {
-                              "globalKey" : "0"
-                            },
-                            "quantitySchedule" : {
-                              "initialQuantity" : {
-                                "address" : {
-                                  "scope" : "DOCUMENT",
-                                  "value" : "quantity-8"
-                                }
-                              }
-                            }
-                          },
-                          "calculationPeriodDates" : {
-                            "calculationPeriodFrequency" : {
-                              "meta" : {
-                                "globalKey" : "25e2ab"
-                              },
-                              "period" : "T",
-                              "periodMultiplier" : 1,
-                              "rollConvention" : "NONE"
-                            },
-                            "effectiveDate" : {
-                              "adjustableDate" : {
-                                "adjustedDate" : {
-                                  "meta" : {
-                                    "globalKey" : "3f2256"
-                                  },
-                                  "value" : "2020-09-22"
-                                },
-                                "dateAdjustments" : {
-                                  "businessDayConvention" : "MODFOLLOWING",
-                                  "meta" : {
-                                    "globalKey" : "fa42f5cf"
-                                  }
-                                },
-                                "meta" : {
-                                  "externalKey" : "Effective_Date",
-                                  "globalKey" : "fa42f5cf"
-                                }
-                              },
-                              "meta" : {
-                                "globalKey" : "fa42f5cf"
-                              }
-                            },
-                            "meta" : {
-                              "globalKey" : "a4273c9"
-                            },
-                            "terminationDate" : {
-                              "adjustableDate" : {
-                                "adjustedDate" : {
-                                  "meta" : {
-                                    "globalKey" : "3f2296"
-                                  },
-                                  "value" : "2020-10-22"
-                                },
-                                "dateAdjustments" : {
-                                  "businessDayConvention" : "MODFOLLOWING",
-                                  "meta" : {
-                                    "globalKey" : "fa42f5cf"
-                                  }
-                                },
-                                "meta" : {
-                                  "externalKey" : "Termination_Date",
-                                  "globalKey" : "fa42f5cf"
-                                }
-                              },
-                              "meta" : {
-                                "globalKey" : "fa42f5cf"
-                              }
-                            }
-                          },
-                          "dayCountFraction" : {
-                            "value" : "ACT/360"
-                          },
-                          "meta" : {
-                            "globalKey" : "83b490a9"
-                          },
-                          "paymentDates" : {
-                            "meta" : {
-                              "globalKey" : "b578507f"
-                            },
-                            "paymentDatesAdjustments" : {
-                              "businessCenters" : {
-                                "businessCenter" : [ {
-                                  "value" : "EUTA"
-                                } ],
-                                "meta" : {
-                                  "globalKey" : "20a71d"
-                                }
-                              },
-                              "businessDayConvention" : "MODFOLLOWING",
-                              "meta" : {
-                                "globalKey" : "365baaee"
-                              }
-                            },
-                            "paymentFrequency" : {
-                              "meta" : {
-                                "globalKey" : "a2d"
-                              },
-                              "period" : "T",
-                              "periodMultiplier" : 1
-                            }
-                          },
-                          "rateSpecification" : {
-                            "fixedRate" : {
-                              "meta" : {
-                                "globalKey" : "0"
-                              },
-                              "rateSchedule" : {
-                                "initialValue" : {
-                                  "address" : {
-                                    "scope" : "DOCUMENT",
-                                    "value" : "price-2"
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        } ],
-                        "meta" : {
-                          "globalKey" : "4fe69a7c"
-                        },
-                        "securityFinancePayout" : [ {
-                          "payerReceiver" : {
-                            "payer" : "PARTY_1",
-                            "receiver" : "PARTY_2"
-                          },
-                          "collateralProvisions" : {
-                            "collateralType" : "CASH",
-                            "marginPercentage" : {
-                              "haircutPercentage" : 0.02
-                            }
-                          },
-                          "dividendTerms" : {
-                            "manufacturedIncomeRequirement" : {
-                              "dividendPayoutRatio" : 1
-                            }
-                          },
-                          "durationType" : {
-                            "durationType" : "TERM"
-                          },
-                          "meta" : {
-                            "globalKey" : "f67ad093"
-                          },
-                          "minimumFee" : {
-                            "amount" : 0,
-                            "unitOfAmount" : {
-                              "currency" : {
-                                "value" : "USD"
-                              }
-                            },
-                            "meta" : {
-                              "globalKey" : "171b36"
-                            }
-                          },
-                          "securityFinanceLeg" : [ {
-                            "deliveryMethod" : "DELIVERY_VERSUS_PAYMENT",
-                            "meta" : {
-                              "externalKey" : "startLeg",
-                              "globalKey" : "61576d58"
-                            },
-                            "settlementDate" : {
-                              "adjustableDate" : {
-                                "adjustedDate" : {
-                                  "meta" : {
-                                    "globalKey" : "3f2256"
-                                  },
-                                  "value" : "2020-09-22"
-                                },
-                                "dateAdjustments" : {
-                                  "businessDayConvention" : "NONE",
-                                  "meta" : {
-                                    "globalKey" : "24a738"
-                                  }
-                                },
-                                "meta" : {
-                                  "globalKey" : "24a738"
-                                }
-                              },
-                              "meta" : {
-                                "globalKey" : "24a738"
-                              }
-                            }
-                          }, {
-                            "deliveryMethod" : "DELIVERY_VERSUS_PAYMENT",
-                            "meta" : {
-                              "externalKey" : "endLeg",
-                              "globalKey" : "61576d58"
-                            },
-                            "settlementDate" : {
-                              "adjustableDate" : {
-                                "adjustedDate" : {
-                                  "meta" : {
-                                    "globalKey" : "3f2296"
-                                  },
-                                  "value" : "2020-10-22"
-                                },
-                                "dateAdjustments" : {
-                                  "businessDayConvention" : "NONE",
-                                  "meta" : {
-                                    "globalKey" : "24a738"
-                                  }
-                                },
-                                "meta" : {
-                                  "globalKey" : "24a738"
-                                }
-                              },
-                              "meta" : {
-                                "globalKey" : "24a738"
-                              }
-                            }
-                          } ],
-                          "securityInformation" : {
-                            "meta" : {
-                              "globalKey" : "7548eca6"
-                            },
-                            "security" : {
-                              "productIdentifier" : [ {
-                                "value" : {
-                                  "identifier" : {
-                                    "value" : "ST001"
-                                  },
-                                  "meta" : {
-                                    "globalKey" : "a4ff65ff"
-                                  },
-                                  "source" : "SEDOL"
-                                }
-                              } ],
-                              "securityType" : "EQUITY"
-                            }
-                          }
-                        } ]
-                      },
-                      "terminationDate" : {
-                        "adjustableDate" : {
-                          "dateAdjustments" : {
-                            "businessDayConvention" : "MODFOLLOWING",
-                            "meta" : {
-                              "globalKey" : "fa42f5cf"
-                            }
-                          },
-                          "meta" : {
-                            "globalKey" : "e743cae5"
-                          },
-                          "unadjustedDate" : "2020-10-22"
-                        },
-                        "meta" : {
-                          "globalKey" : "e743cae5"
-                        }
-                      }
-                    },
-                    "meta" : {
-                      "globalKey" : "11b2c09b"
-                    },
-                    "productIdentification" : {
-                      "productQualifier" : "SecurityLendingAgreement"
-                    }
-                  },
-                  "meta" : {
-                    "globalKey" : "11b2c09b"
-                  }
-                },
-                "tradeLot" : [ {
-                  "priceQuantity" : [ {
-                    "meta" : {
-                      "globalKey" : "76ac7822"
-                    },
-                    "price" : [ {
-                      "meta" : {
-                        "location" : [ {
-                          "scope" : "DOCUMENT",
-                          "value" : "price-2"
-                        } ]
-                      },
-                      "value" : {
-                        "amount" : 0.01,
-                        "unitOfAmount" : {
-                          "currency" : {
-                            "value" : "USD"
-                          }
-                        },
-                        "perUnitOfAmount" : {
-                          "currency" : {
-                            "value" : "USD"
-                          }
-                        },
-                        "priceExpression" : {
-                          "priceType" : "INTEREST_RATE"
-                        }
-                      }
-                    } ],
-                    "quantity" : [ {
-                      "meta" : {
-                        "location" : [ {
-                          "scope" : "DOCUMENT",
-                          "value" : "quantity-8"
-                        } ]
-                      },
-                      "value" : {
-                        "amount" : 0,
-                        "unitOfAmount" : {
-                          "currency" : {
-                            "value" : "USD"
-                          }
-                        }
-                      }
-                    } ]
-                  }, {
-                    "meta" : {
-                      "globalKey" : "c6f57c8c"
-                    },
-                    "observable" : {
-                      "meta" : {
-                        "globalKey" : "a4ff65ff"
-                      },
-                      "productIdentifier" : [ {
-                        "value" : {
-                          "identifier" : {
-                            "value" : "ST001"
-                          },
-                          "meta" : {
-                            "globalKey" : "a4ff65ff"
-                          },
-                          "source" : "SEDOL"
-                        }
-                      } ]
-                    },
-                    "price" : [ {
-                      "meta" : {
-                        "location" : [ {
-                          "scope" : "DOCUMENT",
-                          "value" : "price-1"
-                        } ]
-                      },
-                      "value" : {
-                        "amount" : 25,
-                        "unitOfAmount" : {
-                          "currency" : {
-                            "value" : "USD"
-                          }
-                        },
-                        "perUnitOfAmount" : {
-                          "financialUnit" : "SHARE"
-                        },
-                        "priceExpression" : {
-                          "priceType" : "ASSET_PRICE"
-                        }
-                      }
-                    } ],
-                    "quantity" : [ {
-                      "meta" : {
-                        "location" : [ {
-                          "scope" : "DOCUMENT",
-                          "value" : "quantity-9"
-                        } ]
-                      },
-                      "value" : {
-                        "amount" : 0,
-                        "unitOfAmount" : {
-                          "financialUnit" : "SHARE"
-                        }
-                      }
-                    } ]
-                  } ]
-                } ]
-              },
-              "tradeDate" : {
-                "meta" : {
-                  "globalKey" : "3f2255"
-                },
-                "value" : "2020-09-21"
-              },
-              "tradeIdentifier" : [ {
-                "assignedIdentifier" : [ {
-                  "identifier" : {
-                    "value" : "0266001"
-                  }
-                } ],
-                "issuer" : {
-                  "value" : "KTKL"
-                },
-                "meta" : {
-                  "globalKey" : "9e641379"
-                }
-              } ]
-            },
-            "transferHistory" : [ {
-              "meta" : {
-                "globalKey" : "150ffb8b"
-              },
-              "transfer" : {
-                "payerReceiver" : {
-                  "payerPartyReference" : {
-                    "value" : {
-                      "meta" : {
-                        "externalKey" : "Borrower",
-                        "globalKey" : "7601b530"
-                      },
-                      "name" : {
-                        "value" : "CP001"
-                      },
-                      "partyId" : [ {
-                        "value" : "CP001LEI111111111111"
-                      } ]
-                    }
-                  },
-                  "receiverPartyReference" : {
-                    "value" : {
-                      "meta" : {
-                        "externalKey" : "Lender0",
-                        "globalKey" : "ad04f7df"
-                      },
-                      "name" : {
-                        "value" : "Standard Fund 1"
-                      },
-                      "partyId" : [ {
-                        "value" : "FM1LEI11111111111111"
-                      } ]
-                    }
-                  }
-                },
-                "quantity" : {
-                  "amount" : 5102040.816326530612244897959183675000000,
-                  "unitOfAmount" : {
-                    "currency" : {
-                      "value" : "USD"
-                    }
-                  }
-                },
-                "settlementDate" : {
-                  "adjustedDate" : {
-                    "meta" : {
-                      "globalKey" : "3f2256"
-                    },
-                    "value" : "2020-09-22"
-                  }
-                },
-                "settlementOrigin" : {
-                  "securityFinancePayout" : {
-                    "globalReference" : "f67ad093"
-                  }
-                }
-              }
-            }, {
-              "meta" : {
-                "globalKey" : "7aa0bf33"
-              },
-              "transfer" : {
-                "observable" : {
-                  "meta" : {
-                    "globalKey" : "a4ff65ff"
-                  },
-                  "productIdentifier" : [ {
-                    "value" : {
-                      "identifier" : {
-                        "value" : "ST001"
-                      },
-                      "meta" : {
-                        "globalKey" : "a4ff65ff"
-                      },
-                      "source" : "SEDOL"
-                    }
-                  } ]
-                },
-                "payerReceiver" : {
-                  "payerPartyReference" : {
-                    "value" : {
-                      "meta" : {
-                        "externalKey" : "Lender0",
-                        "globalKey" : "ad04f7df"
-                      },
-                      "name" : {
-                        "value" : "Standard Fund 1"
-                      },
-                      "partyId" : [ {
-                        "value" : "FM1LEI11111111111111"
-                      } ]
-                    }
-                  },
-                  "receiverPartyReference" : {
-                    "value" : {
-                      "meta" : {
-                        "externalKey" : "Borrower",
-                        "globalKey" : "7601b530"
-                      },
-                      "name" : {
-                        "value" : "CP001"
-                      },
-                      "partyId" : [ {
-                        "value" : "CP001LEI111111111111"
-                      } ]
-                    }
-                  }
-                },
-                "quantity" : {
-                  "amount" : 200000,
-                  "unitOfAmount" : {
-                    "financialUnit" : "SHARE"
-                  }
-                },
-                "settlementDate" : {
-                  "adjustedDate" : {
-                    "meta" : {
-                      "globalKey" : "3f2256"
-                    },
-                    "value" : "2020-09-22"
-                  }
-                },
-                "settlementOrigin" : {
-                  "securityFinancePayout" : {
-                    "globalReference" : "f67ad093"
-                  }
-                }
-              }
-            }, {
-              "meta" : {
-                "globalKey" : "c5cc3c4b"
+                "globalKey" : "860b24ca"
               },
               "transfer" : {
                 "payerReceiver" : {
@@ -2703,13 +3057,18 @@
                     "value" : {
                       "meta" : {
                         "externalKey" : "Lender0",
-                        "globalKey" : "ad04f7df"
+                        "globalKey" : "a896ecd"
                       },
                       "name" : {
                         "value" : "Standard Fund 1"
                       },
                       "partyId" : [ {
-                        "value" : "FM1LEI11111111111111"
+                        "identifier" : {
+                          "value" : "FM1LEI11111111111111"
+                        },
+                        "meta" : {
+                          "globalKey" : "87c4d1c6"
+                        }
                       } ]
                     }
                   },
@@ -2717,13 +3076,18 @@
                     "value" : {
                       "meta" : {
                         "externalKey" : "Borrower",
-                        "globalKey" : "7601b530"
+                        "globalKey" : "1f061e68"
                       },
                       "name" : {
                         "value" : "CP001"
                       },
                       "partyId" : [ {
-                        "value" : "CP001LEI111111111111"
+                        "identifier" : {
+                          "value" : "CP001LEI111111111111"
+                        },
+                        "meta" : {
+                          "globalKey" : "12818f8c"
+                        }
                       } ]
                     }
                   }
@@ -2752,7 +3116,7 @@
               }
             }, {
               "meta" : {
-                "globalKey" : "e04817f3"
+                "globalKey" : "2bb617f0"
               },
               "transfer" : {
                 "observable" : {
@@ -2776,13 +3140,18 @@
                     "value" : {
                       "meta" : {
                         "externalKey" : "Borrower",
-                        "globalKey" : "7601b530"
+                        "globalKey" : "1f061e68"
                       },
                       "name" : {
                         "value" : "CP001"
                       },
                       "partyId" : [ {
-                        "value" : "CP001LEI111111111111"
+                        "identifier" : {
+                          "value" : "CP001LEI111111111111"
+                        },
+                        "meta" : {
+                          "globalKey" : "12818f8c"
+                        }
                       } ]
                     }
                   },
@@ -2790,13 +3159,18 @@
                     "value" : {
                       "meta" : {
                         "externalKey" : "Lender0",
-                        "globalKey" : "ad04f7df"
+                        "globalKey" : "a896ecd"
                       },
                       "name" : {
                         "value" : "Standard Fund 1"
                       },
                       "partyId" : [ {
-                        "value" : "FM1LEI11111111111111"
+                        "identifier" : {
+                          "value" : "FM1LEI11111111111111"
+                        },
+                        "meta" : {
+                          "globalKey" : "87c4d1c6"
+                        }
                       } ]
                     }
                   }
@@ -2822,636 +3196,12 @@
                 }
               }
             } ]
-          },
-          "before" : {
-            "value" : {
-              "meta" : {
-                "globalKey" : "fab05cd9"
-              },
-              "state" : {
-                "positionState" : "CLOSED"
-              },
-              "trade" : {
-                "meta" : {
-                  "globalKey" : "8a80a47b"
-                },
-                "party" : [ {
-                  "meta" : {
-                    "externalKey" : "Lender0",
-                    "globalKey" : "ad04f7df"
-                  },
-                  "name" : {
-                    "value" : "Standard Fund 1"
-                  },
-                  "partyId" : [ {
-                    "value" : "FM1LEI11111111111111"
-                  } ]
-                }, {
-                  "meta" : {
-                    "externalKey" : "AGENT_LENDER",
-                    "globalKey" : "e4c7f1f0"
-                  },
-                  "name" : {
-                    "value" : "KTKL"
-                  },
-                  "partyId" : [ {
-                    "value" : "KTKLLEILLLLLLLLLLLLL"
-                  } ]
-                }, {
-                  "meta" : {
-                    "externalKey" : "Borrower",
-                    "globalKey" : "7601b530"
-                  },
-                  "name" : {
-                    "value" : "CP001"
-                  },
-                  "partyId" : [ {
-                    "value" : "CP001LEI111111111111"
-                  } ]
-                } ],
-                "tradableProduct" : {
-                  "counterparty" : [ {
-                    "partyReference" : {
-                      "value" : {
-                        "meta" : {
-                          "externalKey" : "Lender0",
-                          "globalKey" : "ad04f7df"
-                        },
-                        "name" : {
-                          "value" : "Standard Fund 1"
-                        },
-                        "partyId" : [ {
-                          "value" : "FM1LEI11111111111111"
-                        } ]
-                      }
-                    },
-                    "role" : "PARTY_1"
-                  }, {
-                    "partyReference" : {
-                      "value" : {
-                        "meta" : {
-                          "externalKey" : "Borrower",
-                          "globalKey" : "7601b530"
-                        },
-                        "name" : {
-                          "value" : "CP001"
-                        },
-                        "partyId" : [ {
-                          "value" : "CP001LEI111111111111"
-                        } ]
-                      }
-                    },
-                    "role" : "PARTY_2"
-                  } ],
-                  "product" : {
-                    "contractualProduct" : {
-                      "economicTerms" : {
-                        "effectiveDate" : {
-                          "adjustableDate" : {
-                            "dateAdjustments" : {
-                              "businessDayConvention" : "MODFOLLOWING",
-                              "meta" : {
-                                "globalKey" : "fa42f5cf"
-                              }
-                            },
-                            "meta" : {
-                              "globalKey" : "e742daa5"
-                            },
-                            "unadjustedDate" : "2020-09-22"
-                          },
-                          "meta" : {
-                            "globalKey" : "e742daa5"
-                          }
-                        },
-                        "payout" : {
-                          "interestRatePayout" : [ {
-                            "payerReceiver" : {
-                              "payer" : "PARTY_1",
-                              "receiver" : "PARTY_2"
-                            },
-                            "payoutQuantity" : {
-                              "meta" : {
-                                "globalKey" : "0"
-                              },
-                              "quantitySchedule" : {
-                                "initialQuantity" : {
-                                  "address" : {
-                                    "scope" : "DOCUMENT",
-                                    "value" : "quantity-8"
-                                  }
-                                }
-                              }
-                            },
-                            "calculationPeriodDates" : {
-                              "calculationPeriodFrequency" : {
-                                "meta" : {
-                                  "globalKey" : "25e2ab"
-                                },
-                                "period" : "T",
-                                "periodMultiplier" : 1,
-                                "rollConvention" : "NONE"
-                              },
-                              "effectiveDate" : {
-                                "adjustableDate" : {
-                                  "adjustedDate" : {
-                                    "meta" : {
-                                      "globalKey" : "3f2256"
-                                    },
-                                    "value" : "2020-09-22"
-                                  },
-                                  "dateAdjustments" : {
-                                    "businessDayConvention" : "MODFOLLOWING",
-                                    "meta" : {
-                                      "globalKey" : "fa42f5cf"
-                                    }
-                                  },
-                                  "meta" : {
-                                    "externalKey" : "Effective_Date",
-                                    "globalKey" : "fa42f5cf"
-                                  }
-                                },
-                                "meta" : {
-                                  "globalKey" : "fa42f5cf"
-                                }
-                              },
-                              "meta" : {
-                                "globalKey" : "a4273c9"
-                              },
-                              "terminationDate" : {
-                                "adjustableDate" : {
-                                  "adjustedDate" : {
-                                    "meta" : {
-                                      "globalKey" : "3f2296"
-                                    },
-                                    "value" : "2020-10-22"
-                                  },
-                                  "dateAdjustments" : {
-                                    "businessDayConvention" : "MODFOLLOWING",
-                                    "meta" : {
-                                      "globalKey" : "fa42f5cf"
-                                    }
-                                  },
-                                  "meta" : {
-                                    "externalKey" : "Termination_Date",
-                                    "globalKey" : "fa42f5cf"
-                                  }
-                                },
-                                "meta" : {
-                                  "globalKey" : "fa42f5cf"
-                                }
-                              }
-                            },
-                            "dayCountFraction" : {
-                              "value" : "ACT/360"
-                            },
-                            "meta" : {
-                              "globalKey" : "83b490a9"
-                            },
-                            "paymentDates" : {
-                              "meta" : {
-                                "globalKey" : "b578507f"
-                              },
-                              "paymentDatesAdjustments" : {
-                                "businessCenters" : {
-                                  "businessCenter" : [ {
-                                    "value" : "EUTA"
-                                  } ],
-                                  "meta" : {
-                                    "globalKey" : "20a71d"
-                                  }
-                                },
-                                "businessDayConvention" : "MODFOLLOWING",
-                                "meta" : {
-                                  "globalKey" : "365baaee"
-                                }
-                              },
-                              "paymentFrequency" : {
-                                "meta" : {
-                                  "globalKey" : "a2d"
-                                },
-                                "period" : "T",
-                                "periodMultiplier" : 1
-                              }
-                            },
-                            "rateSpecification" : {
-                              "fixedRate" : {
-                                "meta" : {
-                                  "globalKey" : "0"
-                                },
-                                "rateSchedule" : {
-                                  "initialValue" : {
-                                    "address" : {
-                                      "scope" : "DOCUMENT",
-                                      "value" : "price-2"
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          } ],
-                          "meta" : {
-                            "globalKey" : "4fe69a7c"
-                          },
-                          "securityFinancePayout" : [ {
-                            "payerReceiver" : {
-                              "payer" : "PARTY_1",
-                              "receiver" : "PARTY_2"
-                            },
-                            "collateralProvisions" : {
-                              "collateralType" : "CASH",
-                              "marginPercentage" : {
-                                "haircutPercentage" : 0.02
-                              }
-                            },
-                            "dividendTerms" : {
-                              "manufacturedIncomeRequirement" : {
-                                "dividendPayoutRatio" : 1
-                              }
-                            },
-                            "durationType" : {
-                              "durationType" : "TERM"
-                            },
-                            "meta" : {
-                              "globalKey" : "f67ad093"
-                            },
-                            "minimumFee" : {
-                              "amount" : 0,
-                              "unitOfAmount" : {
-                                "currency" : {
-                                  "value" : "USD"
-                                }
-                              },
-                              "meta" : {
-                                "globalKey" : "171b36"
-                              }
-                            },
-                            "securityFinanceLeg" : [ {
-                              "deliveryMethod" : "DELIVERY_VERSUS_PAYMENT",
-                              "meta" : {
-                                "externalKey" : "startLeg",
-                                "globalKey" : "61576d58"
-                              },
-                              "settlementDate" : {
-                                "adjustableDate" : {
-                                  "adjustedDate" : {
-                                    "meta" : {
-                                      "globalKey" : "3f2256"
-                                    },
-                                    "value" : "2020-09-22"
-                                  },
-                                  "dateAdjustments" : {
-                                    "businessDayConvention" : "NONE",
-                                    "meta" : {
-                                      "globalKey" : "24a738"
-                                    }
-                                  },
-                                  "meta" : {
-                                    "globalKey" : "24a738"
-                                  }
-                                },
-                                "meta" : {
-                                  "globalKey" : "24a738"
-                                }
-                              }
-                            }, {
-                              "deliveryMethod" : "DELIVERY_VERSUS_PAYMENT",
-                              "meta" : {
-                                "externalKey" : "endLeg",
-                                "globalKey" : "61576d58"
-                              },
-                              "settlementDate" : {
-                                "adjustableDate" : {
-                                  "adjustedDate" : {
-                                    "meta" : {
-                                      "globalKey" : "3f2296"
-                                    },
-                                    "value" : "2020-10-22"
-                                  },
-                                  "dateAdjustments" : {
-                                    "businessDayConvention" : "NONE",
-                                    "meta" : {
-                                      "globalKey" : "24a738"
-                                    }
-                                  },
-                                  "meta" : {
-                                    "globalKey" : "24a738"
-                                  }
-                                },
-                                "meta" : {
-                                  "globalKey" : "24a738"
-                                }
-                              }
-                            } ],
-                            "securityInformation" : {
-                              "meta" : {
-                                "globalKey" : "7548eca6"
-                              },
-                              "security" : {
-                                "productIdentifier" : [ {
-                                  "value" : {
-                                    "identifier" : {
-                                      "value" : "ST001"
-                                    },
-                                    "meta" : {
-                                      "globalKey" : "a4ff65ff"
-                                    },
-                                    "source" : "SEDOL"
-                                  }
-                                } ],
-                                "securityType" : "EQUITY"
-                              }
-                            }
-                          } ]
-                        },
-                        "terminationDate" : {
-                          "adjustableDate" : {
-                            "dateAdjustments" : {
-                              "businessDayConvention" : "MODFOLLOWING",
-                              "meta" : {
-                                "globalKey" : "fa42f5cf"
-                              }
-                            },
-                            "meta" : {
-                              "globalKey" : "e743cae5"
-                            },
-                            "unadjustedDate" : "2020-10-22"
-                          },
-                          "meta" : {
-                            "globalKey" : "e743cae5"
-                          }
-                        }
-                      },
-                      "meta" : {
-                        "globalKey" : "11b2c09b"
-                      },
-                      "productIdentification" : {
-                        "productQualifier" : "SecurityLendingAgreement"
-                      }
-                    },
-                    "meta" : {
-                      "globalKey" : "11b2c09b"
-                    }
-                  },
-                  "tradeLot" : [ {
-                    "priceQuantity" : [ {
-                      "meta" : {
-                        "globalKey" : "76ac7822"
-                      },
-                      "price" : [ {
-                        "meta" : {
-                          "location" : [ {
-                            "scope" : "DOCUMENT",
-                            "value" : "price-2"
-                          } ]
-                        },
-                        "value" : {
-                          "amount" : 0.01,
-                          "unitOfAmount" : {
-                            "currency" : {
-                              "value" : "USD"
-                            }
-                          },
-                          "perUnitOfAmount" : {
-                            "currency" : {
-                              "value" : "USD"
-                            }
-                          },
-                          "priceExpression" : {
-                            "priceType" : "INTEREST_RATE"
-                          }
-                        }
-                      } ],
-                      "quantity" : [ {
-                        "meta" : {
-                          "location" : [ {
-                            "scope" : "DOCUMENT",
-                            "value" : "quantity-8"
-                          } ]
-                        },
-                        "value" : {
-                          "amount" : 0,
-                          "unitOfAmount" : {
-                            "currency" : {
-                              "value" : "USD"
-                            }
-                          }
-                        }
-                      } ]
-                    }, {
-                      "meta" : {
-                        "globalKey" : "c6f57c8c"
-                      },
-                      "observable" : {
-                        "meta" : {
-                          "globalKey" : "a4ff65ff"
-                        },
-                        "productIdentifier" : [ {
-                          "value" : {
-                            "identifier" : {
-                              "value" : "ST001"
-                            },
-                            "meta" : {
-                              "globalKey" : "a4ff65ff"
-                            },
-                            "source" : "SEDOL"
-                          }
-                        } ]
-                      },
-                      "price" : [ {
-                        "meta" : {
-                          "location" : [ {
-                            "scope" : "DOCUMENT",
-                            "value" : "price-1"
-                          } ]
-                        },
-                        "value" : {
-                          "amount" : 25,
-                          "unitOfAmount" : {
-                            "currency" : {
-                              "value" : "USD"
-                            }
-                          },
-                          "perUnitOfAmount" : {
-                            "financialUnit" : "SHARE"
-                          },
-                          "priceExpression" : {
-                            "priceType" : "ASSET_PRICE"
-                          }
-                        }
-                      } ],
-                      "quantity" : [ {
-                        "meta" : {
-                          "location" : [ {
-                            "scope" : "DOCUMENT",
-                            "value" : "quantity-9"
-                          } ]
-                        },
-                        "value" : {
-                          "amount" : 0,
-                          "unitOfAmount" : {
-                            "financialUnit" : "SHARE"
-                          }
-                        }
-                      } ]
-                    } ]
-                  } ]
-                },
-                "tradeDate" : {
-                  "meta" : {
-                    "globalKey" : "3f2255"
-                  },
-                  "value" : "2020-09-21"
-                },
-                "tradeIdentifier" : [ {
-                  "assignedIdentifier" : [ {
-                    "identifier" : {
-                      "value" : "0266001"
-                    }
-                  } ],
-                  "issuer" : {
-                    "value" : "KTKL"
-                  },
-                  "meta" : {
-                    "globalKey" : "9e641379"
-                  }
-                } ]
-              },
-              "transferHistory" : [ {
-                "meta" : {
-                  "globalKey" : "150ffb8b"
-                },
-                "transfer" : {
-                  "payerReceiver" : {
-                    "payerPartyReference" : {
-                      "value" : {
-                        "meta" : {
-                          "externalKey" : "Borrower",
-                          "globalKey" : "7601b530"
-                        },
-                        "name" : {
-                          "value" : "CP001"
-                        },
-                        "partyId" : [ {
-                          "value" : "CP001LEI111111111111"
-                        } ]
-                      }
-                    },
-                    "receiverPartyReference" : {
-                      "value" : {
-                        "meta" : {
-                          "externalKey" : "Lender0",
-                          "globalKey" : "ad04f7df"
-                        },
-                        "name" : {
-                          "value" : "Standard Fund 1"
-                        },
-                        "partyId" : [ {
-                          "value" : "FM1LEI11111111111111"
-                        } ]
-                      }
-                    }
-                  },
-                  "quantity" : {
-                    "amount" : 5102040.816326530612244897959183675000000,
-                    "unitOfAmount" : {
-                      "currency" : {
-                        "value" : "USD"
-                      }
-                    }
-                  },
-                  "settlementDate" : {
-                    "adjustedDate" : {
-                      "meta" : {
-                        "globalKey" : "3f2256"
-                      },
-                      "value" : "2020-09-22"
-                    }
-                  },
-                  "settlementOrigin" : {
-                    "securityFinancePayout" : {
-                      "globalReference" : "f67ad093"
-                    }
-                  }
-                }
-              }, {
-                "meta" : {
-                  "globalKey" : "7aa0bf33"
-                },
-                "transfer" : {
-                  "observable" : {
-                    "meta" : {
-                      "globalKey" : "a4ff65ff"
-                    },
-                    "productIdentifier" : [ {
-                      "value" : {
-                        "identifier" : {
-                          "value" : "ST001"
-                        },
-                        "meta" : {
-                          "globalKey" : "a4ff65ff"
-                        },
-                        "source" : "SEDOL"
-                      }
-                    } ]
-                  },
-                  "payerReceiver" : {
-                    "payerPartyReference" : {
-                      "value" : {
-                        "meta" : {
-                          "externalKey" : "Lender0",
-                          "globalKey" : "ad04f7df"
-                        },
-                        "name" : {
-                          "value" : "Standard Fund 1"
-                        },
-                        "partyId" : [ {
-                          "value" : "FM1LEI11111111111111"
-                        } ]
-                      }
-                    },
-                    "receiverPartyReference" : {
-                      "value" : {
-                        "meta" : {
-                          "externalKey" : "Borrower",
-                          "globalKey" : "7601b530"
-                        },
-                        "name" : {
-                          "value" : "CP001"
-                        },
-                        "partyId" : [ {
-                          "value" : "CP001LEI111111111111"
-                        } ]
-                      }
-                    }
-                  },
-                  "quantity" : {
-                    "amount" : 200000,
-                    "unitOfAmount" : {
-                      "financialUnit" : "SHARE"
-                    }
-                  },
-                  "settlementDate" : {
-                    "adjustedDate" : {
-                      "meta" : {
-                        "globalKey" : "3f2256"
-                      },
-                      "value" : "2020-09-22"
-                    }
-                  },
-                  "settlementOrigin" : {
-                    "securityFinancePayout" : {
-                      "globalReference" : "f67ad093"
-                    }
-                  }
-                }
-              } ]
-            }
-          },
-          "meta" : {
-            "globalKey" : "4fac1268"
           }
         }
-      } ]
+      } ],
+      "meta" : {
+        "globalKey" : "54271746"
+      }
     },
     "eventIdentifier" : [ {
       "assignedIdentifier" : [ {
@@ -3469,10 +3219,10 @@
       }
     },
     "meta" : {
-      "globalKey" : "7a5c5ead"
+      "globalKey" : "b7274872"
     },
     "previousWorkflowStep" : {
-      "globalReference" : "cddf7212"
+      "globalReference" : "aabe619a"
     },
     "timestamp" : [ {
       "dateTime" : "2020-10-22T18:00:00Z",

@@ -1,35 +1,46 @@
 {
   "meta" : {
-    "globalKey" : "dda8ce30"
+    "globalKey" : "8b2a74d1"
   },
   "trade" : {
     "contractDetails" : {
       "documentation" : [ {
-        "documentationIdentification" : {
-          "contractualDefinitions" : [ {
-            "value" : "ISDA2000"
-          }, {
-            "value" : "ISDA_2002_EQUITY"
-          } ],
-          "masterAgreement" : {
+        "legalAgreementIdentification" : {
+          "agreementName" : {
+            "agreementType" : "MASTER_AGREEMENT",
             "masterAgreementType" : {
-              "value" : "ISDA"
-            },
-            "masterAgreementVersion" : {
-              "value" : "2002"
+              "value" : "ISDA_MASTER"
             }
+          },
+          "vintage" : 2002
+        },
+        "meta" : {
+          "globalKey" : "328cfa59"
+        }
+      }, {
+        "legalAgreementIdentification" : {
+          "agreementName" : {
+            "agreementType" : "CONFIRMATION",
+            "contractualDefinitionsType" : [ {
+              "value" : "ISDA2000"
+            }, {
+              "value" : "ISDA_2002_EQUITY"
+            } ]
           }
+        },
+        "meta" : {
+          "globalKey" : "ed9ef3fc"
         }
       } ],
       "governingLaw" : {
         "value" : "GBEN"
       },
       "meta" : {
-        "globalKey" : "a22f9f04"
+        "globalKey" : "92c7c587"
       }
     },
     "meta" : {
-      "globalKey" : "dda8ce30"
+      "globalKey" : "8b2a74d1"
     },
     "party" : [ {
       "meta" : {
@@ -37,10 +48,15 @@
         "globalKey" : "33f59567"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+          },
+          "value" : "Party A"
         },
-        "value" : "Party A"
+        "meta" : {
+          "globalKey" : "33f59567"
+        }
       } ]
     }, {
       "meta" : {
@@ -48,10 +64,15 @@
         "globalKey" : "33f59568"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+          },
+          "value" : "Party B"
         },
-        "value" : "Party B"
+        "meta" : {
+          "globalKey" : "33f59568"
+        }
       } ]
     } ],
     "tradableProduct" : {
@@ -84,9 +105,33 @@
       } ],
       "product" : {
         "contractualProduct" : {
+          "productTaxonomy" : [ {
+            "taxonomySource" : "OTHER",
+            "taxonomyValue" : {
+              "value" : "Equity:Swap:PriceReturnBasicPerformance:SingleName"
+            }
+          } ],
           "economicTerms" : {
             "calculationAgent" : {
               "calculationAgentParty" : "CALCULATION_AGENT_INDEPENDENT"
+            },
+            "effectiveDate" : {
+              "adjustableDate" : {
+                "dateAdjustments" : {
+                  "businessDayConvention" : "NOT_APPLICABLE",
+                  "meta" : {
+                    "globalKey" : "3a4b88ab"
+                  }
+                },
+                "meta" : {
+                  "globalKey" : "252fd543"
+                },
+                "unadjustedDate" : "2002-10-24"
+              },
+              "meta" : {
+                "externalKey" : "EffectiveDate",
+                "globalKey" : "252fd543"
+              }
             },
             "extraordinaryEvents" : {
               "additionalDisruptionEvents" : {
@@ -118,7 +163,10 @@
               }
             },
             "payout" : {
-              "equityPayout" : [ {
+              "meta" : {
+                "globalKey" : "344c51cf"
+              },
+              "performancePayout" : [ {
                 "payerReceiver" : {
                   "payer" : "PARTY_1",
                   "receiver" : "PARTY_2"
@@ -143,74 +191,6 @@
                     }
                   }
                 },
-                "calculationPeriodDates" : {
-                  "effectiveDate" : {
-                    "adjustableDate" : {
-                      "dateAdjustments" : {
-                        "businessDayConvention" : "NOT_APPLICABLE",
-                        "meta" : {
-                          "globalKey" : "3a4b88ab"
-                        }
-                      },
-                      "meta" : {
-                        "globalKey" : "252fd543"
-                      },
-                      "unadjustedDate" : "2002-10-24"
-                    },
-                    "meta" : {
-                      "externalKey" : "EffectiveDate",
-                      "globalKey" : "252fd543"
-                    }
-                  },
-                  "meta" : {
-                    "globalKey" : "f3c4c5a5"
-                  },
-                  "terminationDate" : {
-                    "meta" : {
-                      "externalKey" : "TerminationDate",
-                      "globalKey" : "f18f7c48"
-                    },
-                    "relativeDate" : {
-                      "meta" : {
-                        "globalKey" : "f18f7c48"
-                      },
-                      "period" : "D",
-                      "periodMultiplier" : 0,
-                      "businessDayConvention" : "NOT_APPLICABLE",
-                      "dateRelativeTo" : {
-                        "externalReference" : "FinalEquityPaymentDate",
-                        "globalReference" : "41f04cbe"
-                      }
-                    }
-                  }
-                },
-                "dividendReturnTerms" : {
-                  "dividendCurrency" : {
-                    "currencyReference" : {
-                      "externalReference" : "ReferenceCurrency",
-                      "globalReference" : "14966"
-                    }
-                  },
-                  "dividendEntitlement" : "EX_DATE",
-                  "dividendPaymentDate" : {
-                    "dividendDateReference" : {
-                      "dateReference" : "EQUITY_PAYMENT_DATE"
-                    }
-                  },
-                  "dividendPayout" : [ {
-                    "dividendPayoutRatio" : 1
-                  } ],
-                  "dividendPeriodEffectiveDate" : {
-                    "externalReference" : "TradeDate",
-                    "globalReference" : "3e9291"
-                  },
-                  "dividendPeriodEndDate" : {
-                    "externalReference" : "FinalValuationDate",
-                    "globalReference" : "256bcafc"
-                  },
-                  "dividendReinvestment" : false,
-                  "excessDividendAmount" : "PAID_AMOUNT"
-                },
                 "fxFeature" : [ {
                   "composite" : {
                     "determinationMethod" : "CALCULATION_AGENT"
@@ -224,7 +204,7 @@
                   }
                 } ],
                 "meta" : {
-                  "globalKey" : "9fbfde8d"
+                  "globalKey" : "344c51cf"
                 },
                 "paymentDates" : {
                   "meta" : {
@@ -262,9 +242,69 @@
                     }
                   }
                 },
-                "priceReturnTerms" : {
-                  "valuationPriceFinal" : {
+                "returnTerms" : {
+                  "dividendReturnTerms" : {
+                    "dividendCurrency" : {
+                      "currencyReference" : {
+                        "externalReference" : "ReferenceCurrency",
+                        "globalReference" : "14966"
+                      }
+                    },
+                    "dividendEntitlement" : "EX_DATE",
+                    "dividendPayoutRatio" : [ {
+                      "totalRatio" : 1
+                    } ],
+                    "dividendPeriod" : [ {
+                      "dividendPaymentDate" : {
+                        "dividendDateReference" : {
+                          "dateReference" : "EQUITY_PAYMENT_DATE"
+                        }
+                      },
+                      "endDate" : {
+                        "dividendDate" : {
+                          "externalReference" : "FinalValuationDate",
+                          "globalReference" : "256bcafc"
+                        }
+                      },
+                      "startDate" : {
+                        "dividendDate" : {
+                          "externalReference" : "TradeDate",
+                          "globalReference" : "3e9291"
+                        }
+                      }
+                    } ],
+                    "dividendReinvestment" : false,
+                    "excessDividendAmount" : "PAID_AMOUNT"
+                  },
+                  "priceReturnTerms" : {
+                    "returnType" : "TOTAL"
+                  }
+                },
+                "underlier" : {
+                  "meta" : {
+                    "globalKey" : "7a5b92c5"
+                  },
+                  "security" : {
+                    "productIdentifier" : [ {
+                      "address" : {
+                        "scope" : "DOCUMENT",
+                        "value" : "productIdentifier-1"
+                      }
+                    }, {
+                      "address" : {
+                        "scope" : "DOCUMENT",
+                        "value" : "productIdentifier-2"
+                      }
+                    } ],
+                    "securityType" : "EQUITY"
+                  }
+                },
+                "valuationDates" : {
+                  "valuationDatesFinal" : {
                     "determinationMethod" : "HEDGE_EXECUTION",
+                    "meta" : {
+                      "globalKey" : "97374c7e"
+                    },
                     "valuationDate" : {
                       "adjustableDate" : {
                         "dateAdjustments" : {
@@ -284,52 +324,44 @@
                       }
                     }
                   }
-                },
-                "returnType" : "TOTAL",
-                "underlier" : {
-                  "meta" : {
-                    "globalKey" : "7a5b92c5"
-                  },
-                  "security" : {
-                    "productIdentifier" : [ {
-                      "address" : {
-                        "scope" : "DOCUMENT",
-                        "value" : "productIdentifier-1"
-                      }
-                    } ],
-                    "securityType" : "EQUITY"
-                  }
                 }
-              } ],
+              } ]
+            },
+            "terminationDate" : {
               "meta" : {
-                "globalKey" : "9fbfde8d"
+                "externalKey" : "TerminationDate",
+                "globalKey" : "f18f7c48"
+              },
+              "relativeDate" : {
+                "meta" : {
+                  "globalKey" : "f18f7c48"
+                },
+                "period" : "D",
+                "periodMultiplier" : 0,
+                "businessDayConvention" : "NOT_APPLICABLE",
+                "dateRelativeTo" : {
+                  "externalReference" : "FinalEquityPaymentDate",
+                  "globalReference" : "41f04cbe"
+                }
               }
             }
           },
           "meta" : {
-            "globalKey" : "3b0d3d67"
-          },
-          "productIdentification" : {
-            "externalProductType" : [ {
-              "externalProductTypeSource" : "OTHER",
-              "value" : {
-                "value" : "Equity:Swap:PriceReturnBasicPerformance:SingleName"
-              }
-            } ]
+            "globalKey" : "e6bd001c"
           }
         },
         "meta" : {
-          "globalKey" : "3b0d3d67"
+          "globalKey" : "e6bd001c"
         }
       },
       "tradeLot" : [ {
         "priceQuantity" : [ {
           "meta" : {
-            "globalKey" : "cbe5b17d"
+            "globalKey" : "3052a260"
           },
           "observable" : {
             "meta" : {
-              "globalKey" : "83fb1ca9"
+              "globalKey" : "5ff92a66"
             },
             "productIdentifier" : [ {
               "meta" : {
@@ -346,7 +378,23 @@
                   "value" : "ZEE.NS"
                 },
                 "meta" : {
-                  "globalKey" : "83fb1ca9"
+                  "globalKey" : "26528d84"
+                },
+                "source" : "NAME"
+              }
+            }, {
+              "meta" : {
+                "location" : [ {
+                  "scope" : "DOCUMENT",
+                  "value" : "productIdentifier-2"
+                } ]
+              },
+              "value" : {
+                "identifier" : {
+                  "value" : "ZEE"
+                },
+                "meta" : {
+                  "globalKey" : "e67be56a"
                 },
                 "source" : "OTHER"
               }
@@ -428,7 +476,7 @@
         "globalReference" : "33f59567"
       },
       "meta" : {
-        "globalKey" : "571de47a"
+        "globalKey" : "1b2141cd"
       }
     }, {
       "assignedIdentifier" : [ {
@@ -444,7 +492,7 @@
         "globalReference" : "33f59568"
       },
       "meta" : {
-        "globalKey" : "222117da"
+        "globalKey" : "222ee2ce"
       }
     } ]
   }

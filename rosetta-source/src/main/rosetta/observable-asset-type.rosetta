@@ -10,15 +10,17 @@ import cdm.base.staticdata.party.*
 import cdm.observable.common.*
 import cdm.synonyms.config.*
 import cdm.observable.asset.*
+import cdm.mapping.config.*
+import cdm.product.common.schedule.*
 
 type ObservationSource: <"The observation source can be composed of an curve and/or and information source.">
+    [deprecated]
 
 	curve Curve (0..1)
 	informationSource InformationSource (0..1)
 
 	condition CurveInformationSource: <"ObservationSource should not be empty, although the attribute cardinality would allow that.">
-		if ObservationSource exists
-		then (curve exists and informationSource exists)
+		(curve exists and informationSource exists)
 			or curve exists
 			or informationSource exists
 
@@ -45,7 +47,7 @@ type BondValuationModel: <" Bond valuation model for the security leg in a secur
 
 type BondPriceAndYieldModel: <" Bond price and yield valuation model for the security leg in a securities financing transaction, closely modelled onto the BondPriceAndYield.model in FpML.">
 	[deprecated]
-	
+
 	cleanOrDirtyPrice CleanOrDirtyPrice (0..1) <"Either the clean or dirty price of the bond.">
 	relativePrice RelativePrice (0..1) <"Bond price relative to a Benchmark.">
 	yieldToMaturity number (0..1) <"Price specified as a yield to maturity.">
@@ -53,22 +55,26 @@ type BondPriceAndYieldModel: <" Bond price and yield valuation model for the sec
 	allInPrice number (0..1) <"Bond all-in-price which is a price that includes all relevant price adjustments (i.e. accrued interest, haircut or margin ratio, inflation factor,etc.). It expresses a price in terms of percentage of nominal amount.">
 
 type CleanOrDirtyPrice: <" Class specifying the bond price as either clean or dirty in a bond valuation model.">
+    [deprecated]
 
 	cleanPrice CleanPrice (0..1) <"The clean price and accruals presented separately.">
 	dirtyPrice number (0..1) <"The dirty price presented as a single number.">
 
 type CleanPrice: <" Class to specify the clean price of a bond in a bond valuation model, with accruals presented separately, and modelled onto the cleanPrice model in BonPriceAndYield.model in FpML.">
+    [deprecated]
 
 	cleanPrice number (1..1) <"The clean price as a number.">
 	accruals number (0..1) <"The accruals as a number.">
 	dirtyPrice calculation (0..1) <"Placeholder for a calculation of dirtyPrice based on cleanPrice and accruals.">
 
 type RelativePrice: <" Bond price relative to a benchmark, as in a convertible bond.">
+    [deprecated]
 
 	spread number (1..1) <"The spread to a benchmark.">
 	bondEquityModel BondEquityModel (1..*) <"Bond equity model for convertible bonds.">
 
 type BondEquityModel: <" Bond equity model to value convertible bonds and modelled onto BondEquity.model in FpML.">
+    [deprecated]
 
 	bondchoiceModel BondChoiceModel (0..1) <"Either the bond or convertible bond.">
 	equity Equity (0..1) <"The equity.">
@@ -76,6 +82,8 @@ type BondEquityModel: <" Bond equity model to value convertible bonds and modell
 	condition: one-of
 
 type BondChoiceModel: <" Either a bond or convertible bond.">
+    [deprecated]
+
 	bond Bond (0..1)
 	convertibleBond ConvertibleBond (0..1)
 
@@ -125,13 +133,22 @@ type CashPrice: <"Specifies the nature of a cash price either as a fee type, cas
  	cashPriceType CashPriceTypeEnum (1..1) <"Specifies the type of Cash Price.">
  	premiumExpression PremiumExpression (0..1) <"Specifies a premium when expressed in a way other than an amount, and any required forward starting price definition.">
  	feeType FeeTypeEnum (0..1) <"Specifies the event type associated with a fee.">
+
  	condition PremiumType: <"Premium type can only be specified when the cash price type is a premium.">
  		if premiumExpression exists then cashPriceType = CashPriceTypeEnum -> Premium
 
-type Price extends MeasureBase: <"Specifies a price to be used for trade amounts and other purposes.">
+type PriceSchedule extends MeasureSchedule: <"Specifies the price of a financial instrument in a trade as a schedule of measures. A price generically expresses the value of an exchange as a ratio: it measures the amount of one thing needed to be exchanged for 1 unit of another thing (e.g. cash in a specific currency in exchange for a bond or share). This generic representation can be used to support any type of financial price beyond just cash price: e.g. an interest rate, a foreign exchange rate, etc. This data type is generically based on a schedule and can also be used to represent a price as a single value.">
 
 	priceExpression PriceExpression (1..1) <"Provides a value for the type of price expression (cash price, interest rate, gross or net, clean or dirty etc.) in order to explain how to interpret the amount and use it in calculations.">
-	perUnitOfAmount UnitType (1..1) <"Provides an attribute to define the unit being priced.  For example, {amount, unitOfAmount, PerUnitOfAmount} = [10, EUR, Shares] = (10.00 EUR/SHARE) * (300,000 SHARES) = EUR 3,000,000.00 (Shares cancel out in the calculation).">
+	perUnitOfAmount UnitType (0..1) <"Provides an attribute to define the unit of the thing being priced. For example, {amount, unitOfAmount, PerUnitOfAmount} = [10, EUR, Shares] = (10.00 EUR/SHARE) * (300,000 SHARES) = EUR 3,000,000.00 (Shares cancel out in the calculation).">
+
+    condition UnitOfAmountExists: <"Requires that a unit of amount must be specified for price unless price type is Variance, Volatility or Correlation.">
+        if priceExpression -> priceType = PriceTypeEnum -> Variance
+                or priceExpression -> priceType = PriceTypeEnum -> Volatility
+                or priceExpression -> priceType = PriceTypeEnum -> Correlation then
+    	    unitOfAmount is absent and perUnitOfAmount is absent
+        else
+            unitOfAmount exists and perUnitOfAmount exists
 
     condition PositiveFXRate: <"Requires that per FpML rules, the FX rate must be a positive value.">
         if ( priceExpression -> priceType = PriceTypeEnum -> ExchangeRate or priceExpression -> priceType = PriceTypeEnum -> AssetPrice )
@@ -143,13 +160,18 @@ type Price extends MeasureBase: <"Specifies a price to be used for trade amounts
             and priceExpression -> spreadType = SpreadTypeEnum -> Base
         then amount > 0
 
-    condition: <"Requires that any price expressed as a cash price and generating a cashflow must be positive">
+    condition PositiveCashPrice: <"Requires that any price expressed as a cash price and generating a cashflow must be positive">
         if priceExpression -> priceType = PriceTypeEnum -> CashPrice
         then amount > 0
 
     condition CurrencyUnitForInterestRate: <"Requires that the unit of amount for an interest rate must be a currency.">
         if priceExpression -> priceType = PriceTypeEnum -> InterestRate
         then unitOfAmount -> currency exists
+
+type Price extends PriceSchedule: <"Specifies a price as a single value to be associated to a financial product. This data type extends PriceSchedule and requires that only the amount value exists.">
+
+	condition AmountOnlyExists: <"The amount must exist when the price represents a single value, and steps must be absent.">
+		amount exists and step is absent
 
 type Observable: <"Specifies the object to be observed for a price, it could be an asset or a reference.">
 	[metadata key]
@@ -168,6 +190,10 @@ type Observable: <"Specifies the object to be observed for a price, it could be 
 	condition ObservableChoice: <"An observable can only be composed of one type any time.">
 		required choice rateOption, commodity, productIdentifier, currencyPair
 
+type FixedPrice: <"A predefined price accorded by the counterparties.">
+
+    fixedPriceSchedule NonNegativePriceSchedule (0..1) <"Fixed price step schedule, including an initial price specified as an absolute number.">
+
 type InformationSource: <"A class defining the source for a piece of information (e.g. a rate fix or an FX fixing). The attribute names have been adjusted from FpML to address the fact that the information is not limited to rates.">
 
 	sourceProvider InformationProviderEnum (1..1)  <"An information source for obtaining a market data point. For example Bloomberg, Reuters, Telerate, etc.">
@@ -184,14 +210,16 @@ type GenericInformationSource extends InformationSource: <"...">
 
 type Money extends Quantity: <"Defines a monetary amount in a specified currency.">
 	[metadata key]
-	condition:
+	condition CurrencyUnitExists:
     	unitOfAmount -> currency exists
 
 type ExchangeRate: <"A class that is used for describing the exchange rate for a particular transaction.">
     [deprecated]
+
 	crossRate CrossRate (0..*) <"An optional element that allow for definition of the currency exchange rates used to cross between the traded currencies for non-base currency FX contracts.">
 
 type FxRateObservable: <"Defines foreign exchange (FX) asset class specific parameters for market observations.">
+
     quotedCurrencyPair QuotedCurrencyPair (1..1) <"Describes the composition of a rate that has been quoted or is to be quoted.">
         [metadata address "pointsTo"=Observable->currencyPair]
     primaryFxSpotRateSource InformationSource (1..1) <"Specifies the primary source from which a rate should be observed.">
@@ -206,6 +234,7 @@ type QuotedCurrencyPair: <"A class that describes the composition of a rate that
 	quoteBasis QuoteBasisEnum (1..1) <"The method by which the exchange rate is quoted.">
 
 type CrossRate extends QuotedCurrencyPair: <"A class that is used for including the currency exchange rates used to cross between the traded currencies for non-base currency FX contracts.">
+    [deprecated]
 
 	rate number (1..1) <"The exchange rate used to cross between the traded currencies.">
 	spotRate number (0..1) <"An optional element used for FX forwards and certain types of FX OTC options. For deals consummated in the FX Forwards Market, this represents the current market rate for a particular currency pair.">
@@ -255,14 +284,18 @@ type SwapCurveValuation: <"A class to specify a valuation swap curve, which is u
 	spread number (1..1) <"Spread in basis points over the floating rate index.">
 	side QuotationSideEnum (0..1) <"The side (bid/mid/ask) of the measure.">
 
+type ValuationDates: <"Defines how and when a performance type option or performance type swap is to be valued, including both interim and final valuation dates.">
 
-type EquityValuation : <"Defines how and when an equity option or equity swap is to be valued.">
+	valuationDatesInterim PerformanceValuationDates (0..1) <"Specifies the interim valuation dates of the underlyer.">
+	valuationDatesFinal PerformanceValuationDates (1..1) <"Specifies the final valuation dates of the underlyer.">
 
-	price Price (0..1) <"Specifies the price used for valuation.">
+type PerformanceValuationDates : <"Defines how and when a performance type option or performance type swap is to be valued.">
+    [metadata key]
+
 	determinationMethod DeterminationMethodEnum (1..1) <"Specifies the method according to which an amount or a date is determined.">
 	valuationDates GenericDateSchedule (0..1) <"2018 ISDA CDM Equity Confirmation for Security Equity Swap: Pricing Date">
 	valuationDate GenericDate (0..1) <"2018 ISDA CDM Equity Confirmation for Security Equity Swap: Pricing Date">
-	valuationTime BusinessCenterTime (0..1) <"The specific time of day at which the calculation agent values the underlying. The SpecificTime is the only case when the valuationTime (time + business center location – e.g. 10:00:00 USNY) should be provided. You should be able to provide just the valuationTime without valuationTimeType, which infer that this is a specific time.">
+	valuationTime BusinessCenterTime (0..1) <"The specific time of day at which the calculation agent values the underlying. The SpecificTime is the only case when the valuationTime (time + business center location  e.g. 10:00:00 USNY) should be provided. You should be able to provide just the valuationTime without valuationTimeType, which infer that this is a specific time.">
 	valuationTimeType TimeTypeEnum (0..1) <"The time of day at which the calculation agent values the underlying, for example the official closing time of the exchange.">
 
 type FxRateSourceFixing: <"Describes a rate source to be fixed and the date the fixing occurs">
@@ -312,8 +345,8 @@ type FxRate: <"A class describing the rate of a currency conversion: pair of cur
 
 type FxSpotRateSource: <"A class defining the rate source and fixing time for an FX rate.">
 
-	primaryRateSource InformationSource (1..1) <"The primary source for where the rate observation will occur. Will typically be either a page or a reference bank published rate.">
-	secondaryRateSource InformationSource (0..1) <"An alternative, or secondary, source for where the rate observation will occur. Will typically be either a page or a reference bank published rate.">
+	primarySource InformationSource (1..1) <"The primary source for where the rate observation will occur. Will typically be either a page or a reference bank published rate.">
+	secondarySource InformationSource (0..1) <"An alternative, or secondary, source for where the rate observation will occur. Will typically be either a page or a reference bank published rate.">
 
 type RateObservation: <"A class defining parameters associated with an individual observation or fixing. This class forms part of the cashflow representation of a stream.">
 	[metadata key]
@@ -458,3 +491,9 @@ type CashCollateralValuationMethod : <"This type is a generic structure that can
 		[metadata scheme]
 	protectedParty PartyDeterminationEnum (0..2) <"This may be used to specify which party is protected (e.g. under Replacement Value cash settlement methods).">
 	prescribedDocumentationAdjustment boolean (0..1) <"This may be used to indicate that 'prescribed documentation adjustment' is applicable.">
+
+type DividendApplicability: <"The parameters which define whether dividends are applicable">
+
+	optionsExchangeDividends boolean (0..1) <"If present and true, then options exchange dividends are applicable.">
+	additionalDividends boolean (0..1)<"If present and true, then additional dividends are applicable.">
+	allDividends boolean (0..1) <"Represents the European Master Confirmation value of 'All Dividends' which, when applicable, signifies that, for a given Ex-Date, the daily observed Share Price for that day is adjusted (reduced) by the cash dividend and/or the cash value of any non cash dividend per Share (including Extraordinary Dividends) declared by the Issuer. All Dividends in accordance with the ISDA 2002 Equity Derivatives Definitions.">

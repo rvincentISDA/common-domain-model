@@ -2,7 +2,7 @@ namespace cdm.product.asset : <"Product concepts applicable to specific asset cl
 version "${project.version}"
 
 import cdm.base.*
-import cdm.synonyms.config.*
+import cdm.mapping.config.*
 
 enum CompoundingMethodEnum: <"The enumerated values to specify the type of compounding, e.g. flat, straight.">
 	Flat <"Flat compounding. Compounding excludes the spread. Note that the first compounding period has it's interest calculated including any spread then subsequent periods compound this at a rate excluding the spread.">
@@ -10,12 +10,11 @@ enum CompoundingMethodEnum: <"The enumerated values to specify the type of compo
 	Straight <"Straight compounding. Compounding includes the spread.">
 	SpreadExclusive <"Spread Exclusive compounding.">
 
-
 enum DistributionMethodEnum: <"Denotes the method by which the pricing days are distributed across the pricing period.">
-   Every
-   First
-   Last
-   Penultimate
+	Every
+	First
+	Last
+	Penultimate
 
 enum DiscountingTypeEnum: <"The enumerated values to specify the method of calculating discounted payment amounts. This enumerations combines the FpML DiscountingTypeEnum and FraDiscountingEnum enumerations.">
 	Standard <"As specified by the 2006 ISDA Definitions, Section 8.4. Discounting, paragraph (a).">
@@ -56,6 +55,7 @@ enum DividendDateReferenceEnum: <"The enumerated values to specify the date by r
 	RecordDate <"Date on which the dividend will be recorded in the books of the paying agent.">
 	SharePayment <"If 'Dividend Payment Date(s)' is specified in the Transaction Supplement as 'Share Payment', then the Dividend Payment Date in respect of a Dividend Amount shall fall on a date on or before the date that is two (or any other number that is specified in the Transaction Supplement) Currency Business Days following the day on which the Issuer of the Shares pays the relevant dividend to holders of record of the Shares.">
 	TerminationDate <"Termination date of the swap.">
+	TradeDate <"Trade date of the swap">
 	UnwindOrEquityExDiv <"Pays a fraction of the Dividend Amount on each Unwind Trade Settlement Date which occurs after the Dividend Ex Date, until position is fully unwound OR on the next Equity Pay Date after the Dividend Pay Date. This will be whichever date comes first or a combination of both.">
 	UnwindOrEquityPaid <"Pays a fraction of the Dividend Amount on each Unwind Trade Settlement Date which occurs after the Dividend Pay Date, until position is fully unwound OR on the next Equity Pay Date after the Dividend Pay Date. This will be whichever date comes first or a combination of both.">
 	UnwindOrInterestExDiv <"Pays a fraction of the Dividend Amount on each Unwind Trade Settlement Date which occurs after the Dividend Ex Date, until position is fully unwound OR on the next Interest Pay Date after the Dividend Ex Date. This will be whichever date comes first or a combination of both.">
@@ -96,6 +96,8 @@ enum RateTreatmentEnum: <"The enumerated values to specify the methods for conve
 enum ReturnTypeEnum: <"The enumerated values to specify the type of return associated the equity payout.">
 	PriceReturn <"Price return, i.e. excluding dividends.">
 	TotalReturn <"Total return, i.e. including dividend and price components.">
+	Price <"Price return, i.e. excluding dividends.">
+	Total <"Total return, i.e. including dividend and price components.">
 
 enum SettledEntityMatrixSourceEnum: <"The enumerated values to specify the relevant settled entity matrix source.">
 	ConfirmationAnnex <"The Relevant Settled Entity Matrix shall be the list agreed for this purpose by the parties. The list is not included as part of the electronic confirmation.">
@@ -121,3 +123,14 @@ enum CreditSeniorityEnum: <"Seniority of debt instruments comprising the index."
 	SubTier1 <"Subordinate Tier 1 (RED Tier Code: PREFT1).">
 	SubTier3 <"Subordinate, Tier 3.">
 	SubUpperTier2 <"Subordinate, Upper Tier 2 (RED Tier Code: JRSUBUT2).">
+
+enum RealisedVarianceMethodEnum: <"The contract specifies which price must satisfy the boundary condition.  Used for variance, volatility and correlation caps and floors.">
+
+    Previous <"For a return on day T, the observed price on T-1 must be in range.">
+    Last <"For a return on day T, the observed price on T must be in range.">
+    Both <"For a return on day T, the observed prices on both T and T-1 must be in range">
+
+enum FPVFinalPriceElectionFallbackEnum: <"Specifies the fallback provisions in respect to the applicable Futures Price Valuation.">
+
+	FPVClose <"In respect of the Early Final Valuation Date, the provisions for FPV Close shall apply.">
+	FPVHedgeExecution <"In respect of the Early Final Valuation Date, the provisions for FPV Hedge Execution shall apply.">

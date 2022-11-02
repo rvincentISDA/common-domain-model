@@ -9,6 +9,11 @@ func ResolveAdjustableDate:
 	inputs: terminationDate GenericDate (1..1)
 	output: adjustedDate date (1..1)
 
+// TODO - update to GenericDate
+func ResolveAdjustableDates:
+	inputs: adjustableRelativeOrPeriodicDates AdjustableRelativeOrPeriodicDates (1..1)
+	output: adjustedDates date (0..*)
+
 func ToDateTime:
 	inputs: date date (1..1)
 	output: datetime zonedDateTime (1..1)

@@ -1,37 +1,53 @@
 {
   "agreementDate" : "2021-02-10",
-  "agreementType" : {
-    "governingLaw" : "USNY",
-    "name" : "CREDIT_SUPPORT_ANNEX",
-    "vintage" : 2016
-  },
   "contractualParty" : [ {
     "value" : {
       "meta" : {
         "externalKey" : "partyA",
-        "globalKey" : "a5cb7fc9"
+        "globalKey" : "fc05119"
       },
       "name" : {
         "value" : "Sarah Entity"
       },
       "partyId" : [ {
-        "value" : "43ba029c-3948-3b42-8e00-68a72af207b9"
+        "identifier" : {
+          "value" : "43ba029c-3948-3b42-8e00-68a72af207b9"
+        },
+        "meta" : {
+          "globalKey" : "e6879af1"
+        }
       } ]
     }
   }, {
     "value" : {
       "meta" : {
         "externalKey" : "partyB",
-        "globalKey" : "74567aa6"
+        "globalKey" : "ae4d5402"
       },
       "name" : {
         "value" : "Sarah Dixey"
       },
       "partyId" : [ {
-        "value" : "92dcb072-c39b-391c-9e41-5baf55bf6b61"
+        "identifier" : {
+          "value" : "92dcb072-c39b-391c-9e41-5baf55bf6b61"
+        },
+        "meta" : {
+          "globalKey" : "58ce4034"
+        }
       } ]
     }
   } ],
+  "legalAgreementIdentification" : {
+    "agreementName" : {
+      "agreementType" : "CREDIT_SUPPORT_AGREEMENT",
+      "creditSupportAgreementMarginType" : "INITIAL_MARGIN",
+      "creditSupportAgreementType" : {
+        "value" : "CREDIT_SUPPORT_ANNEX"
+      }
+    },
+    "governingLaw" : "USNY",
+    "vintage" : 2016
+  },
   "agreementTerms" : {
     "agreement" : {
       "creditSupportAgreementElections" : {
@@ -483,30 +499,33 @@
     "counterparty" : [ {
       "partyReference" : {
         "externalReference" : "partyA",
-        "globalReference" : "a5cb7fc9"
+        "globalReference" : "fc05119"
       },
       "role" : "PARTY_1"
     }, {
       "partyReference" : {
         "externalReference" : "partyB",
-        "globalReference" : "74567aa6"
+        "globalReference" : "ae4d5402"
       },
       "role" : "PARTY_2"
     } ]
   },
   "meta" : {
-    "globalKey" : "36cd405f"
+    "globalKey" : "b94363d3"
   },
   "relatedAgreements" : [ {
-    "legalAgreement" : {
-      "agreementDate" : "2021-02-11",
-      "agreementType" : {
-        "name" : "MASTER_AGREEMENT",
-        "publisher" : "ISDA"
+    "agreementDate" : "2021-02-11",
+    "legalAgreementIdentification" : {
+      "agreementName" : {
+        "agreementType" : "MASTER_AGREEMENT",
+        "masterAgreementType" : {
+          "value" : "ISDA_MASTER"
+        }
       },
-      "meta" : {
-        "globalKey" : "a6fd180f"
-      }
+      "publisher" : "ISDA"
+    },
+    "meta" : {
+      "globalKey" : "49150379"
     }
   } ],
   "umbrellaAgreement" : {

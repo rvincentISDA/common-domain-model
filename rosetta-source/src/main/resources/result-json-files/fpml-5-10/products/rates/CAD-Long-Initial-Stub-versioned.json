@@ -1,33 +1,46 @@
 {
   "meta" : {
-    "globalKey" : "7e03fb5a"
+    "globalKey" : "e80649bf"
   },
   "trade" : {
     "contractDetails" : {
       "documentation" : [ {
-        "documentationIdentification" : {
-          "contractualDefinitions" : [ {
-            "meta" : {
-              "scheme" : "http://www.fpml.org/coding-scheme/contractual-definitions"
-            },
-            "value" : "ISDA2006"
-          } ],
-          "masterAgreement" : {
+        "legalAgreementIdentification" : {
+          "agreementName" : {
+            "agreementType" : "MASTER_AGREEMENT",
             "masterAgreementType" : {
               "meta" : {
                 "scheme" : "http://www.fpml.org/coding-scheme/master-agreement-type"
               },
-              "value" : "ISDA"
+              "value" : "ISDA_MASTER"
             }
           }
+        },
+        "meta" : {
+          "globalKey" : "c4592b87"
+        }
+      }, {
+        "legalAgreementIdentification" : {
+          "agreementName" : {
+            "agreementType" : "CONFIRMATION",
+            "contractualDefinitionsType" : [ {
+              "meta" : {
+                "scheme" : "http://www.fpml.org/coding-scheme/contractual-definitions"
+              },
+              "value" : "ISDA2006"
+            } ]
+          }
+        },
+        "meta" : {
+          "globalKey" : "6b413360"
         }
       } ],
       "meta" : {
-        "globalKey" : "15201adc"
+        "globalKey" : "bd492439"
       }
     },
     "meta" : {
-      "globalKey" : "7e03fb5a"
+      "globalKey" : "e80649bf"
     },
     "party" : [ {
       "meta" : {
@@ -35,10 +48,15 @@
         "globalKey" : "27b20a6a"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.lchclearnet.com/clearlink/coding-scheme/party-id"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.lchclearnet.com/clearlink/coding-scheme/party-id"
+          },
+          "value" : "COUNTERPARTY"
         },
-        "value" : "COUNTERPARTY"
+        "meta" : {
+          "globalKey" : "27b20a6a"
+        }
       } ]
     }, {
       "meta" : {
@@ -46,10 +64,15 @@
         "globalKey" : "cc892602"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.lchclearnet.com/clearlink/coding-scheme/party-id"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.lchclearnet.com/clearlink/coding-scheme/party-id"
+          },
+          "value" : "LCHLGB22XXX"
         },
-        "value" : "LCHLGB22XXX"
+        "meta" : {
+          "globalKey" : "cc892602"
+        }
       } ]
     } ],
     "tradableProduct" : {
@@ -68,6 +91,39 @@
       } ],
       "product" : {
         "contractualProduct" : {
+          "productIdentifier" : [ {
+            "value" : {
+              "identifier" : {
+                "meta" : {
+                  "scheme" : "http://www.fpml.org/coding-scheme/product-taxonomy"
+                },
+                "value" : "InterestRate:IRSwap:Basis"
+              },
+              "meta" : {
+                "globalKey" : "1d6b2aa0"
+              },
+              "source" : "OTHER"
+            }
+          } ],
+          "productTaxonomy" : [ {
+            "primaryAssetClass" : {
+              "meta" : {
+                "scheme" : "http://www.fpml.org/coding-scheme/asset-class-simple"
+              },
+              "value" : "INTEREST_RATE"
+            }
+          }, {
+            "taxonomySource" : "ISDA",
+            "taxonomyValue" : {
+              "meta" : {
+                "scheme" : "http://www.fpml.org/coding-scheme/product-taxonomy"
+              },
+              "value" : "InterestRate:IRSwap:Basis"
+            }
+          }, {
+            "productQualifier" : "InterestRate_IRSwap_Basis",
+            "taxonomySource" : "ISDA"
+          } ],
           "economicTerms" : {
             "payout" : {
               "interestRatePayout" : [ {
@@ -173,7 +229,7 @@
                 },
                 "meta" : {
                   "externalKey" : "floatingLeg1",
-                  "globalKey" : "3ccff19"
+                  "globalKey" : "2a94646b"
                 },
                 "paymentDates" : {
                   "meta" : {
@@ -243,7 +299,7 @@
                   },
                   "meta" : {
                     "externalKey" : "resetDates1",
-                    "globalKey" : "7720bc0c"
+                    "globalKey" : "fb3cfbde"
                   },
                   "resetDatesAdjustments" : {
                     "businessCenters" : {
@@ -372,7 +428,7 @@
                 },
                 "meta" : {
                   "externalKey" : "floatingLeg2",
-                  "globalKey" : "77141871"
+                  "globalKey" : "fba819a8"
                 },
                 "paymentDates" : {
                   "firstPaymentDate" : "2021-03-15",
@@ -451,7 +507,7 @@
                   },
                   "meta" : {
                     "externalKey" : "resetDates2",
-                    "globalKey" : "c9bbc5c5"
+                    "globalKey" : "54134cfc"
                   },
                   "resetDatesAdjustments" : {
                     "businessCenters" : {
@@ -478,46 +534,16 @@
                 }
               } ],
               "meta" : {
-                "globalKey" : "192582b8"
+                "globalKey" : "c674cedd"
               }
             }
           },
           "meta" : {
-            "globalKey" : "e7a2e59d"
-          },
-          "productIdentification" : {
-            "externalProductType" : [ {
-              "externalProductTypeSource" : "OTHER",
-              "value" : {
-                "meta" : {
-                  "scheme" : "http://www.fpml.org/coding-scheme/product-taxonomy"
-                },
-                "value" : "InterestRate:IRSwap:Basis"
-              }
-            } ],
-            "primaryAssetData" : {
-              "meta" : {
-                "scheme" : "http://www.fpml.org/coding-scheme/asset-class-simple"
-              },
-              "value" : "INTEREST_RATE"
-            },
-            "productIdentifier" : [ {
-              "identifier" : {
-                "meta" : {
-                  "scheme" : "http://www.fpml.org/coding-scheme/product-taxonomy"
-                },
-                "value" : "InterestRate:IRSwap:Basis"
-              },
-              "meta" : {
-                "globalKey" : "1d6b2aa0"
-              },
-              "source" : "OTHER"
-            } ],
-            "productQualifier" : "InterestRate_IRSwap_Basis"
+            "globalKey" : "4487f51b"
           }
         },
         "meta" : {
-          "globalKey" : "e7a2e59d"
+          "globalKey" : "4487f51b"
         }
       },
       "tradeLot" : [ {
@@ -660,7 +686,7 @@
         "globalReference" : "cc892602"
       },
       "meta" : {
-        "globalKey" : "44fa2e71"
+        "globalKey" : "7c2665f1"
       }
     } ]
   }

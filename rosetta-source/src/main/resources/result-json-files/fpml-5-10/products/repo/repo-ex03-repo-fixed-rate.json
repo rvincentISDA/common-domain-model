@@ -1,10 +1,10 @@
 {
   "meta" : {
-    "globalKey" : "8108b1b9"
+    "globalKey" : "c9721cb7"
   },
   "trade" : {
     "meta" : {
-      "globalKey" : "8108b1b9"
+      "globalKey" : "c9721cb7"
     },
     "party" : [ {
       "meta" : {
@@ -12,10 +12,15 @@
         "globalKey" : "33f59557"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+          },
+          "value" : "Party 1"
         },
-        "value" : "Party 1"
+        "meta" : {
+          "globalKey" : "33f59557"
+        }
       } ]
     }, {
       "meta" : {
@@ -23,10 +28,15 @@
         "globalKey" : "33f59558"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+          },
+          "value" : "Party 2"
         },
-        "value" : "Party 2"
+        "meta" : {
+          "globalKey" : "33f59558"
+        }
       } ]
     } ],
     "tradableProduct" : {
@@ -45,6 +55,10 @@
       } ],
       "product" : {
         "contractualProduct" : {
+          "productTaxonomy" : [ {
+            "productQualifier" : "RepurchaseAgreement",
+            "taxonomySource" : "ISDA"
+          } ],
           "economicTerms" : {
             "payout" : {
               "interestRatePayout" : [ {
@@ -239,14 +253,11 @@
             }
           },
           "meta" : {
-            "globalKey" : "4931fa09"
-          },
-          "productIdentification" : {
-            "productQualifier" : "RepurchaseAgreement"
+            "globalKey" : "a6d9d6b3"
           }
         },
         "meta" : {
-          "globalKey" : "4931fa09"
+          "globalKey" : "a6d9d6b3"
         }
       },
       "tradeLot" : [ {
@@ -342,7 +353,7 @@
         "globalReference" : "33f59557"
       },
       "meta" : {
-        "globalKey" : "f101e726"
+        "globalKey" : "f58e9891"
       }
     }, {
       "assignedIdentifier" : [ {
@@ -358,7 +369,7 @@
         "globalReference" : "33f59558"
       },
       "meta" : {
-        "globalKey" : "606f7d02"
+        "globalKey" : "1e654896"
       }
     } ]
   }

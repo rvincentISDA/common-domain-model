@@ -1,10 +1,10 @@
 {
   "meta" : {
-    "globalKey" : "a9b2917b"
+    "globalKey" : "674d174"
   },
   "trade" : {
     "meta" : {
-      "globalKey" : "751639b"
+      "globalKey" : "13335f23"
     },
     "party" : [ {
       "meta" : {
@@ -12,10 +12,15 @@
         "globalKey" : "33f59567"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+          },
+          "value" : "Party A"
         },
-        "value" : "Party A"
+        "meta" : {
+          "globalKey" : "33f59567"
+        }
       } ]
     }, {
       "meta" : {
@@ -23,10 +28,15 @@
         "globalKey" : "33f59568"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+          },
+          "value" : "Party B"
         },
-        "value" : "Party B"
+        "meta" : {
+          "globalKey" : "33f59568"
+        }
       } ]
     } ],
     "tradableProduct" : {
@@ -52,13 +62,17 @@
       } ],
       "product" : {
         "contractualProduct" : {
+          "productTaxonomy" : [ {
+            "productQualifier" : "CreditDefaultSwaption",
+            "taxonomySource" : "ISDA"
+          } ],
           "economicTerms" : {
             "calculationAgent" : {
               "calculationAgentParty" : "CALCULATION_AGENT_INDEPENDENT"
             },
             "payout" : {
               "meta" : {
-                "globalKey" : "63d8e468"
+                "globalKey" : "c5aa6c98"
               },
               "optionPayout" : [ {
                 "payerReceiver" : {
@@ -67,7 +81,7 @@
                 },
                 "payoutQuantity" : {
                   "meta" : {
-                    "globalKey" : "e6410340"
+                    "globalKey" : "8d28d340"
                   },
                   "quantityReference" : {
                     "externalReference" : "NOTIONAL",
@@ -156,11 +170,15 @@
                   }
                 },
                 "meta" : {
-                  "globalKey" : "63d8e468"
+                  "globalKey" : "c5aa6c98"
                 },
                 "optionType" : "RECEIVER",
                 "underlier" : {
                   "contractualProduct" : {
+                    "productTaxonomy" : [ {
+                      "productQualifier" : "CreditDefaultSwap_Index",
+                      "taxonomySource" : "ISDA"
+                    } ],
                     "economicTerms" : {
                       "dateAdjustments" : {
                         "businessDayConvention" : "NONE",
@@ -324,35 +342,34 @@
                               }
                             }
                           },
-                          "calculationPeriodDates" : {
-                            "calculationPeriodFrequency" : {
-                              "meta" : {
-                                "globalKey" : "16add"
-                              },
-                              "rollConvention" : "20"
-                            },
-                            "meta" : {
-                              "globalKey" : "16add"
-                            }
-                          },
                           "dayCountFraction" : {
                             "value" : "ACT/360"
                           },
                           "meta" : {
-                            "globalKey" : "7e5cf6ac"
+                            "globalKey" : "213ffaba"
                           },
                           "paymentDates" : {
                             "firstPaymentDate" : "2007-03-20",
                             "lastRegularPaymentDate" : "2011-03-20",
                             "meta" : {
-                              "globalKey" : "6f60bed6"
+                              "globalKey" : "bd0c81c7"
                             },
-                            "paymentFrequency" : {
-                              "meta" : {
-                                "globalKey" : "956"
-                              },
-                              "period" : "M",
-                              "periodMultiplier" : 3
+                            "paymentDateSchedule" : {
+                              "interimPaymentDates" : [ {
+                                "meta" : {
+                                  "globalKey" : "28c47"
+                                },
+                                "periodicDates" : {
+                                  "periodFrequency" : {
+                                    "meta" : {
+                                      "globalKey" : "28c47"
+                                    },
+                                    "period" : "M",
+                                    "periodMultiplier" : 3,
+                                    "rollConvention" : "20"
+                                  }
+                                }
+                              } ]
                             }
                           },
                           "rateSpecification" : {
@@ -372,7 +389,7 @@
                           }
                         } ],
                         "meta" : {
-                          "globalKey" : "be546a4b"
+                          "globalKey" : "e036fafb"
                         }
                       },
                       "terminationDate" : {
@@ -394,28 +411,22 @@
                       }
                     },
                     "meta" : {
-                      "globalKey" : "d935a7db"
-                    },
-                    "productIdentification" : {
-                      "productQualifier" : "CreditDefaultSwap_Index"
+                      "globalKey" : "a0365285"
                     }
                   },
                   "meta" : {
-                    "globalKey" : "d935a7db"
+                    "globalKey" : "a0365285"
                   }
                 }
               } ]
             }
           },
           "meta" : {
-            "globalKey" : "98b2d281"
-          },
-          "productIdentification" : {
-            "productQualifier" : "CreditDefaultSwaption"
+            "globalKey" : "d8b2f26e"
           }
         },
         "meta" : {
-          "globalKey" : "98b2d281"
+          "globalKey" : "d8b2f26e"
         }
       },
       "tradeLot" : [ {
@@ -507,13 +518,13 @@
         "globalReference" : "33f59567"
       },
       "meta" : {
-        "globalKey" : "73e8426d"
+        "globalKey" : "7215e0ba"
       }
     } ]
   },
   "transferHistory" : [ {
     "meta" : {
-      "globalKey" : "d4792b36"
+      "globalKey" : "1edabe91"
     },
     "transfer" : {
       "payerReceiver" : {
@@ -537,7 +548,7 @@
       "settlementDate" : {
         "relativeDate" : {
           "meta" : {
-            "globalKey" : "aac57447"
+            "globalKey" : "9a256129"
           },
           "period" : "D",
           "periodMultiplier" : 3,

@@ -1,10 +1,10 @@
 {
   "meta" : {
-    "globalKey" : "eadd2051"
+    "globalKey" : "466d38e5"
   },
   "trade" : {
     "meta" : {
-      "globalKey" : "eadd2051"
+      "globalKey" : "466d38e5"
     },
     "party" : [ {
       "meta" : {
@@ -12,10 +12,15 @@
         "globalKey" : "33f59567"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+          },
+          "value" : "Party A"
         },
-        "value" : "Party A"
+        "meta" : {
+          "globalKey" : "33f59567"
+        }
       } ]
     }, {
       "meta" : {
@@ -23,10 +28,15 @@
         "globalKey" : "33f59568"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+          },
+          "value" : "Party B"
         },
-        "value" : "Party B"
+        "meta" : {
+          "globalKey" : "33f59568"
+        }
       } ]
     }, {
       "meta" : {
@@ -34,10 +44,15 @@
         "globalKey" : "e5fac6a0"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+          },
+          "value" : "TriParty Agent"
         },
-        "value" : "TriParty Agent"
+        "meta" : {
+          "globalKey" : "e5fac6a0"
+        }
       } ]
     } ],
     "tradableProduct" : {
@@ -56,6 +71,10 @@
       } ],
       "product" : {
         "contractualProduct" : {
+          "productTaxonomy" : [ {
+            "productQualifier" : "RepurchaseAgreement",
+            "taxonomySource" : "ISDA"
+          } ],
           "economicTerms" : {
             "payout" : {
               "interestRatePayout" : [ {
@@ -246,14 +265,11 @@
             }
           },
           "meta" : {
-            "globalKey" : "c079b413"
-          },
-          "productIdentification" : {
-            "productQualifier" : "RepurchaseAgreement"
+            "globalKey" : "dbfc8b3d"
           }
         },
         "meta" : {
-          "globalKey" : "c079b413"
+          "globalKey" : "dbfc8b3d"
         }
       },
       "tradeLot" : [ {
@@ -343,7 +359,7 @@
         "globalReference" : "33f59567"
       },
       "meta" : {
-        "globalKey" : "9db2b48"
+        "globalKey" : "13a01dbf"
       }
     }, {
       "assignedIdentifier" : [ {
@@ -359,7 +375,7 @@
         "globalReference" : "33f59568"
       },
       "meta" : {
-        "globalKey" : "6ae0b77"
+        "globalKey" : "6aaedc51"
       }
     } ]
   }

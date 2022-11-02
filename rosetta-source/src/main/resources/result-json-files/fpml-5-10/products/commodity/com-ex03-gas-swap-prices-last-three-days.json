@@ -1,73 +1,102 @@
 {
   "meta" : {
-    "globalKey" : "94bd787d"
+    "globalKey" : "3a02ea5d"
   },
   "trade" : {
     "contractDetails" : {
       "documentation" : [ {
-        "documentationIdentification" : {
-          "contractualDefinitions" : [ {
-            "value" : "ISDA_2005_COMMODITY"
-          } ],
-          "masterAgreement" : {
+        "legalAgreementIdentification" : {
+          "agreementName" : {
+            "agreementType" : "MASTER_AGREEMENT",
             "masterAgreementType" : {
-              "value" : "ISDA"
+              "value" : "ISDA_MASTER"
             }
           }
+        },
+        "meta" : {
+          "globalKey" : "c4592b87"
+        }
+      }, {
+        "legalAgreementIdentification" : {
+          "agreementName" : {
+            "agreementType" : "CONFIRMATION",
+            "contractualDefinitionsType" : [ {
+              "value" : "ISDA_2005_COMMODITY"
+            } ]
+          }
+        },
+        "meta" : {
+          "globalKey" : "a977e59e"
         }
       } ],
       "meta" : {
-        "globalKey" : "f43057de"
+        "globalKey" : "fb7fd677"
       }
     },
     "meta" : {
-      "globalKey" : "94bd787d"
+      "globalKey" : "3a02ea5d"
     },
     "party" : [ {
       "meta" : {
         "externalKey" : "partyA",
-        "globalKey" : "b119110c"
+        "globalKey" : "d42113fc"
       },
       "name" : {
         "value" : "Bank"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+          },
+          "value" : "549300KFSLY4U7N3LL12"
         },
-        "value" : "549300KFSLY4U7N3LL12"
+        "identifierType" : "LEI",
+        "meta" : {
+          "globalKey" : "3f3e27a0"
+        }
       } ]
     }, {
       "meta" : {
         "externalKey" : "partyB",
-        "globalKey" : "3f36b5d5"
+        "globalKey" : "6e437d45"
       },
       "name" : {
         "value" : "Energy Co."
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+          },
+          "value" : "549300AJRHKBLY9GM262"
         },
-        "value" : "549300AJRHKBLY9GM262"
+        "identifierType" : "LEI",
+        "meta" : {
+          "globalKey" : "c803429b"
+        }
       } ]
     } ],
     "tradableProduct" : {
       "counterparty" : [ {
         "partyReference" : {
           "externalReference" : "partyB",
-          "globalReference" : "3f36b5d5"
+          "globalReference" : "6e437d45"
         },
         "role" : "PARTY_1"
       }, {
         "partyReference" : {
           "externalReference" : "partyA",
-          "globalReference" : "b119110c"
+          "globalReference" : "d42113fc"
         },
         "role" : "PARTY_2"
       } ],
       "product" : {
         "contractualProduct" : {
+          "productTaxonomy" : [ {
+            "productQualifier" : "Commodity_Swap_FixedFloat",
+            "taxonomySource" : "ISDA"
+          } ],
           "economicTerms" : {
             "effectiveDate" : {
               "adjustableDate" : {
@@ -163,33 +192,35 @@
                 },
                 "underlier" : {
                   "commodity" : {
-                    "value" : {
-                      "deliveryDateReference" : {
-                        "deliveryNearby" : {
-                          "meta" : {
-                            "globalKey" : "954"
-                          },
-                          "period" : "M",
-                          "periodMultiplier" : 1
-                        }
-                      },
-                      "priceQuoteType" : "SETTLEMENT"
+                    "address" : {
+                      "scope" : "DOCUMENT",
+                      "value" : "commodity-1"
                     }
                   },
                   "meta" : {
-                    "globalKey" : "6c4fc1fd"
+                    "globalKey" : "0"
                   }
                 },
                 "averagingMethod" : "UNWEIGHTED",
+                "meta" : {
+                  "globalKey" : "f3b0cb1"
+                },
                 "pricingDates" : {
                   "parametricDates" : {
-                    "businessCalendar" : "NYMEXNATURALGAS",
+                    "businessCenters" : {
+                      "businessCenter" : [ {
+                        "value" : "NYMEXNATURALGAS"
+                      } ],
+                      "meta" : {
+                        "globalKey" : "2f9777e5"
+                      }
+                    },
                     "dayDistribution" : "LAST",
                     "dayType" : "BUSINESS"
                   }
                 }
               } ],
-              "fixedForwardPayout" : [ {
+              "fixedPricePayout" : [ {
                 "payerReceiver" : {
                   "payer" : "PARTY_2",
                   "receiver" : "PARTY_1"
@@ -214,10 +245,17 @@
                   }
                 },
                 "fixedPrice" : {
-                  "address" : {
-                    "scope" : "DOCUMENT",
-                    "value" : "price-1"
+                  "fixedPriceSchedule" : {
+                    "initialPrice" : {
+                      "address" : {
+                        "scope" : "DOCUMENT",
+                        "value" : "price-1"
+                      }
+                    }
                   }
+                },
+                "meta" : {
+                  "globalKey" : "5d5cfe37"
                 },
                 "paymentDates" : {
                   "meta" : {
@@ -249,7 +287,7 @@
                 }
               } ],
               "meta" : {
-                "globalKey" : "be32d501"
+                "globalKey" : "1333a9e6"
               }
             },
             "terminationDate" : {
@@ -271,20 +309,17 @@
             }
           },
           "meta" : {
-            "globalKey" : "9c699e57"
-          },
-          "productIdentification" : {
-            "productQualifier" : "Commodity_Swap_FixedFloat"
+            "globalKey" : "9d257db8"
           }
         },
         "meta" : {
-          "globalKey" : "9c699e57"
+          "globalKey" : "9d257db8"
         }
       },
       "tradeLot" : [ {
         "priceQuantity" : [ {
           "meta" : {
-            "globalKey" : "673541a0"
+            "globalKey" : "f6705ad1"
           },
           "price" : [ {
             "meta" : {
@@ -321,22 +356,14 @@
             "value" : {
               "amount" : 5000.0,
               "unitOfAmount" : {
-                "capacityUnit" : "MMBTU",
-                "frequency" : {
-                  "meta" : {
-                    "globalKey" : "83d"
-                  },
-                  "period" : "D",
-                  "periodMultiplier" : 1
-                }
+                "capacityUnit" : "MMBTU"
               },
-              "multiplierUnit" : {
-                "frequency" : {
-                  "meta" : {
-                    "globalKey" : "1"
-                  },
-                  "periodMultiplier" : 1
-                }
+              "frequency" : {
+                "meta" : {
+                  "globalKey" : "83d"
+                },
+                "period" : "D",
+                "periodMultiplier" : 1
               }
             }
           }, {
@@ -355,7 +382,7 @@
           } ]
         }, {
           "meta" : {
-            "globalKey" : "b38fc668"
+            "globalKey" : "bc1acd9b"
           },
           "observable" : {
             "commodity" : {
@@ -366,6 +393,19 @@
                 } ]
               },
               "value" : {
+                "productIdentifier" : [ {
+                  "value" : {
+                    "identifier" : {
+                      "meta" : {
+                        "scheme" : "http://www.partyA.com/instrumentId/commodity-reference-price"
+                      },
+                      "value" : "NATURAL GAS-HENRY HUB-NYMEX"
+                    },
+                    "meta" : {
+                      "globalKey" : "155a4a4a"
+                    }
+                  }
+                } ],
                 "deliveryDateReference" : {
                   "deliveryNearby" : {
                     "meta" : {
@@ -379,7 +419,7 @@
               }
             },
             "meta" : {
-              "globalKey" : "6c4fc1fd"
+              "globalKey" : "641a55f3"
             }
           },
           "quantity" : [ {
@@ -392,22 +432,14 @@
             "value" : {
               "amount" : 5000.0,
               "unitOfAmount" : {
-                "capacityUnit" : "MMBTU",
-                "frequency" : {
-                  "meta" : {
-                    "globalKey" : "83d"
-                  },
-                  "period" : "D",
-                  "periodMultiplier" : 1
-                }
+                "capacityUnit" : "MMBTU"
               },
-              "multiplierUnit" : {
-                "frequency" : {
-                  "meta" : {
-                    "globalKey" : "1"
-                  },
-                  "periodMultiplier" : 1
-                }
+              "frequency" : {
+                "meta" : {
+                  "globalKey" : "83d"
+                },
+                "period" : "D",
+                "periodMultiplier" : 1
               }
             }
           }, {
@@ -444,10 +476,10 @@
       } ],
       "issuerReference" : {
         "externalReference" : "partyA",
-        "globalReference" : "b119110c"
+        "globalReference" : "d42113fc"
       },
       "meta" : {
-        "globalKey" : "c6b7714f"
+        "globalKey" : "1b2141dd"
       }
     }, {
       "assignedIdentifier" : [ {
@@ -460,10 +492,10 @@
       } ],
       "issuerReference" : {
         "externalReference" : "partyB",
-        "globalReference" : "3f36b5d5"
+        "globalReference" : "6e437d45"
       },
       "meta" : {
-        "globalKey" : "dbddae77"
+        "globalKey" : "1ce4aa1e"
       }
     } ]
   }

@@ -26,6 +26,7 @@ import static com.regnosys.rosetta.common.util.PathUtils.toPath;
  * - optionEntitlement to Quantity.multiplier
  * - sets/maps the appropriate Quantity.multiplierUnit depending on underlying product
  */
+@SuppressWarnings("unused")
 public class NumberOfOptionsMappingProcessor extends MappingProcessor {
 
 	private static final Path EQUITY_UNDERLIER_PATH = Path.parse("underlyer.singleUnderlyer.equity.instrumentId");
@@ -47,7 +48,7 @@ public class NumberOfOptionsMappingProcessor extends MappingProcessor {
 	}
 
 	private void setAmountAndUnit(Path synonymPath, Quantity.QuantityBuilder quantity, int index) {
-		Path baseModelPath = toPath(getModelPath()).addElement("amount");
+		Path baseModelPath = toPath(getModelPath());
 		Path mappedModelPath = incrementPathElementIndex(baseModelPath, "quantity", index);
 
 		MappingProcessorUtils.setValueAndUpdateMappings(synonymPath,

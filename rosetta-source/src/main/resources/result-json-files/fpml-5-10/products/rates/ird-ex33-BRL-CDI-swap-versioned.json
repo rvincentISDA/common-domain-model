@@ -1,63 +1,79 @@
 {
   "meta" : {
-    "globalKey" : "1d50cee3"
+    "globalKey" : "fb08f715"
   },
   "trade" : {
     "meta" : {
-      "globalKey" : "1d50cee3"
+      "globalKey" : "fb08f715"
     },
     "party" : [ {
       "meta" : {
         "externalKey" : "partyA",
-        "globalKey" : "c54b971a"
+        "globalKey" : "86c4f0f6"
       },
       "name" : {
         "value" : "Delta Bank Ltd"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/external/iso9362"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/external/iso9362"
+          },
+          "value" : "DELTA123"
         },
-        "value" : "DELTA123"
+        "identifierType" : "BIC",
+        "meta" : {
+          "globalKey" : "64106d76"
+        }
       } ]
     }, {
       "meta" : {
         "externalKey" : "partyB",
-        "globalKey" : "5873618"
+        "globalKey" : "d75a8c34"
       },
       "name" : {
         "value" : "Metro Bank Ltd"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/external/iso9362"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/external/iso9362"
+          },
+          "value" : "METRO123"
         },
-        "value" : "METRO123"
+        "identifierType" : "BIC",
+        "meta" : {
+          "globalKey" : "188bf475"
+        }
       } ]
     } ],
     "tradableProduct" : {
       "ancillaryParty" : [ {
         "partyReference" : [ {
           "externalReference" : "partyA",
-          "globalReference" : "c54b971a"
+          "globalReference" : "86c4f0f6"
         } ],
         "role" : "CALCULATION_AGENT_INDEPENDENT"
       } ],
       "counterparty" : [ {
         "partyReference" : {
           "externalReference" : "partyA",
-          "globalReference" : "c54b971a"
+          "globalReference" : "86c4f0f6"
         },
         "role" : "PARTY_1"
       }, {
         "partyReference" : {
           "externalReference" : "partyB",
-          "globalReference" : "5873618"
+          "globalReference" : "d75a8c34"
         },
         "role" : "PARTY_2"
       } ],
       "product" : {
         "contractualProduct" : {
+          "productTaxonomy" : [ {
+            "productQualifier" : "InterestRate_IRSwap_FixedFloat_ZeroCoupon",
+            "taxonomySource" : "ISDA"
+          } ],
           "economicTerms" : {
             "calculationAgent" : {
               "calculationAgentBusinessCenter" : {
@@ -417,7 +433,7 @@
                 },
                 "meta" : {
                   "externalKey" : "floatingLeg",
-                  "globalKey" : "5acf916f"
+                  "globalKey" : "9b262cd0"
                 },
                 "paymentDates" : {
                   "meta" : {
@@ -511,7 +527,7 @@
                   },
                   "meta" : {
                     "externalKey" : "floatingLegResetDates",
-                    "globalKey" : "7f1b7acf"
+                    "globalKey" : "1ced4f70"
                   },
                   "resetDatesAdjustments" : {
                     "businessCenters" : {
@@ -537,19 +553,16 @@
                 }
               } ],
               "meta" : {
-                "globalKey" : "c81f1c87"
+                "globalKey" : "727f3cb8"
               }
             }
           },
           "meta" : {
-            "globalKey" : "7921d491"
-          },
-          "productIdentification" : {
-            "productQualifier" : "InterestRate_IRSwap_FixedFloat_ZeroCoupon"
+            "globalKey" : "12314d05"
           }
         },
         "meta" : {
-          "globalKey" : "7921d491"
+          "globalKey" : "12314d05"
         }
       },
       "tradeLot" : [ {
@@ -671,10 +684,10 @@
       } ],
       "issuerReference" : {
         "externalReference" : "partyA",
-        "globalReference" : "c54b971a"
+        "globalReference" : "86c4f0f6"
       },
       "meta" : {
-        "globalKey" : "e8de5c66"
+        "globalKey" : "c1421b34"
       }
     } ]
   }

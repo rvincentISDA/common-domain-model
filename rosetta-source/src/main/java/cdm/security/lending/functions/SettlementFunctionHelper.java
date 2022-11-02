@@ -9,18 +9,19 @@ import cdm.base.math.UnitType;
 import cdm.base.staticdata.party.PayerReceiver;
 import cdm.event.common.*;
 import cdm.event.common.functions.CalculateTransfer;
-import cdm.event.common.functions.Create_Execution;
+import cdm.event.common.functions.Create_BusinessEvent;
 import cdm.event.common.functions.Create_Return;
-import cdm.event.common.functions.Create_Transfer;
-import cdm.event.workflow.WorkflowStep;
+import cdm.event.workflow.EventInstruction;
 import cdm.product.template.*;
 import com.google.common.collect.Iterables;
+import com.rosetta.model.lib.RosettaModelObject;
+import com.rosetta.model.lib.process.PostProcessor;
 import com.rosetta.model.lib.records.Date;
 import com.rosetta.model.metafields.FieldWithMetaDate;
-import org.isda.cdm.functions.testing.LineageUtils;
 
 import javax.inject.Inject;
 import java.time.LocalDate;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
@@ -29,39 +30,39 @@ import java.util.stream.Collectors;
 public class SettlementFunctionHelper {
 
     @Inject
-    Create_Execution create_execution;
-
-    @Inject
     Create_Return create_Return;
-
-    @Inject
-    Create_Transfer create_transfer;
-
-    @Inject
-    LineageUtils lineageUtils;
 
     @Inject
     CalculateTransfer calculateTransfer;
 
-    public BusinessEvent createExecution(ExecutionInstruction executionInstruction) {
-        ExecutionInstruction executionInstructionWithRefs = lineageUtils
-                .withGlobalReference(ExecutionInstruction.class, executionInstruction);
+    @Inject
+    PostProcessor postProcessor;
 
-        BusinessEvent businessEvent = create_execution.evaluate(executionInstructionWithRefs);
-        return lineageUtils.withGlobalReference(BusinessEvent.class, businessEvent);
+    @Inject
+    Create_BusinessEvent create_businessEvent;
+
+    public BusinessEvent createExecution(ExecutionInstruction executionInstruction, Date eventDate) {
+        ExecutionInstruction executionInstructionWithRefs = postProcess(ExecutionInstruction.class, executionInstruction);
+
+        List<Instruction> instructions = Arrays.asList(Instruction.builder()
+                .setPrimitiveInstruction(PrimitiveInstruction.builder()
+                        .setExecution(executionInstructionWithRefs))
+                .build());
+
+        BusinessEvent businessEvent = create_businessEvent.evaluate(instructions,null,eventDate,null);
+        return postProcess(BusinessEvent.class, businessEvent);
     }
 
     public BusinessEvent createReturn(TradeState tradeState, ReturnInstruction returnInstruction, Date returnDate) {
-        BusinessEvent returnBusinessEvent = create_Return.evaluate(tradeState, returnInstruction, returnDate);
-        return lineageUtils.withGlobalReference(BusinessEvent.class, returnBusinessEvent);
+        return create_Return.evaluate(tradeState, returnInstruction, returnDate);
     }
 
-    public BusinessEvent createTransferBusinessEvent(WorkflowStep executionWorkflowStep, WorkflowStep proposedTransferWorkflowStep, LocalDate settlementDate) {
-        BusinessEvent transferBusinessEvent = create_transfer.evaluate(
-                getAfterState(executionWorkflowStep.getBusinessEvent()).orElse(null),
-                proposedTransferWorkflowStep.getProposedInstruction().getTransfer(),
-                Date.of(settlementDate));
-        return lineageUtils.withGlobalReference(BusinessEvent.class, transferBusinessEvent);
+    public BusinessEvent createTransferBusinessEvent(EventInstruction transferInstruction) {
+        BusinessEvent transferBusinessEvent = create_businessEvent.evaluate(transferInstruction.getInstruction(),
+                transferInstruction.getIntent(),
+                transferInstruction.getEventDate(),
+                transferInstruction.getEffectiveDate());
+        return postProcess(BusinessEvent.class, transferBusinessEvent);
     }
 
 
@@ -77,42 +78,49 @@ public class SettlementFunctionHelper {
         return LocalDate.now();
     }
 
-    public Instruction createTransferInstruction(BusinessEvent executionBusinessEvent, LocalDate transferDate) {
+    public EventInstruction createTransferInstruction(BusinessEvent executionBusinessEvent, LocalDate transferDate) {
         Payout payout = getSecurityPayout(executionBusinessEvent).orElse(null);
-        CalculateTransferInstruction calculateTransferInstruction = CalculateTransferInstruction.builder()
-                .setTradeState(getAfterState(executionBusinessEvent).orElse(null))
-                .setPayoutValue(payout)
-                .setPayerReceiver(getPayerReceiver(payout).orElse(null))
-                .setDate(Date.of(transferDate))
-                .build();
+        TradeState before = getAfterState(executionBusinessEvent).orElse(null);
+        CalculateTransferInstruction calculateTransferInstruction =
+                CalculateTransferInstruction.builder()
+                        .setTradeState(before)
+                        .setPayoutValue(payout)
+                        .setPayerReceiver(getPayerReceiver(payout).orElse(null))
+                        .setDate(Date.of(transferDate))
+                        .build();
         List<? extends Transfer> transfers = calculateTransfer.evaluate(calculateTransferInstruction);
-        return createTransferInstruction(transfers);
+        return createTransferInstruction(transfers, transferDate, before);
     }
 
-    public Instruction createReturnTransferInstruction(BusinessEvent executionBusinessEvent,
+    public EventInstruction createReturnTransferInstruction(BusinessEvent executionBusinessEvent,
                                                        List<? extends Quantity> quantities,
                                                        LocalDate transferDate) {
         Payout payout = getSecurityPayout(executionBusinessEvent).orElse(null);
         Quantity shareQuantity = getShareQuantity(quantities);
-        CalculateTransferInstruction calculateTransferInstruction = CalculateTransferInstruction.builder()
-                .setTradeState(getAfterState(executionBusinessEvent).orElse(null))
-                .setPayoutValue(payout)
-                .setPayerReceiver(getReturnPayerReceiver(payout).orElse(null))
-                .setQuantity(shareQuantity)
-                .setDate(Date.of(transferDate))
-                .build();
+        TradeState before = getAfterState(executionBusinessEvent).orElse(null);
+        CalculateTransferInstruction calculateTransferInstruction =
+                CalculateTransferInstruction.builder()
+                        .setTradeState(before)
+                        .setPayoutValue(payout)
+                        .setPayerReceiver(getReturnPayerReceiver(payout).orElse(null))
+                        .setQuantity(shareQuantity)
+                        .setDate(Date.of(transferDate))
+                        .build();
         List<? extends Transfer> transfers = calculateTransfer.evaluate(calculateTransferInstruction);
-        return createTransferInstruction(transfers);
+        return createTransferInstruction(transfers, transferDate, before);
     }
 
-    private Instruction createTransferInstruction(List<? extends Transfer> transfers) {
+    private EventInstruction createTransferInstruction(List<? extends Transfer> transfers, LocalDate transferDate, TradeState before) {
         List<TransferState> transferStates = transfers.stream()
                 .map(t -> TransferState.builder().setTransfer(t).build())
                 .collect(Collectors.toList());
-        return Instruction.builder()
-                .setInstructionFunction(Create_Transfer.class.getSimpleName())
-                .setTransfer(TransferInstruction.builder().setTransferState(transferStates))
-                .build();
+        return EventInstruction.builder()
+                .addInstruction(Instruction.builder()
+                        .setBeforeValue(before)
+                        .setPrimitiveInstruction(PrimitiveInstruction.builder()
+                                .setTransfer(TransferInstruction.builder()
+                                        .setTransferState(transferStates))))
+                .setEventDate(Date.of(transferDate));
     }
 
     private Quantity getShareQuantity(List<? extends Quantity> quantities) {
@@ -165,20 +173,11 @@ public class SettlementFunctionHelper {
 
     private Optional<TradeState> getAfterState(BusinessEvent executionBusinessEvent) {
         return Optional.of(executionBusinessEvent)
-                .map(BusinessEvent::getPrimitives)
-                .filter(x -> !x.isEmpty()).map(Iterables::getLast)
-                .flatMap(this::getTradeState);
+                .map(BusinessEvent::getAfter)
+                .map(Iterables::getLast);
     }
 
-    private Optional<TradeState> getTradeState(PrimitiveEvent p) {
-        if (p.getExecution() != null)
-            return Optional.of(p.getExecution()).map(ExecutionPrimitive::getAfter);
-        else if (p.getTransfer() != null)
-            return Optional.of(p.getTransfer()).map(TransferPrimitive::getAfter);
-        else if (p.getQuantityChange() != null)
-            return Optional.of(p.getQuantityChange()).map(QuantityChangePrimitive::getAfter);
-
-        return Optional.empty();
+    private <T extends RosettaModelObject> T postProcess(Class<T> modelType, T modelObject) {
+        return modelType.cast(postProcessor.postProcess(modelType, modelObject.toBuilder().prune()).build());
     }
-
 }

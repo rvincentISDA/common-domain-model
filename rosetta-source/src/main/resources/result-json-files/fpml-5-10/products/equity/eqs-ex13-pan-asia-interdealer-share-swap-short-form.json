@@ -1,69 +1,82 @@
 {
   "meta" : {
-    "globalKey" : "8f7b32fe"
+    "globalKey" : "cc297465"
   },
   "trade" : {
     "contractDetails" : {
       "documentation" : [ {
-        "documentationIdentification" : {
-          "masterConfirmation" : {
-            "masterConfirmationAnnexDate" : "2009-09-01",
+        "agreementDate" : "2009-09-01",
+        "legalAgreementIdentification" : {
+          "agreementName" : {
+            "agreementType" : "MASTER_CONFIRMATION",
             "masterConfirmationAnnexType" : {
               "value" : "ISDA_2009_SHARE_SWAP_PAN_ASIA"
             },
-            "masterConfirmationDate" : "2009-09-01",
             "masterConfirmationType" : {
               "value" : "ISDA_2009_EQUITY_PAN_ASIA"
             }
           }
+        },
+        "meta" : {
+          "globalKey" : "345df4f"
         }
       } ],
       "meta" : {
-        "globalKey" : "18d7d6de"
+        "globalKey" : "345df4f"
       }
     },
     "meta" : {
-      "globalKey" : "8f7b32fe"
+      "globalKey" : "cc297465"
     },
     "party" : [ {
       "meta" : {
         "externalKey" : "party1",
-        "globalKey" : "39515a8d"
+        "globalKey" : "df32ec33"
       },
       "name" : {
         "value" : "A.N.Example"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+          },
+          "value" : "PartyABIC1"
         },
-        "value" : "PartyABIC1"
+        "meta" : {
+          "globalKey" : "91a7b390"
+        }
       } ]
     }, {
       "meta" : {
         "externalKey" : "party2",
-        "globalKey" : "e04f3651"
+        "globalKey" : "1649c7b3"
       },
       "name" : {
         "value" : "A.N.Other.Example"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/dummy-party-id"
+          },
+          "value" : "PartyBBIC2"
         },
-        "value" : "PartyBBIC2"
+        "meta" : {
+          "globalKey" : "91b5cb12"
+        }
       } ]
     } ],
     "partyRole" : [ {
       "partyReference" : {
         "externalReference" : "party2",
-        "globalReference" : "e04f3651"
+        "globalReference" : "1649c7b3"
       },
       "role" : "DETERMINING_PARTY"
     }, {
       "partyReference" : {
         "externalReference" : "party2",
-        "globalReference" : "e04f3651"
+        "globalReference" : "1649c7b3"
       },
       "role" : "HEDGING_PARTY"
     } ],
@@ -72,319 +85,60 @@
       "ancillaryParty" : [ {
         "partyReference" : [ {
           "externalReference" : "party2",
-          "globalReference" : "e04f3651"
+          "globalReference" : "1649c7b3"
         } ],
         "role" : "CALCULATION_AGENT_INDEPENDENT"
       } ],
       "counterparty" : [ {
         "partyReference" : {
-          "externalReference" : "party1",
-          "globalReference" : "39515a8d"
+          "externalReference" : "party2",
+          "globalReference" : "1649c7b3"
         },
         "role" : "PARTY_1"
       }, {
         "partyReference" : {
-          "externalReference" : "party2",
-          "globalReference" : "e04f3651"
+          "externalReference" : "party1",
+          "globalReference" : "df32ec33"
         },
         "role" : "PARTY_2"
       } ],
       "product" : {
         "contractualProduct" : {
+          "productTaxonomy" : [ {
+            "productQualifier" : "EquitySwap_TotalReturnBasicPerformance_SingleName",
+            "taxonomySource" : "ISDA"
+          } ],
           "economicTerms" : {
             "calculationAgent" : {
               "calculationAgentParty" : "CALCULATION_AGENT_INDEPENDENT"
             },
+            "effectiveDate" : {
+              "adjustableDate" : {
+                "dateAdjustments" : {
+                  "businessDayConvention" : "FOLLOWING",
+                  "meta" : {
+                    "globalKey" : "d3bf0271"
+                  }
+                },
+                "meta" : {
+                  "globalKey" : "bf744072"
+                },
+                "unadjustedDate" : "2009-09-01"
+              },
+              "meta" : {
+                "externalKey" : "equityEffectiveDate",
+                "globalKey" : "bf744072"
+              }
+            },
             "payout" : {
-              "equityPayout" : [ {
+              "interestRatePayout" : [ {
                 "payerReceiver" : {
                   "payer" : "PARTY_1",
                   "receiver" : "PARTY_2"
                 },
                 "payoutQuantity" : {
                   "meta" : {
-                    "externalKey" : "equityNotionalAmount",
-                    "globalKey" : "0"
-                  },
-                  "quantitySchedule" : {
-                    "initialQuantity" : {
-                      "address" : {
-                        "scope" : "DOCUMENT",
-                        "value" : "quantity-1"
-                      }
-                    }
-                  },
-                  "resolvedQuantity" : {
-                    "address" : {
-                      "scope" : "DOCUMENT",
-                      "value" : "quantity-2"
-                    }
-                  }
-                },
-                "settlementTerms" : {
-                  "meta" : {
-                    "globalKey" : "14966"
-                  },
-                  "settlementCurrency" : {
-                    "value" : "USD"
-                  }
-                },
-                "calculationPeriodDates" : {
-                  "effectiveDate" : {
-                    "adjustableDate" : {
-                      "dateAdjustments" : {
-                        "businessDayConvention" : "FOLLOWING",
-                        "meta" : {
-                          "globalKey" : "d3bf0271"
-                        }
-                      },
-                      "meta" : {
-                        "globalKey" : "bf744072"
-                      },
-                      "unadjustedDate" : "2009-09-01"
-                    },
-                    "meta" : {
-                      "externalKey" : "equityEffectiveDate",
-                      "globalKey" : "bf744072"
-                    }
-                  },
-                  "meta" : {
-                    "globalKey" : "8148e181"
-                  },
-                  "terminationDate" : {
-                    "adjustableDate" : {
-                      "dateAdjustments" : {
-                        "businessDayConvention" : "FOLLOWING",
-                        "meta" : {
-                          "globalKey" : "d3bf0271"
-                        }
-                      },
-                      "meta" : {
-                        "globalKey" : "bf8caab3"
-                      },
-                      "unadjustedDate" : "2010-03-02"
-                    },
-                    "meta" : {
-                      "globalKey" : "bf8caab3"
-                    }
-                  }
-                },
-                "dividendReturnTerms" : {
-                  "dividendPaymentDate" : {
-                    "dividendDateReference" : {
-                      "dateReference" : "SHARE_PAYMENT"
-                    }
-                  },
-                  "dividendPayout" : [ {
-                    "dividendPayoutRatio" : 1
-                  } ],
-                  "dividendPeriod" : "SECOND_PERIOD"
-                },
-                "fxFeature" : [ {
-                  "crossCurrency" : {
-                    "fixingTime" : {
-                      "businessCenter" : {
-                        "value" : "KRSE"
-                      },
-                      "hourMinuteTime" : "14:45:00"
-                    },
-                    "fxSpotRateSource" : {
-                      "primaryRateSource" : {
-                        "sourcePage" : {
-                          "meta" : {
-                            "scheme" : "http://www.example.com/rate-source-page-1-0"
-                          },
-                          "value" : "KRW="
-                        },
-                        "sourceProvider" : {
-                          "value" : "REUTERS"
-                        }
-                      }
-                    }
-                  },
-                  "referenceCurrency" : {
-                    "meta" : {
-                      "globalKey" : "123d0"
-                    },
-                    "value" : "KRW"
-                  }
-                } ],
-                "meta" : {
-                  "externalKey" : "returnLeg",
-                  "globalKey" : "1d558616"
-                },
-                "paymentDates" : {
-                  "meta" : {
-                    "globalKey" : "d71cc16"
-                  },
-                  "paymentDateSchedule" : {
-                    "finalPaymentDate" : {
-                      "meta" : {
-                        "globalKey" : "9c890a01"
-                      },
-                      "relativeDate" : {
-                        "meta" : {
-                          "globalKey" : "9c890a01"
-                        },
-                        "period" : "D",
-                        "periodMultiplier" : 2,
-                        "dayType" : "CURRENCY_BUSINESS",
-                        "businessCenters" : {
-                          "businessCenter" : [ {
-                            "value" : "USNY"
-                          } ],
-                          "meta" : {
-                            "globalKey" : "27e4e9"
-                          }
-                        },
-                        "businessDayConvention" : "FOLLOWING",
-                        "dateRelativeTo" : {
-                          "externalReference" : "finalValuationDate",
-                          "globalReference" : "bf8caab3"
-                        }
-                      }
-                    },
-                    "interimPaymentDates" : [ {
-                      "meta" : {
-                        "globalKey" : "b17370b7"
-                      },
-                      "relativeDates" : {
-                        "meta" : {
-                          "globalKey" : "b17370b7"
-                        },
-                        "period" : "D",
-                        "periodMultiplier" : 2,
-                        "dayType" : "CURRENCY_BUSINESS",
-                        "businessCenters" : {
-                          "businessCenter" : [ {
-                            "value" : "USNY"
-                          } ],
-                          "meta" : {
-                            "globalKey" : "27e4e9"
-                          }
-                        },
-                        "businessDayConvention" : "FOLLOWING",
-                        "dateRelativeTo" : {
-                          "externalReference" : "interimValuationDate",
-                          "globalReference" : "aec7a708"
-                        }
-                      }
-                    } ]
-                  }
-                },
-                "priceReturnTerms" : {
-                  "valuationPriceFinal" : {
-                    "determinationMethod" : "HEDGE_EXECUTION",
-                    "valuationDate" : {
-                      "adjustableDate" : {
-                        "dateAdjustments" : {
-                          "businessDayConvention" : "FOLLOWING",
-                          "meta" : {
-                            "globalKey" : "d3bf0271"
-                          }
-                        },
-                        "meta" : {
-                          "globalKey" : "bf8caab3"
-                        },
-                        "unadjustedDate" : "2010-03-02"
-                      },
-                      "meta" : {
-                        "externalKey" : "finalValuationDate",
-                        "globalKey" : "bf8caab3"
-                      }
-                    },
-                    "valuationTimeType" : "AS_SPECIFIED_IN_MASTER_CONFIRMATION"
-                  },
-                  "valuationPriceInterim" : {
-                    "determinationMethod" : "AS_SPECIFIED_IN_MASTER_CONFIRMATION",
-                    "valuationDates" : {
-                      "meta" : {
-                        "externalKey" : "interimValuationDate",
-                        "globalKey" : "aec7a708"
-                      },
-                      "periodicDates" : {
-                        "endDate" : {
-                          "meta" : {
-                            "globalKey" : "b9d527a8"
-                          },
-                          "relativeDate" : {
-                            "meta" : {
-                              "globalKey" : "b9d527a8"
-                            },
-                            "period" : "D",
-                            "periodMultiplier" : 0,
-                            "businessDayConvention" : "NOT_APPLICABLE",
-                            "dateRelativeTo" : {
-                              "externalReference" : "finalValuationDate",
-                              "globalReference" : "bf8caab3"
-                            }
-                          }
-                        },
-                        "periodDatesAdjustments" : {
-                          "businessDayConvention" : "FOLLOWING",
-                          "meta" : {
-                            "globalKey" : "d3bf0271"
-                          }
-                        },
-                        "periodFrequency" : {
-                          "meta" : {
-                            "globalKey" : "12cde"
-                          },
-                          "period" : "M",
-                          "periodMultiplier" : 1,
-                          "rollConvention" : "1"
-                        },
-                        "startDate" : {
-                          "meta" : {
-                            "globalKey" : "95c9235f"
-                          },
-                          "relativeDate" : {
-                            "meta" : {
-                              "globalKey" : "95c9235f"
-                            },
-                            "period" : "D",
-                            "periodMultiplier" : 0,
-                            "businessDayConvention" : "NOT_APPLICABLE",
-                            "dateRelativeTo" : {
-                              "externalReference" : "equityEffectiveDate",
-                              "globalReference" : "bf744072"
-                            }
-                          }
-                        }
-                      }
-                    },
-                    "valuationTimeType" : "AS_SPECIFIED_IN_MASTER_CONFIRMATION"
-                  }
-                },
-                "returnType" : "TOTAL",
-                "underlier" : {
-                  "meta" : {
-                    "globalKey" : "7a5b92c5"
-                  },
-                  "security" : {
-                    "productIdentifier" : [ {
-                      "address" : {
-                        "scope" : "DOCUMENT",
-                        "value" : "productIdentifier-1"
-                      }
-                    }, {
-                      "address" : {
-                        "scope" : "DOCUMENT",
-                        "value" : "productIdentifier-2"
-                      }
-                    } ],
-                    "securityType" : "EQUITY"
-                  }
-                }
-              } ],
-              "interestRatePayout" : [ {
-                "payerReceiver" : {
-                  "payer" : "PARTY_2",
-                  "receiver" : "PARTY_1"
-                },
-                "payoutQuantity" : {
-                  "meta" : {
-                    "globalKey" : "965a9d"
+                    "globalKey" : "54b65ddd"
                   },
                   "quantityReference" : {
                     "externalReference" : "equityNotionalAmount",
@@ -454,7 +208,7 @@
                 },
                 "meta" : {
                   "externalKey" : "interestLeg",
-                  "globalKey" : "7282a1ee"
+                  "globalKey" : "488058ef"
                 },
                 "paymentDates" : {
                   "meta" : {
@@ -575,7 +329,7 @@
                     }
                   },
                   "meta" : {
-                    "globalKey" : "ab860abe"
+                    "globalKey" : "4157f6bd"
                   },
                   "resetFrequency" : {
                     "meta" : {
@@ -587,19 +341,291 @@
                 }
               } ],
               "meta" : {
-                "globalKey" : "ec69ae18"
+                "globalKey" : "567da4dc"
+              },
+              "performancePayout" : [ {
+                "payerReceiver" : {
+                  "payer" : "PARTY_2",
+                  "receiver" : "PARTY_1"
+                },
+                "payoutQuantity" : {
+                  "meta" : {
+                    "externalKey" : "equityNotionalAmount",
+                    "globalKey" : "0"
+                  },
+                  "quantitySchedule" : {
+                    "initialQuantity" : {
+                      "address" : {
+                        "scope" : "DOCUMENT",
+                        "value" : "quantity-1"
+                      }
+                    }
+                  },
+                  "resolvedQuantity" : {
+                    "address" : {
+                      "scope" : "DOCUMENT",
+                      "value" : "quantity-2"
+                    }
+                  }
+                },
+                "settlementTerms" : {
+                  "meta" : {
+                    "globalKey" : "14966"
+                  },
+                  "settlementCurrency" : {
+                    "value" : "USD"
+                  }
+                },
+                "fxFeature" : [ {
+                  "crossCurrency" : {
+                    "fixingTime" : {
+                      "businessCenter" : {
+                        "value" : "KRSE"
+                      },
+                      "hourMinuteTime" : "14:45:00"
+                    },
+                    "fxSpotRateSource" : {
+                      "primarySource" : {
+                        "sourcePage" : {
+                          "meta" : {
+                            "scheme" : "http://www.example.com/rate-source-page-1-0"
+                          },
+                          "value" : "KRW="
+                        },
+                        "sourceProvider" : {
+                          "value" : "REUTERS"
+                        }
+                      }
+                    }
+                  },
+                  "referenceCurrency" : {
+                    "meta" : {
+                      "globalKey" : "123d0"
+                    },
+                    "value" : "KRW"
+                  }
+                } ],
+                "meta" : {
+                  "externalKey" : "returnLeg",
+                  "globalKey" : "c8cecb6b"
+                },
+                "paymentDates" : {
+                  "meta" : {
+                    "globalKey" : "d71cc16"
+                  },
+                  "paymentDateSchedule" : {
+                    "finalPaymentDate" : {
+                      "meta" : {
+                        "globalKey" : "9c890a01"
+                      },
+                      "relativeDate" : {
+                        "meta" : {
+                          "globalKey" : "9c890a01"
+                        },
+                        "period" : "D",
+                        "periodMultiplier" : 2,
+                        "dayType" : "CURRENCY_BUSINESS",
+                        "businessCenters" : {
+                          "businessCenter" : [ {
+                            "value" : "USNY"
+                          } ],
+                          "meta" : {
+                            "globalKey" : "27e4e9"
+                          }
+                        },
+                        "businessDayConvention" : "FOLLOWING",
+                        "dateRelativeTo" : {
+                          "externalReference" : "finalValuationDate",
+                          "globalReference" : "bf8caab3"
+                        }
+                      }
+                    },
+                    "interimPaymentDates" : [ {
+                      "meta" : {
+                        "globalKey" : "b17370b7"
+                      },
+                      "relativeDates" : {
+                        "meta" : {
+                          "globalKey" : "b17370b7"
+                        },
+                        "period" : "D",
+                        "periodMultiplier" : 2,
+                        "dayType" : "CURRENCY_BUSINESS",
+                        "businessCenters" : {
+                          "businessCenter" : [ {
+                            "value" : "USNY"
+                          } ],
+                          "meta" : {
+                            "globalKey" : "27e4e9"
+                          }
+                        },
+                        "businessDayConvention" : "FOLLOWING",
+                        "dateRelativeTo" : {
+                          "externalReference" : "interimValuationDate",
+                          "globalReference" : "aec7a708"
+                        }
+                      }
+                    } ]
+                  }
+                },
+                "returnTerms" : {
+                  "dividendReturnTerms" : {
+                    "dividendPayoutRatio" : [ {
+                      "totalRatio" : 1
+                    } ],
+                    "dividendPeriod" : [ {
+                      "dividendPaymentDate" : {
+                        "dividendDateReference" : {
+                          "dateReference" : "SHARE_PAYMENT"
+                        }
+                      }
+                    } ],
+                    "firstOrSecondPeriod" : "SECOND_PERIOD"
+                  },
+                  "priceReturnTerms" : {
+                    "returnType" : "TOTAL"
+                  }
+                },
+                "underlier" : {
+                  "meta" : {
+                    "globalKey" : "7a5b92c5"
+                  },
+                  "security" : {
+                    "productIdentifier" : [ {
+                      "address" : {
+                        "scope" : "DOCUMENT",
+                        "value" : "productIdentifier-1"
+                      }
+                    }, {
+                      "address" : {
+                        "scope" : "DOCUMENT",
+                        "value" : "productIdentifier-2"
+                      }
+                    }, {
+                      "address" : {
+                        "scope" : "DOCUMENT",
+                        "value" : "productIdentifier-3"
+                      }
+                    } ],
+                    "securityType" : "EQUITY"
+                  }
+                },
+                "valuationDates" : {
+                  "valuationDatesFinal" : {
+                    "determinationMethod" : "HEDGE_EXECUTION",
+                    "meta" : {
+                      "globalKey" : "d2c5631d"
+                    },
+                    "valuationDate" : {
+                      "adjustableDate" : {
+                        "dateAdjustments" : {
+                          "businessDayConvention" : "FOLLOWING",
+                          "meta" : {
+                            "globalKey" : "d3bf0271"
+                          }
+                        },
+                        "meta" : {
+                          "globalKey" : "bf8caab3"
+                        },
+                        "unadjustedDate" : "2010-03-02"
+                      },
+                      "meta" : {
+                        "externalKey" : "finalValuationDate",
+                        "globalKey" : "bf8caab3"
+                      }
+                    },
+                    "valuationTimeType" : "AS_SPECIFIED_IN_MASTER_CONFIRMATION"
+                  },
+                  "valuationDatesInterim" : {
+                    "determinationMethod" : "AS_SPECIFIED_IN_MASTER_CONFIRMATION",
+                    "meta" : {
+                      "globalKey" : "eb282188"
+                    },
+                    "valuationDates" : {
+                      "meta" : {
+                        "externalKey" : "interimValuationDate",
+                        "globalKey" : "aec7a708"
+                      },
+                      "periodicDates" : {
+                        "endDate" : {
+                          "meta" : {
+                            "globalKey" : "b9d527a8"
+                          },
+                          "relativeDate" : {
+                            "meta" : {
+                              "globalKey" : "b9d527a8"
+                            },
+                            "period" : "D",
+                            "periodMultiplier" : 0,
+                            "businessDayConvention" : "NOT_APPLICABLE",
+                            "dateRelativeTo" : {
+                              "externalReference" : "finalValuationDate",
+                              "globalReference" : "bf8caab3"
+                            }
+                          }
+                        },
+                        "periodDatesAdjustments" : {
+                          "businessDayConvention" : "FOLLOWING",
+                          "meta" : {
+                            "globalKey" : "d3bf0271"
+                          }
+                        },
+                        "periodFrequency" : {
+                          "meta" : {
+                            "globalKey" : "12cde"
+                          },
+                          "period" : "M",
+                          "periodMultiplier" : 1,
+                          "rollConvention" : "1"
+                        },
+                        "startDate" : {
+                          "meta" : {
+                            "globalKey" : "95c9235f"
+                          },
+                          "relativeDate" : {
+                            "meta" : {
+                              "globalKey" : "95c9235f"
+                            },
+                            "period" : "D",
+                            "periodMultiplier" : 0,
+                            "businessDayConvention" : "NOT_APPLICABLE",
+                            "dateRelativeTo" : {
+                              "externalReference" : "equityEffectiveDate",
+                              "globalReference" : "bf744072"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "valuationTimeType" : "AS_SPECIFIED_IN_MASTER_CONFIRMATION"
+                  }
+                }
+              } ]
+            },
+            "terminationDate" : {
+              "adjustableDate" : {
+                "dateAdjustments" : {
+                  "businessDayConvention" : "FOLLOWING",
+                  "meta" : {
+                    "globalKey" : "d3bf0271"
+                  }
+                },
+                "meta" : {
+                  "globalKey" : "bf8caab3"
+                },
+                "unadjustedDate" : "2010-03-02"
+              },
+              "meta" : {
+                "globalKey" : "bf8caab3"
               }
             }
           },
           "meta" : {
-            "globalKey" : "56942131"
-          },
-          "productIdentification" : {
-            "productQualifier" : "EquitySwap_TotalReturnBasicPerformance_SingleName"
+            "globalKey" : "dde1888f"
           }
         },
         "meta" : {
-          "globalKey" : "56942131"
+          "globalKey" : "dde1888f"
         }
       },
       "tradeLot" : [ {
@@ -659,11 +685,11 @@
           } ]
         }, {
           "meta" : {
-            "globalKey" : "2a65d263"
+            "globalKey" : "e9693254"
           },
           "observable" : {
             "meta" : {
-              "globalKey" : "9fba100e"
+              "globalKey" : "df88afd"
             },
             "productIdentifier" : [ {
               "meta" : {
@@ -680,9 +706,9 @@
                   "value" : "005430.KS"
                 },
                 "meta" : {
-                  "globalKey" : "9afe6746"
+                  "globalKey" : "1f2ab125"
                 },
-                "source" : "RIC"
+                "source" : "NAME"
               }
             }, {
               "meta" : {
@@ -699,7 +725,23 @@
                   "value" : "KR7005430004"
                 },
                 "meta" : {
-                  "globalKey" : "46cbbc8"
+                  "globalKey" : "9126db4"
+                },
+                "source" : "RIC"
+              }
+            }, {
+              "meta" : {
+                "location" : [ {
+                  "scope" : "DOCUMENT",
+                  "value" : "productIdentifier-3"
+                } ]
+              },
+              "value" : {
+                "identifier" : {
+                  "value" : "KOREA AIR SVC ORDINARY"
+                },
+                "meta" : {
+                  "globalKey" : "6e124ece"
                 }
               }
             } ]
@@ -776,10 +818,10 @@
       } ],
       "issuerReference" : {
         "externalReference" : "party1",
-        "globalReference" : "39515a8d"
+        "globalReference" : "df32ec33"
       },
       "meta" : {
-        "globalKey" : "d401d5c2"
+        "globalKey" : "3a2297ab"
       }
     }, {
       "assignedIdentifier" : [ {
@@ -792,10 +834,10 @@
       } ],
       "issuerReference" : {
         "externalReference" : "party2",
-        "globalReference" : "e04f3651"
+        "globalReference" : "1649c7b3"
       },
       "meta" : {
-        "globalKey" : "7cb48a25"
+        "globalKey" : "3a2297ac"
       }
     } ]
   }

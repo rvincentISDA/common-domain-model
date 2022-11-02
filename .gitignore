@@ -25,6 +25,7 @@ hs_err_pid*
 .idea/
 *.iml
 .classpath
+.project
 .settings/
 
 # MacOS system files
@@ -47,3 +48,7 @@ venv/
 
 # Oxygen XML files
 *.xpr
+
+**/src/generated
+**/src/test/generated
+/tests/cdm-sample-files/

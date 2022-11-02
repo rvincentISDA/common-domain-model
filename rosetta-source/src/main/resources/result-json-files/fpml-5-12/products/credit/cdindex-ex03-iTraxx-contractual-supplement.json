@@ -1,6 +1,6 @@
 {
   "meta" : {
-    "globalKey" : "81742aae"
+    "globalKey" : "e766eec2"
   },
   "trade" : {
     "account" : [ {
@@ -12,11 +12,11 @@
       },
       "meta" : {
         "externalKey" : "accountParty1",
-        "globalKey" : "5a75c532"
+        "globalKey" : "31d4eab9"
       },
       "servicingParty" : {
         "externalReference" : "party1",
-        "globalReference" : "fe17e44b"
+        "globalReference" : "6050007b"
       }
     }, {
       "accountNumber" : {
@@ -27,88 +27,115 @@
       },
       "meta" : {
         "externalKey" : "accountParty2",
-        "globalKey" : "2763e07d"
+        "globalKey" : "ffd4b93f"
       },
       "servicingParty" : {
         "externalReference" : "party2",
-        "globalReference" : "46abaa5c"
+        "globalReference" : "a8f1da4c"
       }
     } ],
     "contractDetails" : {
       "documentation" : [ {
-        "documentationIdentification" : {
-          "contractualTermsSupplement" : [ {
-            "contractualTermsSupplementType" : {
-              "meta" : {
-                "scheme" : "http://www.fpml.org/coding-scheme/contractual-supplement"
-              },
-              "value" : "I_TRAXX_EUROPE_DEALER"
-            },
-            "publicationDate" : "2005-09-19"
-          } ],
-          "masterAgreement" : {
-            "masterAgreementDate" : "2000-01-01",
+        "agreementDate" : "2000-01-01",
+        "legalAgreementIdentification" : {
+          "agreementName" : {
+            "agreementType" : "MASTER_AGREEMENT",
             "masterAgreementType" : {
-              "value" : "ISDA"
-            },
-            "masterAgreementVersion" : {
-              "value" : "1992"
+              "value" : "ISDA_MASTER"
             }
+          },
+          "vintage" : 1992
+        },
+        "meta" : {
+          "globalKey" : "17d39ad0"
+        }
+      }, {
+        "legalAgreementIdentification" : {
+          "agreementName" : {
+            "agreementType" : "CONFIRMATION",
+            "contractualTermsSupplement" : [ {
+              "contractualTermsSupplementType" : {
+                "meta" : {
+                  "scheme" : "http://www.fpml.org/coding-scheme/contractual-supplement"
+                },
+                "value" : "I_TRAXX_EUROPE_DEALER"
+              },
+              "publicationDate" : "2005-09-19"
+            } ]
           }
+        },
+        "meta" : {
+          "globalKey" : "848aea2c"
         }
       } ],
       "meta" : {
-        "globalKey" : "ed5cffa0"
+        "globalKey" : "654a855c"
       }
     },
     "meta" : {
-      "globalKey" : "be622e98"
+      "globalKey" : "d9fe5f93"
     },
     "party" : [ {
       "meta" : {
         "externalKey" : "party1",
-        "globalKey" : "fe17e44b"
+        "globalKey" : "6050007b"
       },
       "name" : {
         "value" : "Party A"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+          },
+          "value" : "254900O1WT2BXINL9612"
         },
-        "value" : "254900O1WT2BXINL9612"
+        "identifierType" : "LEI",
+        "meta" : {
+          "globalKey" : "f5817694"
+        }
       } ]
     }, {
       "meta" : {
         "externalKey" : "party2",
-        "globalKey" : "46abaa5c"
+        "globalKey" : "a8f1da4c"
       },
       "name" : {
         "value" : "Party B"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/external/iso17442"
+          },
+          "value" : "549300P7IVTDP12DEA19"
         },
-        "value" : "549300P7IVTDP12DEA19"
+        "identifierType" : "LEI",
+        "meta" : {
+          "globalKey" : "3e1538e4"
+        }
       } ]
     } ],
     "tradableProduct" : {
       "counterparty" : [ {
         "partyReference" : {
           "externalReference" : "party2",
-          "globalReference" : "46abaa5c"
+          "globalReference" : "a8f1da4c"
         },
         "role" : "PARTY_1"
       }, {
         "partyReference" : {
           "externalReference" : "party1",
-          "globalReference" : "fe17e44b"
+          "globalReference" : "6050007b"
         },
         "role" : "PARTY_2"
       } ],
       "product" : {
         "contractualProduct" : {
+          "productTaxonomy" : [ {
+            "productQualifier" : "CreditDefaultSwap_Index",
+            "taxonomySource" : "ISDA"
+          } ],
           "economicTerms" : {
             "payout" : {
               "creditDefaultPayout" : {
@@ -174,14 +201,11 @@
             }
           },
           "meta" : {
-            "globalKey" : "885c7908"
-          },
-          "productIdentification" : {
-            "productQualifier" : "CreditDefaultSwap_Index"
+            "globalKey" : "8ffdc97a"
           }
         },
         "meta" : {
-          "globalKey" : "885c7908"
+          "globalKey" : "8ffdc97a"
         }
       },
       "tradeLot" : [ {
@@ -225,10 +249,10 @@
       } ],
       "issuerReference" : {
         "externalReference" : "party2",
-        "globalReference" : "46abaa5c"
+        "globalReference" : "a8f1da4c"
       },
       "meta" : {
-        "globalKey" : "ab1c3f4"
+        "globalKey" : "f1464768"
       }
     }, {
       "assignedIdentifier" : [ {
@@ -241,26 +265,26 @@
       } ],
       "issuerReference" : {
         "externalReference" : "party1",
-        "globalReference" : "fe17e44b"
+        "globalReference" : "6050007b"
       },
       "meta" : {
-        "globalKey" : "b250686a"
+        "globalKey" : "55bf2481"
       }
     } ]
   },
   "transferHistory" : [ {
     "meta" : {
-      "globalKey" : "1e8e4416"
+      "globalKey" : "5c7ccc6f"
     },
     "transfer" : {
       "payerReceiver" : {
         "payerPartyReference" : {
           "externalReference" : "party2",
-          "globalReference" : "46abaa5c"
+          "globalReference" : "a8f1da4c"
         },
         "receiverPartyReference" : {
           "externalReference" : "party1",
-          "globalReference" : "fe17e44b"
+          "globalReference" : "6050007b"
         }
       },
       "quantity" : {

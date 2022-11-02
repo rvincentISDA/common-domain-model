@@ -1,37 +1,52 @@
 {
   "agreementDate" : "2021-04-02",
-  "agreementType" : {
-    "governingLaw" : "RELATED_MASTER_AGREEMENT",
-    "name" : "COLLATERAL_TRANSFER_AGREEMENT",
-    "vintage" : 2019
-  },
   "contractualParty" : [ {
     "value" : {
       "meta" : {
         "externalKey" : "partyA",
-        "globalKey" : "17e0477c"
+        "globalKey" : "c6f52ab8"
       },
       "name" : {
         "value" : "Test Entity 1"
       },
       "partyId" : [ {
-        "value" : "708bfd61-77ef-3644-a918-7338339b5ebc"
+        "identifier" : {
+          "value" : "708bfd61-77ef-3644-a918-7338339b5ebc"
+        },
+        "meta" : {
+          "globalKey" : "231b50fa"
+        }
       } ]
     }
   }, {
     "value" : {
       "meta" : {
         "externalKey" : "partyB",
-        "globalKey" : "9bd90cd1"
+        "globalKey" : "4aee60ab"
       },
       "name" : {
         "value" : "Test Entity 2"
       },
       "partyId" : [ {
-        "value" : "10e00b0c-5d8c-3194-807b-e74d05f55d86"
+        "identifier" : {
+          "value" : "10e00b0c-5d8c-3194-807b-e74d05f55d86"
+        },
+        "meta" : {
+          "globalKey" : "a714128e"
+        }
       } ]
     }
   } ],
+  "legalAgreementIdentification" : {
+    "agreementName" : {
+      "agreementType" : "CREDIT_SUPPORT_AGREEMENT",
+      "creditSupportAgreementType" : {
+        "value" : "COLLATERAL_TRANSFER_AGREEMENT"
+      }
+    },
+    "governingLaw" : "RELATED_MASTER_AGREEMENT",
+    "vintage" : 2019
+  },
   "agreementTerms" : {
     "agreement" : {
       "collateralTransferAgreementElections" : {
@@ -202,16 +217,24 @@
         },
         "demandsAndNotices" : {
           "partyElection" : [ {
-            "address" : "Amending text Adding text bold italic underline And more text And more text",
+            "contactInformation" : {
+              "address" : [ {
+                "street" : [ "Amending text Adding text bold italic underline And more text And more text" ]
+              } ]
+            },
             "partyReference" : {
               "externalReference" : "partyA",
-              "globalReference" : "17e0477c"
+              "globalReference" : "c6f52ab8"
             }
           }, {
-            "address" : "Amending text Adding text bold italic underline And more text And more text",
+            "contactInformation" : {
+              "address" : [ {
+                "street" : [ "Amending text Adding text bold italic underline And more text And more text" ]
+              } ]
+            },
             "partyReference" : {
               "externalReference" : "partyB",
-              "globalReference" : "9bd90cd1"
+              "globalReference" : "4aee60ab"
             }
           } ]
         },
@@ -828,30 +851,33 @@
     "counterparty" : [ {
       "partyReference" : {
         "externalReference" : "partyA",
-        "globalReference" : "17e0477c"
+        "globalReference" : "c6f52ab8"
       },
       "role" : "PARTY_1"
     }, {
       "partyReference" : {
         "externalReference" : "partyB",
-        "globalReference" : "9bd90cd1"
+        "globalReference" : "4aee60ab"
       },
       "role" : "PARTY_2"
     } ]
   },
   "meta" : {
-    "globalKey" : "aef7e18"
+    "globalKey" : "664d5bfa"
   },
   "relatedAgreements" : [ {
-    "legalAgreement" : {
-      "agreementDate" : "2021-04-16",
-      "agreementType" : {
-        "name" : "MASTER_AGREEMENT",
-        "publisher" : "ISDA"
+    "agreementDate" : "2021-04-16",
+    "legalAgreementIdentification" : {
+      "agreementName" : {
+        "agreementType" : "MASTER_AGREEMENT",
+        "masterAgreementType" : {
+          "value" : "ISDA_MASTER"
+        }
       },
-      "meta" : {
-        "globalKey" : "a7398d6a"
-      }
+      "publisher" : "ISDA"
+    },
+    "meta" : {
+      "globalKey" : "c4b1cc3e"
     }
   } ],
   "umbrellaAgreement" : {

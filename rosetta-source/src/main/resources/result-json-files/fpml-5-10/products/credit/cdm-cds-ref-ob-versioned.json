@@ -1,64 +1,149 @@
 {
   "meta" : {
-    "globalKey" : "e5e2d8b5"
+    "globalKey" : "10cc7f73"
   },
   "trade" : {
     "contractDetails" : {
       "documentation" : [ {
-        "documentationIdentification" : {
-          "contractualMatrix" : [ {
-            "matrixType" : {
-              "value" : "CREDIT_DERIVATIVES_PHYSICAL_SETTLEMENT_MATRIX"
-            }
-          } ]
+        "legalAgreementIdentification" : {
+          "agreementName" : {
+            "agreementType" : "CONFIRMATION",
+            "contractualMatrix" : [ {
+              "matrixType" : {
+                "value" : "CREDIT_DERIVATIVES_PHYSICAL_SETTLEMENT_MATRIX"
+              }
+            } ]
+          }
+        },
+        "meta" : {
+          "globalKey" : "65d82653"
         }
       } ],
       "meta" : {
-        "globalKey" : "dd6202a8"
+        "globalKey" : "65d82653"
       }
     },
     "meta" : {
-      "globalKey" : "e5e2d8b5"
+      "globalKey" : "10cc7f73"
     },
     "party" : [ {
       "meta" : {
         "externalKey" : "g4789",
-        "globalKey" : "baa9cf67"
+        "globalKey" : "be6e0943"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/external/iso9362"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/external/iso9362"
+          },
+          "value" : "894500DM8LVOSCMP9T34"
         },
-        "value" : "894500DM8LVOSCMP9T34"
+        "identifierType" : "BIC",
+        "meta" : {
+          "globalKey" : "be6e0943"
+        }
       } ]
     }, {
       "meta" : {
         "externalKey" : "xdf45",
-        "globalKey" : "a275c2fe"
+        "globalKey" : "a639fcda"
       },
       "partyId" : [ {
-        "meta" : {
-          "scheme" : "http://www.fpml.org/coding-scheme/external/iso9362"
+        "identifier" : {
+          "meta" : {
+            "scheme" : "http://www.fpml.org/coding-scheme/external/iso9362"
+          },
+          "value" : "549300JZDC6K840D7F79"
         },
-        "value" : "549300JZDC6K840D7F79"
+        "identifierType" : "BIC",
+        "meta" : {
+          "globalKey" : "a639fcda"
+        }
       } ]
     } ],
     "tradableProduct" : {
       "counterparty" : [ {
         "partyReference" : {
           "externalReference" : "xdf45",
-          "globalReference" : "a275c2fe"
+          "globalReference" : "a639fcda"
         },
         "role" : "PARTY_1"
       }, {
         "partyReference" : {
           "externalReference" : "g4789",
-          "globalReference" : "baa9cf67"
+          "globalReference" : "be6e0943"
         },
         "role" : "PARTY_2"
       } ],
       "product" : {
         "contractualProduct" : {
+          "productIdentifier" : [ {
+            "value" : {
+              "identifier" : {
+                "meta" : {
+                  "scheme" : "http://www.dtcc.com/coding-scheme/external/GTR-Product-Id"
+                },
+                "value" : "Credit_SingleName_Corporate_StandardEuropeanCorporate"
+              },
+              "meta" : {
+                "globalKey" : "54ff24a9"
+              },
+              "source" : "OTHER"
+            }
+          }, {
+            "value" : {
+              "identifier" : {
+                "meta" : {
+                  "scheme" : "http://www.dtcc.com/coding-scheme/external/underlying-id/ISIN"
+                },
+                "value" : "USP7807HAV70"
+              },
+              "meta" : {
+                "globalKey" : "f2a0842c"
+              },
+              "source" : "OTHER"
+            }
+          } ],
+          "productTaxonomy" : [ {
+            "primaryAssetClass" : {
+              "value" : "CREDIT"
+            }
+          }, {
+            "taxonomySource" : "CFI",
+            "taxonomyValue" : {
+              "meta" : {
+                "scheme" : "http://www.fpml.org/coding-scheme/external/product-classification/iso10962"
+              },
+              "value" : "SCUCCX"
+            }
+          }, {
+            "taxonomySource" : "OTHER",
+            "taxonomyValue" : {
+              "meta" : {
+                "scheme" : "http://www.dtcc.com/coding-scheme/external/product-classification/emir-seniority"
+              },
+              "value" : "SNDB"
+            }
+          }, {
+            "taxonomySource" : "EMIR",
+            "taxonomyValue" : {
+              "meta" : {
+                "scheme" : "http://www.dtcc.com/coding-scheme/external/product-classification/emir-contract-type"
+              },
+              "value" : "SW"
+            }
+          }, {
+            "taxonomySource" : "OTHER",
+            "taxonomyValue" : {
+              "meta" : {
+                "scheme" : "http://www.dtcc.com/coding-scheme/external/product-classification/emir-tranched-product"
+              },
+              "value" : "Untranched"
+            }
+          }, {
+            "productQualifier" : "CreditDefaultSwap_SingleName",
+            "taxonomySource" : "ISDA"
+          } ],
           "economicTerms" : {
             "dateAdjustments" : {
               "businessCenters" : {
@@ -85,21 +170,21 @@
                       "globalReference" : "428533f"
                     },
                     "meta" : {
-                      "globalKey" : "e73b827d"
+                      "globalKey" : "3fdfc202"
                     }
                   },
                   "businessDayConvention" : "NONE",
                   "meta" : {
-                    "globalKey" : "96c171b5"
+                    "globalKey" : "e93f2fca"
                   }
                 },
                 "meta" : {
-                  "globalKey" : "6ebe2f39"
+                  "globalKey" : "d0db0fc6"
                 },
                 "unadjustedDate" : "2018-10-04"
               },
               "meta" : {
-                "globalKey" : "6ebe2f39"
+                "globalKey" : "d0db0fc6"
               }
             },
             "payout" : {
@@ -253,19 +338,28 @@
                   "value" : "ACT/360"
                 },
                 "meta" : {
-                  "globalKey" : "a6e82233"
+                  "globalKey" : "46750b01"
                 },
                 "paymentDates" : {
                   "firstPaymentDate" : "2018-12-20",
                   "meta" : {
-                    "globalKey" : "ac0d2dc2"
+                    "globalKey" : "cd617d6a"
                   },
-                  "paymentFrequency" : {
-                    "meta" : {
-                      "globalKey" : "956"
-                    },
-                    "period" : "M",
-                    "periodMultiplier" : 3
+                  "paymentDateSchedule" : {
+                    "interimPaymentDates" : [ {
+                      "meta" : {
+                        "globalKey" : "956"
+                      },
+                      "periodicDates" : {
+                        "periodFrequency" : {
+                          "meta" : {
+                            "globalKey" : "956"
+                          },
+                          "period" : "M",
+                          "periodMultiplier" : 3
+                        }
+                      }
+                    } ]
                   }
                 },
                 "rateSpecification" : {
@@ -285,7 +379,7 @@
                 }
               } ],
               "meta" : {
-                "globalKey" : "c75ba15"
+                "globalKey" : "1ed2cfdf"
               }
             },
             "terminationDate" : {
@@ -318,73 +412,11 @@
             }
           },
           "meta" : {
-            "globalKey" : "6f089dda"
-          },
-          "productIdentification" : {
-            "externalProductType" : [ {
-              "externalProductTypeSource" : "OTHER",
-              "value" : {
-                "meta" : {
-                  "scheme" : "http://www.fpml.org/coding-scheme/external/product-classification/iso10962"
-                },
-                "value" : "SCUCCX"
-              }
-            }, {
-              "externalProductTypeSource" : "OTHER",
-              "value" : {
-                "meta" : {
-                  "scheme" : "http://www.dtcc.com/coding-scheme/external/product-classification/emir-seniority"
-                },
-                "value" : "SNDB"
-              }
-            }, {
-              "externalProductTypeSource" : "OTHER",
-              "value" : {
-                "meta" : {
-                  "scheme" : "http://www.dtcc.com/coding-scheme/external/product-classification/emir-contract-type"
-                },
-                "value" : "SW"
-              }
-            }, {
-              "externalProductTypeSource" : "OTHER",
-              "value" : {
-                "meta" : {
-                  "scheme" : "http://www.dtcc.com/coding-scheme/external/product-classification/emir-tranched-product"
-                },
-                "value" : "Untranched"
-              }
-            } ],
-            "primaryAssetData" : {
-              "value" : "CREDIT"
-            },
-            "productIdentifier" : [ {
-              "identifier" : {
-                "meta" : {
-                  "scheme" : "http://www.dtcc.com/coding-scheme/external/GTR-Product-Id"
-                },
-                "value" : "Credit_SingleName_Corporate_StandardEuropeanCorporate"
-              },
-              "meta" : {
-                "globalKey" : "54ff24a9"
-              },
-              "source" : "OTHER"
-            }, {
-              "identifier" : {
-                "meta" : {
-                  "scheme" : "http://www.dtcc.com/coding-scheme/external/underlying-id/ISIN"
-                },
-                "value" : "USP7807HAV70"
-              },
-              "meta" : {
-                "globalKey" : "f2a0842c"
-              },
-              "source" : "OTHER"
-            } ],
-            "productQualifier" : "CreditDefaultSwap_SingleName"
+            "globalKey" : "cd147dd"
           }
         },
         "meta" : {
-          "globalKey" : "6f089dda"
+          "globalKey" : "cd147dd"
         }
       },
       "tradeLot" : [ {
@@ -474,10 +506,10 @@
       } ],
       "issuerReference" : {
         "externalReference" : "g4789",
-        "globalReference" : "baa9cf67"
+        "globalReference" : "be6e0943"
       },
       "meta" : {
-        "globalKey" : "5aaec83c"
+        "globalKey" : "d0f0bf4b"
       }
     } ]
   }
