@@ -4,11 +4,11 @@
     "before" : {
       "value" : {
         "meta" : {
-          "globalKey" : "6854bed0"
+          "globalKey" : "5dfaf2b9"
         },
         "trade" : {
           "meta" : {
-            "globalKey" : "6854bed0"
+            "globalKey" : "5dfaf2b9"
           },
           "party" : [ {
             "meta" : {
@@ -62,8 +62,8 @@
             "product" : {
               "contractualProduct" : {
                 "productTaxonomy" : [ {
-                  "productQualifier" : "ForeignExchange_Spot_Forward",
-                  "taxonomySource" : "ISDA"
+                  "source" : "ISDA",
+                  "productQualifier" : "ForeignExchange_Spot_Forward"
                 } ],
                 "economicTerms" : {
                   "payout" : {
@@ -136,11 +136,11 @@
                   }
                 },
                 "meta" : {
-                  "globalKey" : "459d9b2e"
+                  "globalKey" : "ae957767"
                 }
               },
               "meta" : {
-                "globalKey" : "459d9b2e"
+                "globalKey" : "ae957767"
               }
             },
             "tradeLot" : [ {
@@ -300,14 +300,14 @@
   "intent" : "CONTRACT_FORMATION",
   "after" : [ {
     "meta" : {
-      "globalKey" : "75828ecd"
+      "globalKey" : "d204af1c"
     },
     "state" : {
       "positionState" : "FORMED"
     },
     "trade" : {
       "meta" : {
-        "globalKey" : "6854bed0"
+        "globalKey" : "5dfaf2b9"
       },
       "party" : [ {
         "meta" : {
@@ -361,8 +361,8 @@
         "product" : {
           "contractualProduct" : {
             "productTaxonomy" : [ {
-              "productQualifier" : "ForeignExchange_Spot_Forward",
-              "taxonomySource" : "ISDA"
+              "source" : "ISDA",
+              "productQualifier" : "ForeignExchange_Spot_Forward"
             } ],
             "economicTerms" : {
               "payout" : {
@@ -435,11 +435,11 @@
               }
             },
             "meta" : {
-              "globalKey" : "459d9b2e"
+              "globalKey" : "ae957767"
             }
           },
           "meta" : {
-            "globalKey" : "459d9b2e"
+            "globalKey" : "ae957767"
           }
         },
         "tradeLot" : [ {
@@ -596,6 +596,6 @@
   } ],
   "eventQualifier" : "ContractFormation",
   "meta" : {
-    "globalKey" : "c67339ce"
+    "globalKey" : "5a1d5234"
   }
 }

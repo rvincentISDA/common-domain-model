@@ -162,8 +162,8 @@
             "product" : {
               "contractualProduct" : {
                 "productTaxonomy" : [ {
-                  "productQualifier" : "InterestRate_IRSwap_FixedFloat",
-                  "taxonomySource" : "ISDA"
+                  "source" : "ISDA",
+                  "productQualifier" : "InterestRate_IRSwap_FixedFloat"
                 } ],
                 "economicTerms" : {
                   "payout" : {
@@ -500,11 +500,11 @@
                   }
                 },
                 "meta" : {
-                  "globalKey" : "fc0a695e"
+                  "globalKey" : "fb4f8ff9"
                 }
               },
               "meta" : {
-                "globalKey" : "fc0a695e"
+                "globalKey" : "fb4f8ff9"
               }
             },
             "tradeDate" : {
@@ -536,14 +536,14 @@
       } ],
       "after" : [ {
         "meta" : {
-          "globalKey" : "8dc24ea"
+          "globalKey" : "541f6817"
         },
         "state" : {
           "positionState" : "EXECUTED"
         },
         "trade" : {
           "meta" : {
-            "globalKey" : "e3e4471b"
+            "globalKey" : "2161bbc6"
           },
           "party" : [ {
             "meta" : {
@@ -600,8 +600,8 @@
             "product" : {
               "contractualProduct" : {
                 "productTaxonomy" : [ {
-                  "productQualifier" : "InterestRate_IRSwap_FixedFloat",
-                  "taxonomySource" : "ISDA"
+                  "source" : "ISDA",
+                  "productQualifier" : "InterestRate_IRSwap_FixedFloat"
                 } ],
                 "economicTerms" : {
                   "payout" : {
@@ -938,11 +938,11 @@
                   }
                 },
                 "meta" : {
-                  "globalKey" : "fc0a695e"
+                  "globalKey" : "fb4f8ff9"
                 }
               },
               "meta" : {
-                "globalKey" : "fc0a695e"
+                "globalKey" : "fb4f8ff9"
               }
             },
             "tradeLot" : [ {
@@ -1078,7 +1078,7 @@
       } ],
       "eventQualifier" : "Execution",
       "meta" : {
-        "globalKey" : "19f208cf"
+        "globalKey" : "41e18bd1"
       }
     },
     "eventIdentifier" : [ {
@@ -1097,7 +1097,7 @@
       }
     },
     "meta" : {
-      "globalKey" : "c911470"
+      "globalKey" : "c67ce9f2"
     },
     "party" : [ {
       "meta" : {
@@ -1304,8 +1304,8 @@
             "product" : {
               "contractualProduct" : {
                 "productTaxonomy" : [ {
-                  "productQualifier" : "InterestRate_IRSwap_FixedFloat",
-                  "taxonomySource" : "ISDA"
+                  "source" : "ISDA",
+                  "productQualifier" : "InterestRate_IRSwap_FixedFloat"
                 } ],
                 "economicTerms" : {
                   "payout" : {
@@ -1642,11 +1642,11 @@
                   }
                 },
                 "meta" : {
-                  "globalKey" : "fc0a695e"
+                  "globalKey" : "fb4f8ff9"
                 }
               },
               "meta" : {
-                "globalKey" : "fc0a695e"
+                "globalKey" : "fb4f8ff9"
               }
             },
             "tradeDate" : {
@@ -1678,14 +1678,14 @@
       } ],
       "after" : [ {
         "meta" : {
-          "globalKey" : "47e43c2a"
+          "globalKey" : "93277f57"
         },
         "state" : {
           "positionState" : "EXECUTED"
         },
         "trade" : {
           "meta" : {
-            "globalKey" : "22ec5e5b"
+            "globalKey" : "6069d306"
           },
           "party" : [ {
             "meta" : {
@@ -1742,8 +1742,8 @@
             "product" : {
               "contractualProduct" : {
                 "productTaxonomy" : [ {
-                  "productQualifier" : "InterestRate_IRSwap_FixedFloat",
-                  "taxonomySource" : "ISDA"
+                  "source" : "ISDA",
+                  "productQualifier" : "InterestRate_IRSwap_FixedFloat"
                 } ],
                 "economicTerms" : {
                   "payout" : {
@@ -2080,11 +2080,11 @@
                   }
                 },
                 "meta" : {
-                  "globalKey" : "fc0a695e"
+                  "globalKey" : "fb4f8ff9"
                 }
               },
               "meta" : {
-                "globalKey" : "fc0a695e"
+                "globalKey" : "fb4f8ff9"
               }
             },
             "tradeLot" : [ {
@@ -2220,7 +2220,7 @@
       } ],
       "eventQualifier" : "Execution",
       "meta" : {
-        "globalKey" : "5432174f"
+        "globalKey" : "1c366a51"
       }
     },
     "eventIdentifier" : [ {
@@ -2239,7 +2239,7 @@
       }
     },
     "meta" : {
-      "globalKey" : "e11a0eaa"
+      "globalKey" : "bc683ee8"
     },
     "party" : [ {
       "meta" : {

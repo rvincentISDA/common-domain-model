@@ -4,7 +4,7 @@
     "before" : {
       "value" : {
         "meta" : {
-          "globalKey" : "55a26e23"
+          "globalKey" : "40292e2"
         },
         "trade" : {
           "contractDetails" : {
@@ -44,7 +44,7 @@
             }
           },
           "meta" : {
-            "globalKey" : "55a26e23"
+            "globalKey" : "40292e2"
           },
           "party" : [ {
             "meta" : {
@@ -116,13 +116,8 @@
             "product" : {
               "contractualProduct" : {
                 "productTaxonomy" : [ {
-                  "taxonomySource" : "OTHER",
-                  "taxonomyValue" : {
-                    "value" : "Equity:Swap:PriceReturnBasicPerformance:SingleName"
-                  }
-                }, {
-                  "productQualifier" : "EquitySwap_TotalReturnBasicPerformance_SingleName",
-                  "taxonomySource" : "ISDA"
+                  "source" : "ISDA",
+                  "productQualifier" : "EquitySwap_TotalReturnBasicPerformance_SingleName"
                 } ],
                 "economicTerms" : {
                   "calculationAgent" : {
@@ -520,11 +515,11 @@
                   }
                 },
                 "meta" : {
-                  "globalKey" : "fa9a20ec"
+                  "globalKey" : "aaa7c501"
                 }
               },
               "meta" : {
-                "globalKey" : "fa9a20ec"
+                "globalKey" : "aaa7c501"
               }
             },
             "tradeLot" : [ {
@@ -928,7 +923,7 @@
   } ],
   "after" : [ {
     "meta" : {
-      "globalKey" : "1a449c43"
+      "globalKey" : "51707382"
     },
     "trade" : {
       "contractDetails" : {
@@ -968,7 +963,7 @@
         }
       },
       "meta" : {
-        "globalKey" : "a6cbeadd"
+        "globalKey" : "f6b38e7e"
       },
       "party" : [ {
         "meta" : {
@@ -1040,13 +1035,8 @@
         "product" : {
           "contractualProduct" : {
             "productTaxonomy" : [ {
-              "taxonomySource" : "OTHER",
-              "taxonomyValue" : {
-                "value" : "Equity:Swap:PriceReturnBasicPerformance:SingleName"
-              }
-            }, {
-              "productQualifier" : "EquitySwap_TotalReturnBasicPerformance_SingleName",
-              "taxonomySource" : "ISDA"
+              "source" : "ISDA",
+              "productQualifier" : "EquitySwap_TotalReturnBasicPerformance_SingleName"
             } ],
             "economicTerms" : {
               "calculationAgent" : {
@@ -1444,11 +1434,11 @@
               }
             },
             "meta" : {
-              "globalKey" : "fa9a20ec"
+              "globalKey" : "aaa7c501"
             }
           },
           "meta" : {
-            "globalKey" : "fa9a20ec"
+            "globalKey" : "aaa7c501"
           }
         },
         "tradeLot" : [ {
@@ -1844,6 +1834,6 @@
   } ],
   "eventQualifier" : "Increase",
   "meta" : {
-    "globalKey" : "376bb5cb"
+    "globalKey" : "75064ee5"
   }
 }

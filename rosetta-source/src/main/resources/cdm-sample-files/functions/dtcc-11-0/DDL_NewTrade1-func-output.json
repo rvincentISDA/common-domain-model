@@ -5,7 +5,7 @@
       "before" : {
         "value" : {
           "meta" : {
-            "globalKey" : "1ec1cceb"
+            "globalKey" : "85173d54"
           },
           "trade" : {
             "collateral" : {
@@ -35,7 +35,7 @@
               }
             },
             "meta" : {
-              "globalKey" : "492645ce"
+              "globalKey" : "c7620b45"
             },
             "party" : [ {
               "meta" : {
@@ -94,8 +94,8 @@
               "product" : {
                 "contractualProduct" : {
                   "productTaxonomy" : [ {
-                    "productQualifier" : "CreditDefaultSwap_SingleName",
-                    "taxonomySource" : "ISDA"
+                    "source" : "ISDA",
+                    "productQualifier" : "CreditDefaultSwap_SingleName"
                   } ],
                   "economicTerms" : {
                     "calculationAgent" : {
@@ -282,11 +282,11 @@
                     }
                   },
                   "meta" : {
-                    "globalKey" : "c7e6f395"
+                    "globalKey" : "33d1a90e"
                   }
                 },
                 "meta" : {
-                  "globalKey" : "c7e6f395"
+                  "globalKey" : "33d1a90e"
                 }
               },
               "tradeLot" : [ {
@@ -486,7 +486,7 @@
     "intent" : "CONTRACT_FORMATION",
     "after" : [ {
       "meta" : {
-        "globalKey" : "398e016"
+        "globalKey" : "d6cb98c9"
       },
       "state" : {
         "positionState" : "FORMED"
@@ -571,7 +571,7 @@
           }
         },
         "meta" : {
-          "globalKey" : "6b4eaee0"
+          "globalKey" : "54df37f3"
         },
         "party" : [ {
           "meta" : {
@@ -630,8 +630,8 @@
           "product" : {
             "contractualProduct" : {
               "productTaxonomy" : [ {
-                "productQualifier" : "CreditDefaultSwap_SingleName",
-                "taxonomySource" : "ISDA"
+                "source" : "ISDA",
+                "productQualifier" : "CreditDefaultSwap_SingleName"
               } ],
               "economicTerms" : {
                 "calculationAgent" : {
@@ -818,11 +818,11 @@
                 }
               },
               "meta" : {
-                "globalKey" : "c7e6f395"
+                "globalKey" : "33d1a90e"
               }
             },
             "meta" : {
-              "globalKey" : "c7e6f395"
+              "globalKey" : "33d1a90e"
             }
           },
           "tradeLot" : [ {
@@ -968,7 +968,7 @@
     } ],
     "eventQualifier" : "ContractFormation",
     "meta" : {
-      "globalKey" : "a8c85615"
+      "globalKey" : "cd204c8b"
     }
   },
   "eventIdentifier" : [ {
@@ -1019,7 +1019,7 @@
     } ]
   },
   "meta" : {
-    "globalKey" : "857e8991"
+    "globalKey" : "ae372fdb"
   },
   "party" : [ {
     "meta" : {

@@ -1,10 +1,10 @@
 {
   "meta" : {
-    "globalKey" : "d6106a7b"
+    "globalKey" : "20d0b03f"
   },
   "trade" : {
     "meta" : {
-      "globalKey" : "d6106a7b"
+      "globalKey" : "20d0b03f"
     },
     "party" : [ {
       "meta" : {
@@ -64,13 +64,15 @@
       "product" : {
         "contractualProduct" : {
           "productTaxonomy" : [ {
-            "taxonomySource" : "OTHER",
-            "taxonomyValue" : {
-              "value" : "InterestRate:IRSwap:FixedFloat"
+            "source" : "OTHER",
+            "value" : {
+              "name" : {
+                "value" : "InterestRate:IRSwap:FixedFloat"
+              }
             }
           }, {
-            "productQualifier" : "InterestRate_IRSwap_FixedFloat",
-            "taxonomySource" : "ISDA"
+            "source" : "ISDA",
+            "productQualifier" : "InterestRate_IRSwap_FixedFloat"
           } ],
           "economicTerms" : {
             "payout" : {
@@ -827,11 +829,11 @@
             }
           },
           "meta" : {
-            "globalKey" : "5c5db0cc"
+            "globalKey" : "927370ec"
           }
         },
         "meta" : {
-          "globalKey" : "5c5db0cc"
+          "globalKey" : "927370ec"
         }
       },
       "tradeLot" : [ {

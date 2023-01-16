@@ -5,7 +5,7 @@
     "before" : {
       "value" : {
         "meta" : {
-          "globalKey" : "17ab728e"
+          "globalKey" : "2c5de4cb"
         },
         "trade" : {
           "contractDetails" : {
@@ -28,7 +28,7 @@
             }
           },
           "meta" : {
-            "globalKey" : "331f58ae"
+            "globalKey" : "951a986b"
           },
           "party" : [ {
             "meta" : {
@@ -88,8 +88,8 @@
             "product" : {
               "contractualProduct" : {
                 "productTaxonomy" : [ {
-                  "productQualifier" : "CreditDefaultSwap_Index",
-                  "taxonomySource" : "ISDA"
+                  "source" : "ISDA",
+                  "productQualifier" : "CreditDefaultSwap_Index"
                 } ],
                 "economicTerms" : {
                   "effectiveDate" : {
@@ -191,11 +191,11 @@
                   }
                 },
                 "meta" : {
-                  "globalKey" : "7d414b63"
+                  "globalKey" : "91ab984e"
                 }
               },
               "meta" : {
-                "globalKey" : "7d414b63"
+                "globalKey" : "91ab984e"
               }
             },
             "tradeLot" : [ {
@@ -335,7 +335,7 @@
   } ],
   "after" : [ {
     "meta" : {
-      "globalKey" : "5fe0ca2b"
+      "globalKey" : "6880a58e"
     },
     "observationHistory" : [ {
       "creditEvent" : {
@@ -379,7 +379,7 @@
         }
       },
       "meta" : {
-        "globalKey" : "331f58ae"
+        "globalKey" : "951a986b"
       },
       "party" : [ {
         "meta" : {
@@ -439,8 +439,8 @@
         "product" : {
           "contractualProduct" : {
             "productTaxonomy" : [ {
-              "productQualifier" : "CreditDefaultSwap_Index",
-              "taxonomySource" : "ISDA"
+              "source" : "ISDA",
+              "productQualifier" : "CreditDefaultSwap_Index"
             } ],
             "economicTerms" : {
               "effectiveDate" : {
@@ -542,11 +542,11 @@
               }
             },
             "meta" : {
-              "globalKey" : "7d414b63"
+              "globalKey" : "91ab984e"
             }
           },
           "meta" : {
-            "globalKey" : "7d414b63"
+            "globalKey" : "91ab984e"
           }
         },
         "tradeLot" : [ {
@@ -659,6 +659,6 @@
   } ],
   "eventQualifier" : "CreditEventDetermined",
   "meta" : {
-    "globalKey" : "6fc36dbc"
+    "globalKey" : "d9e2a980"
   }
 }

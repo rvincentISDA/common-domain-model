@@ -36,7 +36,7 @@
       "before" : {
         "value" : {
           "meta" : {
-            "globalKey" : "80507222"
+            "globalKey" : "3864ac47"
           },
           "trade" : {
             "account" : [ {
@@ -71,7 +71,7 @@
               }
             } ],
             "meta" : {
-              "globalKey" : "603ef78a"
+              "globalKey" : "dc2f6b2f"
             },
             "party" : [ {
               "meta" : {
@@ -151,13 +151,8 @@
               "product" : {
                 "contractualProduct" : {
                   "productTaxonomy" : [ {
-                    "taxonomySource" : "OTHER",
-                    "taxonomyValue" : {
-                      "value" : "Credit:SingleName:Corporate:StandardNorthAmericanCorporate"
-                    }
-                  }, {
-                    "productQualifier" : "CreditDefaultSwap_SingleName",
-                    "taxonomySource" : "ISDA"
+                    "source" : "ISDA",
+                    "productQualifier" : "CreditDefaultSwap_SingleName"
                   } ],
                   "economicTerms" : {
                     "effectiveDate" : {
@@ -347,11 +342,11 @@
                     }
                   },
                   "meta" : {
-                    "globalKey" : "8bc69002"
+                    "globalKey" : "dd2dfd61"
                   }
                 },
                 "meta" : {
-                  "globalKey" : "8bc69002"
+                  "globalKey" : "dd2dfd61"
                 }
               },
               "tradeLot" : [ {
@@ -483,7 +478,7 @@
     "intent" : "CONTRACT_FORMATION",
     "after" : [ {
       "meta" : {
-        "globalKey" : "a165e245"
+        "globalKey" : "ac1c7244"
       },
       "state" : {
         "positionState" : "FORMED"
@@ -540,7 +535,7 @@
           }
         },
         "meta" : {
-          "globalKey" : "b55e894a"
+          "globalKey" : "ce8bc16f"
         },
         "party" : [ {
           "meta" : {
@@ -620,13 +615,8 @@
           "product" : {
             "contractualProduct" : {
               "productTaxonomy" : [ {
-                "taxonomySource" : "OTHER",
-                "taxonomyValue" : {
-                  "value" : "Credit:SingleName:Corporate:StandardNorthAmericanCorporate"
-                }
-              }, {
-                "productQualifier" : "CreditDefaultSwap_SingleName",
-                "taxonomySource" : "ISDA"
+                "source" : "ISDA",
+                "productQualifier" : "CreditDefaultSwap_SingleName"
               } ],
               "economicTerms" : {
                 "effectiveDate" : {
@@ -816,11 +806,11 @@
                 }
               },
               "meta" : {
-                "globalKey" : "8bc69002"
+                "globalKey" : "dd2dfd61"
               }
             },
             "meta" : {
-              "globalKey" : "8bc69002"
+              "globalKey" : "dd2dfd61"
             }
           },
           "tradeLot" : [ {
@@ -931,7 +921,7 @@
     } ],
     "eventQualifier" : "ContractFormation",
     "meta" : {
-      "globalKey" : "43285a03"
+      "globalKey" : "928bf039"
     }
   },
   "messageInformation" : {
@@ -949,7 +939,7 @@
     } ]
   },
   "meta" : {
-    "globalKey" : "bc471f66"
+    "globalKey" : "68ff5130"
   },
   "party" : [ {
     "meta" : {

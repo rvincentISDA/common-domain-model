@@ -7,11 +7,11 @@
       "before" : {
         "value" : {
           "meta" : {
-            "globalKey" : "d41fefe4"
+            "globalKey" : "2035828f"
           },
           "trade" : {
             "meta" : {
-              "globalKey" : "d41fefe4"
+              "globalKey" : "2035828f"
             },
             "party" : [ {
               "businessUnit" : [ {
@@ -145,8 +145,8 @@
               "product" : {
                 "contractualProduct" : {
                   "productTaxonomy" : [ {
-                    "productQualifier" : "InterestRate_CrossCurrency_FixedFloat",
-                    "taxonomySource" : "ISDA"
+                    "source" : "ISDA",
+                    "productQualifier" : "InterestRate_CrossCurrency_FixedFloat"
                   } ],
                   "economicTerms" : {
                     "payout" : {
@@ -505,11 +505,11 @@
                     }
                   },
                   "meta" : {
-                    "globalKey" : "43bce294"
+                    "globalKey" : "c3cd81a5"
                   }
                 },
                 "meta" : {
-                  "globalKey" : "43bce294"
+                  "globalKey" : "c3cd81a5"
                 }
               },
               "tradeLot" : [ {
@@ -791,11 +791,11 @@
     } ],
     "after" : [ {
       "meta" : {
-        "globalKey" : "7eaa8d91"
+        "globalKey" : "e3c833bc"
       },
       "trade" : {
         "meta" : {
-          "globalKey" : "c2acd484"
+          "globalKey" : "ec2672f"
         },
         "party" : [ {
           "businessUnit" : [ {
@@ -929,8 +929,8 @@
           "product" : {
             "contractualProduct" : {
               "productTaxonomy" : [ {
-                "productQualifier" : "InterestRate_CrossCurrency_FixedFloat",
-                "taxonomySource" : "ISDA"
+                "source" : "ISDA",
+                "productQualifier" : "InterestRate_CrossCurrency_FixedFloat"
               } ],
               "economicTerms" : {
                 "payout" : {
@@ -1289,11 +1289,11 @@
                 }
               },
               "meta" : {
-                "globalKey" : "43bce294"
+                "globalKey" : "c3cd81a5"
               }
             },
             "meta" : {
-              "globalKey" : "43bce294"
+              "globalKey" : "c3cd81a5"
             }
           },
           "tradeLot" : [ {
@@ -1525,7 +1525,7 @@
     } ],
     "eventQualifier" : "PartialTermination",
     "meta" : {
-      "globalKey" : "4190e91f"
+      "globalKey" : "9f1915"
     }
   },
   "messageInformation" : {
@@ -1543,7 +1543,7 @@
     } ]
   },
   "meta" : {
-    "globalKey" : "88e91e6f"
+    "globalKey" : "edea65"
   },
   "party" : [ {
     "businessUnit" : [ {

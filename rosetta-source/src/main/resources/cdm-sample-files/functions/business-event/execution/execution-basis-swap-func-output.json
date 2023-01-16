@@ -189,16 +189,8 @@
                 "value" : "INTEREST_RATE"
               }
             }, {
-              "taxonomySource" : "ISDA",
-              "taxonomyValue" : {
-                "meta" : {
-                  "scheme" : "http://www.fpml.org/coding-scheme/product-taxonomy"
-                },
-                "value" : "InterestRate:IRSwap:Basis"
-              }
-            }, {
-              "productQualifier" : "InterestRate_IRSwap_Basis",
-              "taxonomySource" : "ISDA"
+              "source" : "ISDA",
+              "productQualifier" : "InterestRate_IRSwap_Basis"
             } ],
             "economicTerms" : {
               "payout" : {
@@ -609,11 +601,11 @@
               }
             },
             "meta" : {
-              "globalKey" : "cb971115"
+              "globalKey" : "4bec0bf3"
             }
           },
           "meta" : {
-            "globalKey" : "cb971115"
+            "globalKey" : "4bec0bf3"
           }
         },
         "tradeDate" : {
@@ -645,14 +637,14 @@
   } ],
   "after" : [ {
     "meta" : {
-      "globalKey" : "4c8b0185"
+      "globalKey" : "1eb332a9"
     },
     "state" : {
       "positionState" : "EXECUTED"
     },
     "trade" : {
       "meta" : {
-        "globalKey" : "f68c74"
+        "globalKey" : "d98a4e5a"
       },
       "party" : [ {
         "meta" : {
@@ -725,16 +717,8 @@
                 "value" : "INTEREST_RATE"
               }
             }, {
-              "taxonomySource" : "ISDA",
-              "taxonomyValue" : {
-                "meta" : {
-                  "scheme" : "http://www.fpml.org/coding-scheme/product-taxonomy"
-                },
-                "value" : "InterestRate:IRSwap:Basis"
-              }
-            }, {
-              "productQualifier" : "InterestRate_IRSwap_Basis",
-              "taxonomySource" : "ISDA"
+              "source" : "ISDA",
+              "productQualifier" : "InterestRate_IRSwap_Basis"
             } ],
             "economicTerms" : {
               "payout" : {
@@ -1145,11 +1129,11 @@
               }
             },
             "meta" : {
-              "globalKey" : "cb971115"
+              "globalKey" : "4bec0bf3"
             }
           },
           "meta" : {
-            "globalKey" : "cb971115"
+            "globalKey" : "4bec0bf3"
           }
         },
         "tradeLot" : [ {
@@ -1299,6 +1283,6 @@
   } ],
   "eventQualifier" : "Execution",
   "meta" : {
-    "globalKey" : "86e2155b"
+    "globalKey" : "b3fc1021"
   }
 }

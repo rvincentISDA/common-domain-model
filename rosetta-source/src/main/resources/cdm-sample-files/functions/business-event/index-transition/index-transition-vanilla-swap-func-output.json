@@ -4,11 +4,11 @@
     "before" : {
       "value" : {
         "meta" : {
-          "globalKey" : "9a7a42b0"
+          "globalKey" : "16034b1b"
         },
         "trade" : {
           "meta" : {
-            "globalKey" : "9a7a42b0"
+            "globalKey" : "16034b1b"
           },
           "party" : [ {
             "meta" : {
@@ -68,8 +68,8 @@
             "product" : {
               "contractualProduct" : {
                 "productTaxonomy" : [ {
-                  "productQualifier" : "InterestRate_IRSwap_FixedFloat",
-                  "taxonomySource" : "ISDA"
+                  "source" : "ISDA",
+                  "productQualifier" : "InterestRate_IRSwap_FixedFloat"
                 } ],
                 "economicTerms" : {
                   "payout" : {
@@ -475,11 +475,11 @@
                   }
                 },
                 "meta" : {
-                  "globalKey" : "a501317d"
+                  "globalKey" : "9753a98"
                 }
               },
               "meta" : {
-                "globalKey" : "a501317d"
+                "globalKey" : "9753a98"
               }
             },
             "tradeLot" : [ {
@@ -681,11 +681,11 @@
   "intent" : "INDEX_TRANSITION",
   "after" : [ {
     "meta" : {
-      "globalKey" : "d7eb6185"
+      "globalKey" : "537469f0"
     },
     "trade" : {
       "meta" : {
-        "globalKey" : "d7eb6185"
+        "globalKey" : "537469f0"
       },
       "party" : [ {
         "meta" : {
@@ -745,8 +745,8 @@
         "product" : {
           "contractualProduct" : {
             "productTaxonomy" : [ {
-              "productQualifier" : "InterestRate_IRSwap_FixedFloat",
-              "taxonomySource" : "ISDA"
+              "source" : "ISDA",
+              "productQualifier" : "InterestRate_IRSwap_FixedFloat"
             } ],
             "economicTerms" : {
               "payout" : {
@@ -1152,11 +1152,11 @@
               }
             },
             "meta" : {
-              "globalKey" : "a501317d"
+              "globalKey" : "9753a98"
             }
           },
           "meta" : {
-            "globalKey" : "a501317d"
+            "globalKey" : "9753a98"
           }
         },
         "tradeLot" : [ {
@@ -1307,6 +1307,6 @@
   } ],
   "eventQualifier" : "IndexTransition",
   "meta" : {
-    "globalKey" : "84f7252d"
+    "globalKey" : "d8bb1795"
   }
 }

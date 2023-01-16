@@ -4,11 +4,11 @@
     "before" : {
       "value" : {
         "meta" : {
-          "globalKey" : "28ea9cd"
+          "globalKey" : "de9935fb"
         },
         "trade" : {
           "meta" : {
-            "globalKey" : "3ab0b0eb"
+            "globalKey" : "e0c855fd"
           },
           "party" : [ {
             "meta" : {
@@ -86,24 +86,8 @@
                     "value" : "INTEREST_RATE"
                   }
                 }, {
-                  "taxonomySource" : "CFI",
-                  "taxonomyValue" : {
-                    "meta" : {
-                      "scheme" : "http://www.fpml.org/coding-scheme/external/product-classification/iso10962"
-                    },
-                    "value" : "SRAXCC"
-                  }
-                }, {
-                  "taxonomySource" : "EMIR",
-                  "taxonomyValue" : {
-                    "meta" : {
-                      "scheme" : "http://www.dtcc.com/coding-scheme/external/product-classification/emir-contract-type"
-                    },
-                    "value" : "SW"
-                  }
-                }, {
-                  "productQualifier" : "InterestRate_CrossCurrency_Basis",
-                  "taxonomySource" : "ISDA"
+                  "source" : "ISDA",
+                  "productQualifier" : "InterestRate_CrossCurrency_Basis"
                 } ],
                 "economicTerms" : {
                   "payout" : {
@@ -737,11 +721,11 @@
                   }
                 },
                 "meta" : {
-                  "globalKey" : "fed80c72"
+                  "globalKey" : "fc3f2390"
                 }
               },
               "meta" : {
-                "globalKey" : "fed80c72"
+                "globalKey" : "fc3f2390"
               }
             },
             "tradeLot" : [ {
@@ -1080,11 +1064,11 @@
   "intent" : "INDEX_TRANSITION",
   "after" : [ {
     "meta" : {
-      "globalKey" : "5b0b63b8"
+      "globalKey" : "3715efe6"
     },
     "trade" : {
       "meta" : {
-        "globalKey" : "71463f20"
+        "globalKey" : "175de432"
       },
       "party" : [ {
         "meta" : {
@@ -1162,24 +1146,8 @@
                 "value" : "INTEREST_RATE"
               }
             }, {
-              "taxonomySource" : "CFI",
-              "taxonomyValue" : {
-                "meta" : {
-                  "scheme" : "http://www.fpml.org/coding-scheme/external/product-classification/iso10962"
-                },
-                "value" : "SRAXCC"
-              }
-            }, {
-              "taxonomySource" : "EMIR",
-              "taxonomyValue" : {
-                "meta" : {
-                  "scheme" : "http://www.dtcc.com/coding-scheme/external/product-classification/emir-contract-type"
-                },
-                "value" : "SW"
-              }
-            }, {
-              "productQualifier" : "InterestRate_CrossCurrency_Basis",
-              "taxonomySource" : "ISDA"
+              "source" : "ISDA",
+              "productQualifier" : "InterestRate_CrossCurrency_Basis"
             } ],
             "economicTerms" : {
               "payout" : {
@@ -1813,11 +1781,11 @@
               }
             },
             "meta" : {
-              "globalKey" : "fed80c72"
+              "globalKey" : "fc3f2390"
             }
           },
           "meta" : {
-            "globalKey" : "fed80c72"
+            "globalKey" : "fc3f2390"
           }
         },
         "tradeLot" : [ {
@@ -2057,6 +2025,6 @@
   } ],
   "eventQualifier" : "IndexTransition",
   "meta" : {
-    "globalKey" : "eb36654d"
+    "globalKey" : "924d4a01"
   }
 }

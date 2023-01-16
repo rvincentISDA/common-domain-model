@@ -11,6 +11,7 @@ import com.rosetta.model.lib.RosettaModelObjectBuilder;
 import com.rosetta.model.lib.path.RosettaPath;
 
 import java.util.List;
+import java.util.Optional;
 
 import static cdm.base.staticdata.asset.common.ProductTaxonomy.ProductTaxonomyBuilder;
 
@@ -22,14 +23,17 @@ public class TaxonomySourceMappingProcessor extends MappingProcessor {
     }
 
     @Override
-    public void map(Path synonymPath, RosettaModelObjectBuilder builder, RosettaModelObjectBuilder parent) {
-        MappingProcessorUtils.getNonNullMappingForModelPath(getMappings(), PathUtils.toPath(getModelPath().getParent()))
+    public <T> void mapBasic(Path synonymPath, Optional<T> instance, RosettaModelObjectBuilder parent) {
+        Path productTaxonomyModelPath = PathUtils.toPath(getModelPath()).getParent();
+        Path taxomomyValueModelPath = productTaxonomyModelPath.addElement("value");
+        Path nameModelPath = taxomomyValueModelPath.addElement("name").addElement("value");
+        // Find xml path from name model path due to mapping bug where schemes on multi-cardinality basic types get
+        // mapped to the wrong list item
+        MappingProcessorUtils.getNonNullMappingForModelPath(getMappings(), nameModelPath)
                 .map(m -> m.getXmlPath())
                 .ifPresent(xmlPath -> {
                     ProductTaxonomyBuilder productTaxonomyBuilder = (ProductTaxonomyBuilder) parent;
-                    TaxonomyValue.TaxonomyValueBuilder taxonomyValueBuilder = (TaxonomyValue.TaxonomyValueBuilder) builder;
-
-                    updateSchemeAndSource(xmlPath, productTaxonomyBuilder, taxonomyValueBuilder);
+                    updateSchemeAndSource(xmlPath, productTaxonomyBuilder);
 
                     // If unset, set to OTHER
                     if (productTaxonomyBuilder.getSource() == null) {
@@ -38,19 +42,13 @@ public class TaxonomySourceMappingProcessor extends MappingProcessor {
                 });
     }
 
-    protected void updateSchemeAndSource(Path xmlPath, ProductTaxonomyBuilder productTaxonomyBuilder, TaxonomyValue.TaxonomyValueBuilder taxonomyValueBuilder) {
+    protected void updateSchemeAndSource(Path xmlPath, ProductTaxonomyBuilder productTaxonomyBuilder) {
         setValueAndUpdateMappings(xmlPath.addElement("productTypeScheme"),
                 xmlValue -> {
                     // Update scheme
-                    taxonomyValueBuilder.getOrCreateName().getOrCreateMeta().setScheme(xmlValue);
+                    productTaxonomyBuilder.getOrCreateValue().getOrCreateName().getOrCreateMeta().setScheme(xmlValue);
                     // Update taxonomySource
                     productTaxonomyBuilder.setSource(getTaxonomySourceEnum(xmlValue));
-                });
-
-        setValueAndUpdateMappings(xmlPath,
-                xmlValue -> {
-                    // Update name
-                    taxonomyValueBuilder.setNameValue(xmlValue);
                 });
     }
 

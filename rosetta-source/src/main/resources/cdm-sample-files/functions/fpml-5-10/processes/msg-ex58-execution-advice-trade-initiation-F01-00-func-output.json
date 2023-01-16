@@ -36,7 +36,7 @@
       "before" : {
         "value" : {
           "meta" : {
-            "globalKey" : "490d417a"
+            "globalKey" : "a6623198"
           },
           "trade" : {
             "account" : [ {
@@ -71,7 +71,7 @@
               }
             } ],
             "meta" : {
-              "globalKey" : "1e77bae2"
+              "globalKey" : "fb176400"
             },
             "party" : [ {
               "meta" : {
@@ -151,13 +151,8 @@
               "product" : {
                 "contractualProduct" : {
                   "productTaxonomy" : [ {
-                    "taxonomySource" : "OTHER",
-                    "taxonomyValue" : {
-                      "value" : "Credit:Index:CDX:CDXIG"
-                    }
-                  }, {
-                    "productQualifier" : "CreditDefaultSwap_Index",
-                    "taxonomySource" : "ISDA"
+                    "source" : "ISDA",
+                    "productQualifier" : "CreditDefaultSwap_Index"
                   } ],
                   "economicTerms" : {
                     "effectiveDate" : {
@@ -315,11 +310,11 @@
                     }
                   },
                   "meta" : {
-                    "globalKey" : "7dd88094"
+                    "globalKey" : "a0d495b8"
                   }
                 },
                 "meta" : {
-                  "globalKey" : "7dd88094"
+                  "globalKey" : "a0d495b8"
                 }
               },
               "tradeLot" : [ {
@@ -451,7 +446,7 @@
     "intent" : "CONTRACT_FORMATION",
     "after" : [ {
       "meta" : {
-        "globalKey" : "da3da387"
+        "globalKey" : "735fb6b"
       },
       "state" : {
         "positionState" : "FORMED"
@@ -508,7 +503,7 @@
           }
         },
         "meta" : {
-          "globalKey" : "6e2a7372"
+          "globalKey" : "24979170"
         },
         "party" : [ {
           "meta" : {
@@ -588,13 +583,8 @@
           "product" : {
             "contractualProduct" : {
               "productTaxonomy" : [ {
-                "taxonomySource" : "OTHER",
-                "taxonomyValue" : {
-                  "value" : "Credit:Index:CDX:CDXIG"
-                }
-              }, {
-                "productQualifier" : "CreditDefaultSwap_Index",
-                "taxonomySource" : "ISDA"
+                "source" : "ISDA",
+                "productQualifier" : "CreditDefaultSwap_Index"
               } ],
               "economicTerms" : {
                 "effectiveDate" : {
@@ -752,11 +742,11 @@
                 }
               },
               "meta" : {
-                "globalKey" : "7dd88094"
+                "globalKey" : "a0d495b8"
               }
             },
             "meta" : {
-              "globalKey" : "7dd88094"
+              "globalKey" : "a0d495b8"
             }
           },
           "tradeLot" : [ {
@@ -867,7 +857,7 @@
     } ],
     "eventQualifier" : "ContractFormation",
     "meta" : {
-      "globalKey" : "872c23b9"
+      "globalKey" : "77d6b14f"
     }
   },
   "messageInformation" : {
@@ -885,7 +875,7 @@
     } ]
   },
   "meta" : {
-    "globalKey" : "c561244"
+    "globalKey" : "2ef7f0ae"
   },
   "party" : [ {
     "meta" : {

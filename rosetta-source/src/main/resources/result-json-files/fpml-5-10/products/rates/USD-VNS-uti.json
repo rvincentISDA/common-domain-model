@@ -1,6 +1,6 @@
 {
   "meta" : {
-    "globalKey" : "613f370"
+    "globalKey" : "9ba51c4a"
   },
   "trade" : {
     "contractDetails" : {
@@ -40,7 +40,7 @@
       }
     },
     "meta" : {
-      "globalKey" : "613f370"
+      "globalKey" : "9ba51c4a"
     },
     "party" : [ {
       "meta" : {
@@ -121,16 +121,18 @@
               "value" : "INTEREST_RATE"
             }
           }, {
-            "taxonomySource" : "ISDA",
-            "taxonomyValue" : {
-              "meta" : {
-                "scheme" : "http://www.fpml.org/coding-scheme/product-taxonomy"
-              },
-              "value" : "InterestRate:IRSwap:FixedFloat"
+            "source" : "ISDA",
+            "value" : {
+              "name" : {
+                "meta" : {
+                  "scheme" : "http://www.fpml.org/coding-scheme/product-taxonomy"
+                },
+                "value" : "InterestRate:IRSwap:FixedFloat"
+              }
             }
           }, {
-            "productQualifier" : "InterestRate_IRSwap_FixedFloat",
-            "taxonomySource" : "ISDA"
+            "source" : "ISDA",
+            "productQualifier" : "InterestRate_IRSwap_FixedFloat"
           } ],
           "economicTerms" : {
             "payout" : {
@@ -470,11 +472,11 @@
             }
           },
           "meta" : {
-            "globalKey" : "ccc4910f"
+            "globalKey" : "69707137"
           }
         },
         "meta" : {
-          "globalKey" : "ccc4910f"
+          "globalKey" : "69707137"
         }
       },
       "tradeLot" : [ {

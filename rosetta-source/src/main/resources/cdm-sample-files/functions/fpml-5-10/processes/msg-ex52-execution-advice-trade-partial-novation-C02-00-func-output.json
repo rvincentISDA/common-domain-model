@@ -37,7 +37,7 @@
       "before" : {
         "value" : {
           "meta" : {
-            "globalKey" : "1acc335f"
+            "globalKey" : "62ba58ea"
           },
           "trade" : {
             "account" : [ {
@@ -91,7 +91,7 @@
               }
             },
             "meta" : {
-              "globalKey" : "77c00647"
+              "globalKey" : "4bc55a52"
             },
             "party" : [ {
               "meta" : {
@@ -191,13 +191,8 @@
               "product" : {
                 "contractualProduct" : {
                   "productTaxonomy" : [ {
-                    "taxonomySource" : "OTHER",
-                    "taxonomyValue" : {
-                      "value" : "Credit:SingleName:Corporate:StandardNorthAmericanCorporate"
-                    }
-                  }, {
-                    "productQualifier" : "CreditDefaultSwap_SingleName",
-                    "taxonomySource" : "ISDA"
+                    "source" : "ISDA",
+                    "productQualifier" : "CreditDefaultSwap_SingleName"
                   } ],
                   "economicTerms" : {
                     "effectiveDate" : {
@@ -387,11 +382,11 @@
                     }
                   },
                   "meta" : {
-                    "globalKey" : "8bc69002"
+                    "globalKey" : "dd2dfd61"
                   }
                 },
                 "meta" : {
-                  "globalKey" : "8bc69002"
+                  "globalKey" : "dd2dfd61"
                 }
               },
               "tradeLot" : [ {
@@ -610,7 +605,7 @@
     "intent" : "NOVATION",
     "after" : [ {
       "meta" : {
-        "globalKey" : "9a7ed37d"
+        "globalKey" : "b6224bfa"
       },
       "trade" : {
         "account" : [ {
@@ -664,7 +659,7 @@
           }
         },
         "meta" : {
-          "globalKey" : "d9d9d2c1"
+          "globalKey" : "4fc67924"
         },
         "party" : [ {
           "meta" : {
@@ -764,13 +759,8 @@
           "product" : {
             "contractualProduct" : {
               "productTaxonomy" : [ {
-                "taxonomySource" : "OTHER",
-                "taxonomyValue" : {
-                  "value" : "Credit:SingleName:Corporate:StandardNorthAmericanCorporate"
-                }
-              }, {
-                "productQualifier" : "CreditDefaultSwap_SingleName",
-                "taxonomySource" : "ISDA"
+                "source" : "ISDA",
+                "productQualifier" : "CreditDefaultSwap_SingleName"
               } ],
               "economicTerms" : {
                 "effectiveDate" : {
@@ -960,11 +950,11 @@
                 }
               },
               "meta" : {
-                "globalKey" : "8bc69002"
+                "globalKey" : "dd2dfd61"
               }
             },
             "meta" : {
-              "globalKey" : "8bc69002"
+              "globalKey" : "dd2dfd61"
             }
           },
           "tradeLot" : [ {
@@ -1079,7 +1069,7 @@
       } ]
     }, {
       "meta" : {
-        "globalKey" : "56d05d"
+        "globalKey" : "4844f5e8"
       },
       "trade" : {
         "account" : [ {
@@ -1133,7 +1123,7 @@
           }
         },
         "meta" : {
-          "globalKey" : "6f5f6c45"
+          "globalKey" : "4364c050"
         },
         "party" : [ {
           "meta" : {
@@ -1233,13 +1223,8 @@
           "product" : {
             "contractualProduct" : {
               "productTaxonomy" : [ {
-                "taxonomySource" : "OTHER",
-                "taxonomyValue" : {
-                  "value" : "Credit:SingleName:Corporate:StandardNorthAmericanCorporate"
-                }
-              }, {
-                "productQualifier" : "CreditDefaultSwap_SingleName",
-                "taxonomySource" : "ISDA"
+                "source" : "ISDA",
+                "productQualifier" : "CreditDefaultSwap_SingleName"
               } ],
               "economicTerms" : {
                 "effectiveDate" : {
@@ -1429,11 +1414,11 @@
                 }
               },
               "meta" : {
-                "globalKey" : "8bc69002"
+                "globalKey" : "dd2dfd61"
               }
             },
             "meta" : {
-              "globalKey" : "8bc69002"
+              "globalKey" : "dd2dfd61"
             }
           },
           "tradeLot" : [ {
@@ -1544,7 +1529,7 @@
     } ],
     "eventQualifier" : "PartialNovation",
     "meta" : {
-      "globalKey" : "ed7aefbf"
+      "globalKey" : "afc95f4c"
     }
   },
   "messageInformation" : {
@@ -1562,7 +1547,7 @@
     } ]
   },
   "meta" : {
-    "globalKey" : "93bbf2b0"
+    "globalKey" : "6104eebb"
   },
   "party" : [ {
     "meta" : {

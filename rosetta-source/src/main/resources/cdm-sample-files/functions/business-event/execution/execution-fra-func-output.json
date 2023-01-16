@@ -144,8 +144,8 @@
         "product" : {
           "contractualProduct" : {
             "productTaxonomy" : [ {
-              "productQualifier" : "InterestRate_Fra",
-              "taxonomySource" : "ISDA"
+              "source" : "ISDA",
+              "productQualifier" : "InterestRate_Fra"
             } ],
             "economicTerms" : {
               "payout" : {
@@ -376,11 +376,11 @@
               }
             },
             "meta" : {
-              "globalKey" : "3ae6fc8e"
+              "globalKey" : "844e96e7"
             }
           },
           "meta" : {
-            "globalKey" : "3ae6fc8e"
+            "globalKey" : "844e96e7"
           }
         },
         "tradeDate" : {
@@ -427,14 +427,14 @@
   } ],
   "after" : [ {
     "meta" : {
-      "globalKey" : "d40f2442"
+      "globalKey" : "b8161b89"
     },
     "state" : {
       "positionState" : "EXECUTED"
     },
     "trade" : {
       "meta" : {
-        "globalKey" : "a9b25d31"
+        "globalKey" : "d7c088ba"
       },
       "party" : [ {
         "meta" : {
@@ -488,8 +488,8 @@
         "product" : {
           "contractualProduct" : {
             "productTaxonomy" : [ {
-              "productQualifier" : "InterestRate_Fra",
-              "taxonomySource" : "ISDA"
+              "source" : "ISDA",
+              "productQualifier" : "InterestRate_Fra"
             } ],
             "economicTerms" : {
               "payout" : {
@@ -720,11 +720,11 @@
               }
             },
             "meta" : {
-              "globalKey" : "3ae6fc8e"
+              "globalKey" : "844e96e7"
             }
           },
           "meta" : {
-            "globalKey" : "3ae6fc8e"
+            "globalKey" : "844e96e7"
           }
         },
         "tradeLot" : [ {
@@ -863,6 +863,6 @@
   } ],
   "eventQualifier" : "Execution",
   "meta" : {
-    "globalKey" : "67675c3b"
+    "globalKey" : "68169147"
   }
 }

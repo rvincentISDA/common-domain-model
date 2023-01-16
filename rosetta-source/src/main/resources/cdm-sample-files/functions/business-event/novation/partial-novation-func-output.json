@@ -4,11 +4,11 @@
     "before" : {
       "value" : {
         "meta" : {
-          "globalKey" : "dd15df7d"
+          "globalKey" : "fcc318d5"
         },
         "trade" : {
           "meta" : {
-            "globalKey" : "dd15df7d"
+            "globalKey" : "fcc318d5"
           },
           "party" : [ {
             "businessUnit" : [ {
@@ -146,16 +146,8 @@
                     "value" : "INTEREST_RATE"
                   }
                 }, {
-                  "taxonomySource" : "ISDA",
-                  "taxonomyValue" : {
-                    "meta" : {
-                      "scheme" : "http://www.fpml.org/coding-scheme/product-taxonomy"
-                    },
-                    "value" : "InterestRate:IRSwap:FixedFloat"
-                  }
-                }, {
-                  "productQualifier" : "InterestRate_IRSwap_FixedFloat",
-                  "taxonomySource" : "ISDA"
+                  "source" : "ISDA",
+                  "productQualifier" : "InterestRate_IRSwap_FixedFloat"
                 } ],
                 "economicTerms" : {
                   "payout" : {
@@ -492,11 +484,11 @@
                   }
                 },
                 "meta" : {
-                  "globalKey" : "4089922d"
+                  "globalKey" : "51fd41e5"
                 }
               },
               "meta" : {
-                "globalKey" : "4089922d"
+                "globalKey" : "51fd41e5"
               }
             },
             "tradeLot" : [ {
@@ -734,11 +726,11 @@
   "intent" : "NOVATION",
   "after" : [ {
     "meta" : {
-      "globalKey" : "8fa30023"
+      "globalKey" : "83cc6eef"
     },
     "trade" : {
       "meta" : {
-        "globalKey" : "8fa30023"
+        "globalKey" : "83cc6eef"
       },
       "party" : [ {
         "meta" : {
@@ -853,16 +845,8 @@
                 "value" : "INTEREST_RATE"
               }
             }, {
-              "taxonomySource" : "ISDA",
-              "taxonomyValue" : {
-                "meta" : {
-                  "scheme" : "http://www.fpml.org/coding-scheme/product-taxonomy"
-                },
-                "value" : "InterestRate:IRSwap:FixedFloat"
-              }
-            }, {
-              "productQualifier" : "InterestRate_IRSwap_FixedFloat",
-              "taxonomySource" : "ISDA"
+              "source" : "ISDA",
+              "productQualifier" : "InterestRate_IRSwap_FixedFloat"
             } ],
             "economicTerms" : {
               "payout" : {
@@ -1199,11 +1183,11 @@
               }
             },
             "meta" : {
-              "globalKey" : "4089922d"
+              "globalKey" : "51fd41e5"
             }
           },
           "meta" : {
-            "globalKey" : "4089922d"
+            "globalKey" : "51fd41e5"
           }
         },
         "tradeLot" : [ {
@@ -1340,11 +1324,11 @@
     }
   }, {
     "meta" : {
-      "globalKey" : "f4ae2c1d"
+      "globalKey" : "145b6575"
     },
     "trade" : {
       "meta" : {
-        "globalKey" : "f4ae2c1d"
+        "globalKey" : "145b6575"
       },
       "party" : [ {
         "businessUnit" : [ {
@@ -1482,16 +1466,8 @@
                 "value" : "INTEREST_RATE"
               }
             }, {
-              "taxonomySource" : "ISDA",
-              "taxonomyValue" : {
-                "meta" : {
-                  "scheme" : "http://www.fpml.org/coding-scheme/product-taxonomy"
-                },
-                "value" : "InterestRate:IRSwap:FixedFloat"
-              }
-            }, {
-              "productQualifier" : "InterestRate_IRSwap_FixedFloat",
-              "taxonomySource" : "ISDA"
+              "source" : "ISDA",
+              "productQualifier" : "InterestRate_IRSwap_FixedFloat"
             } ],
             "economicTerms" : {
               "payout" : {
@@ -1828,11 +1804,11 @@
               }
             },
             "meta" : {
-              "globalKey" : "4089922d"
+              "globalKey" : "51fd41e5"
             }
           },
           "meta" : {
-            "globalKey" : "4089922d"
+            "globalKey" : "51fd41e5"
           }
         },
         "tradeLot" : [ {
@@ -1970,6 +1946,6 @@
   } ],
   "eventQualifier" : "PartialNovation",
   "meta" : {
-    "globalKey" : "1d55298e"
+    "globalKey" : "233a1a38"
   }
 }

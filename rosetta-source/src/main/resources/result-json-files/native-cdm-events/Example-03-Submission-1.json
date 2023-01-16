@@ -15,18 +15,18 @@
     } ]
   },
   "meta" : {
-    "globalKey" : "342a9176"
+    "globalKey" : "c1438022"
   },
   "proposedEvent" : {
     "instruction" : [ {
       "before" : {
         "value" : {
           "meta" : {
-            "globalKey" : "e0a075b4"
+            "globalKey" : "6fa175c"
           },
           "trade" : {
             "meta" : {
-              "globalKey" : "e0a075b4"
+              "globalKey" : "6fa175c"
             },
             "party" : [ {
               "businessUnit" : [ {
@@ -164,16 +164,18 @@
                       "value" : "INTEREST_RATE"
                     }
                   }, {
-                    "taxonomySource" : "ISDA",
-                    "taxonomyValue" : {
-                      "meta" : {
-                        "scheme" : "http://www.fpml.org/coding-scheme/product-taxonomy"
-                      },
-                      "value" : "InterestRate:IRSwap:FixedFloat"
+                    "source" : "ISDA",
+                    "value" : {
+                      "name" : {
+                        "meta" : {
+                          "scheme" : "http://www.fpml.org/coding-scheme/product-taxonomy"
+                        },
+                        "value" : "InterestRate:IRSwap:FixedFloat"
+                      }
                     }
                   }, {
-                    "productQualifier" : "InterestRate_IRSwap_FixedFloat",
-                    "taxonomySource" : "ISDA"
+                    "source" : "ISDA",
+                    "productQualifier" : "InterestRate_IRSwap_FixedFloat"
                   } ],
                   "economicTerms" : {
                     "payout" : {
@@ -510,11 +512,11 @@
                     }
                   },
                   "meta" : {
-                    "globalKey" : "13ef018"
+                    "globalKey" : "e1d7d03c"
                   }
                 },
                 "meta" : {
-                  "globalKey" : "13ef018"
+                  "globalKey" : "e1d7d03c"
                 }
               },
               "tradeLot" : [ {

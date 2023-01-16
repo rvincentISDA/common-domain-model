@@ -5,11 +5,11 @@
       "before" : {
         "value" : {
           "meta" : {
-            "globalKey" : "94465bab"
+            "globalKey" : "b61c541f"
           },
           "trade" : {
             "meta" : {
-              "globalKey" : "66cc459c"
+              "globalKey" : "8ca2dd10"
             },
             "party" : [ {
               "businessUnit" : [ {
@@ -287,29 +287,8 @@
                       "value" : "CREDIT"
                     }
                   }, {
-                    "taxonomySource" : "OTHER",
-                    "taxonomyValue" : {
-                      "meta" : {
-                        "scheme" : "http://www.fpml.org/coding-scheme/sec-product-category"
-                      },
-                      "value" : "SecurityBasedSwap"
-                    }
-                  }, {
-                    "taxonomySource" : "OTHER",
-                    "taxonomyValue" : {
-                      "meta" : {
-                        "scheme" : "http://www.theice.com/coding-scheme/product-name"
-                      },
-                      "value" : "Credi Default Swap"
-                    }
-                  }, {
-                    "taxonomySource" : "OTHER",
-                    "taxonomyValue" : {
-                      "value" : "Credit:SingleName:Corporate:StandardNorthAmericanCorporate"
-                    }
-                  }, {
-                    "productQualifier" : "CreditDefaultSwap_SingleName",
-                    "taxonomySource" : "ISDA"
+                    "source" : "ISDA",
+                    "productQualifier" : "CreditDefaultSwap_SingleName"
                   } ],
                   "economicTerms" : {
                     "effectiveDate" : {
@@ -474,11 +453,11 @@
                     }
                   },
                   "meta" : {
-                    "globalKey" : "4c452c34"
+                    "globalKey" : "692da9d8"
                   }
                 },
                 "meta" : {
-                  "globalKey" : "4c452c34"
+                  "globalKey" : "692da9d8"
                 }
               },
               "tradeLot" : [ {
@@ -692,7 +671,7 @@
     "intent" : "CONTRACT_FORMATION",
     "after" : [ {
       "meta" : {
-        "globalKey" : "4e2da532"
+        "globalKey" : "c191b38"
       },
       "state" : {
         "positionState" : "FORMED"
@@ -770,7 +749,7 @@
           }
         },
         "meta" : {
-          "globalKey" : "d61db266"
+          "globalKey" : "134e7006"
         },
         "party" : [ {
           "businessUnit" : [ {
@@ -1048,29 +1027,8 @@
                   "value" : "CREDIT"
                 }
               }, {
-                "taxonomySource" : "OTHER",
-                "taxonomyValue" : {
-                  "meta" : {
-                    "scheme" : "http://www.fpml.org/coding-scheme/sec-product-category"
-                  },
-                  "value" : "SecurityBasedSwap"
-                }
-              }, {
-                "taxonomySource" : "OTHER",
-                "taxonomyValue" : {
-                  "meta" : {
-                    "scheme" : "http://www.theice.com/coding-scheme/product-name"
-                  },
-                  "value" : "Credi Default Swap"
-                }
-              }, {
-                "taxonomySource" : "OTHER",
-                "taxonomyValue" : {
-                  "value" : "Credit:SingleName:Corporate:StandardNorthAmericanCorporate"
-                }
-              }, {
-                "productQualifier" : "CreditDefaultSwap_SingleName",
-                "taxonomySource" : "ISDA"
+                "source" : "ISDA",
+                "productQualifier" : "CreditDefaultSwap_SingleName"
               } ],
               "economicTerms" : {
                 "effectiveDate" : {
@@ -1235,11 +1193,11 @@
                 }
               },
               "meta" : {
-                "globalKey" : "4c452c34"
+                "globalKey" : "692da9d8"
               }
             },
             "meta" : {
-              "globalKey" : "4c452c34"
+              "globalKey" : "692da9d8"
             }
           },
           "tradeLot" : [ {
@@ -1380,7 +1338,7 @@
     } ],
     "eventQualifier" : "ContractFormation",
     "meta" : {
-      "globalKey" : "c84b7c4d"
+      "globalKey" : "af4b59e9"
     }
   },
   "messageInformation" : {
@@ -1398,7 +1356,7 @@
     } ]
   },
   "meta" : {
-    "globalKey" : "eefe39f4"
+    "globalKey" : "86129e90"
   },
   "party" : [ {
     "businessUnit" : [ {

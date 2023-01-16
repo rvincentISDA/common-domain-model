@@ -4,7 +4,7 @@
     "before" : {
       "value" : {
         "meta" : {
-          "globalKey" : "f00ec029"
+          "globalKey" : "fdd016c6"
         },
         "trade" : {
           "contractDetails" : {
@@ -53,7 +53,7 @@
             }
           },
           "meta" : {
-            "globalKey" : "f00ec029"
+            "globalKey" : "fdd016c6"
           },
           "party" : [ {
             "meta" : {
@@ -120,8 +120,8 @@
             "product" : {
               "contractualProduct" : {
                 "productTaxonomy" : [ {
-                  "productQualifier" : "CreditDefaultSwap_SingleName",
-                  "taxonomySource" : "ISDA"
+                  "source" : "ISDA",
+                  "productQualifier" : "CreditDefaultSwap_SingleName"
                 } ],
                 "economicTerms" : {
                   "calculationAgent" : {
@@ -439,11 +439,11 @@
                   }
                 },
                 "meta" : {
-                  "globalKey" : "1418302e"
+                  "globalKey" : "5bc11855"
                 }
               },
               "meta" : {
-                "globalKey" : "1418302e"
+                "globalKey" : "5bc11855"
               }
             },
             "tradeLot" : [ {
@@ -545,7 +545,7 @@
   "intent" : "CONTRACT_FORMATION",
   "after" : [ {
     "meta" : {
-      "globalKey" : "a49f364c"
+      "globalKey" : "d216d043"
     },
     "state" : {
       "positionState" : "FORMED"
@@ -597,7 +597,7 @@
         }
       },
       "meta" : {
-        "globalKey" : "f00ec029"
+        "globalKey" : "fdd016c6"
       },
       "party" : [ {
         "meta" : {
@@ -664,8 +664,8 @@
         "product" : {
           "contractualProduct" : {
             "productTaxonomy" : [ {
-              "productQualifier" : "CreditDefaultSwap_SingleName",
-              "taxonomySource" : "ISDA"
+              "source" : "ISDA",
+              "productQualifier" : "CreditDefaultSwap_SingleName"
             } ],
             "economicTerms" : {
               "calculationAgent" : {
@@ -983,11 +983,11 @@
               }
             },
             "meta" : {
-              "globalKey" : "1418302e"
+              "globalKey" : "5bc11855"
             }
           },
           "meta" : {
-            "globalKey" : "1418302e"
+            "globalKey" : "5bc11855"
           }
         },
         "tradeLot" : [ {
@@ -1086,6 +1086,6 @@
   } ],
   "eventQualifier" : "ContractFormation",
   "meta" : {
-    "globalKey" : "79a5df63"
+    "globalKey" : "b6b17429"
   }
 }

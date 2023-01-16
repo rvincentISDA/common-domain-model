@@ -150,8 +150,8 @@
         "product" : {
           "contractualProduct" : {
             "productTaxonomy" : [ {
-              "productQualifier" : "InterestRate_IRSwap_FixedFloat_OIS",
-              "taxonomySource" : "ISDA"
+              "source" : "ISDA",
+              "productQualifier" : "InterestRate_IRSwap_FixedFloat_OIS"
             } ],
             "economicTerms" : {
               "calculationAgent" : {
@@ -498,11 +498,11 @@
               }
             },
             "meta" : {
-              "globalKey" : "c1249467"
+              "globalKey" : "725b9060"
             }
           },
           "meta" : {
-            "globalKey" : "c1249467"
+            "globalKey" : "725b9060"
           }
         },
         "tradeDate" : {
@@ -536,14 +536,14 @@
   } ],
   "after" : [ {
     "meta" : {
-      "globalKey" : "fa816e33"
+      "globalKey" : "7e83b7ac"
     },
     "state" : {
       "positionState" : "EXECUTED"
     },
     "trade" : {
       "meta" : {
-        "globalKey" : "977acee4"
+        "globalKey" : "ff72fcdb"
       },
       "party" : [ {
         "meta" : {
@@ -610,8 +610,8 @@
         "product" : {
           "contractualProduct" : {
             "productTaxonomy" : [ {
-              "productQualifier" : "InterestRate_IRSwap_FixedFloat_OIS",
-              "taxonomySource" : "ISDA"
+              "source" : "ISDA",
+              "productQualifier" : "InterestRate_IRSwap_FixedFloat_OIS"
             } ],
             "economicTerms" : {
               "calculationAgent" : {
@@ -958,11 +958,11 @@
               }
             },
             "meta" : {
-              "globalKey" : "c1249467"
+              "globalKey" : "725b9060"
             }
           },
           "meta" : {
-            "globalKey" : "c1249467"
+            "globalKey" : "725b9060"
           }
         },
         "tradeLot" : [ {
@@ -1081,6 +1081,6 @@
   } ],
   "eventQualifier" : "Execution",
   "meta" : {
-    "globalKey" : "e812c72a"
+    "globalKey" : "7a4aaed0"
   }
 }

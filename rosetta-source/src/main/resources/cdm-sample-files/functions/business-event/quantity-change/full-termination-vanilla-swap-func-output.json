@@ -4,11 +4,11 @@
     "before" : {
       "value" : {
         "meta" : {
-          "globalKey" : "b239deb7"
+          "globalKey" : "1533258f"
         },
         "trade" : {
           "meta" : {
-            "globalKey" : "b239deb7"
+            "globalKey" : "1533258f"
           },
           "party" : [ {
             "businessUnit" : [ {
@@ -138,16 +138,8 @@
                     "value" : "INTEREST_RATE"
                   }
                 }, {
-                  "taxonomySource" : "ISDA",
-                  "taxonomyValue" : {
-                    "meta" : {
-                      "scheme" : "http://www.fpml.org/coding-scheme/product-taxonomy"
-                    },
-                    "value" : "InterestRate:IRSwap:FixedFloat"
-                  }
-                }, {
-                  "productQualifier" : "InterestRate_IRSwap_FixedFloat",
-                  "taxonomySource" : "ISDA"
+                  "source" : "ISDA",
+                  "productQualifier" : "InterestRate_IRSwap_FixedFloat"
                 } ],
                 "economicTerms" : {
                   "payout" : {
@@ -484,11 +476,11 @@
                   }
                 },
                 "meta" : {
-                  "globalKey" : "f2cd0e3d"
+                  "globalKey" : "440bdf5"
                 }
               },
               "meta" : {
-                "globalKey" : "f2cd0e3d"
+                "globalKey" : "440bdf5"
               }
             },
             "tradeLot" : [ {
@@ -692,7 +684,7 @@
   } ],
   "after" : [ {
     "meta" : {
-      "globalKey" : "a40199a8"
+      "globalKey" : "bf53e502"
     },
     "state" : {
       "closedState" : {
@@ -702,7 +694,7 @@
     },
     "trade" : {
       "meta" : {
-        "globalKey" : "3b8b3057"
+        "globalKey" : "9e84772f"
       },
       "party" : [ {
         "businessUnit" : [ {
@@ -832,16 +824,8 @@
                 "value" : "INTEREST_RATE"
               }
             }, {
-              "taxonomySource" : "ISDA",
-              "taxonomyValue" : {
-                "meta" : {
-                  "scheme" : "http://www.fpml.org/coding-scheme/product-taxonomy"
-                },
-                "value" : "InterestRate:IRSwap:FixedFloat"
-              }
-            }, {
-              "productQualifier" : "InterestRate_IRSwap_FixedFloat",
-              "taxonomySource" : "ISDA"
+              "source" : "ISDA",
+              "productQualifier" : "InterestRate_IRSwap_FixedFloat"
             } ],
             "economicTerms" : {
               "payout" : {
@@ -1178,11 +1162,11 @@
               }
             },
             "meta" : {
-              "globalKey" : "f2cd0e3d"
+              "globalKey" : "440bdf5"
             }
           },
           "meta" : {
-            "globalKey" : "f2cd0e3d"
+            "globalKey" : "440bdf5"
           }
         },
         "tradeLot" : [ {
@@ -1359,6 +1343,6 @@
   } ],
   "eventQualifier" : "Termination",
   "meta" : {
-    "globalKey" : "3c073bc8"
+    "globalKey" : "c7ae5572"
   }
 }

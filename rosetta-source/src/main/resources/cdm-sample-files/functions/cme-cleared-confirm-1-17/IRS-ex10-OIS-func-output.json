@@ -24,7 +24,7 @@
       "before" : {
         "value" : {
           "meta" : {
-            "globalKey" : "cf5ea8cf"
+            "globalKey" : "6b56eb40"
           },
           "trade" : {
             "account" : [ {
@@ -49,7 +49,7 @@
             } ],
             "clearedDate" : "2018-10-31",
             "meta" : {
-              "globalKey" : "cf5ea8cf"
+              "globalKey" : "6b56eb40"
             },
             "party" : [ {
               "meta" : {
@@ -122,8 +122,8 @@
               "product" : {
                 "contractualProduct" : {
                   "productTaxonomy" : [ {
-                    "productQualifier" : "InterestRate_IRSwap_FixedFloat",
-                    "taxonomySource" : "ISDA"
+                    "source" : "ISDA",
+                    "productQualifier" : "InterestRate_IRSwap_FixedFloat"
                   } ],
                   "economicTerms" : {
                     "payout" : {
@@ -557,11 +557,11 @@
                     }
                   },
                   "meta" : {
-                    "globalKey" : "157ab3fb"
+                    "globalKey" : "acbe0d40"
                   }
                 },
                 "meta" : {
-                  "globalKey" : "157ab3fb"
+                  "globalKey" : "acbe0d40"
                 }
               },
               "tradeLot" : [ {
@@ -726,7 +726,7 @@
     "intent" : "CONTRACT_FORMATION",
     "after" : [ {
       "meta" : {
-        "globalKey" : "e66c86f2"
+        "globalKey" : "63d33cbd"
       },
       "state" : {
         "positionState" : "FORMED"
@@ -754,7 +754,7 @@
         } ],
         "clearedDate" : "2018-10-31",
         "meta" : {
-          "globalKey" : "cf5ea8cf"
+          "globalKey" : "6b56eb40"
         },
         "party" : [ {
           "meta" : {
@@ -827,8 +827,8 @@
           "product" : {
             "contractualProduct" : {
               "productTaxonomy" : [ {
-                "productQualifier" : "InterestRate_IRSwap_FixedFloat",
-                "taxonomySource" : "ISDA"
+                "source" : "ISDA",
+                "productQualifier" : "InterestRate_IRSwap_FixedFloat"
               } ],
               "economicTerms" : {
                 "payout" : {
@@ -1262,11 +1262,11 @@
                 }
               },
               "meta" : {
-                "globalKey" : "157ab3fb"
+                "globalKey" : "acbe0d40"
               }
             },
             "meta" : {
-              "globalKey" : "157ab3fb"
+              "globalKey" : "acbe0d40"
             }
           },
           "tradeLot" : [ {
@@ -1428,7 +1428,7 @@
     } ],
     "eventQualifier" : "ContractFormation",
     "meta" : {
-      "globalKey" : "7fe633a7"
+      "globalKey" : "fe6fc5a1"
     }
   },
   "messageInformation" : {
@@ -1457,7 +1457,7 @@
     } ]
   },
   "meta" : {
-    "globalKey" : "a6fb9acc"
+    "globalKey" : "bb28952"
   },
   "party" : [ {
     "meta" : {
