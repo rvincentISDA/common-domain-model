@@ -32,14 +32,1218 @@ import cdm.product.collateral.*
 
 synonym source FpML
 
-synonym source FpML_5_10 extends FpML
+synonym source FpML_5 extends FpML {
+	TradeState:
+		[meta "id" path "trade"]
+		+ trade
+			[value "trade" mapper "Party"]
+			[hint "party"]
+			[hint "account"]
+		+ resetHistory
+			[value "ignore"]
+		+ transferHistory
+			// premium
+			[value "bondOption" path "trade"]
+			[value "swaption" path "trade"]
+			[value "fxOption" path "trade"]
+			[value "fxDigitalOption" path "trade"]
+			[value "creditDefaultSwapOption" path "trade"]
+			[value "commodityOption" path "trade"]
+			[value "commodityBasketOption" path "trade"]
+			[value "capFloor" path "trade"]
+			[value "commoditySwaption" path "trade"]
+			// equityPremium
+			[value "equityOption" path "trade"]
+			[value "brokerEquityOption" path "trade"]
+			[value "dividendSwapOptionTransactionSupplement" path "trade"]
+			[value "equityOptionTransactionSupplement" path "trade"]
+			[value "varianceOptionTransactionSupplement" path "trade"]
+			[value "dividendSwapOptionTransactionSupplement" path "trade"]
+			[value "fxVarianceSwap" path "trade"]
+			[value "fxVolatilitySwap" path "trade"]
+			// initialPayment / singlePayment
+			[value "feeLeg" path "trade->creditDefaultSwap"]
+			// additionalPayment
+			[value "swap" path "trade"]
+			// otherPartyPayment
+			[value "trade"]
+
+	Trade:
+		+ tradeIdentifier
+			[value "partyTradeIdentifier" path "tradeHeader"]
+		+ tradeDate
+			[value "tradeDate" maps 2 meta "id"]
+			[value "tradeDate" path "tradeHeader" maps 2 meta "id"]
+		+ party
+			[value "party"]
+		+ partyRole
+			[value "determiningParty" ,"barrierDeterminationAgent", "hedgingParty" , "brokerPartyReference" mapper "PartyRole"]
+			[value "partyTradeIdentifier" path "tradeHeader", "partyTradeInformation" path "tradeHeader"]
+		+ clearedDate
+			[value "clearedDate" path "tradeHeader"]
+		+ collateral
+			[value "collateral"]
+		+ account
+			[value "account"]
+
+	AssignedIdentifier:
+		+ identifier
+			[value "tradeId" meta "tradeIdScheme"]
+			[value "tradeId" path "versionedTradeId" meta "tradeIdScheme"]
+			[value "businessUnitId" meta "unitScheme"]
+			[value "eventId"]
+		+ version
+			[value "version" path "versionedTradeId"]
+			[value "version"]
+
+	Identifier:
+		[meta "id"]
+		[meta "id" path "versionedTradeId->tradeId"]
+		+ issuerReference
+			[value "issuer" meta "href"]
+			[value "partyReference" meta "href"]
+		+ issuer
+			[value "issuer" meta "issuerIdScheme"]
+		
+	TradableProduct:
+		+ tradeLot
+			// Rates
+			[value "swap", "swap" path "swaption", "swaption"]
+			[value "capFloor"]
+			[hint "fra"]
+			[hint "bondOption"]
+			[value "bulletPayment"]
+			// Credit
+			[value "creditDefaultSwap", "creditDefaultSwap" path "creditDefaultSwapOption", "creditDefaultSwapOption"]
+			// FX
+			[hint "fxSingleLeg"]
+			[value "fxSwap"]
+			[hint "fxOption", "fxDigitalOption"]
+			// Equity
+			[value "returnSwap", "equitySwapTransactionSupplement"]
+			[value "basket" path "returnSwap->returnLeg->underlyer"]
+			[hint "equityOption"]
+			[value "basket" path "equityOption->underlyer"]
+			[value "brokerEquityOption"]
+			// Performance
+			[value "varianceSwap"]
+			[value "dividendSwapTransactionSupplement"]
+			[value "correlationSwap"]
+			[value "volatilitySwapTransactionSupplement"]
+			[value "varianceOptionTransactionSupplement"]
+			[value "dividendSwapTransactionSupplement" path "dividendSwapOptionTransactionSupplement"]
+			[value "varianceSwapTransactionSupplement" path "varianceOptionTransactionSupplement"]
+			[hint "fxVarianceSwap"]
+			[hint "fxVolatilitySwap"]
+			// Other
+			[value "commoditySwap"]
+			[hint "commodityOption"]
+			[value "commoditySwap" path "commoditySwaption"]
+			[hint "repo"]
+		+ adjustment
+			[value "notionalAdjustments" path "returnSwap->returnLeg", "notionalAdjustments" path "equitySwapTransactionSupplement->returnLeg"]
+
+	ContractDetails:
+		+ documentation
+			[value "documentation" mapper "Documentation"]
+		+ governingLaw
+			[value "governingLaw" meta "governingLawScheme"]
+
+	Party:
+	 	[value "Party" meta "id" maps 2]
+		+ name
+			[value "partyName" meta "entityNameScheme"]
+			[value "entityName" meta "entityNameScheme"]
+			[value "entityName" path "referenceEntity" meta "entityNameScheme"]
+		+ person
+			[value "person"]
+		+ account
+			[value "account"]
+		+ contactInformation
+            [value "contactInfo"]
+            [hint "country"]
+        + businessUnit
+            [value "businessUnit"]
+
+	NaturalPerson:
+	 	[value "Person" meta "id"]
+		+ honorific
+			[value "honorific"]
+		+ firstName
+			[value "firstName"]
+		+ middleName
+			[value "middleName"]
+		+ initial
+			[value "initial"]
+		+ surname
+			[value "surname"]
+		+ suffix
+			[value "suffix"]
+		+ dateOfBirth
+			[value "dateOfBirth"]
+
+	PersonIdentifier:
+		+ identifier
+			[value "personId" meta "personIdScheme"]
+		+ country
+			[value "country" path "Person"]
+
+	NaturalPersonRole:
+		+ personReference
+			[value "personReference" meta "href"]
+		+ role
+			[value "role" meta "personRoleScheme"]
+
+	PartyContactInformation:
+		+ partyReference
+			[value "partyReference" meta "href"]
+		+ contactInformation
+			[value "contactInfo"]
+		+ businessUnit
+			[value "businessUnit"]
+		+ person
+			[value "person"]
+
+	Account:
+	 	[value "Account" meta "id"]
+	 	+ partyReference
+			[value "id" mapper "AccountPartyReference"]
+		+ accountNumber
+			[value "accountId" meta "accountIdScheme"]
+		+ accountName
+			[value "accountName" meta "accountNameScheme"]
+		+ accountType
+			[value "accountType" meta "accountTypeScheme"]
+		+ accountBeneficiary
+			[value "accountBeneficiary" meta "href"]
+		+ servicingParty
+			[value "servicingParty" meta "href"]
+
+	ContactInformation:
+		+ telephone
+			[value "telephone"]
+		+ address
+			[value "address"]
+			[hint "country"]
+		+ email
+			[value "email"]
+
+	TelephoneNumber:
+        + number
+            [value "number"]
+        + telephoneNumberType
+            [value "type"]
+
+	Address:
+		+ street
+			[value "streetAddress"]
+			[value "streetLine" path "streetAddress"]
+		+ city
+			[value "city"]
+		+ state
+			[value "state"]
+		+ country
+			[value "country" meta "countryScheme"]
+		+ postalCode
+			[value "postalCode"]
+
+	BusinessUnit:
+	 	[value "BusinessUnit" meta "id"]
+		+ name
+			[value "name"]
+		+ contactInformation
+			[value "contactInfo"]
+			[hint "country"]
+
+	PartyRole:
+		+ partyReference
+			[value "partyReference" path "relatedParty" meta "href"]
+		+ role
+			[value "role" path "relatedParty"]
+		+ ownershipPartyReference
+			[value "partyReference" set when "relatedParty->role" exists meta "href"]
+
+	PartyIdentifier:
+		+ identifier
+			[value "partyId" meta "partyIdScheme"]
+		+ identifierType
+			[set to PartyIdentifierTypeEnum -> LEI when "partyId->partyIdScheme" = "http://www.fpml.org/coding-scheme/external/iso17442"]
+			[set to PartyIdentifierTypeEnum -> BIC when "partyId->partyIdScheme" = "http://www.fpml.org/coding-scheme/external/iso9362"]
+
+	LegalEntity:
+		[meta "id" path "referenceEntity"]
+		+ entityId
+			[value "entityId" meta "entityIdScheme"]
+			[value "entityId" path "referenceEntity" meta "entityIdScheme"]
+		+ name
+			[value "partyName" meta "entityNameScheme"]
+			[value "entityName" meta "entityNameScheme"]
+			[value "entityName" path "referenceEntity" meta "entityNameScheme"]
+			[value "initialDesignation"]
+			[value "dealer"]
+
+	AdditionalDisruptionEvents:
+		+ changeInLaw
+			[value "changeInLaw"]
+		+ failureToDeliver
+			[value "failureToDeliver"]
+		+ insolvencyFiling
+			[value "insolvencyFiling"]
+		+ hedgingDisruption
+			[value "hedgingDisruption"]
+		+ increasedCostOfHedging
+			[value "increasedCostOfHedging"]
+		+ foreignOwnershipEvent
+			[value "foreignOwnershipEvent"]
+		+ lossOfStockBorrow
+			[value "lossOfStockBorrow"]
+		+ maximumStockLoanRate
+			[value "maximumStockLoanRate"]
+		+ increasedCostOfStockBorrow
+			[value "increasedCostOfStockBorrow"]
+		+ initialStockLoanRate
+			[value "initialStockLoanRate"]
+		+ determiningParty
+			[value "determiningPartyReference" mapper "DisruptionEventsDeterminingParty"]
+
+	CalculationAgent:
+		+ calculationAgentParty
+			[value "calculationAgentPartyReference" mapper "CalculationAgentParty"]
+		+ calculationAgentPartyEnum
+		+ calculationAgentBusinessCenter
+			[value "calculationAgentBusinessCenter" meta "businessCenterScheme"]
+
+	DividendReturnTerms:
+		+ dividendPayoutRatio
+			// Equity swaps
+			[value "singleUnderlyer", "basketConstituent" path "basket", "dividendConditions"]
+			// Dividend swaps
+			[hint "declaredCashDividendPercentage", "declaredCashEquivalentDividendPercentage"]
+		+ dividendReinvestment
+			[value "dividendReinvestment" path "dividendConditions"]
+		+ dividendEntitlement
+			[value "dividendEntitlement" path "dividendConditions"]
+		+ dividendAmountType
+			[value "dividendAmount" path "dividendConditions"]
+		+ firstOrSecondPeriod
+			[value "dividendPeriod" path "dividendConditions"]
+		+ extraordinaryDividendsParty
+			[value "extraOrdinaryDividends" path "dividendConditions" mapper "ExtraordinaryDividendsParty"]
+		+ excessDividendAmount
+			[value "excessDividendAmount" path "dividendConditions"]
+		+ dividendCurrency
+			[value "dividendConditions"]
+		+ nonCashDividendTreatment
+			[value "nonCashDividendTreatment" path "dividendConditions"]
+		+ dividendComposition
+			[value "dividendComposition" path "dividendConditions"]
+		+ specialDividends
+			[value "specialDividends"]
+		+ materialDividend
+			[value "materialDividend"]
+		+ dividendPeriod
+			// Equity swaps
+			[value "dividendConditions"]
+			// Dividend swaps
+			[value "dividendPeriod"]
+
+	PhysicalSettlementTerms:
+		+ physicalSettlementPeriod
+			[value "physicalSettlementPeriod"]
+		+ deliverableObligations
+			[value "deliverableObligations"]
+		+ escrow
+			[value "escrow"]
+		+ sixtyBusinessDaySettlementCap
+			[value "sixtyBusinessDaySettlementCap"]
+		+ clearedPhysicalSettlement
+			[value "clearedPhysicalSettlement"]
+		+ predeterminedClearingOrganizationParty
+		 	[value "predeterminedClearingOrganizationPartyReference" mapper "PredeterminedClearingOrganizationParty"]
+
+	ExerciseNotice:
+		+ exerciseNoticeGiver
+			[value "partyReference" mapper "ExerciseNoticeGiver"]
+		+ exerciseNoticeReceiver
+			[value "exerciseNoticePartyReference" mapper "ExerciseNoticeReceiver"]
+		+ businessCenter
+			[value "businessCenter" meta "businessCenterScheme"]
+
+	enums
+
+	MasterAgreementTypeEnum:
+		+ AFB
+		 	[value "AFB"]
+		+ Bespoke
+			[value "Bespoke"]
+		+ CMA
+			[value "CMA"]
+		+ CMOF
+			[value "CMOF"]
+		+ EEIPower
+			[value "EEIPower"]
+		+ EFETElectricity
+			[value "EFETElectricity"]
+		+ EFETGas
+			[value "EFETGas"]
+		+ EMA
+			[value "EMA"]
+		+ FBF
+			[value "FBF"]
+		+ GMRA
+			[value "GMRA"]
+		+ GMSLA
+			[value "GMSLA"]
+		+ GTMA
+			[value "GTMA"]
+		+ GasEDI
+			[value "GasEDI"]
+		+ German
+			[value "German"]
+		+ ICOM
+			[value "ICOM"]
+		+ IETA_ERPA
+			[value "IETA-ERPA"]
+		+ IETA_ETMA
+			[value "IETA-ETMA"]
+		+ IETA_IETMA
+			[value "IETA-IETMA"]
+		+ IFEMA
+			[value "IFEMA"]
+		+ IFEOMA
+			[value "IFEOMA"]
+		+ ISDAMaster
+		 	[value "ISDA"]
+		+ ISDAFIA_CDEA
+			[value "ISDAFIA-CDEA"]
+		+ JSCC
+			[value "JSCC"]
+		+ LBMA
+			[value "LBMA"]
+		+ LEAP
+			[value "LEAP"]
+		+ MCPSA
+			[value "MCPSA"]
+		+ NAESBGas
+			[value "NAESBGas"]
+		+ NBP
+			[value "NBP"]
+		+ RussianDerivatives
+			[value "RussianDerivatives"]
+		+ RussianRepo
+			[value "RussianRepo"]
+		+ SCoTA
+			[value "SCoTA"]
+		+ Swiss
+			[value "Swiss"]
+		+ TTF
+			[value "TTF"]
+		+ ZBT
+			[value "ZBT"]
+
+	ContractualDefinitionsEnum:
+		+ ISDA1991
+			[value "ISDA1991"]
+		+ ISDA1993Commodity
+			[value "ISDA1993Commodity"]
+		+ ISDA1996Equity
+			[value "ISDA1996Equity"]
+		+ ISDA1997Bullion
+			[value "ISDA1997Bullion"]
+		+ ISDA1997GovernmentBond
+			[value "ISDA1997GovernmentBond"]
+		+ ISDA1998FX
+			[value "ISDA1998FX"]
+		+ ISDA1999Credit
+			[value "ISDA1999Credit"]
+		+ ISDA2000
+			[value "ISDA2000"]
+		+ ISDA2002Equity
+			[value "ISDA2002Equity"]
+		+ ISDA2003Credit
+			[value "ISDA2003Credit"]
+		+ ISDA2004Novation
+			[value "ISDA2004Novation"]
+		+ ISDA2005Commodity
+			[value "ISDA2005Commodity"]
+		+ ISDA2006
+			[value "ISDA2006"]
+		+ ISDA2006Inflation
+			[value "ISDA2006Inflation"]
+		+ ISDA2008Inflation
+			[value "ISDA2008Inflation"]
+		+ ISDA2011Equity
+			[value "ISDA2011Equity"]
+		+ ISDA2014Credit
+			[value "ISDA2014Credit"]
+
+	GoverningLawEnum:
+		+ AsSpecifiedInMasterAgreement
+			[value "AsSpecifiedInMasterAgreement"]
+		+ CAAB
+			[value "CAAB"]
+		+ CABC
+			[value "CABC"]
+		+ CAMN
+			[value "CAMN"]
+		+ CAON
+			[value "CAON"]
+		+ CAQC
+			[value "CAQC"]
+		+ DE
+			[value "DE"]
+		+ FR
+			[value "FR"]
+		+ GBEN
+			[value "GBEN"]
+		+ GBGY
+			[value "GBGY"]
+		+ GBIM
+			[value "GBIM"]
+		+ GBJY
+			[value "GBJY"]
+		+ GBSC
+			[value "GBSC"]
+		+ JP
+			[value "JP"]
+		+ USCA
+			[value "USCA"]
+		+ USDE
+			[value "USDE"]
+		+ USIL
+			[value "USIL"]
+		+ USNY
+			[value "USNY"]
+
+	PartyRoleEnum:
+		+ Accountant
+			[value "Accountant"]
+		+ AllocationAgent
+			[value "AllocationAgent"]
+		+ ArrangingBroker
+			[value "ArrangingBroker"]
+		+ Beneficiary
+			[value "Beneficiary"]
+		+ BookingParty
+			[value "BookingParty"]
+		+ Buyer
+			[value "Buyer"]
+		+ BuyerDecisionMaker
+			[value "BuyerDecisionMaker"]
+		+ ClearingClient
+			[value "ClearingClient"]
+		+ ClearingExceptionParty
+			[value "ClearingExceptionParty"]
+		+ ClearingFirm
+			[value "ClearingFirm"]
+		+ ClearingOrganization
+			[value "ClearingOrganization"]
+		+ Client
+			[value "Client"]
+		+ ClientDecisionMaker
+			[value "ClientDecisionMaker"]
+		+ ConfirmationPlatform
+			[value "ConfirmationPlatform"]
+			[value "ConfirmationService"]
+		+ ContractualParty
+			[value "ContractualParty"]
+		+ CounterPartyAffiliate
+			[value "CounterPartyAffiliate"]
+		+ CounterPartyUltimateParent
+			[value "CounterPartyUltimateParent"]
+		+ Counterparty
+			[value "Counterparty"]
+		+ CreditSupportProvider
+			[value "CreditSupportProvider"]
+		+ Custodian
+			[value "Custodian"]
+		+ DataSubmitter
+			[value "DataSubmitter"]
+		+ DisputingParty
+			[value "DisputingParty"]
+		+ DocumentRepository
+			[value "DocumentRepository"]
+		+ ExecutingBroker
+			[value "ExecutingBroker"]
+		+ ExecutingEntity
+			[value "ExecutingEntity"]
+		+ ExecutionAgent
+			[value "ExecutionAgent"]
+		+ ExecutionFacility
+			[value "ExecutionFacility"]
+		+ Guarantor
+			[value "Guarantor"]
+		+ OrderTransmitter
+			[value "OrderTransmitter"]
+		+ PrimeBroker
+			[value "PrimeBroker"]
+		+ PriorTradeRepository
+			[value "PriorTradeRepository"]
+		+ PublicationVenue
+			[value "PublicationVenue"]
+		+ ReportingParty
+			[value "ReportingParty"]
+		+ ReportingPartyAffiliate
+			[value "ReportingPartyAffiliate"]
+		+ ReportingPartyUltimateParent
+			[value "ReportingPartyUltimateParent"]
+		+ Seller
+			[value "Seller"]
+		+ SellerDecisionMaker
+			[value "SellerDecisionMaker"]
+		+ SettlementAgent
+			[value "SettlementAgent"]
+		+ TradeRepository
+			[value "TradeRepository"]
+		+ TradeSource
+			[value "TradeSource"]
+		+ TradingManager
+			[value "TradingManager"]
+		+ TradingPartner
+			[value "TradingPartner"]
+
+	NaturalPersonRoleEnum:
+		+ Broker
+			[value "Broker"]
+		+ Buyer
+			[value "Buyer"]
+		+ DecisionMaker
+			[value "DecisionMaker"]
+		+ ExecutionWithinFirm
+			[value "ExecutionWithinFirm"]
+		+ InvestmentDecisionMaker
+			[value "InvestmentDecisionMaker"]
+		+ Seller
+			[value "Seller"]
+		+ Trader
+			[value "Trader"]
+
+	AccountTypeEnum:
+		+ AggregateClient
+			[value "AggregateClient"]
+		+ Client
+			[value "Client"]
+		+ House
+			[value "House"]
+
+	PartyDeterminationEnum:
+		+ ExercisingParty
+			[value "ExercisingParty"]
+		+ NonExercisingParty
+			[value "NonExercisingParty"]
+		+ AsSpecifiedInMasterAgreement
+			[value "AsSpecifiedInMasterAgreement"]
+		+ AsSpecifiedInStandardTermsSupplement
+			[value "AsSpecifiedInStandardTermsSupplement"]
+		+ Both
+			[value "Both"]
+
+	BusinessCenterEnum:
+		+ AEAD
+			[value "AEAD"]
+		+ AEDU
+			[value "AEDU"]
+		+ AMYE
+			[value "AMYE"]
+		+ AOLU
+			[value "AOLU"]
+		+ ARBA
+			[value "ARBA"]
+		+ ATVI
+			[value "ATVI"]
+		+ AUAD
+			[value "AUAD"]
+		+ AUBR
+			[value "AUBR"]
+		+ AUCA
+			[value "AUCA"]
+		+ AUDA
+			[value "AUDA"]
+		+ AUME
+			[value "AUME"]
+		+ AUPE
+			[value "AUPE"]
+		+ AUSY
+			[value "AUSY"]
+		+ BBBR
+			[value "BBBR"]
+		+ BDDH
+			[value "BDDH"]
+		+ BEBR
+			[value "BEBR"]
+		+ BGSO
+			[value "BGSO"]
+		+ BHMA
+			[value "BHMA"]
+		+ BMHA
+			[value "BMHA"]
+		+ BNBS
+			[value "BNBS"]
+		+ BOLP
+			[value "BOLP"]
+		+ BRBD
+			[value "BRBD"]
+		+ BRBR
+			[value "BRBR"]
+		+ BRRJ
+			[value "BRRJ"]
+		+ BRSP
+			[value "BRSP"]
+		+ BSNA
+			[value "BSNA"]
+		+ BWGA
+			[value "BWGA"]
+		+ BYMI
+			[value "BYMI"]
+		+ CACL
+			[value "CACL"]
+		+ CAMO
+			[value "CAMO"]
+		+ CAOT
+			[value "CAOT"]
+		+ CATO
+			[value "CATO"]
+		+ CAVA
+			[value "CAVA"]
+		+ CAWI
+			[value "CAWI"]
+		+ CHBA
+			[value "CHBA"]
+		+ CHGE
+			[value "CHGE"]
+		+ CHZU
+			[value "CHZU"]
+		+ CIAB
+			[value "CIAB"]
+		+ CLSA
+			[value "CLSA"]
+		+ CNBE
+			[value "CNBE"]
+		+ CNSH
+			[value "CNSH"]
+		+ COBO
+			[value "COBO"]
+		+ CRSJ
+			[value "CRSJ"]
+		+ CYNI
+			[value "CYNI"]
+		+ CZPR
+			[value "CZPR"]
+		+ DECO
+			[value "DECO"]
+		+ DEDU
+			[value "DEDU"]
+		+ DEFR
+			[value "DEFR"]
+		+ DEHH
+			[value "DEHH"]
+		+ DELE
+			[value "DELE"]
+		+ DEMA
+			[value "DEMA"]
+		+ DEMU
+			[value "DEMU"]
+		+ DEST
+			[value "DEST"]
+		+ DKCO
+			[value "DKCO"]
+		+ DOSD
+			[value "DOSD"]
+		+ DZAL
+			[value "DZAL"]
+		+ EETA
+			[value "EETA"]
+		+ EGCA
+			[value "EGCA"]
+		+ ESAS
+			[value "ESAS"]
+		+ ESBA
+			[value "ESBA"]
+		+ ESMA
+			[value "ESMA"]
+		+ ETAA
+			[value "ETAA"]
+		+ EUTA
+			[value "EUTA"]
+		+ FIHE
+			[value "FIHE"]
+		+ FRPA
+			[value "FRPA"]
+		+ GBED
+			[value "GBED"]
+		+ GBLO
+			[value "GBLO"]
+		+ GETB
+			[value "GETB"]
+		+ GGSP
+			[value "GGSP"]
+		+ GHAC
+			[value "GHAC"]
+		+ GRAT
+			[value "GRAT"]
+		+ HKHK
+			[value "HKHK"]
+		+ HNTE
+			[value "HNTE"]
+		+ HRZA
+			[value "HRZA"]
+		+ HUBU
+			[value "HUBU"]
+		+ IDJA
+			[value "IDJA"]
+		+ IEDU
+			[value "IEDU"]
+		+ ILJE
+			[value "ILJE"]
+		+ ILTA
+			[value "ILTA"]
+		+ INBA
+			[value "INBA"]
+		+ INCH
+			[value "INCH"]
+		+ INHY
+			[value "INHY"]
+		+ INKO
+			[value "INKO"]
+		+ INMU
+			[value "INMU"]
+		+ INND
+			[value "INND"]
+		+ IRTE
+			[value "IRTE"]
+		+ ISRE
+			[value "ISRE"]
+		+ ITMI
+			[value "ITMI"]
+		+ ITRO
+			[value "ITRO"]
+		+ ITTU
+			[value "ITTU"]
+		+ JESH
+			[value "JESH"]
+		+ JMKI
+			[value "JMKI"]
+		+ JOAM
+			[value "JOAM"]
+		+ JPTO
+			[value "JPTO"]
+		+ KENA
+			[value "KENA"]
+		+ KRSE
+			[value "KRSE"]
+		+ KWKC
+			[value "KWKC"]
+		+ KYGE
+			[value "KYGE"]
+		+ KZAL
+			[value "KZAL"]
+		+ LBBE
+			[value "LBBE"]
+		+ LKCO
+			[value "LKCO"]
+		+ LULU
+			[value "LULU"]
+		+ LVRI
+			[value "LVRI"]
+		+ MACA
+			[value "MACA"]
+		+ MARA
+			[value "MARA"]
+		+ MCMO
+			[value "MCMO"]
+		+ MOMA
+			[value "MOMA"]
+		+ MTVA
+			[value "MTVA"]
+		+ MUPL
+			[value "MUPL"]
+		+ MVMA
+			[value "MVMA"]
+		+ MWLI
+			[value "MWLI"]
+		+ MXMC
+			[value "MXMC"]
+		+ MYKL
+			[value "MYKL"]
+		+ MYLA
+			[value "MYLA"]
+		+ NAWI
+			[value "NAWI"]
+		+ NGAB
+			[value "NGAB"]
+		+ NGLA
+			[value "NGLA"]
+		+ NLAM
+			[value "NLAM"]
+		+ NLRO
+			[value "NLRO"]
+		+ NOOS
+			[value "NOOS"]
+		+ NPKA
+			[value "NPKA"]
+		+ NYFD
+			[value "NYFD"]
+		+ NYSE
+			[value "NYSE"]
+		+ NZAU
+			[value "NZAU"]
+		+ NZWE
+			[value "NZWE"]
+		+ OMMU
+			[value "OMMU"]
+		+ PAPC
+			[value "PAPC"]
+		+ PELI
+			[value "PELI"]
+		+ PHMA
+			[value "PHMA"]
+		+ PHMK
+			[value "PHMK"]
+		+ PKKA
+			[value "PKKA"]
+		+ PLWA
+			[value "PLWA"]
+		+ PRSJ
+			[value "PRSJ"]
+		+ PTLI
+			[value "PTLI"]
+		+ QADO
+			[value "QADO"]
+		+ ROBU
+			[value "ROBU"]
+		+ RSBE
+			[value "RSBE"]
+		+ RUMO
+			[value "RUMO"]
+		+ SAAB
+			[value "SAAB"]
+		+ SAJE
+			[value "SAJE"]
+		+ SARI
+			[value "SARI"]
+		+ SEST
+			[value "SEST"]
+		+ SGSI
+			[value "SGSI"]
+		+ SILJ
+			[value "SILJ"]
+		+ SKBR
+			[value "SKBR"]
+		+ SNDA
+			[value "SNDA"]
+		+ SVSS
+			[value "SVSS"]
+		+ THBA
+			[value "THBA"]
+		+ TNTU
+			[value "TNTU"]
+		+ TRAN
+			[value "TRAN"]
+		+ TRIS
+			[value "TRIS"]
+		+ TTPS
+			[value "TTPS"]
+		+ TWTA
+			[value "TWTA"]
+		+ TZDA
+			[value "TZDA"]
+		+ TZDO
+			[value "TZDO"]
+		+ UAKI
+			[value "UAKI"]
+		+ UGKA
+			[value "UGKA"]
+		+ USBO
+			[value "USBO"]
+		+ USCH
+			[value "USCH"]
+		+ USCR
+			[value "USCR"]
+		+ USDC
+			[value "USDC"]
+		+ USDN
+			[value "USDN"]
+		+ USDT
+			[value "USDT"]
+		+ USGS
+			[value "USGS"]
+		+ USHL
+			[value "USHL"]
+		+ USHO
+			[value "USHO"]
+		+ USLA
+			[value "USLA"]
+		+ USMB
+			[value "USMB"]
+		+ USMN
+			[value "USMN"]
+		+ USNY
+			[value "USNY"]
+		+ USPO
+			[value "USPO"]
+		+ USSA
+			[value "USSA"]
+		+ USSE
+			[value "USSE"]
+		+ USWT
+			[value "USWT"]
+		+ UYMO
+			[value "UYMO"]
+		+ VECA
+			[value "VECA"]
+		+ VGRT
+			[value "VGRT"]
+		+ VNHA
+			[value "VNHA"]
+		+ VNHC
+			[value "VNHC"]
+		+ YEAD
+			[value "YEAD"]
+		+ ZAJO
+			[value "ZAJO"]
+		+ ZMLU
+			[value "ZMLU"]
+		+ ZWHA
+			[value "ZWHA"]
+		// Commodity Business Centers from FpML
+		+ ADSM
+			[value "ADSM"]
+		+ AGRUSFMB
+			[value "AGRUS-FMB"]
+		+ APPI
+			[value "APPI"]
+		+ ARGUSCRUDE
+			[value "ARGUS-CRUDE"]
+		+ ARGUSEUROPEANGAS
+			[value "ARGUS-EUROPEAN-GAS"]
+		+ ARGUSEUROPEANPRODUCTS
+			[value "ARGUS-EUROPEAN-PRODUCTS"]
+		+ ARGUSINTERNATIONALLPG
+			[value "ARGUS-INTERNATIONAL-LPG"]
+		+ ARGUSMCCLOSKEYSCOALREPORT
+			[value "ARGUS-MCCLOSKEYS-COAL-REPORT"]
+		+ ARGUSUSPRODUCTS
+			[value "ARGUS-US-PRODUCTS"]
+		+ ASX
+			[value "ASX"]
+		+ AWB
+			[value "AWB"]
+		+ AWEX
+			[value "AWEX"]
+		+ BALTICEXCHANGE
+			[value "BALTIC-EXCHANGE"]
+		+ BANKNEGARAMALAYSIAPOLICYCOMMITTEE
+			[value "BANK-NEGARA-MALAYSIA-POLICY-COMMITTEE"]
+		+ BELPEX
+			[value "BELPEX"]
+		+ BLUENEXT
+			[value "BLUENEXT"]
+		+ BMandF
+			[value "BM&F"]
+		+ BURSAMALAYSIASETTLEMENT
+			[value "BURSA-MALAYSIA-SETTLEMENT"]
+		+ BURSAMALAYSIATRADING
+			[value "BURSA-MALAYSIA-TRADING"]
+		+ CANADIANGASPRICEREPORTER
+			[value "CANADIAN-GAS-PRICE-REPORTER"]
+		+ CBOTSOFT
+			[value "CBOT-SOFT"]
+		+ CMAIAROMATICSMARKETREPORT
+			[value "CMAI-AROMATICS-MARKET-REPORT"]
+		+ CMAIGLOBALPLASTICSANDPOLYMERSMARKETREPORT
+			[value "CMAI-GLOBAL-PLASTICS-AND-POLYMERS-MARKET-REPORT"]
+		+ CMAIMETHANOLMARKETREPORT
+			[value "CMAI-METHANOL-MARKET-REPORT"]
+		+ CMAIMONOMERSMARKETREPORT
+			[value "CMAI-MONOMERS-MARKET-REPORT"]
+		+ CMEDAIRY
+			[value "CME-DAIRY"]
+		+ CMENONDAIRYSOFT
+			[value "CME-NON-DAIRY-SOFT"]
+		+ COMEX
+			[value "COMEX"]
+		+ CRU
+			[value "CRU"]
+		+ CRULONG
+			[value "CRU-LONG"]
+		+ DEPARTMENTOFENERGY
+			[value "DEPARTMENT-OF-ENERGY"]
+		+ DEWITTBENZENEDERIVATIVES
+			[value "DEWITT-BENZENE-DERIVATIVES"]
+		+ DME
+			[value "DME"]
+		+ DOWJONES
+			[value "DOW-JONES"]
+		+ DOWJONESENERGYSERVICE
+			[value "DOW-JONES-ENERGY-SERVICE"]
+		+ DowJonesPower
+			[value "DowJonesPower"]
+		+ EEXCOAL
+			[value "EEX-COAL"]
+		+ EEXEMISSIONS
+			[value "EEX-EMISSIONS"]
+		+ EEXGAS
+			[value "EEX-GAS"]
+		+ EEXPOWER
+			[value "EEX-POWER"]
+		+ EURONEXMATIF
+			[value "EURONEX-MATIF"]
+		+ FERTECON
+			[value "FERTECON"]
+		+ FERTILIZERWEEK
+			[value "FERTILIZER-WEEK"]
+		+ GASDAILY
+			[value "GAS-DAILY"]
+		+ GASDAILYPRICEGUIDE
+			[value "GAS-DAILY-PRICE-GUIDE"]
+		+ GLOBALCOAL
+			[value "GLOBALCOAL"]
+		+ HERENREPORT
+			[value "HEREN-REPORT"]
+		+ ICE10XDAILY
+			[value "ICE/10X-DAILY"]
+		+ ICE10XMONTHLY
+			[value "ICE/10X-MONTHLY"]
+		+ ICECANADA
+			[value "ICE-CANADA"]
+		+ ICEECX
+			[value "ICE-ECX"]
+		+ ICEGAS
+			[value "ICE-GAS"]
+		+ ICEOIL
+			[value "ICE-OIL"]
+		+ ICEUSAGRICULTURAL
+			[value "ICE-US-AGRICULTURAL"]
+		+ ICISPRICINGBENZENEEUROPE
+			[value "ICIS-PRICING-BENZENE-(EUROPE)"]
+		+ ICISPRICINGETHYLENEEUROPE
+			[value "ICIS-PRICING-ETHYLENE-(EUROPE)"]
+		+ ICISPRICINGPOLYPROPYLENEEUROPE
+			[value "ICIS-PRICING-POLYPROPYLENE-(EUROPE)"]
+		+ INSIDEFERC
+			[value "INSIDE-FERC"]
+		+ JAPANMOFTSRR
+			[value "JAPAN-MOF-TSRR"]
+		+ KCBOT
+			[value "KCBOT"]
+		+ KUALALUMPURBANK
+			[value "KUALA-LUMPUR-BANK"]
+		+ LABUANBANK
+			[value "LABUAN-BANK"]
+		+ LIFFELONDONSOFT
+			[value "LIFFE-LONDON-SOFT"]
+		+ LME
+			[value "LME"]
+		+ LONDONBULLIONMARKET
+			[value "LONDON-BULLION-MARKET"]
+		+ LONDONBULLIONMARKETGOLDAMONLY
+			[value "LONDON-BULLION-MARKET-GOLD-A.M-ONLY"]
+		+ LONDONPLATINUMPALLADIUMMARKET
+			[value "LONDON-PLATINUM-PALLADIUM-MARKET"]
+		+ MGEX
+			[value "MGEX"]
+		+ NASDAQOMX
+			[value "NASDAQ-OMX"]
+		+ NATURALGASWEEK
+			[value "NATURAL-GAS-WEEK"]
+		+ NERC
+			[value "NERC"]
+		+ NGI
+			[value "NGI"]
+		+ NGX
+			[value "NGX"]
+		+ NUCLEARMARKETREVIEW
+			[value "NUCLEAR-MARKET-REVIEW"]
+		+ NYMEXELECTRICITY
+			[value "NYMEX-ELECTRICITY"]
+		+ NYMEXGAS
+			[value "NYMEX-GAS"]
+		+ NYMEXNATURALGAS
+			[value "NYMEX-NATURAL-GAS"]
+		+ NYMEXOIL
+			[value "NYMEX-OIL"]
+		+ OFFICIALBOARDMARKETS
+			[value "OFFICIAL-BOARD-MARKETS"]
+		+ OPISLPGAS
+			[value "OPIS-LP-GAS"]
+		+ OPISPROPANE
+			[value "OPIS-PROPANE"]
+		+ PAPERPACKAGINGMONITOR
+			[value "PAPER-PACKAGING-MONITOR"]
+		+ PAPERTRADER
+			[value "PAPER-TRADER"]
+		+ PERTAMINA
+			[value "PERTAMINA"]
+		+ PETROCHEMWIRE
+			[value "PETROCHEMWIRE"]
+		+ PIXPULPBENCHMARKINDICES
+			[value "PIX-PULP-BENCHMARK-INDICES"]
+		+ PLATTSAPAGMARKETSCAN
+			[value "PLATTS-APAG-MARKETSCAN"]
+		+ PLATTSBUNKERWIRE
+			[value "PLATTS-BUNKERWIRE"]
+		+ PLATTSCLEANTANKERWIRE
+			[value "PLATTS-CLEAN-TANKERWIRE"]
+		+ PLATTSCRUDEOILMARKETWIRE
+			[value "PLATTS-CRUDE-OIL-MARKETWIRE"]
+		+ PLATTSDIRTYTANKERWIRE
+			[value "PLATTS-DIRTY-TANKERWIRE"]
+		+ PLATTSEUROPEANGAS
+			[value "PLATTS-EUROPEAN-GAS"]
+		+ PLATTSEUROPEANMARKETSCAN
+			[value "PLATTS-EUROPEAN-MARKETSCAN"]
+		+ PLATTSMETALSALERT
+			[value "PLATTS-METALS-ALERT"]
+		+ PLATTSOILGRAM
+			[value "PLATTS-OILGRAM"]
+		+ PLATTSTSIIRONORE
+			[value "PLATTS-TSI-IRON-ORE"]
+		+ PLATTSTSISCRAP
+			[value "PLATTS-TSI-SCRAP"]
+		+ PLATTSTSISTEEL
+			[value "PLATTS-TSI-STEEL"]
+		+ PLATTSUSMARKETSCAN
+			[value "PLATTS-US-MARKETSCAN"]
+		+ PULPANDPAPERINTERNATIONAL
+			[value "PULP-AND-PAPER-INTERNATIONAL"]
+		+ PULPANDPAPERWEEK
+			[value "PULP-AND-PAPER-WEEK"]
+		+ RIMPRODUCTSINTELLIGENCEDAILY
+			[value "RIM-PRODUCTS-INTELLIGENCE-DAILY"]
+		+ SAFEXSOFT
+			[value "SAFEX-SOFT"]
+		+ SFESOFT
+			[value "SFE-SOFT"]
+		+ SGX
+			[value "SGX"]
+		+ SICOM
+			[value "SICOM"]
+		+ SPGSCI
+			[value "SP-GSCI"]
+		+ STATISTICHESBUNDESAMT
+			[value "STATISTICHES-BUNDESAMT"]
+		+ TGE
+			[value "TGE"]
+		+ TOCOMOIL
+			[value "TOCOM-OIL"]
+		+ TOCOMPRECIOUS
+			[value "TOCOM-PRECIOUS"]
+		+ TOCOMSOFT
+			[value "TOCOM-SOFT"]
+		+ UXWEEKLY
+			[value "UX-WEEKLY"]
+		+ WORLDPULPMONTHLY
+			[value "WORLD-PULP-MONTHLY"]
+
+}
+
+synonym source FpML_5_10 extends FpML_5
 {
 	PerformancePayout:
 	    [meta "id"]
 		+ payerReceiver
 			[hint "fixedLeg"]
 			[hint "floatingLeg"]
-		- priceQuantity
         + priceQuantity
 			[value "vegaNotional" set when path = "fxVolatilitySwap"]
 			// For Equity Swap
@@ -110,39 +1314,39 @@ synonym source FpML_5_10 extends FpML
 		+ returnType
 			[value "returnType"]
 
-	DividendReturnTerms:
-		+ dividendPayoutRatio
-			// Equity swaps
-			[value "singleUnderlyer", "basketConstituent" path "basket", "dividendConditions"]
-			// Dividend swaps
-			[hint "declaredCashDividendPercentage", "declaredCashEquivalentDividendPercentage"]
-		+ dividendReinvestment
-			[value "dividendReinvestment" path "dividendConditions"]
-		+ dividendEntitlement
-			[value "dividendEntitlement" path "dividendConditions"]
-		+ dividendAmountType
-			[value "dividendAmount" path "dividendConditions"]
-		+ firstOrSecondPeriod
-			[value "dividendPeriod" path "dividendConditions"]
-		+ extraordinaryDividendsParty
-			[value "extraOrdinaryDividends" path "dividendConditions" mapper "ExtraordinaryDividendsParty"]
-		+ excessDividendAmount
-			[value "excessDividendAmount" path "dividendConditions"]
-		+ dividendCurrency
-			[value "dividendConditions"]
-		+ nonCashDividendTreatment
-			[value "nonCashDividendTreatment" path "dividendConditions"]
-		+ dividendComposition
-			[value "dividendComposition" path "dividendConditions"]
-		+ specialDividends
-			[value "specialDividends"]
-		+ materialDividend
-			[value "materialDividend"]
-		+ dividendPeriod
-			// Equity swaps
-			[value "dividendConditions"]
-			// Dividend swaps
-			[value "dividendPeriod"]
+	// DividendReturnTerms:
+	// 	+ dividendPayoutRatio
+	// 		// Equity swaps
+	// 		[value "singleUnderlyer", "basketConstituent" path "basket", "dividendConditions"]
+	// 		// Dividend swaps
+	// 		[hint "declaredCashDividendPercentage", "declaredCashEquivalentDividendPercentage"]
+	// 	+ dividendReinvestment
+	// 		[value "dividendReinvestment" path "dividendConditions"]
+	// 	+ dividendEntitlement
+	// 		[value "dividendEntitlement" path "dividendConditions"]
+	// 	+ dividendAmountType
+	// 		[value "dividendAmount" path "dividendConditions"]
+	// 	+ firstOrSecondPeriod
+	// 		[value "dividendPeriod" path "dividendConditions"]
+	// 	+ extraordinaryDividendsParty
+	// 		[value "extraOrdinaryDividends" path "dividendConditions" mapper "ExtraordinaryDividendsParty"]
+	// 	+ excessDividendAmount
+	// 		[value "excessDividendAmount" path "dividendConditions"]
+	// 	+ dividendCurrency
+	// 		[value "dividendConditions"]
+	// 	+ nonCashDividendTreatment
+	// 		[value "nonCashDividendTreatment" path "dividendConditions"]
+	// 	+ dividendComposition
+	// 		[value "dividendComposition" path "dividendConditions"]
+	// 	+ specialDividends
+	// 		[value "specialDividends"]
+	// 	+ materialDividend
+	// 		[value "materialDividend"]
+	// 	+ dividendPeriod
+	// 		// Equity swaps
+	// 		[value "dividendConditions"]
+	// 		// Dividend swaps
+	// 		[value "dividendPeriod"]
 
 	DividendPeriod:
 		+ startDate
@@ -352,13 +1556,13 @@ synonym source FpML_5_10 extends FpML
 
 
 
-	CalculationAgent:
-		+ calculationAgentParty
-			[value "calculationAgentPartyReference" mapper "CalculationAgentParty"]
-		+ calculationAgentPartyEnum
-			[value "calculationAgentParty"]
-		+ calculationAgentBusinessCenter
-			[value "calculationAgentBusinessCenter" meta "businessCenterScheme"]
+	// CalculationAgent:
+	// 	+ calculationAgentParty
+	// 		[value "calculationAgentPartyReference" mapper "CalculationAgentParty"]
+	// 	+ calculationAgentPartyEnum
+	// 		[value "calculationAgentParty"]
+	// 	+ calculationAgentBusinessCenter
+	// 		[value "calculationAgentBusinessCenter" meta "businessCenterScheme"]
 
 	CalculationPeriodFrequency:
 		+ rollConvention
@@ -422,13 +1626,13 @@ synonym source FpML_5_10 extends FpML
 		+ feePaymentDate
 			[value "feePaymentDate"]
 
-	ExerciseNotice:
-		+ exerciseNoticeGiver
-			[value "partyReference" mapper "ExerciseNoticeGiver"]
-		+ exerciseNoticeReceiver
-			[value "exerciseNoticePartyReference" mapper "ExerciseNoticeReceiver"]
-		+ businessCenter
-			[value "businessCenter" meta "businessCenterScheme"]
+	// ExerciseNotice:
+	// 	+ exerciseNoticeGiver
+	// 		[value "partyReference" mapper "ExerciseNoticeGiver"]
+	// 	+ exerciseNoticeReceiver
+	// 		[value "exerciseNoticePartyReference" mapper "ExerciseNoticeReceiver"]
+	// 	+ businessCenter
+	// 		[value "businessCenter" meta "businessCenterScheme"]
 
 	ExerciseProcedure:
 		+ manualExercise
@@ -1917,29 +3121,29 @@ synonym source FpML_5_10 extends FpML
 			[value "stepValue" maps 2]
 			[value "quantity"]
 
-	AdditionalDisruptionEvents:
-		+ changeInLaw
-			[value "changeInLaw"]
-		+ failureToDeliver
-			[value "failureToDeliver"]
-		+ insolvencyFiling
-			[value "insolvencyFiling"]
-		+ hedgingDisruption
-			[value "hedgingDisruption"]
-		+ increasedCostOfHedging
-			[value "increasedCostOfHedging"]
-		+ foreignOwnershipEvent
-			[value "foreignOwnershipEvent"]
-		+ lossOfStockBorrow
-			[value "lossOfStockBorrow"]
-		+ maximumStockLoanRate
-			[value "maximumStockLoanRate"]
-		+ increasedCostOfStockBorrow
-			[value "increasedCostOfStockBorrow"]
-		+ initialStockLoanRate
-			[value "initialStockLoanRate"]
-		+ determiningParty
-			[value "determiningPartyReference" mapper "DisruptionEventsDeterminingParty"]
+	// AdditionalDisruptionEvents:
+	// 	+ changeInLaw
+	// 		[value "changeInLaw"]
+	// 	+ failureToDeliver
+	// 		[value "failureToDeliver"]
+	// 	+ insolvencyFiling
+	// 		[value "insolvencyFiling"]
+	// 	+ hedgingDisruption
+	// 		[value "hedgingDisruption"]
+	// 	+ increasedCostOfHedging
+	// 		[value "increasedCostOfHedging"]
+	// 	+ foreignOwnershipEvent
+	// 		[value "foreignOwnershipEvent"]
+	// 	+ lossOfStockBorrow
+	// 		[value "lossOfStockBorrow"]
+	// 	+ maximumStockLoanRate
+	// 		[value "maximumStockLoanRate"]
+	// 	+ increasedCostOfStockBorrow
+	// 		[value "increasedCostOfStockBorrow"]
+	// 	+ initialStockLoanRate
+	// 		[value "initialStockLoanRate"]
+	// 	+ determiningParty
+	// 		[value "determiningPartyReference" mapper "DisruptionEventsDeterminingParty"]
 
 	DividendCurrency:
 		+ currency
@@ -2012,16 +3216,6 @@ synonym source FpML_5_10 extends FpML
 		+ additionalAcknowledgements
 			[value "additionalAcknowledgements"]
 
-	AssignedIdentifier:
-		+ identifier
-			[value "tradeId" meta "tradeIdScheme"]
-			[value "tradeId" path "versionedTradeId" meta "tradeIdScheme"]
-			[value "businessUnitId" meta "unitScheme"]
-			[value "eventId"]
-		+ version
-			[value "version" path "versionedTradeId"]
-			[value "version"]
-
 	TradeIdentifier:
 		+ identifierType
 			// [set to TradeIdentifierTypeEnum -> UniqueSwapIdentifier when "tradeId->tradeIdScheme" = "http://www.fpml.org/coding-scheme/external/unique-transaction-identifier" and "issuer->issuerIdScheme" = "http://www.fpml.org/coding-scheme/external/cftc/issuer-identifier"]
@@ -2029,15 +3223,6 @@ synonym source FpML_5_10 extends FpML
 			[set to TradeIdentifierTypeEnum -> UniqueTransactionIdentifier when "tradeId->tradeIdScheme" = "http://www.fpml.org/coding-scheme/external/unique-transaction-identifier"]
 			[set to TradeIdentifierTypeEnum -> UniqueSwapIdentifier when "tradeId->tradeIdScheme" = "http://www.fpml.org/coding-scheme/external/usi"]
 			[set to TradeIdentifierTypeEnum -> UniqueSwapIdentifier when "tradeId->tradeIdScheme" = "http://www.fpml.org/coding-scheme/external/unique-swap-identifier"]
-
-	Identifier:
-		[meta "id"]
-		[meta "id" path "versionedTradeId->tradeId"]
-		+ issuerReference
-			[value "issuer" meta "href"]
-			[value "partyReference" meta "href"]
-		+ issuer
-			[value "issuer" meta "issuerIdScheme"]
 
 	IdentifiedList:
 		+ listId
@@ -2088,59 +3273,6 @@ synonym source FpML_5_10 extends FpML
 		+ cashflowType
 			[value "paymentType"]
 
-	TradeState:
-		[meta "id" path "trade"]
-		+ trade
-			[value "trade" mapper "Party"]
-			[hint "party"]
-			[hint "account"]
-		+ resetHistory
-			[value "ignore"]
-		+ transferHistory
-			// premium
-			[value "bondOption" path "trade"]
-			[value "swaption" path "trade"]
-			[value "fxOption" path "trade"]
-			[value "fxDigitalOption" path "trade"]
-			[value "creditDefaultSwapOption" path "trade"]
-			[value "commodityOption" path "trade"]
-			[value "commodityBasketOption" path "trade"]
-			[value "capFloor" path "trade"]
-			[value "commoditySwaption" path "trade"]
-			// equityPremium
-			[value "equityOption" path "trade"]
-			[value "brokerEquityOption" path "trade"]
-			[value "dividendSwapOptionTransactionSupplement" path "trade"]
-			[value "equityOptionTransactionSupplement" path "trade"]
-			[value "varianceOptionTransactionSupplement" path "trade"]
-			[value "dividendSwapOptionTransactionSupplement" path "trade"]
-			[value "fxVarianceSwap" path "trade"]
-			[value "fxVolatilitySwap" path "trade"]
-			// initialPayment / singlePayment
-			[value "feeLeg" path "trade->creditDefaultSwap"]
-			// additionalPayment
-			[value "swap" path "trade"]
-			// otherPartyPayment
-			[value "trade"]
-
-	Trade:
-		+ tradeIdentifier
-			[value "partyTradeIdentifier" path "tradeHeader"]
-		+ tradeDate
-			[value "tradeDate" maps 2 meta "id"]
-			[value "tradeDate" path "tradeHeader" maps 2 meta "id"]
-		+ party
-			[value "party"]
-		+ partyRole
-			[value "determiningParty" ,"barrierDeterminationAgent", "hedgingParty" , "brokerPartyReference" mapper "PartyRole"]
-			[value "partyTradeIdentifier" path "tradeHeader", "partyTradeInformation" path "tradeHeader"]
-		+ clearedDate
-			[value "clearedDate" path "tradeHeader"]
-		+ collateral
-			[value "collateral"]
-		+ account
-			[value "account"]
-
 	TransferState:
 		[meta "id" path "singlePayment"]
 		[meta "id" path "additionalPayment"]
@@ -2169,12 +3301,6 @@ synonym source FpML_5_10 extends FpML
 			[set to FeeTypeEnum->Premium when path = "premium"]
  			[set to FeeTypeEnum->Premium when path = "equityPremium"]
 			[set to FeeTypeEnum->BrokerageCommission when "paymentType" = "Brokerage"]
-
-	ContractDetails:
-		+ documentation
-			[value "documentation" mapper "Documentation"]
-		+ governingLaw
-			[value "governingLaw" meta "governingLawScheme"]
 
 	ExecutionDetails:
 		+ packageReference
@@ -2243,7 +3369,6 @@ synonym source FpML_5_10 extends FpML
 			[value "generalTerms"]
 		+ protectionTerms
 			[value "protectionTerms"]
-        - priceQuantity
         + priceQuantity
 			[value "protectionTerms"]
 
@@ -2741,43 +3866,43 @@ synonym source FpML_5_10 extends FpML
 		+ lotIdentifier
 			[value "ignore"]
 
-	TradableProduct:
-		+ tradeLot
-			// Rates
-			[value "swap", "swap" path "swaption", "swaption"]
-			[value "capFloor"]
-			[hint "fra"]
-			[hint "bondOption"]
-			[value "bulletPayment"]
-			// Credit
-			[value "creditDefaultSwap", "creditDefaultSwap" path "creditDefaultSwapOption", "creditDefaultSwapOption"]
-			// FX
-			[hint "fxSingleLeg"]
-			[value "fxSwap"]
-			[hint "fxOption", "fxDigitalOption"]
-			// Equity
-			[value "returnSwap", "equitySwapTransactionSupplement"]
-			[value "basket" path "returnSwap->returnLeg->underlyer"]
-			[hint "equityOption"]
-			[value "basket" path "equityOption->underlyer"]
-			[value "brokerEquityOption"]
-			// Performance
-			[value "varianceSwap"]
-			[value "dividendSwapTransactionSupplement"]
-			[value "correlationSwap"]
-			[value "volatilitySwapTransactionSupplement"]
-			[value "varianceOptionTransactionSupplement"]
-			[value "dividendSwapTransactionSupplement" path "dividendSwapOptionTransactionSupplement"]
-			[value "varianceSwapTransactionSupplement" path "varianceOptionTransactionSupplement"]
-			[hint "fxVarianceSwap"]
-			[hint "fxVolatilitySwap"]
-			// Other
-			[value "commoditySwap"]
-			[hint "commodityOption"]
-			[value "commoditySwap" path "commoditySwaption"]
-			[hint "repo"]
-		+ adjustment
-			[value "notionalAdjustments" path "returnSwap->returnLeg", "notionalAdjustments" path "equitySwapTransactionSupplement->returnLeg"]
+	// TradableProduct:
+	// 	+ tradeLot
+	// 		// Rates
+	// 		[value "swap", "swap" path "swaption", "swaption"]
+	// 		[value "capFloor"]
+	// 		[hint "fra"]
+	// 		[hint "bondOption"]
+	// 		[value "bulletPayment"]
+	// 		// Credit
+	// 		[value "creditDefaultSwap", "creditDefaultSwap" path "creditDefaultSwapOption", "creditDefaultSwapOption"]
+	// 		// FX
+	// 		[hint "fxSingleLeg"]
+	// 		[value "fxSwap"]
+	// 		[hint "fxOption", "fxDigitalOption"]
+	// 		// Equity
+	// 		[value "returnSwap", "equitySwapTransactionSupplement"]
+	// 		[value "basket" path "returnSwap->returnLeg->underlyer"]
+	// 		[hint "equityOption"]
+	// 		[value "basket" path "equityOption->underlyer"]
+	// 		[value "brokerEquityOption"]
+	// 		// Performance
+	// 		[value "varianceSwap"]
+	// 		[value "dividendSwapTransactionSupplement"]
+	// 		[value "correlationSwap"]
+	// 		[value "volatilitySwapTransactionSupplement"]
+	// 		[value "varianceOptionTransactionSupplement"]
+	// 		[value "dividendSwapTransactionSupplement" path "dividendSwapOptionTransactionSupplement"]
+	// 		[value "varianceSwapTransactionSupplement" path "varianceOptionTransactionSupplement"]
+	// 		[hint "fxVarianceSwap"]
+	// 		[hint "fxVolatilitySwap"]
+	// 		// Other
+	// 		[value "commoditySwap"]
+	// 		[hint "commodityOption"]
+	// 		[value "commoditySwap" path "commoditySwaption"]
+	// 		[hint "repo"]
+	// 	+ adjustment
+	// 		[value "notionalAdjustments" path "returnSwap->returnLeg", "notionalAdjustments" path "equitySwapTransactionSupplement->returnLeg"]
 
 	RateSpecification:
 		+ fixedRate
@@ -3127,138 +4252,115 @@ synonym source FpML_5_10 extends FpML
 		+ role
 			[value "role"]
 
-	Account:
-	 	[value "Account" meta "id"]
-	 	+ partyReference
-			[value "id" mapper "AccountPartyReference"]
-		+ accountNumber
-			[value "accountId" meta "accountIdScheme"]
-		+ accountName
-			[value "accountName" meta "accountNameScheme"]
-		+ accountType
-			[value "accountType" meta "accountTypeScheme"]
-		+ accountBeneficiary
-			[value "accountBeneficiary" meta "href"]
-		+ servicingParty
-			[value "servicingParty" meta "href"]
+	// Account:
+	//  	[value "Account" meta "id"]
+	//  	+ partyReference
+	// 		[value "id" mapper "AccountPartyReference"]
+	// 	+ accountNumber
+	// 		[value "accountId" meta "accountIdScheme"]
+	// 	+ accountName
+	// 		[value "accountName" meta "accountNameScheme"]
+	// 	+ accountType
+	// 		[value "accountType" meta "accountTypeScheme"]
+	// 	+ accountBeneficiary
+	// 		[value "accountBeneficiary" meta "href"]
+	// 	+ servicingParty
+	// 		[value "servicingParty" meta "href"]
 
-	Address:
-		+ street
-			[value "streetAddress"]
-			[value "streetLine" path "streetAddress"]
-		+ city
-			[value "city"]
-		+ state
-			[value "state"]
-		+ country
-			[value "country" meta "countryScheme"]
-		+ postalCode
-			[value "postalCode"]
+	// Address:
+	// 	+ street
+	// 		[value "streetAddress"]
+	// 		[value "streetLine" path "streetAddress"]
+	// 	+ city
+	// 		[value "city"]
+	// 	+ state
+	// 		[value "state"]
+	// 	+ country
+	// 		[value "country" meta "countryScheme"]
+	// 	+ postalCode
+	// 		[value "postalCode"]
 
-	BusinessUnit:
-	 	[value "BusinessUnit" meta "id"]
-		+ name
-			[value "name"]
-		+ contactInformation
-			[value "contactInfo"]
-			[hint "country"]
+	// BusinessUnit:
+	//  	[value "BusinessUnit" meta "id"]
+	// 	+ name
+	// 		[value "name"]
+	// 	+ contactInformation
+	// 		[value "contactInfo"]
+	// 		[hint "country"]
 
-	TelephoneNumber:
-        + number
-            [value "number"]
-        + telephoneNumberType
-            [value "type"]
+	// TelephoneNumber:
+    //     + number
+    //         [value "number"]
+    //     + telephoneNumberType
+    //         [value "type"]
 
-	ContactInformation:
-		+ telephone
-			[value "telephone"]
-		+ address
-			[value "address"]
-			[hint "country"]
-		+ email
-			[value "email"]
+	// ContactInformation:
+	// 	+ telephone
+	// 		[value "telephone"]
+	// 	+ address
+	// 		[value "address"]
+	// 		[hint "country"]
+	// 	+ email
+	// 		[value "email"]
 
-	LegalEntity:
-		[meta "id" path "referenceEntity"]
-		+ entityId
-			[value "entityId" meta "entityIdScheme"]
-			[value "entityId" path "referenceEntity" meta "entityIdScheme"]
-		+ name
-			[value "partyName" meta "entityNameScheme"]
-			[value "entityName" meta "entityNameScheme"]
-			[value "entityName" path "referenceEntity" meta "entityNameScheme"]
-			[value "initialDesignation"]
-			[value "dealer"]
+	// LegalEntity:
+	// 	[meta "id" path "referenceEntity"]
+	// 	+ entityId
+	// 		[value "entityId" meta "entityIdScheme"]
+	// 		[value "entityId" path "referenceEntity" meta "entityIdScheme"]
+	// 	+ name
+	// 		[value "partyName" meta "entityNameScheme"]
+	// 		[value "entityName" meta "entityNameScheme"]
+	// 		[value "entityName" path "referenceEntity" meta "entityNameScheme"]
+	// 		[value "initialDesignation"]
+	// 		[value "dealer"]
 
-	NaturalPerson:
-	 	[value "Person" meta "id"]
-		+ honorific
-			[value "honorific"]
-		+ firstName
-			[value "firstName"]
-		+ middleName
-			[value "middleName"]
-		+ initial
-			[value "initial"]
-		+ surname
-			[value "surname"]
-		+ suffix
-			[value "suffix"]
-		+ dateOfBirth
-			[value "dateOfBirth"]
+	// NaturalPerson:
+	//  	[value "Person" meta "id"]
+	// 	+ honorific
+	// 		[value "honorific"]
+	// 	+ firstName
+	// 		[value "firstName"]
+	// 	+ middleName
+	// 		[value "middleName"]
+	// 	+ initial
+	// 		[value "initial"]
+	// 	+ surname
+	// 		[value "surname"]
+	// 	+ suffix
+	// 		[value "suffix"]
+	// 	+ dateOfBirth
+	// 		[value "dateOfBirth"]
 
-	PersonIdentifier:
-		+ identifier
-			[value "personId" meta "personIdScheme"]
-		+ country
-			[value "country" path "Person"]
+	// PersonIdentifier:
+	// 	+ identifier
+	// 		[value "personId" meta "personIdScheme"]
+	// 	+ country
+	// 		[value "country" path "Person"]
 
-	NaturalPersonRole:
-		+ personReference
-			[value "personReference" meta "href"]
-		+ role
-			[value "role" meta "personRoleScheme"]
+	// NaturalPersonRole:
+	// 	+ personReference
+	// 		[value "personReference" meta "href"]
+	// 	+ role
+	// 		[value "role" meta "personRoleScheme"]
 
-	Party:
-	 	[value "Party" meta "id" maps 2]
-		+ name
-			[value "partyName" meta "entityNameScheme"]
-			[value "entityName" meta "entityNameScheme"]
-			[value "entityName" path "referenceEntity" meta "entityNameScheme"]
-		+ person
-			[value "person"]
-		+ account
-			[value "account"]
-		+ contactInformation
-            [value "contactInfo"]
-            [hint "country"]
-        + businessUnit
-            [value "businessUnit"]
+	// PartyContactInformation:
+	// 	+ partyReference
+	// 		[value "partyReference" meta "href"]
+	// 	+ contactInformation
+	// 		[value "contactInfo"]
+	// 	+ businessUnit
+	// 		[value "businessUnit"]
+	// 	+ person
+	// 		[value "person"]
 
-	PartyIdentifier:
-		+ identifier
-			[value "partyId" meta "partyIdScheme"]
-		+ identifierType
-			[set to PartyIdentifierTypeEnum -> LEI when "partyId->partyIdScheme" = "http://www.fpml.org/coding-scheme/external/iso17442"]
-			[set to PartyIdentifierTypeEnum -> BIC when "partyId->partyIdScheme" = "http://www.fpml.org/coding-scheme/external/iso9362"]
-
-	PartyContactInformation:
-		+ partyReference
-			[value "partyReference" meta "href"]
-		+ contactInformation
-			[value "contactInfo"]
-		+ businessUnit
-			[value "businessUnit"]
-		+ person
-			[value "person"]
-
-	PartyRole:
-		+ partyReference
-			[value "partyReference" path "relatedParty" meta "href"]
-		+ role
-			[value "role" path "relatedParty"]
-		+ ownershipPartyReference
-			[value "partyReference" set when "relatedParty->role" exists meta "href"]
+	// PartyRole:
+	// 	+ partyReference
+	// 		[value "partyReference" path "relatedParty" meta "href"]
+	// 	+ role
+	// 		[value "role" path "relatedParty"]
+	// 	+ ownershipPartyReference
+	// 		[value "partyReference" set when "relatedParty->role" exists meta "href"]
 
 	CreditLimitUtilisation:
 		+ executed
@@ -3389,19 +4491,19 @@ synonym source FpML_5_10 extends FpML
 			[value "midMarketValuation"]
 			[value "replacementValue"]
 
-	PhysicalSettlementTerms:
-		+ physicalSettlementPeriod
-			[value "physicalSettlementPeriod"]
-		+ deliverableObligations
-			[value "deliverableObligations"]
-		+ escrow
-			[value "escrow"]
-		+ sixtyBusinessDaySettlementCap
-			[value "sixtyBusinessDaySettlementCap"]
-		+ clearedPhysicalSettlement
-			[value "clearedPhysicalSettlement"]
-		+ predeterminedClearingOrganizationParty
-		 	[value "predeterminedClearingOrganizationPartyReference" mapper "PredeterminedClearingOrganizationParty"]
+	// PhysicalSettlementTerms:
+	// 	+ physicalSettlementPeriod
+	// 		[value "physicalSettlementPeriod"]
+	// 	+ deliverableObligations
+	// 		[value "deliverableObligations"]
+	// 	+ escrow
+	// 		[value "escrow"]
+	// 	+ sixtyBusinessDaySettlementCap
+	// 		[value "sixtyBusinessDaySettlementCap"]
+	// 	+ clearedPhysicalSettlement
+	// 		[value "clearedPhysicalSettlement"]
+	// 	+ predeterminedClearingOrganizationParty
+	// 	 	[value "predeterminedClearingOrganizationPartyReference" mapper "PredeterminedClearingOrganizationParty"]
 
 	ValuationMethod:
 		+ valuationSource
@@ -5135,602 +6237,602 @@ synonym source FpML_5_10 extends FpML
 		+ ZAR_CPIX
 			[value "ZAR-CPIX"]
 
-	BusinessCenterEnum:
-		+ AEAD
-			[value "AEAD"]
-		+ AEDU
-			[value "AEDU"]
-		+ AMYE
-			[value "AMYE"]
-		+ AOLU
-			[value "AOLU"]
-		+ ARBA
-			[value "ARBA"]
-		+ ATVI
-			[value "ATVI"]
-		+ AUAD
-			[value "AUAD"]
-		+ AUBR
-			[value "AUBR"]
-		+ AUCA
-			[value "AUCA"]
-		+ AUDA
-			[value "AUDA"]
-		+ AUME
-			[value "AUME"]
-		+ AUPE
-			[value "AUPE"]
-		+ AUSY
-			[value "AUSY"]
-		+ BBBR
-			[value "BBBR"]
-		+ BDDH
-			[value "BDDH"]
-		+ BEBR
-			[value "BEBR"]
-		+ BGSO
-			[value "BGSO"]
-		+ BHMA
-			[value "BHMA"]
-		+ BMHA
-			[value "BMHA"]
-		+ BNBS
-			[value "BNBS"]
-		+ BOLP
-			[value "BOLP"]
-		+ BRBD
-			[value "BRBD"]
-		+ BRBR
-			[value "BRBR"]
-		+ BRRJ
-			[value "BRRJ"]
-		+ BRSP
-			[value "BRSP"]
-		+ BSNA
-			[value "BSNA"]
-		+ BWGA
-			[value "BWGA"]
-		+ BYMI
-			[value "BYMI"]
-		+ CACL
-			[value "CACL"]
-		+ CAMO
-			[value "CAMO"]
-		+ CAOT
-			[value "CAOT"]
-		+ CATO
-			[value "CATO"]
-		+ CAVA
-			[value "CAVA"]
-		+ CAWI
-			[value "CAWI"]
-		+ CHBA
-			[value "CHBA"]
-		+ CHGE
-			[value "CHGE"]
-		+ CHZU
-			[value "CHZU"]
-		+ CIAB
-			[value "CIAB"]
-		+ CLSA
-			[value "CLSA"]
-		+ CNBE
-			[value "CNBE"]
-		+ CNSH
-			[value "CNSH"]
-		+ COBO
-			[value "COBO"]
-		+ CRSJ
-			[value "CRSJ"]
-		+ CYNI
-			[value "CYNI"]
-		+ CZPR
-			[value "CZPR"]
-		+ DECO
-			[value "DECO"]
-		+ DEDU
-			[value "DEDU"]
-		+ DEFR
-			[value "DEFR"]
-		+ DEHH
-			[value "DEHH"]
-		+ DELE
-			[value "DELE"]
-		+ DEMA
-			[value "DEMA"]
-		+ DEMU
-			[value "DEMU"]
-		+ DEST
-			[value "DEST"]
-		+ DKCO
-			[value "DKCO"]
-		+ DOSD
-			[value "DOSD"]
-		+ DZAL
-			[value "DZAL"]
-		+ EETA
-			[value "EETA"]
-		+ EGCA
-			[value "EGCA"]
-		+ ESAS
-			[value "ESAS"]
-		+ ESBA
-			[value "ESBA"]
-		+ ESMA
-			[value "ESMA"]
-		+ ETAA
-			[value "ETAA"]
-		+ EUTA
-			[value "EUTA"]
-		+ FIHE
-			[value "FIHE"]
-		+ FRPA
-			[value "FRPA"]
-		+ GBED
-			[value "GBED"]
-		+ GBLO
-			[value "GBLO"]
-		+ GETB
-			[value "GETB"]
-		+ GGSP
-			[value "GGSP"]
-		+ GHAC
-			[value "GHAC"]
-		+ GRAT
-			[value "GRAT"]
-		+ HKHK
-			[value "HKHK"]
-		+ HNTE
-			[value "HNTE"]
-		+ HRZA
-			[value "HRZA"]
-		+ HUBU
-			[value "HUBU"]
-		+ IDJA
-			[value "IDJA"]
-		+ IEDU
-			[value "IEDU"]
-		+ ILJE
-			[value "ILJE"]
-		+ ILTA
-			[value "ILTA"]
-		+ INBA
-			[value "INBA"]
-		+ INCH
-			[value "INCH"]
-		+ INHY
-			[value "INHY"]
-		+ INKO
-			[value "INKO"]
-		+ INMU
-			[value "INMU"]
-		+ INND
-			[value "INND"]
-		+ IRTE
-			[value "IRTE"]
-		+ ISRE
-			[value "ISRE"]
-		+ ITMI
-			[value "ITMI"]
-		+ ITRO
-			[value "ITRO"]
-		+ ITTU
-			[value "ITTU"]
-		+ JESH
-			[value "JESH"]
-		+ JMKI
-			[value "JMKI"]
-		+ JOAM
-			[value "JOAM"]
-		+ JPTO
-			[value "JPTO"]
-		+ KENA
-			[value "KENA"]
-		+ KRSE
-			[value "KRSE"]
-		+ KWKC
-			[value "KWKC"]
-		+ KYGE
-			[value "KYGE"]
-		+ KZAL
-			[value "KZAL"]
-		+ LBBE
-			[value "LBBE"]
-		+ LKCO
-			[value "LKCO"]
-		+ LULU
-			[value "LULU"]
-		+ LVRI
-			[value "LVRI"]
-		+ MACA
-			[value "MACA"]
-		+ MARA
-			[value "MARA"]
-		+ MCMO
-			[value "MCMO"]
-		+ MOMA
-			[value "MOMA"]
-		+ MTVA
-			[value "MTVA"]
-		+ MUPL
-			[value "MUPL"]
-		+ MVMA
-			[value "MVMA"]
-		+ MWLI
-			[value "MWLI"]
-		+ MXMC
-			[value "MXMC"]
-		+ MYKL
-			[value "MYKL"]
-		+ MYLA
-			[value "MYLA"]
-		+ NAWI
-			[value "NAWI"]
-		+ NGAB
-			[value "NGAB"]
-		+ NGLA
-			[value "NGLA"]
-		+ NLAM
-			[value "NLAM"]
-		+ NLRO
-			[value "NLRO"]
-		+ NOOS
-			[value "NOOS"]
-		+ NPKA
-			[value "NPKA"]
-		+ NYFD
-			[value "NYFD"]
-		+ NYSE
-			[value "NYSE"]
-		+ NZAU
-			[value "NZAU"]
-		+ NZWE
-			[value "NZWE"]
-		+ OMMU
-			[value "OMMU"]
-		+ PAPC
-			[value "PAPC"]
-		+ PELI
-			[value "PELI"]
-		+ PHMA
-			[value "PHMA"]
-		+ PHMK
-			[value "PHMK"]
-		+ PKKA
-			[value "PKKA"]
-		+ PLWA
-			[value "PLWA"]
-		+ PRSJ
-			[value "PRSJ"]
-		+ PTLI
-			[value "PTLI"]
-		+ QADO
-			[value "QADO"]
-		+ ROBU
-			[value "ROBU"]
-		+ RSBE
-			[value "RSBE"]
-		+ RUMO
-			[value "RUMO"]
-		+ SAAB
-			[value "SAAB"]
-		+ SAJE
-			[value "SAJE"]
-		+ SARI
-			[value "SARI"]
-		+ SEST
-			[value "SEST"]
-		+ SGSI
-			[value "SGSI"]
-		+ SILJ
-			[value "SILJ"]
-		+ SKBR
-			[value "SKBR"]
-		+ SNDA
-			[value "SNDA"]
-		+ SVSS
-			[value "SVSS"]
-		+ THBA
-			[value "THBA"]
-		+ TNTU
-			[value "TNTU"]
-		+ TRAN
-			[value "TRAN"]
-		+ TRIS
-			[value "TRIS"]
-		+ TTPS
-			[value "TTPS"]
-		+ TWTA
-			[value "TWTA"]
-		+ TZDA
-			[value "TZDA"]
-		+ TZDO
-			[value "TZDO"]
-		+ UAKI
-			[value "UAKI"]
-		+ UGKA
-			[value "UGKA"]
-		+ USBO
-			[value "USBO"]
-		+ USCH
-			[value "USCH"]
-		+ USCR
-			[value "USCR"]
-		+ USDC
-			[value "USDC"]
-		+ USDN
-			[value "USDN"]
-		+ USDT
-			[value "USDT"]
-		+ USGS
-			[value "USGS"]
-		+ USHL
-			[value "USHL"]
-		+ USHO
-			[value "USHO"]
-		+ USLA
-			[value "USLA"]
-		+ USMB
-			[value "USMB"]
-		+ USMN
-			[value "USMN"]
-		+ USNY
-			[value "USNY"]
-		+ USPO
-			[value "USPO"]
-		+ USSA
-			[value "USSA"]
-		+ USSE
-			[value "USSE"]
-		+ USWT
-			[value "USWT"]
-		+ UYMO
-			[value "UYMO"]
-		+ VECA
-			[value "VECA"]
-		+ VGRT
-			[value "VGRT"]
-		+ VNHA
-			[value "VNHA"]
-		+ VNHC
-			[value "VNHC"]
-		+ YEAD
-			[value "YEAD"]
-		+ ZAJO
-			[value "ZAJO"]
-		+ ZMLU
-			[value "ZMLU"]
-		+ ZWHA
-			[value "ZWHA"]
-		// Commodity Business Centers from FpML
-		+ ADSM
-			[value "ADSM"]
-		+ AGRUSFMB
-			[value "AGRUS-FMB"]
-		+ APPI
-			[value "APPI"]
-		+ ARGUSCRUDE
-			[value "ARGUS-CRUDE"]
-		+ ARGUSEUROPEANGAS
-			[value "ARGUS-EUROPEAN-GAS"]
-		+ ARGUSEUROPEANPRODUCTS
-			[value "ARGUS-EUROPEAN-PRODUCTS"]
-		+ ARGUSINTERNATIONALLPG
-			[value "ARGUS-INTERNATIONAL-LPG"]
-		+ ARGUSMCCLOSKEYSCOALREPORT
-			[value "ARGUS-MCCLOSKEYS-COAL-REPORT"]
-		+ ARGUSUSPRODUCTS
-			[value "ARGUS-US-PRODUCTS"]
-		+ ASX
-			[value "ASX"]
-		+ AWB
-			[value "AWB"]
-		+ AWEX
-			[value "AWEX"]
-		+ BALTICEXCHANGE
-			[value "BALTIC-EXCHANGE"]
-		+ BANKNEGARAMALAYSIAPOLICYCOMMITTEE
-			[value "BANK-NEGARA-MALAYSIA-POLICY-COMMITTEE"]
-		+ BELPEX
-			[value "BELPEX"]
-		+ BLUENEXT
-			[value "BLUENEXT"]
-		+ BMandF
-			[value "BM&F"]
-		+ BURSAMALAYSIASETTLEMENT
-			[value "BURSA-MALAYSIA-SETTLEMENT"]
-		+ BURSAMALAYSIATRADING
-			[value "BURSA-MALAYSIA-TRADING"]
-		+ CANADIANGASPRICEREPORTER
-			[value "CANADIAN-GAS-PRICE-REPORTER"]
-		+ CBOTSOFT
-			[value "CBOT-SOFT"]
-		+ CMAIAROMATICSMARKETREPORT
-			[value "CMAI-AROMATICS-MARKET-REPORT"]
-		+ CMAIGLOBALPLASTICSANDPOLYMERSMARKETREPORT
-			[value "CMAI-GLOBAL-PLASTICS-AND-POLYMERS-MARKET-REPORT"]
-		+ CMAIMETHANOLMARKETREPORT
-			[value "CMAI-METHANOL-MARKET-REPORT"]
-		+ CMAIMONOMERSMARKETREPORT
-			[value "CMAI-MONOMERS-MARKET-REPORT"]
-		+ CMEDAIRY
-			[value "CME-DAIRY"]
-		+ CMENONDAIRYSOFT
-			[value "CME-NON-DAIRY-SOFT"]
-		+ COMEX
-			[value "COMEX"]
-		+ CRU
-			[value "CRU"]
-		+ CRULONG
-			[value "CRU-LONG"]
-		+ DEPARTMENTOFENERGY
-			[value "DEPARTMENT-OF-ENERGY"]
-		+ DEWITTBENZENEDERIVATIVES
-			[value "DEWITT-BENZENE-DERIVATIVES"]
-		+ DME
-			[value "DME"]
-		+ DOWJONES
-			[value "DOW-JONES"]
-		+ DOWJONESENERGYSERVICE
-			[value "DOW-JONES-ENERGY-SERVICE"]
-		+ DowJonesPower
-			[value "DowJonesPower"]
-		+ EEXCOAL
-			[value "EEX-COAL"]
-		+ EEXEMISSIONS
-			[value "EEX-EMISSIONS"]
-		+ EEXGAS
-			[value "EEX-GAS"]
-		+ EEXPOWER
-			[value "EEX-POWER"]
-		+ EURONEXMATIF
-			[value "EURONEX-MATIF"]
-		+ FERTECON
-			[value "FERTECON"]
-		+ FERTILIZERWEEK
-			[value "FERTILIZER-WEEK"]
-		+ GASDAILY
-			[value "GAS-DAILY"]
-		+ GASDAILYPRICEGUIDE
-			[value "GAS-DAILY-PRICE-GUIDE"]
-		+ GLOBALCOAL
-			[value "GLOBALCOAL"]
-		+ HERENREPORT
-			[value "HEREN-REPORT"]
-		+ ICE10XDAILY
-			[value "ICE/10X-DAILY"]
-		+ ICE10XMONTHLY
-			[value "ICE/10X-MONTHLY"]
-		+ ICECANADA
-			[value "ICE-CANADA"]
-		+ ICEECX
-			[value "ICE-ECX"]
-		+ ICEGAS
-			[value "ICE-GAS"]
-		+ ICEOIL
-			[value "ICE-OIL"]
-		+ ICEUSAGRICULTURAL
-			[value "ICE-US-AGRICULTURAL"]
-		+ ICISPRICINGBENZENEEUROPE
-			[value "ICIS-PRICING-BENZENE-(EUROPE)"]
-		+ ICISPRICINGETHYLENEEUROPE
-			[value "ICIS-PRICING-ETHYLENE-(EUROPE)"]
-		+ ICISPRICINGPOLYPROPYLENEEUROPE
-			[value "ICIS-PRICING-POLYPROPYLENE-(EUROPE)"]
-		+ INSIDEFERC
-			[value "INSIDE-FERC"]
-		+ JAPANMOFTSRR
-			[value "JAPAN-MOF-TSRR"]
-		+ KCBOT
-			[value "KCBOT"]
-		+ KUALALUMPURBANK
-			[value "KUALA-LUMPUR-BANK"]
-		+ LABUANBANK
-			[value "LABUAN-BANK"]
-		+ LIFFELONDONSOFT
-			[value "LIFFE-LONDON-SOFT"]
-		+ LME
-			[value "LME"]
-		+ LONDONBULLIONMARKET
-			[value "LONDON-BULLION-MARKET"]
-		+ LONDONBULLIONMARKETGOLDAMONLY
-			[value "LONDON-BULLION-MARKET-GOLD-A.M-ONLY"]
-		+ LONDONPLATINUMPALLADIUMMARKET
-			[value "LONDON-PLATINUM-PALLADIUM-MARKET"]
-		+ MGEX
-			[value "MGEX"]
-		+ NASDAQOMX
-			[value "NASDAQ-OMX"]
-		+ NATURALGASWEEK
-			[value "NATURAL-GAS-WEEK"]
-		+ NERC
-			[value "NERC"]
-		+ NGI
-			[value "NGI"]
-		+ NGX
-			[value "NGX"]
-		+ NUCLEARMARKETREVIEW
-			[value "NUCLEAR-MARKET-REVIEW"]
-		+ NYMEXELECTRICITY
-			[value "NYMEX-ELECTRICITY"]
-		+ NYMEXGAS
-			[value "NYMEX-GAS"]
-		+ NYMEXNATURALGAS
-			[value "NYMEX-NATURAL-GAS"]
-		+ NYMEXOIL
-			[value "NYMEX-OIL"]
-		+ OFFICIALBOARDMARKETS
-			[value "OFFICIAL-BOARD-MARKETS"]
-		+ OPISLPGAS
-			[value "OPIS-LP-GAS"]
-		+ OPISPROPANE
-			[value "OPIS-PROPANE"]
-		+ PAPERPACKAGINGMONITOR
-			[value "PAPER-PACKAGING-MONITOR"]
-		+ PAPERTRADER
-			[value "PAPER-TRADER"]
-		+ PERTAMINA
-			[value "PERTAMINA"]
-		+ PETROCHEMWIRE
-			[value "PETROCHEMWIRE"]
-		+ PIXPULPBENCHMARKINDICES
-			[value "PIX-PULP-BENCHMARK-INDICES"]
-		+ PLATTSAPAGMARKETSCAN
-			[value "PLATTS-APAG-MARKETSCAN"]
-		+ PLATTSBUNKERWIRE
-			[value "PLATTS-BUNKERWIRE"]
-		+ PLATTSCLEANTANKERWIRE
-			[value "PLATTS-CLEAN-TANKERWIRE"]
-		+ PLATTSCRUDEOILMARKETWIRE
-			[value "PLATTS-CRUDE-OIL-MARKETWIRE"]
-		+ PLATTSDIRTYTANKERWIRE
-			[value "PLATTS-DIRTY-TANKERWIRE"]
-		+ PLATTSEUROPEANGAS
-			[value "PLATTS-EUROPEAN-GAS"]
-		+ PLATTSEUROPEANMARKETSCAN
-			[value "PLATTS-EUROPEAN-MARKETSCAN"]
-		+ PLATTSMETALSALERT
-			[value "PLATTS-METALS-ALERT"]
-		+ PLATTSOILGRAM
-			[value "PLATTS-OILGRAM"]
-		+ PLATTSTSIIRONORE
-			[value "PLATTS-TSI-IRON-ORE"]
-		+ PLATTSTSISCRAP
-			[value "PLATTS-TSI-SCRAP"]
-		+ PLATTSTSISTEEL
-			[value "PLATTS-TSI-STEEL"]
-		+ PLATTSUSMARKETSCAN
-			[value "PLATTS-US-MARKETSCAN"]
-		+ PULPANDPAPERINTERNATIONAL
-			[value "PULP-AND-PAPER-INTERNATIONAL"]
-		+ PULPANDPAPERWEEK
-			[value "PULP-AND-PAPER-WEEK"]
-		+ RIMPRODUCTSINTELLIGENCEDAILY
-			[value "RIM-PRODUCTS-INTELLIGENCE-DAILY"]
-		+ SAFEXSOFT
-			[value "SAFEX-SOFT"]
-		+ SFESOFT
-			[value "SFE-SOFT"]
-		+ SGX
-			[value "SGX"]
-		+ SICOM
-			[value "SICOM"]
-		+ SPGSCI
-			[value "SP-GSCI"]
-		+ STATISTICHESBUNDESAMT
-			[value "STATISTICHES-BUNDESAMT"]
-		+ TGE
-			[value "TGE"]
-		+ TOCOMOIL
-			[value "TOCOM-OIL"]
-		+ TOCOMPRECIOUS
-			[value "TOCOM-PRECIOUS"]
-		+ TOCOMSOFT
-			[value "TOCOM-SOFT"]
-		+ UXWEEKLY
-			[value "UX-WEEKLY"]
-		+ WORLDPULPMONTHLY
-			[value "WORLD-PULP-MONTHLY"]
+	// BusinessCenterEnum:
+	// 	+ AEAD
+	// 		[value "AEAD"]
+	// 	+ AEDU
+	// 		[value "AEDU"]
+	// 	+ AMYE
+	// 		[value "AMYE"]
+	// 	+ AOLU
+	// 		[value "AOLU"]
+	// 	+ ARBA
+	// 		[value "ARBA"]
+	// 	+ ATVI
+	// 		[value "ATVI"]
+	// 	+ AUAD
+	// 		[value "AUAD"]
+	// 	+ AUBR
+	// 		[value "AUBR"]
+	// 	+ AUCA
+	// 		[value "AUCA"]
+	// 	+ AUDA
+	// 		[value "AUDA"]
+	// 	+ AUME
+	// 		[value "AUME"]
+	// 	+ AUPE
+	// 		[value "AUPE"]
+	// 	+ AUSY
+	// 		[value "AUSY"]
+	// 	+ BBBR
+	// 		[value "BBBR"]
+	// 	+ BDDH
+	// 		[value "BDDH"]
+	// 	+ BEBR
+	// 		[value "BEBR"]
+	// 	+ BGSO
+	// 		[value "BGSO"]
+	// 	+ BHMA
+	// 		[value "BHMA"]
+	// 	+ BMHA
+	// 		[value "BMHA"]
+	// 	+ BNBS
+	// 		[value "BNBS"]
+	// 	+ BOLP
+	// 		[value "BOLP"]
+	// 	+ BRBD
+	// 		[value "BRBD"]
+	// 	+ BRBR
+	// 		[value "BRBR"]
+	// 	+ BRRJ
+	// 		[value "BRRJ"]
+	// 	+ BRSP
+	// 		[value "BRSP"]
+	// 	+ BSNA
+	// 		[value "BSNA"]
+	// 	+ BWGA
+	// 		[value "BWGA"]
+	// 	+ BYMI
+	// 		[value "BYMI"]
+	// 	+ CACL
+	// 		[value "CACL"]
+	// 	+ CAMO
+	// 		[value "CAMO"]
+	// 	+ CAOT
+	// 		[value "CAOT"]
+	// 	+ CATO
+	// 		[value "CATO"]
+	// 	+ CAVA
+	// 		[value "CAVA"]
+	// 	+ CAWI
+	// 		[value "CAWI"]
+	// 	+ CHBA
+	// 		[value "CHBA"]
+	// 	+ CHGE
+	// 		[value "CHGE"]
+	// 	+ CHZU
+	// 		[value "CHZU"]
+	// 	+ CIAB
+	// 		[value "CIAB"]
+	// 	+ CLSA
+	// 		[value "CLSA"]
+	// 	+ CNBE
+	// 		[value "CNBE"]
+	// 	+ CNSH
+	// 		[value "CNSH"]
+	// 	+ COBO
+	// 		[value "COBO"]
+	// 	+ CRSJ
+	// 		[value "CRSJ"]
+	// 	+ CYNI
+	// 		[value "CYNI"]
+	// 	+ CZPR
+	// 		[value "CZPR"]
+	// 	+ DECO
+	// 		[value "DECO"]
+	// 	+ DEDU
+	// 		[value "DEDU"]
+	// 	+ DEFR
+	// 		[value "DEFR"]
+	// 	+ DEHH
+	// 		[value "DEHH"]
+	// 	+ DELE
+	// 		[value "DELE"]
+	// 	+ DEMA
+	// 		[value "DEMA"]
+	// 	+ DEMU
+	// 		[value "DEMU"]
+	// 	+ DEST
+	// 		[value "DEST"]
+	// 	+ DKCO
+	// 		[value "DKCO"]
+	// 	+ DOSD
+	// 		[value "DOSD"]
+	// 	+ DZAL
+	// 		[value "DZAL"]
+	// 	+ EETA
+	// 		[value "EETA"]
+	// 	+ EGCA
+	// 		[value "EGCA"]
+	// 	+ ESAS
+	// 		[value "ESAS"]
+	// 	+ ESBA
+	// 		[value "ESBA"]
+	// 	+ ESMA
+	// 		[value "ESMA"]
+	// 	+ ETAA
+	// 		[value "ETAA"]
+	// 	+ EUTA
+	// 		[value "EUTA"]
+	// 	+ FIHE
+	// 		[value "FIHE"]
+	// 	+ FRPA
+	// 		[value "FRPA"]
+	// 	+ GBED
+	// 		[value "GBED"]
+	// 	+ GBLO
+	// 		[value "GBLO"]
+	// 	+ GETB
+	// 		[value "GETB"]
+	// 	+ GGSP
+	// 		[value "GGSP"]
+	// 	+ GHAC
+	// 		[value "GHAC"]
+	// 	+ GRAT
+	// 		[value "GRAT"]
+	// 	+ HKHK
+	// 		[value "HKHK"]
+	// 	+ HNTE
+	// 		[value "HNTE"]
+	// 	+ HRZA
+	// 		[value "HRZA"]
+	// 	+ HUBU
+	// 		[value "HUBU"]
+	// 	+ IDJA
+	// 		[value "IDJA"]
+	// 	+ IEDU
+	// 		[value "IEDU"]
+	// 	+ ILJE
+	// 		[value "ILJE"]
+	// 	+ ILTA
+	// 		[value "ILTA"]
+	// 	+ INBA
+	// 		[value "INBA"]
+	// 	+ INCH
+	// 		[value "INCH"]
+	// 	+ INHY
+	// 		[value "INHY"]
+	// 	+ INKO
+	// 		[value "INKO"]
+	// 	+ INMU
+	// 		[value "INMU"]
+	// 	+ INND
+	// 		[value "INND"]
+	// 	+ IRTE
+	// 		[value "IRTE"]
+	// 	+ ISRE
+	// 		[value "ISRE"]
+	// 	+ ITMI
+	// 		[value "ITMI"]
+	// 	+ ITRO
+	// 		[value "ITRO"]
+	// 	+ ITTU
+	// 		[value "ITTU"]
+	// 	+ JESH
+	// 		[value "JESH"]
+	// 	+ JMKI
+	// 		[value "JMKI"]
+	// 	+ JOAM
+	// 		[value "JOAM"]
+	// 	+ JPTO
+	// 		[value "JPTO"]
+	// 	+ KENA
+	// 		[value "KENA"]
+	// 	+ KRSE
+	// 		[value "KRSE"]
+	// 	+ KWKC
+	// 		[value "KWKC"]
+	// 	+ KYGE
+	// 		[value "KYGE"]
+	// 	+ KZAL
+	// 		[value "KZAL"]
+	// 	+ LBBE
+	// 		[value "LBBE"]
+	// 	+ LKCO
+	// 		[value "LKCO"]
+	// 	+ LULU
+	// 		[value "LULU"]
+	// 	+ LVRI
+	// 		[value "LVRI"]
+	// 	+ MACA
+	// 		[value "MACA"]
+	// 	+ MARA
+	// 		[value "MARA"]
+	// 	+ MCMO
+	// 		[value "MCMO"]
+	// 	+ MOMA
+	// 		[value "MOMA"]
+	// 	+ MTVA
+	// 		[value "MTVA"]
+	// 	+ MUPL
+	// 		[value "MUPL"]
+	// 	+ MVMA
+	// 		[value "MVMA"]
+	// 	+ MWLI
+	// 		[value "MWLI"]
+	// 	+ MXMC
+	// 		[value "MXMC"]
+	// 	+ MYKL
+	// 		[value "MYKL"]
+	// 	+ MYLA
+	// 		[value "MYLA"]
+	// 	+ NAWI
+	// 		[value "NAWI"]
+	// 	+ NGAB
+	// 		[value "NGAB"]
+	// 	+ NGLA
+	// 		[value "NGLA"]
+	// 	+ NLAM
+	// 		[value "NLAM"]
+	// 	+ NLRO
+	// 		[value "NLRO"]
+	// 	+ NOOS
+	// 		[value "NOOS"]
+	// 	+ NPKA
+	// 		[value "NPKA"]
+	// 	+ NYFD
+	// 		[value "NYFD"]
+	// 	+ NYSE
+	// 		[value "NYSE"]
+	// 	+ NZAU
+	// 		[value "NZAU"]
+	// 	+ NZWE
+	// 		[value "NZWE"]
+	// 	+ OMMU
+	// 		[value "OMMU"]
+	// 	+ PAPC
+	// 		[value "PAPC"]
+	// 	+ PELI
+	// 		[value "PELI"]
+	// 	+ PHMA
+	// 		[value "PHMA"]
+	// 	+ PHMK
+	// 		[value "PHMK"]
+	// 	+ PKKA
+	// 		[value "PKKA"]
+	// 	+ PLWA
+	// 		[value "PLWA"]
+	// 	+ PRSJ
+	// 		[value "PRSJ"]
+	// 	+ PTLI
+	// 		[value "PTLI"]
+	// 	+ QADO
+	// 		[value "QADO"]
+	// 	+ ROBU
+	// 		[value "ROBU"]
+	// 	+ RSBE
+	// 		[value "RSBE"]
+	// 	+ RUMO
+	// 		[value "RUMO"]
+	// 	+ SAAB
+	// 		[value "SAAB"]
+	// 	+ SAJE
+	// 		[value "SAJE"]
+	// 	+ SARI
+	// 		[value "SARI"]
+	// 	+ SEST
+	// 		[value "SEST"]
+	// 	+ SGSI
+	// 		[value "SGSI"]
+	// 	+ SILJ
+	// 		[value "SILJ"]
+	// 	+ SKBR
+	// 		[value "SKBR"]
+	// 	+ SNDA
+	// 		[value "SNDA"]
+	// 	+ SVSS
+	// 		[value "SVSS"]
+	// 	+ THBA
+	// 		[value "THBA"]
+	// 	+ TNTU
+	// 		[value "TNTU"]
+	// 	+ TRAN
+	// 		[value "TRAN"]
+	// 	+ TRIS
+	// 		[value "TRIS"]
+	// 	+ TTPS
+	// 		[value "TTPS"]
+	// 	+ TWTA
+	// 		[value "TWTA"]
+	// 	+ TZDA
+	// 		[value "TZDA"]
+	// 	+ TZDO
+	// 		[value "TZDO"]
+	// 	+ UAKI
+	// 		[value "UAKI"]
+	// 	+ UGKA
+	// 		[value "UGKA"]
+	// 	+ USBO
+	// 		[value "USBO"]
+	// 	+ USCH
+	// 		[value "USCH"]
+	// 	+ USCR
+	// 		[value "USCR"]
+	// 	+ USDC
+	// 		[value "USDC"]
+	// 	+ USDN
+	// 		[value "USDN"]
+	// 	+ USDT
+	// 		[value "USDT"]
+	// 	+ USGS
+	// 		[value "USGS"]
+	// 	+ USHL
+	// 		[value "USHL"]
+	// 	+ USHO
+	// 		[value "USHO"]
+	// 	+ USLA
+	// 		[value "USLA"]
+	// 	+ USMB
+	// 		[value "USMB"]
+	// 	+ USMN
+	// 		[value "USMN"]
+	// 	+ USNY
+	// 		[value "USNY"]
+	// 	+ USPO
+	// 		[value "USPO"]
+	// 	+ USSA
+	// 		[value "USSA"]
+	// 	+ USSE
+	// 		[value "USSE"]
+	// 	+ USWT
+	// 		[value "USWT"]
+	// 	+ UYMO
+	// 		[value "UYMO"]
+	// 	+ VECA
+	// 		[value "VECA"]
+	// 	+ VGRT
+	// 		[value "VGRT"]
+	// 	+ VNHA
+	// 		[value "VNHA"]
+	// 	+ VNHC
+	// 		[value "VNHC"]
+	// 	+ YEAD
+	// 		[value "YEAD"]
+	// 	+ ZAJO
+	// 		[value "ZAJO"]
+	// 	+ ZMLU
+	// 		[value "ZMLU"]
+	// 	+ ZWHA
+	// 		[value "ZWHA"]
+	// 	// Commodity Business Centers from FpML
+	// 	+ ADSM
+	// 		[value "ADSM"]
+	// 	+ AGRUSFMB
+	// 		[value "AGRUS-FMB"]
+	// 	+ APPI
+	// 		[value "APPI"]
+	// 	+ ARGUSCRUDE
+	// 		[value "ARGUS-CRUDE"]
+	// 	+ ARGUSEUROPEANGAS
+	// 		[value "ARGUS-EUROPEAN-GAS"]
+	// 	+ ARGUSEUROPEANPRODUCTS
+	// 		[value "ARGUS-EUROPEAN-PRODUCTS"]
+	// 	+ ARGUSINTERNATIONALLPG
+	// 		[value "ARGUS-INTERNATIONAL-LPG"]
+	// 	+ ARGUSMCCLOSKEYSCOALREPORT
+	// 		[value "ARGUS-MCCLOSKEYS-COAL-REPORT"]
+	// 	+ ARGUSUSPRODUCTS
+	// 		[value "ARGUS-US-PRODUCTS"]
+	// 	+ ASX
+	// 		[value "ASX"]
+	// 	+ AWB
+	// 		[value "AWB"]
+	// 	+ AWEX
+	// 		[value "AWEX"]
+	// 	+ BALTICEXCHANGE
+	// 		[value "BALTIC-EXCHANGE"]
+	// 	+ BANKNEGARAMALAYSIAPOLICYCOMMITTEE
+	// 		[value "BANK-NEGARA-MALAYSIA-POLICY-COMMITTEE"]
+	// 	+ BELPEX
+	// 		[value "BELPEX"]
+	// 	+ BLUENEXT
+	// 		[value "BLUENEXT"]
+	// 	+ BMandF
+	// 		[value "BM&F"]
+	// 	+ BURSAMALAYSIASETTLEMENT
+	// 		[value "BURSA-MALAYSIA-SETTLEMENT"]
+	// 	+ BURSAMALAYSIATRADING
+	// 		[value "BURSA-MALAYSIA-TRADING"]
+	// 	+ CANADIANGASPRICEREPORTER
+	// 		[value "CANADIAN-GAS-PRICE-REPORTER"]
+	// 	+ CBOTSOFT
+	// 		[value "CBOT-SOFT"]
+	// 	+ CMAIAROMATICSMARKETREPORT
+	// 		[value "CMAI-AROMATICS-MARKET-REPORT"]
+	// 	+ CMAIGLOBALPLASTICSANDPOLYMERSMARKETREPORT
+	// 		[value "CMAI-GLOBAL-PLASTICS-AND-POLYMERS-MARKET-REPORT"]
+	// 	+ CMAIMETHANOLMARKETREPORT
+	// 		[value "CMAI-METHANOL-MARKET-REPORT"]
+	// 	+ CMAIMONOMERSMARKETREPORT
+	// 		[value "CMAI-MONOMERS-MARKET-REPORT"]
+	// 	+ CMEDAIRY
+	// 		[value "CME-DAIRY"]
+	// 	+ CMENONDAIRYSOFT
+	// 		[value "CME-NON-DAIRY-SOFT"]
+	// 	+ COMEX
+	// 		[value "COMEX"]
+	// 	+ CRU
+	// 		[value "CRU"]
+	// 	+ CRULONG
+	// 		[value "CRU-LONG"]
+	// 	+ DEPARTMENTOFENERGY
+	// 		[value "DEPARTMENT-OF-ENERGY"]
+	// 	+ DEWITTBENZENEDERIVATIVES
+	// 		[value "DEWITT-BENZENE-DERIVATIVES"]
+	// 	+ DME
+	// 		[value "DME"]
+	// 	+ DOWJONES
+	// 		[value "DOW-JONES"]
+	// 	+ DOWJONESENERGYSERVICE
+	// 		[value "DOW-JONES-ENERGY-SERVICE"]
+	// 	+ DowJonesPower
+	// 		[value "DowJonesPower"]
+	// 	+ EEXCOAL
+	// 		[value "EEX-COAL"]
+	// 	+ EEXEMISSIONS
+	// 		[value "EEX-EMISSIONS"]
+	// 	+ EEXGAS
+	// 		[value "EEX-GAS"]
+	// 	+ EEXPOWER
+	// 		[value "EEX-POWER"]
+	// 	+ EURONEXMATIF
+	// 		[value "EURONEX-MATIF"]
+	// 	+ FERTECON
+	// 		[value "FERTECON"]
+	// 	+ FERTILIZERWEEK
+	// 		[value "FERTILIZER-WEEK"]
+	// 	+ GASDAILY
+	// 		[value "GAS-DAILY"]
+	// 	+ GASDAILYPRICEGUIDE
+	// 		[value "GAS-DAILY-PRICE-GUIDE"]
+	// 	+ GLOBALCOAL
+	// 		[value "GLOBALCOAL"]
+	// 	+ HERENREPORT
+	// 		[value "HEREN-REPORT"]
+	// 	+ ICE10XDAILY
+	// 		[value "ICE/10X-DAILY"]
+	// 	+ ICE10XMONTHLY
+	// 		[value "ICE/10X-MONTHLY"]
+	// 	+ ICECANADA
+	// 		[value "ICE-CANADA"]
+	// 	+ ICEECX
+	// 		[value "ICE-ECX"]
+	// 	+ ICEGAS
+	// 		[value "ICE-GAS"]
+	// 	+ ICEOIL
+	// 		[value "ICE-OIL"]
+	// 	+ ICEUSAGRICULTURAL
+	// 		[value "ICE-US-AGRICULTURAL"]
+	// 	+ ICISPRICINGBENZENEEUROPE
+	// 		[value "ICIS-PRICING-BENZENE-(EUROPE)"]
+	// 	+ ICISPRICINGETHYLENEEUROPE
+	// 		[value "ICIS-PRICING-ETHYLENE-(EUROPE)"]
+	// 	+ ICISPRICINGPOLYPROPYLENEEUROPE
+	// 		[value "ICIS-PRICING-POLYPROPYLENE-(EUROPE)"]
+	// 	+ INSIDEFERC
+	// 		[value "INSIDE-FERC"]
+	// 	+ JAPANMOFTSRR
+	// 		[value "JAPAN-MOF-TSRR"]
+	// 	+ KCBOT
+	// 		[value "KCBOT"]
+	// 	+ KUALALUMPURBANK
+	// 		[value "KUALA-LUMPUR-BANK"]
+	// 	+ LABUANBANK
+	// 		[value "LABUAN-BANK"]
+	// 	+ LIFFELONDONSOFT
+	// 		[value "LIFFE-LONDON-SOFT"]
+	// 	+ LME
+	// 		[value "LME"]
+	// 	+ LONDONBULLIONMARKET
+	// 		[value "LONDON-BULLION-MARKET"]
+	// 	+ LONDONBULLIONMARKETGOLDAMONLY
+	// 		[value "LONDON-BULLION-MARKET-GOLD-A.M-ONLY"]
+	// 	+ LONDONPLATINUMPALLADIUMMARKET
+	// 		[value "LONDON-PLATINUM-PALLADIUM-MARKET"]
+	// 	+ MGEX
+	// 		[value "MGEX"]
+	// 	+ NASDAQOMX
+	// 		[value "NASDAQ-OMX"]
+	// 	+ NATURALGASWEEK
+	// 		[value "NATURAL-GAS-WEEK"]
+	// 	+ NERC
+	// 		[value "NERC"]
+	// 	+ NGI
+	// 		[value "NGI"]
+	// 	+ NGX
+	// 		[value "NGX"]
+	// 	+ NUCLEARMARKETREVIEW
+	// 		[value "NUCLEAR-MARKET-REVIEW"]
+	// 	+ NYMEXELECTRICITY
+	// 		[value "NYMEX-ELECTRICITY"]
+	// 	+ NYMEXGAS
+	// 		[value "NYMEX-GAS"]
+	// 	+ NYMEXNATURALGAS
+	// 		[value "NYMEX-NATURAL-GAS"]
+	// 	+ NYMEXOIL
+	// 		[value "NYMEX-OIL"]
+	// 	+ OFFICIALBOARDMARKETS
+	// 		[value "OFFICIAL-BOARD-MARKETS"]
+	// 	+ OPISLPGAS
+	// 		[value "OPIS-LP-GAS"]
+	// 	+ OPISPROPANE
+	// 		[value "OPIS-PROPANE"]
+	// 	+ PAPERPACKAGINGMONITOR
+	// 		[value "PAPER-PACKAGING-MONITOR"]
+	// 	+ PAPERTRADER
+	// 		[value "PAPER-TRADER"]
+	// 	+ PERTAMINA
+	// 		[value "PERTAMINA"]
+	// 	+ PETROCHEMWIRE
+	// 		[value "PETROCHEMWIRE"]
+	// 	+ PIXPULPBENCHMARKINDICES
+	// 		[value "PIX-PULP-BENCHMARK-INDICES"]
+	// 	+ PLATTSAPAGMARKETSCAN
+	// 		[value "PLATTS-APAG-MARKETSCAN"]
+	// 	+ PLATTSBUNKERWIRE
+	// 		[value "PLATTS-BUNKERWIRE"]
+	// 	+ PLATTSCLEANTANKERWIRE
+	// 		[value "PLATTS-CLEAN-TANKERWIRE"]
+	// 	+ PLATTSCRUDEOILMARKETWIRE
+	// 		[value "PLATTS-CRUDE-OIL-MARKETWIRE"]
+	// 	+ PLATTSDIRTYTANKERWIRE
+	// 		[value "PLATTS-DIRTY-TANKERWIRE"]
+	// 	+ PLATTSEUROPEANGAS
+	// 		[value "PLATTS-EUROPEAN-GAS"]
+	// 	+ PLATTSEUROPEANMARKETSCAN
+	// 		[value "PLATTS-EUROPEAN-MARKETSCAN"]
+	// 	+ PLATTSMETALSALERT
+	// 		[value "PLATTS-METALS-ALERT"]
+	// 	+ PLATTSOILGRAM
+	// 		[value "PLATTS-OILGRAM"]
+	// 	+ PLATTSTSIIRONORE
+	// 		[value "PLATTS-TSI-IRON-ORE"]
+	// 	+ PLATTSTSISCRAP
+	// 		[value "PLATTS-TSI-SCRAP"]
+	// 	+ PLATTSTSISTEEL
+	// 		[value "PLATTS-TSI-STEEL"]
+	// 	+ PLATTSUSMARKETSCAN
+	// 		[value "PLATTS-US-MARKETSCAN"]
+	// 	+ PULPANDPAPERINTERNATIONAL
+	// 		[value "PULP-AND-PAPER-INTERNATIONAL"]
+	// 	+ PULPANDPAPERWEEK
+	// 		[value "PULP-AND-PAPER-WEEK"]
+	// 	+ RIMPRODUCTSINTELLIGENCEDAILY
+	// 		[value "RIM-PRODUCTS-INTELLIGENCE-DAILY"]
+	// 	+ SAFEXSOFT
+	// 		[value "SAFEX-SOFT"]
+	// 	+ SFESOFT
+	// 		[value "SFE-SOFT"]
+	// 	+ SGX
+	// 		[value "SGX"]
+	// 	+ SICOM
+	// 		[value "SICOM"]
+	// 	+ SPGSCI
+	// 		[value "SP-GSCI"]
+	// 	+ STATISTICHESBUNDESAMT
+	// 		[value "STATISTICHES-BUNDESAMT"]
+	// 	+ TGE
+	// 		[value "TGE"]
+	// 	+ TOCOMOIL
+	// 		[value "TOCOM-OIL"]
+	// 	+ TOCOMPRECIOUS
+	// 		[value "TOCOM-PRECIOUS"]
+	// 	+ TOCOMSOFT
+	// 		[value "TOCOM-SOFT"]
+	// 	+ UXWEEKLY
+	// 		[value "UX-WEEKLY"]
+	// 	+ WORLDPULPMONTHLY
+	// 		[value "WORLD-PULP-MONTHLY"]
 
 	BusinessDayConventionEnum:
 		+ FOLLOWING
@@ -5873,17 +6975,17 @@ synonym source FpML_5_10 extends FpML
 
 	
 
-	PartyDeterminationEnum:
-		+ ExercisingParty
-			[value "ExercisingParty"]
-		+ NonExercisingParty
-			[value "NonExercisingParty"]
-		+ AsSpecifiedInMasterAgreement
-			[value "AsSpecifiedInMasterAgreement"]
-		+ AsSpecifiedInStandardTermsSupplement
-			[value "AsSpecifiedInStandardTermsSupplement"]
-		+ Both
-			[value "Both"]
+	// PartyDeterminationEnum:
+	// 	+ ExercisingParty
+	// 		[value "ExercisingParty"]
+	// 	+ NonExercisingParty
+	// 		[value "NonExercisingParty"]
+	// 	+ AsSpecifiedInMasterAgreement
+	// 		[value "AsSpecifiedInMasterAgreement"]
+	// 	+ AsSpecifiedInStandardTermsSupplement
+	// 		[value "AsSpecifiedInStandardTermsSupplement"]
+	// 	+ Both
+	// 		[value "Both"]
 
 	// CategoryEnum:
 	// 	+ Agent
@@ -5904,42 +7006,6 @@ synonym source FpML_5_10 extends FpML
 			[value "Straight"]
 		+ SpreadExclusive
 			[value "SpreadExclusive"]
-
-	ContractualDefinitionsEnum:
-		+ ISDA1991
-			[value "ISDA1991"]
-		+ ISDA1993Commodity
-			[value "ISDA1993Commodity"]
-		+ ISDA1996Equity
-			[value "ISDA1996Equity"]
-		+ ISDA1997Bullion
-			[value "ISDA1997Bullion"]
-		+ ISDA1997GovernmentBond
-			[value "ISDA1997GovernmentBond"]
-		+ ISDA1998FX
-			[value "ISDA1998FX"]
-		+ ISDA1999Credit
-			[value "ISDA1999Credit"]
-		+ ISDA2000
-			[value "ISDA2000"]
-		+ ISDA2002Equity
-			[value "ISDA2002Equity"]
-		+ ISDA2003Credit
-			[value "ISDA2003Credit"]
-		+ ISDA2004Novation
-			[value "ISDA2004Novation"]
-		+ ISDA2005Commodity
-			[value "ISDA2005Commodity"]
-		+ ISDA2006
-			[value "ISDA2006"]
-		+ ISDA2006Inflation
-			[value "ISDA2006Inflation"]
-		+ ISDA2008Inflation
-			[value "ISDA2008Inflation"]
-		+ ISDA2011Equity
-			[value "ISDA2011Equity"]
-		+ ISDA2014Credit
-			[value "ISDA2014Credit"]
 
 	ContractualSupplementTypeEnum:
 		+ ABX
@@ -6230,44 +7296,6 @@ synonym source FpML_5_10 extends FpML
 		+ OffFacility
 			[value "Voice"]
 
-	GoverningLawEnum:
-		+ AsSpecifiedInMasterAgreement
-			[value "AsSpecifiedInMasterAgreement"]
-		+ CAAB
-			[value "CAAB"]
-		+ CABC
-			[value "CABC"]
-		+ CAMN
-			[value "CAMN"]
-		+ CAON
-			[value "CAON"]
-		+ CAQC
-			[value "CAQC"]
-		+ DE
-			[value "DE"]
-		+ FR
-			[value "FR"]
-		+ GBEN
-			[value "GBEN"]
-		+ GBGY
-			[value "GBGY"]
-		+ GBIM
-			[value "GBIM"]
-		+ GBJY
-			[value "GBJY"]
-		+ GBSC
-			[value "GBSC"]
-		+ JP
-			[value "JP"]
-		+ USCA
-			[value "USCA"]
-		+ USDE
-			[value "USDE"]
-		+ USIL
-			[value "USIL"]
-		+ USNY
-			[value "USNY"]
-
 	IndexAnnexSourceEnum:
 		+ MasterConfirmation
 			[value "MasterConfirmation"]
@@ -6339,76 +7367,6 @@ synonym source FpML_5_10 extends FpML
 			[value "Omission"]
 		+ Postponement
 			[value "Postponement"]
-
-	MasterAgreementTypeEnum:
-		+ AFB
-		 	[value "AFB"]
-		+ Bespoke
-			[value "Bespoke"]
-		+ CMA
-			[value "CMA"]
-		+ CMOF
-			[value "CMOF"]
-		+ EEIPower
-			[value "EEIPower"]
-		+ EFETElectricity
-			[value "EFETElectricity"]
-		+ EFETGas
-			[value "EFETGas"]
-		+ EMA
-			[value "EMA"]
-		+ FBF
-			[value "FBF"]
-		+ GMRA
-			[value "GMRA"]
-		+ GMSLA
-			[value "GMSLA"]
-		+ GTMA
-			[value "GTMA"]
-		+ GasEDI
-			[value "GasEDI"]
-		+ German
-			[value "German"]
-		+ ICOM
-			[value "ICOM"]
-		+ IETA_ERPA
-			[value "IETA-ERPA"]
-		+ IETA_ETMA
-			[value "IETA-ETMA"]
-		+ IETA_IETMA
-			[value "IETA-IETMA"]
-		+ IFEMA
-			[value "IFEMA"]
-		+ IFEOMA
-			[value "IFEOMA"]
-		+ ISDAMaster
-		 	[value "ISDA"]
-		+ ISDAFIA_CDEA
-			[value "ISDAFIA-CDEA"]
-		+ JSCC
-			[value "JSCC"]
-		+ LBMA
-			[value "LBMA"]
-		+ LEAP
-			[value "LEAP"]
-		+ MCPSA
-			[value "MCPSA"]
-		+ NAESBGas
-			[value "NAESBGas"]
-		+ NBP
-			[value "NBP"]
-		+ RussianDerivatives
-			[value "RussianDerivatives"]
-		+ RussianRepo
-			[value "RussianRepo"]
-		+ SCoTA
-			[value "SCoTA"]
-		+ Swiss
-			[value "Swiss"]
-		+ TTF
-			[value "TTF"]
-		+ ZBT
-			[value "ZBT"]
 
 	MasterConfirmationAnnexTypeEnum:
 		+ ISDA2004IndexVarianceSwapAmericasInterdealer
@@ -7664,116 +8622,116 @@ synonym source FpML_5_10 extends FpML
 		+ Receiver
 			[value "Receiver"]
 
-	AccountTypeEnum:
-		+ AggregateClient
-			[value "AggregateClient"]
-		+ Client
-			[value "Client"]
-		+ House
-			[value "House"]
+	// AccountTypeEnum:
+	// 	+ AggregateClient
+	// 		[value "AggregateClient"]
+	// 	+ Client
+	// 		[value "Client"]
+	// 	+ House
+	// 		[value "House"]
 
-	NaturalPersonRoleEnum:
-		+ Broker
-			[value "Broker"]
-		+ Buyer
-			[value "Buyer"]
-		+ DecisionMaker
-			[value "DecisionMaker"]
-		+ ExecutionWithinFirm
-			[value "ExecutionWithinFirm"]
-		+ InvestmentDecisionMaker
-			[value "InvestmentDecisionMaker"]
-		+ Seller
-			[value "Seller"]
-		+ Trader
-			[value "Trader"]
+	// NaturalPersonRoleEnum:
+	// 	+ Broker
+	// 		[value "Broker"]
+	// 	+ Buyer
+	// 		[value "Buyer"]
+	// 	+ DecisionMaker
+	// 		[value "DecisionMaker"]
+	// 	+ ExecutionWithinFirm
+	// 		[value "ExecutionWithinFirm"]
+	// 	+ InvestmentDecisionMaker
+	// 		[value "InvestmentDecisionMaker"]
+	// 	+ Seller
+	// 		[value "Seller"]
+	// 	+ Trader
+	// 		[value "Trader"]
 
-	PartyRoleEnum:
-		+ Accountant
-			[value "Accountant"]
-		+ AllocationAgent
-			[value "AllocationAgent"]
-		+ ArrangingBroker
-			[value "ArrangingBroker"]
-		+ Beneficiary
-			[value "Beneficiary"]
-		+ BookingParty
-			[value "BookingParty"]
-		+ Buyer
-			[value "Buyer"]
-		+ BuyerDecisionMaker
-			[value "BuyerDecisionMaker"]
-		+ ClearingClient
-			[value "ClearingClient"]
-		+ ClearingExceptionParty
-			[value "ClearingExceptionParty"]
-		+ ClearingFirm
-			[value "ClearingFirm"]
-		+ ClearingOrganization
-			[value "ClearingOrganization"]
-		+ Client
-			[value "Client"]
-		+ ClientDecisionMaker
-			[value "ClientDecisionMaker"]
-		+ ConfirmationPlatform
-			[value "ConfirmationPlatform"]
-			[value "ConfirmationService"]
-		+ ContractualParty
-			[value "ContractualParty"]
-		+ CounterPartyAffiliate
-			[value "CounterPartyAffiliate"]
-		+ CounterPartyUltimateParent
-			[value "CounterPartyUltimateParent"]
-		+ Counterparty
-			[value "Counterparty"]
-		+ CreditSupportProvider
-			[value "CreditSupportProvider"]
-		+ Custodian
-			[value "Custodian"]
-		+ DataSubmitter
-			[value "DataSubmitter"]
-		+ DisputingParty
-			[value "DisputingParty"]
-		+ DocumentRepository
-			[value "DocumentRepository"]
-		+ ExecutingBroker
-			[value "ExecutingBroker"]
-		+ ExecutingEntity
-			[value "ExecutingEntity"]
-		+ ExecutionAgent
-			[value "ExecutionAgent"]
-		+ ExecutionFacility
-			[value "ExecutionFacility"]
-		+ Guarantor
-			[value "Guarantor"]
-		+ OrderTransmitter
-			[value "OrderTransmitter"]
-		+ PrimeBroker
-			[value "PrimeBroker"]
-		+ PriorTradeRepository
-			[value "PriorTradeRepository"]
-		+ PublicationVenue
-			[value "PublicationVenue"]
-		+ ReportingParty
-			[value "ReportingParty"]
-		+ ReportingPartyAffiliate
-			[value "ReportingPartyAffiliate"]
-		+ ReportingPartyUltimateParent
-			[value "ReportingPartyUltimateParent"]
-		+ Seller
-			[value "Seller"]
-		+ SellerDecisionMaker
-			[value "SellerDecisionMaker"]
-		+ SettlementAgent
-			[value "SettlementAgent"]
-		+ TradeRepository
-			[value "TradeRepository"]
-		+ TradeSource
-			[value "TradeSource"]
-		+ TradingManager
-			[value "TradingManager"]
-		+ TradingPartner
-			[value "TradingPartner"]
+	// PartyRoleEnum:
+	// 	+ Accountant
+	// 		[value "Accountant"]
+	// 	+ AllocationAgent
+	// 		[value "AllocationAgent"]
+	// 	+ ArrangingBroker
+	// 		[value "ArrangingBroker"]
+	// 	+ Beneficiary
+	// 		[value "Beneficiary"]
+	// 	+ BookingParty
+	// 		[value "BookingParty"]
+	// 	+ Buyer
+	// 		[value "Buyer"]
+	// 	+ BuyerDecisionMaker
+	// 		[value "BuyerDecisionMaker"]
+	// 	+ ClearingClient
+	// 		[value "ClearingClient"]
+	// 	+ ClearingExceptionParty
+	// 		[value "ClearingExceptionParty"]
+	// 	+ ClearingFirm
+	// 		[value "ClearingFirm"]
+	// 	+ ClearingOrganization
+	// 		[value "ClearingOrganization"]
+	// 	+ Client
+	// 		[value "Client"]
+	// 	+ ClientDecisionMaker
+	// 		[value "ClientDecisionMaker"]
+	// 	+ ConfirmationPlatform
+	// 		[value "ConfirmationPlatform"]
+	// 		[value "ConfirmationService"]
+	// 	+ ContractualParty
+	// 		[value "ContractualParty"]
+	// 	+ CounterPartyAffiliate
+	// 		[value "CounterPartyAffiliate"]
+	// 	+ CounterPartyUltimateParent
+	// 		[value "CounterPartyUltimateParent"]
+	// 	+ Counterparty
+	// 		[value "Counterparty"]
+	// 	+ CreditSupportProvider
+	// 		[value "CreditSupportProvider"]
+	// 	+ Custodian
+	// 		[value "Custodian"]
+	// 	+ DataSubmitter
+	// 		[value "DataSubmitter"]
+	// 	+ DisputingParty
+	// 		[value "DisputingParty"]
+	// 	+ DocumentRepository
+	// 		[value "DocumentRepository"]
+	// 	+ ExecutingBroker
+	// 		[value "ExecutingBroker"]
+	// 	+ ExecutingEntity
+	// 		[value "ExecutingEntity"]
+	// 	+ ExecutionAgent
+	// 		[value "ExecutionAgent"]
+	// 	+ ExecutionFacility
+	// 		[value "ExecutionFacility"]
+	// 	+ Guarantor
+	// 		[value "Guarantor"]
+	// 	+ OrderTransmitter
+	// 		[value "OrderTransmitter"]
+	// 	+ PrimeBroker
+	// 		[value "PrimeBroker"]
+	// 	+ PriorTradeRepository
+	// 		[value "PriorTradeRepository"]
+	// 	+ PublicationVenue
+	// 		[value "PublicationVenue"]
+	// 	+ ReportingParty
+	// 		[value "ReportingParty"]
+	// 	+ ReportingPartyAffiliate
+	// 		[value "ReportingPartyAffiliate"]
+	// 	+ ReportingPartyUltimateParent
+	// 		[value "ReportingPartyUltimateParent"]
+	// 	+ Seller
+	// 		[value "Seller"]
+	// 	+ SellerDecisionMaker
+	// 		[value "SellerDecisionMaker"]
+	// 	+ SettlementAgent
+	// 		[value "SettlementAgent"]
+	// 	+ TradeRepository
+	// 		[value "TradeRepository"]
+	// 	+ TradeSource
+	// 		[value "TradeSource"]
+	// 	+ TradingManager
+	// 		[value "TradingManager"]
+	// 	+ TradingPartner
+	// 		[value "TradingPartner"]
 
 	TelephoneTypeEnum:
 		+ Work
@@ -7933,7 +8891,7 @@ synonym source FpML_5_10 extends FpML
 			[value "Penultimate"]
 }
 
-synonym source FpML_5_12 extends FpML_5_10
+synonym source FpML_5_12 extends FpML_5
 {
 	FloatingRate:
 	 	+ calculationParameters
@@ -8054,6 +9012,6 @@ synonym source FpML_5_12 extends FpML_5_10
 			[ value "FixingDate" ]
 }
 
-synonym source FpML_5_13 extends FpML_5_12 {
+synonym source FpML_5_13 extends FpML_5 {
 
 }
